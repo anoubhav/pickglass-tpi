@@ -1,0 +1,7 @@
+clean: 66 images, 23s on cuda
+none: 198 images, 76s on cuda
+bicubic: 198 images, 83s on cuda
+swinir: 198 images, 83s on cuda
+realesrgan: 198 images, 85s on cuda
+flux2klein: 198 images, 86s on cuda
+invsr: 198 images, 86s on cuda

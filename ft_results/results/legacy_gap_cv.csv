@@ -1,0 +1,5 @@
+model,scale,n,gap_cv_median,frac_regular_within_1unit
+molmo2_4b_base,full,18,0.0089,0.5
+molmo2_4b_base,quarter,183,0.0183,0.2568
+molmo2_4b_synthft,full,40,0.0,1.0
+molmo2_4b_synthft,quarter,200,0.0,0.985

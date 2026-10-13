@@ -1,0 +1,13 @@
+other,tau,ours,other_n,n_img,only_ours,only_other,exact_mcnemar_p
+vlm:gpt-6.1-sol|P1|r0,5,9,4,13,5,0,0.062
+vlm:gpt-6.1-sol|P1|r0,10,9,8,13,2,1,1.0
+vlm:gpt-6.1-sol|P1|r1,5,9,5,13,5,1,0.219
+vlm:gpt-6.1-sol|P1|r1,10,9,10,13,0,1,1.0
+vlm:gpt-6.1-sol|P1|r2,5,9,7,13,2,0,0.5
+vlm:gpt-6.1-sol|P1|r2,10,9,8,13,1,0,1.0
+vlm:gpt-6.1-sol|P3s|r0,5,9,4,13,5,0,0.062
+vlm:gpt-6.1-sol|P3s|r0,10,9,7,13,2,0,0.5
+est:gabor,5,9,7,13,2,0,0.5
+est:gabor,10,9,8,13,1,0,1.0
+cnn:synth_r18,5,9,1,13,8,0,0.008
+cnn:synth_r18,10,9,3,13,6,0,0.031

@@ -1,0 +1,15 @@
+{
+ "written": "2026-10-08T01:17:44",
+ "inputs": {
+  "aug1016/tests/fixtures/scenes_export.json": 1791436664.2736409
+ },
+ "n_label_rows_used": 2,
+ "n_sources_with_own_label": 2,
+ "n_sources_labelled": 2,
+ "scenes": false,
+ "group_by": "source",
+ "n_aug_rows": 12,
+ "n_manifest_usable": 843,
+ "include_not_done": false,
+ "include_flagged": false
+}

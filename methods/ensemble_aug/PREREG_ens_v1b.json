@@ -1,0 +1,26 @@
+{
+ "name": "ens-v1b",
+ "written_utc": "2026-10-13T01:51:54Z",
+ "status": "frozen before the second annotator's (FL_NG) counts were delivered or opened (no FL_NG count or label file exists in the project or in Downloads at freeze time)",
+ "rule": "same as ens-v1 (methods/ensemble/PREREG_ens_v1.json) with one change: the CNN is label_day's aug1016 config (train_cv.py --extra-aug1016), ImageNet init, ResNet-18, 15 epochs, seed 0, 5-fold CV grouped by the 44 fabric groups (paper/tables/fabric_groups_v2.csv), trained on FL_SA's counts, out-of-fold predictions; per file and axis geometric mean with GPT-6.1-sol P1 (h = gpt-6.1-sol__v, v = gpt-6.1-sol__h); GPT missing -> CNN",
+ "honesty": "POST HOC: chosen after scoring 5 fabric-grouped CNN variants (base, aug1016, aug1016_wl; imagenet_ft / synth_ft; and their geometric mean) combined with GPT against FL_SA: ens-v1b 23.8% vs ens-v1 25.5%, paired -1.7 pts [95% CI -4.2, +0.3] (not reliable); the others 24.4-25.2%. Best of several on FL_SA, so the FL_SA number is optimistic. ens-v1 stays the PRIMARY combined method; ens-v1b is a SECONDARY blind test.",
+ "test": {
+  "reference": "FL_NG alone (never seen when this file was written)",
+  "script": "methods/octave/eval_octave_v1.py --labels <FL_NG labels_per_scene.csv> --names FL_NG --reference each --pred methods/ensemble_aug/predictions_ens_v1b_150.csv (prints under the label 'octave-v1')",
+  "endpoints": [
+   "MAPE over the 76 scene representatives; share with both axes within 5%",
+   "paired dMAPE ens-v1b minus GPT-6.1-sol P1 (scene bootstrap 10,000, seed 20261012, 95% CI)",
+   "paired dMAPE ens-v1b minus ens-v1 (same bootstrap); report 'better than ens-v1' only if the CI excludes 0"
+  ],
+  "paper_use": "report in the supplement in all cases; mention in the main text only if ens-v1b beats ens-v1 on FL_NG with a CI excluding 0"
+ },
+ "files_sha256": {
+  "make_ens_v1b.py": "dc546a2e5d230f73a41eca72c7e038d5837da80e39ca4f8a44b422fbce3a5248",
+  "predictions_ens_v1b_150.csv": "971ee92038be20a04cdd8d87629b2e32d18c54060609648bf54f2110a7949fae",
+  "cnn_aug1016_fabric_oof_FLSA_150.csv": "07dc84cbe9956cac688ad6377fb4a329379600268c204e26f45f24e92889c1fe",
+  "cnn_aug1016_fabric_oof_FLSA_raw_predictions.csv": "aa4dc1e786dde80e777e97ac22c430c62fa7f379fda95f9fcc55bb3bbc974edf",
+  "../octave/eval_octave_v1.py": "8d5b71c6e5fd1dcf88dda890c204ad8cd57e81c69a6d26d05758f343ac891d35",
+  "../../vlm/results/rect150_P1_predictions_wide.csv": "7cb5a2c83df5b729c1380f4ec7e6d3431924ecabe7bd456d67b5e5b79c987d33"
+ },
+ "remote_run": "gpu-server ~/pickglass/cnn_aug/labelday/runs/fabricgroup_FLSA_20261012/aug1016 (ended 2026-10-13T01:03 server time, exit 0)"
+}

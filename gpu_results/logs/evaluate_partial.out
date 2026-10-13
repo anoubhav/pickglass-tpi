@@ -1,0 +1,40 @@
+
+## Stage A: legacy GT images (n = 13)
+
+| Model | Prompt | parsed | MAE best | %err best | <=10% best | MAE axis | %err axis | <=10% axis | warp MAE | weft MAE | bias best | MAE best plain | weave | rho best | distinct | s/img |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Molmo2-8B bf16 (transformers, RTX 4090) | P1 | 13/13 | 53.8 | 79.9 | 0/26 | 53.8 | 79.9 | 0/26 | 56.5 | 51.2 | -53.8 | 52.3 (10/10) | 11/13 | -0.22 | 3 | 1.0 |
+| Molmo2-8B bf16 (transformers, RTX 4090) | P2 | 13/13 | 43.1 | 72.3 | 2/26 | 43.1 | 72.3 | 2/26 | 43.8 | 42.5 | -5.7 | 42.1 (10/10) | 10/13 | -0.18 | 6 | 5.7 |
+| Molmo2-8B bf16 (transformers, RTX 4090) | P3 | 13/13 | 16.9 | 25.4 | 6/26 | 16.9 | 25.4 | 6/26 | 22.5 | 11.3 | -5.4 | 16.2 (10/10) | 10/13 | 0.26 | 2 | 1.0 |
+| Molmo2-8B bf16 (transformers, RTX 4090) | P3s | 13/13 | 19.0 | 27.2 | 4/26 | 19.0 | 27.2 | 4/26 | 24.1 | 13.9 | -7.2 | 19.5 (10/10) | 10/13 | -0.01 | 4 | 3.9 |
+| Molmo2-8B bf16 (transformers, RTX 4090) | P4 | 13/13 | 34.0 | 45.8 | 2/26 | 34.5 | 45.1 | 3/26 | 34.8 | 34.2 | -33.5 | 33.4 (10/10) | 0/0 | 0.06 | 13 | 18.8 |
+| Molmo2-8B bf16 (transformers, RTX 4090) | P4q | 13/13 | 13.9 | 21.7 | 8/26 | 15.9 | 24.9 | 8/26 | 20.5 | 11.3 | 2.9 | 14.3 (10/10) | 0/0 | 0.81 | 12 | 10.4 |
+| Molmo2-8B 4-bit (MLX, M2 Max) | P1 | 13/13 | 55.7 | 83.1 | 0/26 | 55.7 | 83.1 | 0/26 | 58.4 | 53.0 | -55.7 | 54.3 (10/10) | 10/13 | - | 1 | 62.3 |
+| Molmo2-8B 4-bit (MLX, M2 Max) | P2 | 4/4 | 46.9 | 80.1 | 0/8 | 47.4 | 81.2 | 0/8 | 46.5 | 48.2 | -21.1 | 42.5 (3/10) | 3/4 | 0.17 | 2 | 76.7 |
+| Molmo2-8B 4-bit (MLX, M2 Max) | P3 | 4/4 | 24.9 | 32.5 | 0/8 | 24.9 | 32.5 | 0/8 | 31.5 | 18.2 | -24.9 | 23.2 (3/10) | 3/4 | - | 1 | 59.0 |
+| Molmo2-8B 4-bit (MLX, M2 Max) | P4 | 4/4 | 19.0 | 28.7 | 2/8 | 19.0 | 28.5 | 2/8 | 25.5 | 12.5 | -13.8 | 11.2 (3/10) | 0/0 | 0.47 | 4 | 517.8 |
+| Molmo2-8B 4-bit (MLX, M2 Max) | P4q | 3/3 | 60.2 | 80.2 | 1/6 | 64.2 | 97.5 | 1/6 | 18.3 | 110.0 | 43.5 | 12.2 (2/10) | 0/0 | 0.89 | 3 | 153.1 |
+| LOO mean predictor | - | 13/13 | 19.7 | 31.4 | 2/26 | 20.3 | 32.5 | 5/26 | 27.0 | 13.7 | - | - | - | - | - | - |
+
+## rect150
+
+
+## stability_resize
+
+{'model': 'molmo2_8b_bf16', 'set': 'legacy', 'method': 'P1', 'resizes_px': '644/588/700', 'n_images': 6, 'n_images_all_parsed': 6, 'mean_sd_tpi': 0.0, 'mean_range_tpi': 0.0, 'max_range_tpi': 0.0, 'mean_range_pct': 0.0, 'identical_all3': 6, 'mae_best_644': 48.8, 'within10_best_644': 0, 'mae_axis_644': 48.8, 'n_ok_644': 5, 'mae_best_588': 48.8, 'within10_best_588': 0, 'mae_axis_588': 48.8, 'n_ok_588': 5, 'mae_best_700': 48.8, 'within10_best_700': 0, 'mae_axis_700': 48.8, 'n_ok_700': 5}
+{'model': 'molmo2_8b_bf16', 'set': 'legacy', 'method': 'P4', 'resizes_px': '644/588/700', 'n_images': 5, 'n_images_all_parsed': 5, 'mean_sd_tpi': 2.13, 'mean_range_tpi': 3.8, 'max_range_tpi': 14.0, 'mean_range_pct': 9.67, 'identical_all3': 0, 'mae_best_644': 21.75, 'within10_best_644': 2, 'mae_axis_644': 21.75, 'n_ok_644': 4, 'mae_best_588': 22.0, 'within10_best_588': 3, 'mae_axis_588': 22.0, 'n_ok_588': 4, 'mae_best_700': 21.88, 'within10_best_700': 2, 'mae_axis_700': 21.88, 'n_ok_700': 4}
+
+## quantisation
+
+{'contrast': 'total', 'isolates': 'reference bf16 HF vs the Mac MLX-4bit run', 'model_a': 'molmo2_8b_bf16', 'model_b': 'molmo2_8b', 'set': 'legacy', 'method': 'P1', 'n_records': 20, 'n_images': 20, 'identical_text': 3, 'mean_abs_diff_per_call': 2.0, 'median_abs_diff_per_call': 2.0, 'mean_rel_diff_pct': None, 'mean_abs_estimate_diff_tpi': 2.0, 'n_identical_estimates': 3, 'n_gt_images_both': 13, 'mae_best_a': 53.85, 'mape_best_a': 79.89, 'within10_best_a': 0, 'mae_axis_a': 53.85, 'mae_best_b': 55.69, 'mape_best_b': 83.14, 'within10_best_b': 0, 'mae_axis_b': 55.69, 'gt_images': 'a1,a2,a4,a5,a6,a8,a10,r2,r3,r4,r6,r7,r8', 'n_distinct_answers_a': 4, 'n_distinct_answers_b': 1, 'median_s_per_call_a': 0.97, 'median_s_per_call_b': 13.55}
+{'contrast': 'total', 'isolates': 'reference bf16 HF vs the Mac MLX-4bit run', 'model_a': 'molmo2_8b_bf16', 'model_b': 'molmo2_8b', 'set': 'legacy', 'method': 'P2', 'n_records': 4, 'n_images': 4, 'identical_text': 0, 'mean_abs_diff_per_call': 23.0, 'median_abs_diff_per_call': 23.5, 'mean_rel_diff_pct': None, 'mean_abs_estimate_diff_tpi': 23.0, 'n_identical_estimates': 1, 'n_gt_images_both': 4, 'mae_best_a': 37.88, 'mape_best_a': 61.79, 'within10_best_a': 2, 'mae_axis_a': 37.88, 'mae_best_b': 46.88, 'mape_best_b': 80.05, 'within10_best_b': 0, 'mae_axis_b': 47.38, 'gt_images': 'a1,a2,a4,a5', 'n_distinct_answers_a': 4, 'n_distinct_answers_b': 2, 'median_s_per_call_a': 5.35, 'median_s_per_call_b': 81.77}
+{'contrast': 'total', 'isolates': 'reference bf16 HF vs the Mac MLX-4bit run', 'model_a': 'molmo2_8b_bf16', 'model_b': 'molmo2_8b', 'set': 'legacy', 'method': 'P3', 'n_records': 4, 'n_images': 4, 'identical_text': 2, 'mean_abs_diff_per_call': 3.0, 'median_abs_diff_per_call': 3.0, 'mean_rel_diff_pct': None, 'mean_abs_estimate_diff_tpi': 12.0, 'n_identical_estimates': 2, 'n_gt_images_both': 4, 'mae_best_a': 12.88, 'mape_best_a': 17.16, 'within10_best_a': 1, 'mae_axis_a': 12.88, 'mae_best_b': 24.88, 'mape_best_b': 32.51, 'within10_best_b': 0, 'mae_axis_b': 24.88, 'gt_images': 'a1,a2,a4,a5', 'n_distinct_answers_a': 2, 'n_distinct_answers_b': 1, 'median_s_per_call_a': 0.97, 'median_s_per_call_b': 30.91}
+{'contrast': 'total', 'isolates': 'reference bf16 HF vs the Mac MLX-4bit run', 'model_a': 'molmo2_8b_bf16', 'model_b': 'molmo2_8b', 'set': 'legacy', 'method': 'P4', 'n_records': 8, 'n_images': 4, 'identical_text': 0, 'mean_abs_diff_per_call': 20.25, 'median_abs_diff_per_call': 9.0, 'mean_rel_diff_pct': 35.36, 'mean_abs_estimate_diff_tpi': 20.25, 'n_identical_estimates': 0, 'n_gt_images_both': 4, 'mae_best_a': 21.75, 'mape_best_a': 29.54, 'within10_best_a': 2, 'mae_axis_a': 21.75, 'mae_best_b': 19.0, 'mape_best_b': 28.69, 'within10_best_b': 2, 'mae_axis_b': 19.0, 'gt_images': 'a1,a2,a4,a5', 'n_distinct_answers_a': 4, 'n_distinct_answers_b': 4, 'median_s_per_call_a': 12.92, 'median_s_per_call_b': 65.16}
+{'contrast': 'total', 'isolates': 'reference bf16 HF vs the Mac MLX-4bit run', 'model_a': 'molmo2_8b_bf16', 'model_b': 'molmo2_8b', 'set': 'legacy', 'method': 'P4q', 'n_records': 6, 'n_images': 3, 'identical_text': 0, 'mean_abs_diff_per_call': 17.33, 'median_abs_diff_per_call': 6.5, 'mean_rel_diff_pct': 52.01, 'mean_abs_estimate_diff_tpi': 69.33, 'n_identical_estimates': 0, 'n_gt_images_both': 3, 'mae_best_a': 15.17, 'mape_best_a': 25.39, 'within10_best_a': 2, 'mae_axis_a': 19.17, 'mae_best_b': 60.17, 'mape_best_b': 80.21, 'within10_best_b': 1, 'mae_axis_b': 64.17, 'gt_images': 'a1,a2,a4', 'n_distinct_answers_a': 3, 'n_distinct_answers_b': 3, 'median_s_per_call_a': 5.93, 'median_s_per_call_b': 59.82}
+
+## pointing
+
+molmo2_8b_bf16|legacy {'n_outputs': 80, 'n_truncated': 0, 'n_finish_length': 0, 'frac_uniform_grid_cv_lt_0p05': 0.921, 'frac_cv_lt_0p10': 0.961, 'median_spacing_cv': 0.011, 'median_n_points_full': 37.5, 'median_span_full_per1000': 980.0, 'median_offset_from_line_per1000': 3.75}
+molmo2_8b|legacy {'n_outputs': 14, 'n_truncated': 2, 'n_finish_length': 2, 'frac_uniform_grid_cv_lt_0p05': 0.786, 'frac_cv_lt_0p10': 0.929, 'median_spacing_cv': 0.007, 'median_n_points_full': 42.5, 'median_span_full_per1000': 919.5, 'median_offset_from_line_per1000': 29.98}
+P1_answer_hist|molmo2_8b_bf16|legacy {'12.0x12.0': 14, '10.0x10.0': 3, '13.0x13.0': 2, '13.0x1.0': 1}
+P1_answer_hist|molmo2_8b|legacy {'10.0x10.0': 20}

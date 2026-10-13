@@ -1,0 +1,399 @@
+{
+ "name": "octave-v1",
+ "job": "Job O (Oct 12 2026): label-blind octave check",
+ "written_utc": "2026-10-12T16:17:24Z",
+ "written_edt": "2026-10-12T12:17:24-04:00",
+ "status": "FROZEN at the written time, before any count of the second annotator (FL_NG) existed or was seen; method, predictions and the evaluation script are fixed by the SHA-256 below",
+ "honesty": "The method was developed AFTER the aggregate failure of the frozen counter on the real scenes was known: the first annotator's (FL_SA) counts had shown, in aggregate only, that 'ours' is often off by a factor of two on one axis (about 60 % of scenes, more often reading half than double; an octave oracle would give about 13 % MAPE). That aggregate description motivated the work. No per-scene human count, per-scene error, label file or label-derived table of the 76 / 150 real scenes was read (the forbidden paths of the job brief were never opened or listed), and nothing was tuned per scene; parameters were set only on fresh synthetic renders, the 13 legacy crops with 2019 hand counts, and label-free consistency of the real crops (re-shoot pairs, full/quarter-resolution copies, rotated copies). The real crops and their spectra were looked at to understand the failure mode, without counting yarns by eye.",
+ "files_sha256": {
+  "methods/octave/octave_v1.py": "5d83de698f84e682128edb16b82a19123dc05f562e65798cf1f9ae5b8be8af3b",
+  "methods/octave/eval_octave_v1.py": "8d5b71c6e5fd1dcf88dda890c204ad8cd57e81c69a6d26d05758f343ac891d35",
+  "methods/octave/predictions_octave_150.csv": "afb7280345958857026f475a3f3b58ad5b428a05addfce27784cd64349e120f6",
+  "methods/octave/octave_v1_150_wide.csv": "4e7635df9978eb1296dcc9215e84218322c7215c9107c2d9de45f166145d2f9d"
+ },
+ "evidence_sha256": {
+  "methods/octave/dev/octave_v1_candidates.json": "ae583630ad6d9cb6b91fbfa151f348379ff1bd7842222d86f59667ee0f246916",
+  "methods/octave/dev/octave_v1_dev_final_summary.json": "34dd9a623cd1bff53f7c5953153fd86f83f6366b3f87b0758ac3cd38a29ac4bc",
+  "methods/octave/dev/octave_v1_dev_variants.json": "4adaf167bd6969a8156ebad933ce6178df71c5f1d1d8db3981a7fb94de594771",
+  "methods/octave/dev/candidate_C2_C3_ridge_grid.csv": "b3e1be4261494c65160bf91748e8e4c603adc0f53b3413d7df40d9c06ad75e12",
+  "methods/octave/dev/synth_AB_labels.csv": "2a28d15b1d0c84b9c6613b2b2c9adc84e702dd0e8801370fef8c7e3670359f46",
+  "methods/octave/dev/synth_C_labels.csv": "d55aca2e6691bab0c64ec23044b6849bc2c083245d7fb67d7094bdc0540de4aa"
+ },
+ "dev_scripts_sha256": {
+  "methods/octave/dev/chaneval.py": "f0a66e71d125dfd8e0747ca86c28bc9cf3dea36a223ecb5ab9b5429eed2619dc",
+  "methods/octave/dev/chanrun.py": "aa7115d3c19813b47eae3197d0dfbed0dbce3e834f2759753f3ef9d15dd45109",
+  "methods/octave/dev/consist.py": "cd5bbb5a7d37d166256bdab3ee12d8e0f638733f8c2ee6a16a658df91dd9a858",
+  "methods/octave/dev/devrun.py": "c57d608b03352346bf12098d6248efbdee69d5bcbf11ea780ed78ed807302857",
+  "methods/octave/dev/evalrules.py": "552d0fdfd425e1e45b3c98bc91ac86907588e0f4463023e439884e009ebe78c9",
+  "methods/octave/dev/finalsumm.py": "a1a505c630c8902120478de8c785474cb1643629f40932b3c026401c1bf51ca1",
+  "methods/octave/dev/gen_poplin.py": "816c8584864a9c1ed7dc36dbc5ce88c214a6d0fdd8a1e8385a48b51710a0ca00",
+  "methods/octave/dev/gen_synth.py": "861b703b4e4be60769a3fb68aad044a3d687d596024f5947982c4b3bdb10a1f4",
+  "methods/octave/dev/hyp2.py": "d99ffd4b3d9f5c353217cfb70a6ec4efddceecf079d0a30d1d6d3f2a50f2ef49",
+  "methods/octave/dev/leanrun.py": "6427fdda566b16c9226c8e9d475b0b910757f98ef088559774ee7632a89faae5",
+  "methods/octave/dev/modeval.py": "a1f2325325e740ed5d65b92564955b67f37a13bc7836fa000dc6dd47d860b271",
+  "methods/octave/dev/modevalh.py": "207f230f068ffa0242902dd113f5876dabb2ce72d82784c689d9ea356d37ae56",
+  "methods/octave/dev/octave_v1h.py": "b072075fd13cd623608cf71bcd2a12d89446abec6c354944359844d912e86551",
+  "methods/octave/dev/octfeat.py": "988bad7997e7286a176ab1491f521dd019c555c33cb41d45bd687eaf5f43721f",
+  "methods/octave/dev/octrule.py": "c4d3ec342523d2fe33e27b3d885e0bbfdf76c571f9266bdb7db1c75ffe9fbf89",
+  "methods/octave/dev/realcons.py": "de1fa65f7eb98b2d28ec18b73a788a9aab4b90f43c14fcadd28a82955fd544f8",
+  "methods/octave/dev/ridgedev.py": "07190c1dc8a79818738d2559b401dbb35608abe4d6b496e349007240879316ee",
+  "methods/octave/dev/ridgeeval.py": "1f1c4a1c480868eb8819aa9b054303f3624fb2a8209255ac4dfe23890a371109",
+  "methods/octave/dev/single.py": "217806754eefe8ef1d6a7c32dbc07b1f9de32bc1f13ccab9fa522e9000e5116f",
+  "methods/octave/dev/synthan.py": "dbca5e6fbf165138718058b07b9a37fc0169f74a32aeeeee141f49c396dc3725",
+  "methods/octave/dev/variants.py": "cb9a563bef5ad142abd5d4981f42927b0e94c9bcc62838a23df53a7491afe80f"
+ },
+ "inputs_sha256": {
+  "methods/results/counting_frozen_final.py": "fd97f9efe7f5e0ef91116d70c71df577bfa768d4a8fd74524a4d30eeafa6117a",
+  "methods/conf_model.json": "082e01d380ea7619e95b862b111922db136a36aeade528d5c8f7ff678288dafb",
+  "methods/predictions_ours_150.csv": "ad48068f96be8e97be742e667939aa3ccc2070e6b92f2a9cc0f2842841f014d6",
+  "vlm/results/rect150_P1_predictions_wide.csv": "7cb5a2c83df5b729c1380f4ec7e6d3431924ecabe7bd456d67b5e5b79c987d33",
+  "annotation_tool/data/manifest.json": "a47bab3076359c63e78d751cb23e4168f6ec16bf936a847115f66934a09a9030",
+  "common/rectify.py": "a729283352a6ffaa725ba5c10d19acfd78da523bec8ee55c55343c4e83feaf87",
+  "paper/tables/fabric_groups_v2.json": "16fe9af80ab9ee6e07c2d7eda0a59760ee06f37b66e448197e172254e9976790",
+  "cnn/synth.py": "7d332ebdc757dbebb91736173c7f5163ced8b5388832f6b5698419e68a939db4",
+  "methods/legacy.py": "f0a2b3ad889b5736886907672750745c254f0fdd842215da4fe0d0b4e6766ece",
+  "methods/results/legacy13_per_image.csv": "d735a7ae33b988f666f69db01b61e03637e13ff27d98d0626573bfbe4e13c38b"
+ },
+ "frozen_counter_md5": {
+  "methods/results/counting_frozen_final.py": "3d0520d6bec8a016543ce7e5b353d784"
+ },
+ "rule": {
+  "summary": "octave-v1 = frozen 'ours' (imported unchanged) + a per-axis secondary-ridge test that can only DOUBLE a count",
+  "steps": [
+   "Run the frozen counter (counting_frozen_final: preprocess + _estimate_pre 'ours', with methods/conf_model.json for the confidence) on the rectified crop -> counts h, v, lattice angles, weave, confidence; these reproduce methods/predictions_ours_150.csv exactly (checked by assertions).",
+   "For each axis with count c (yarns per crop side) and its lattice angle: shear the frozen pre-processed PCA-grey image (working side N <= 1024) so that this yarn family is axis-parallel (of +angle and -angle the one with more projection power at c), average along the yarns in 8 equal bands, cut each band profile into windows of 6 periods (period T = N / c, hop 3 periods, windows with < 90 % valid pixels skipped), compute the Hann-windowed Fourier coefficients of harmonics k = 1, 2, 3 of T, rotate each window so that k = 1 has zero phase, normalise by the sum of the window's three magnitudes and average over all windows -> mean period shape G(phi) = Re sum_k C_k exp(i k phi).",
+   "Find the local maxima of G on 360 samples of one period (circular) and their prominences; r2 = prominence of the second-largest maximum / prominence of the largest, set to 0 unless the second maximum lies 0.35 to 0.5 periods from the largest.",
+   "If r2 >= 0.15 and 2c <= 0.42 N (the doubled frequency is inside the frozen analysis band), set c = 2c and repeat the test at the new count (at most 2 doublings). Otherwise keep c.",
+   "Output h_count, v_count = the (possibly doubled) counts; weave and confidence are the frozen ones."
+  ],
+  "parameters": {
+   "RHO": 0.15,
+   "MAX_DOUBLE": 2,
+   "harmonics_K": 3,
+   "bands": 8,
+   "window_periods": 6,
+   "second_ridge_min_distance_periods": 0.35,
+   "band_guard_cycles_per_pixel": 0.42,
+   "image": "frozen PCA-grey LCN pre-processing",
+   "halving": "disabled (ENABLE_HALVING = False)"
+  },
+  "rationale": "The frozen counter returns the dominant period of the image. A yarn-like ridge between every two counted ridges (in the phase-aligned average period shape) is positive evidence that the counted period holds two yarns (paired / basket-like yarns, floats covering two yarns, alternately bright and dark yarns whose dark member still forms a ridge). Absence of a second ridge is not taken as evidence for halving."
+ },
+ "selection": {
+  "data": [
+   "synthetic A: 300 fresh renders, seeds 990000-990299, cnn/synth.py v2 as shipped",
+   "synthetic B: 300 fresh renders, seeds 991000-991299, + 'oxford' (paired ends) / 'oxfordw' (paired picks) weave matrices and more basket 2/2 (dev/gen_synth.py)",
+   "synthetic C: 150 fresh renders, seeds 992000-992149, unbalanced plain / twill (density ratio 1.6-2.4; dev/gen_poplin.py), used as a check",
+   "13 legacy crops with 2019 hand counts (a1 a2 a4 a5 a6 a8 a10 r2 r3 r4 r6 r7 r8)",
+   "label-free consistency on the 150 real crops: 41 same-patch re-shoot pairs (paper/tables/fabric_groups_v2.json), 47 quarter-resolution copies, 51 rotated copies, 27 other copies (manifest)"
+  ],
+  "criteria": "no correct count broken on synthetic or legacy; fewer 2x disagreements on real copies and none created; then lowest synthetic MAPE",
+  "candidates_tried": "C1 spectral half-shift self-similarity; C2 secondary-ridge doubling (CHOSEN, rho 0.05-0.30 scanned, 0.15 frozen); C2b C2 + single-ridge halving; C2c C2 + halving gated by an on-axis half-frequency peak; C3 C2 on PCA-grey + B, G, R channels; C4 harmonic ratio |C2|/|C1|; C5 multi-estimator octave vote; C6 octave-guarded fusion. Numbers: methods/octave/dev/octave_v1_candidates.json"
+ },
+ "development_results": {
+  "synthetic": {
+   "A: seeds 990000-990299, default v2 generator": {
+    "n_images": 300,
+    "frozen_ours": {
+     "n_axes": 600,
+     "MAPE": 8.89,
+     "within5": 82.2,
+     "within10": 88.3,
+     "half_axes": 9,
+     "double_axes": 5
+    },
+    "octave_v1": {
+     "n_axes": 600,
+     "MAPE": 8.81,
+     "within5": 82.3,
+     "within10": 88.5,
+     "half_axes": 8,
+     "double_axes": 5,
+     "changed": 1,
+     "fixed": 1,
+     "broken": 0
+    }
+   },
+   "B: seeds 991000-991299, + oxford / oxfordw paired yarns, more basket": {
+    "n_images": 300,
+    "frozen_ours": {
+     "n_axes": 600,
+     "MAPE": 11.95,
+     "within5": 78.7,
+     "within10": 83.5,
+     "half_axes": 48,
+     "double_axes": 16
+    },
+    "octave_v1": {
+     "n_axes": 600,
+     "MAPE": 10.56,
+     "within5": 81.5,
+     "within10": 86.3,
+     "half_axes": 31,
+     "double_axes": 16,
+     "changed": 17,
+     "fixed": 17,
+     "broken": 0
+    }
+   },
+   "C: seeds 992000-992149, unbalanced (ratio 1.6-2.4) plain / twill": {
+    "n_images": 150,
+    "frozen_ours": {
+     "n_axes": 300,
+     "MAPE": 7.47,
+     "within5": 85.7,
+     "within10": 89.3,
+     "half_axes": 2,
+     "double_axes": 4
+    },
+    "octave_v1": {
+     "n_axes": 300,
+     "MAPE": 7.31,
+     "within5": 86.0,
+     "within10": 89.7,
+     "half_axes": 1,
+     "double_axes": 4,
+     "changed": 1,
+     "fixed": 1,
+     "broken": 0
+    }
+   },
+   "all 750 renders": {
+    "n_images": 750,
+    "frozen_ours": {
+     "n_axes": 1500,
+     "MAPE": 9.83,
+     "within5": 81.5,
+     "within10": 86.6,
+     "half_axes": 59,
+     "double_axes": 25
+    },
+    "octave_v1": {
+     "n_axes": 1500,
+     "MAPE": 9.21,
+     "within5": 82.7,
+     "within10": 87.9,
+     "half_axes": 40,
+     "double_axes": 25,
+     "changed": 19,
+     "fixed": 19,
+     "broken": 0
+    }
+   }
+  },
+  "legacy13": {
+   "frozen_ours": {
+    "n_axes": 26,
+    "MAPE": 9.23,
+    "within5": 76.9,
+    "within10": 84.6,
+    "half_axes": 0,
+    "double_axes": 1
+   },
+   "octave_v1": {
+    "n_axes": 26,
+    "MAPE": 9.23,
+    "within5": 76.9,
+    "within10": 84.6,
+    "half_axes": 0,
+    "double_axes": 1,
+    "changed": 0,
+    "fixed": 0,
+    "broken": 0
+   },
+   "note": "this pipeline (legacy.rectify_legacy + frozen estimate) gives 9.23% for frozen ours; the paper figure 11.6% uses the legacy13 protocol of methods/results"
+  },
+  "real150_label_free_consistency": {
+   "frozen_ours": {
+    "copy": {
+     "n_axes": 54,
+     "octave_2x_axes": 0,
+     "x3_axes": 0,
+     "agree5_axes": 0.981,
+     "n_pairs": 27,
+     "pairs_with_2x": 0,
+     "pairs_both5": 0.963
+    },
+    "res": {
+     "n_axes": 94,
+     "octave_2x_axes": 4,
+     "x3_axes": 0,
+     "agree5_axes": 0.915,
+     "n_pairs": 47,
+     "pairs_with_2x": 3,
+     "pairs_both5": 0.872
+    },
+    "reshoot": {
+     "n_axes": 82,
+     "octave_2x_axes": 6,
+     "x3_axes": 0,
+     "agree5_axes": 0.72,
+     "n_pairs": 41,
+     "pairs_with_2x": 6,
+     "pairs_both5": 0.585
+    },
+    "rot": {
+     "n_axes": 102,
+     "octave_2x_axes": 2,
+     "x3_axes": 0,
+     "agree5_axes": 0.961,
+     "n_pairs": 51,
+     "pairs_with_2x": 1,
+     "pairs_both5": 0.941
+    }
+   },
+   "octave_v1": {
+    "copy": {
+     "n_axes": 54,
+     "octave_2x_axes": 0,
+     "x3_axes": 0,
+     "agree5_axes": 0.981,
+     "n_pairs": 27,
+     "pairs_with_2x": 0,
+     "pairs_both5": 0.963
+    },
+    "res": {
+     "n_axes": 94,
+     "octave_2x_axes": 3,
+     "x3_axes": 0,
+     "agree5_axes": 0.926,
+     "n_pairs": 47,
+     "pairs_with_2x": 3,
+     "pairs_both5": 0.872
+    },
+    "reshoot": {
+     "n_axes": 82,
+     "octave_2x_axes": 6,
+     "x3_axes": 0,
+     "agree5_axes": 0.72,
+     "n_pairs": 41,
+     "pairs_with_2x": 6,
+     "pairs_both5": 0.585
+    },
+    "rot": {
+     "n_axes": 102,
+     "octave_2x_axes": 1,
+     "x3_axes": 0,
+     "agree5_axes": 0.971,
+     "n_pairs": 51,
+     "pairs_with_2x": 1,
+     "pairs_both5": 0.941
+    }
+   },
+   "new_2x_disagreements": 0,
+   "resolved_2x_disagreements": 2,
+   "definition": "pairs: reshoot = 41 accepted same-patch pairs of scene reps (paper/tables/fabric_groups_v2.json; |angle|<15 same axes, 75-90 swapped, else sorted); res = quarter_res_copy vs rep; rot = members with scene_rot_k != 0 vs rep; copy = png/byte/notebook copies vs rep (manifest). Per axis r = max/min of the two counts; 2x if 1.70 <= r <= 2.35."
+  },
+  "real150_changes": {
+   "files_changed_axes": 8,
+   "rep_axes_doubled": 4,
+   "rep_axes_halved": 0,
+   "changed_files": [
+    {
+     "id": 35,
+     "frozen_h_count": 36.12,
+     "frozen_v_count": 45.06,
+     "h_count": 72.24,
+     "v_count": 45.06,
+     "octave_fx": 2.0,
+     "octave_fy": 1.0
+    },
+    {
+     "id": 63,
+     "frozen_h_count": 87.59,
+     "frozen_v_count": 20.28,
+     "h_count": 87.59,
+     "v_count": 40.55,
+     "octave_fx": 1.0,
+     "octave_fy": 2.0
+    },
+    {
+     "id": 66,
+     "frozen_h_count": 32.45,
+     "frozen_v_count": 35.65,
+     "h_count": 64.91,
+     "v_count": 35.65,
+     "octave_fx": 2.0,
+     "octave_fy": 1.0
+    },
+    {
+     "id": 78,
+     "frozen_h_count": 32.33,
+     "frozen_v_count": 35.37,
+     "h_count": 64.66,
+     "v_count": 35.37,
+     "octave_fx": 2.0,
+     "octave_fy": 1.0
+    },
+    {
+     "id": 98,
+     "frozen_h_count": 35.63,
+     "frozen_v_count": 32.2,
+     "h_count": 35.63,
+     "v_count": 64.39,
+     "octave_fx": 1.0,
+     "octave_fy": 2.0
+    },
+    {
+     "id": 121,
+     "frozen_h_count": 36.03,
+     "frozen_v_count": 45.09,
+     "h_count": 72.06,
+     "v_count": 45.09,
+     "octave_fx": 2.0,
+     "octave_fy": 1.0
+    },
+    {
+     "id": 124,
+     "frozen_h_count": 35.93,
+     "frozen_v_count": 32.26,
+     "h_count": 35.93,
+     "v_count": 64.52,
+     "octave_fx": 1.0,
+     "octave_fy": 2.0
+    },
+    {
+     "id": 135,
+     "frozen_h_count": 44.82,
+     "frozen_v_count": 36.55,
+     "h_count": 44.82,
+     "v_count": 73.1,
+     "octave_fx": 1.0,
+     "octave_fy": 2.0
+    }
+   ]
+  }
+ },
+ "expected_effect": "octave-v1 changes 4 of the 152 axes of the 76 scene representatives (scenes 35 h, 121 h, 98 v, 124 v: two re-shoot pairs, doubled consistently) and 8 of the 300 file axes. The change in mean scene MAPE against any reference is therefore bounded by about -1.3 points (all four doublings right, frozen APE 50 % on those axes) to +2.6 points (all four wrong). Pre-registered expectation: |dMAPE vs frozen ours| <= 1.5 points; a confidence interval excluding 0 is not expected. The diagnosis (dev/octave_v1_candidates.json) indicates that most octave errors of the frozen counter are systematic and not visible as a resolved second ridge, so an image-evidence octave rule cannot recover most of the oracle gap.",
+ "evaluation": {
+  "script": "methods/octave/eval_octave_v1.py (frozen here; SHA-256 above). Tested only on FAKE label files (ours' counts x log-normal noise, filenames containing 'fake').",
+  "unit": "scene = scene representative (scene_id = rep id), all 76 representatives that the reference labels (both h_tpi and v_tpi finite and > 0, 'labelled' truthy)",
+  "axis_convention": "reference h_tpi <-> prediction h_count, v_tpi <-> v_count (paper/tools/score150.py); GPT-6.1-sol P1: h = gpt-6.1-sol__v, v = gpt-6.1-sol__h",
+  "per_scene": "APE_ax = 100 |pred - ref| / ref; scene MAPE = (APE_h + APE_v) / 2; both5 = APE_h <= 5 and APE_v <= 5; missing / non-positive prediction = APE 100 on that axis",
+  "primary": {
+   "reference": "second annotator FL_NG alone (per-scene CSV, h_tpi / v_tpi)",
+   "outcomes": [
+    "mean scene MAPE",
+    "share of scenes with both axes within +-5 %"
+   ],
+   "comparisons": [
+    "octave-v1 minus frozen ours (methods/predictions_ours_150.csv)",
+    "octave-v1 minus GPT-6.1-sol P1 (vlm/results/rect150_P1_predictions_wide.csv)"
+   ],
+   "inference": "paired scene MAPE difference: mean, 95 % percentile CI from a scene bootstrap (10,000 resamples of the scenes with replacement, numpy default_rng(20261012)), two-sided Wilcoxon signed-rank p (scipy, zero_method='wilcox'); both5 difference in percentage points with the same bootstrap CI and an exact two-sided McNemar p",
+   "command": "python methods/octave/eval_octave_v1.py --labels <FL_NG scene csv> --reference each --out-json methods/octave/eval_primary_FL_NG.json --out-txt methods/octave/eval_primary_FL_NG.txt",
+   "interpretation": "octave-v1 is called better (worse) than a comparator only if the 95 % CI of the paired MAPE difference lies entirely below (above) 0; otherwise 'no detectable difference'. Both outcomes and both comparisons are reported whatever their direction."
+  },
+  "secondary": [
+   {
+    "reference": "mean of the two annotators (FL_NG and FL_SA; per scene and axis, mean of the available counts)",
+    "command": "python methods/octave/eval_octave_v1.py --labels <FL_NG scene csv> <FL_SA scene csv> --reference mean --out-json methods/octave/eval_secondary_mean.json"
+   },
+   {
+    "reference": "FL_SA alone - POST HOC: FL_SA's counts revealed the failure mode that motivated octave-v1, so this comparison is not confirmatory",
+    "command": "python methods/octave/eval_octave_v1.py --labels <FL_SA scene csv> --reference each --out-json methods/octave/eval_secondary_FL_SA_posthoc.json"
+   }
+  ]
+ },
+ "integration_note": "label_day EXTRA_SOURCES / score150 --extra-wide entry: ('methods/octave/octave_v1_150_wide.csv', ['octave-v1']); octave-v1__v = vertical yarns = our h, octave-v1__h = our v (label_day.py and score150.py were not edited)."
+}

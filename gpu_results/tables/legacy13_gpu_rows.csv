@@ -1,0 +1,25 @@
+group,method,crop,assign,axis,n,MAE,MAPE,n_w5,n_w10,medAE,n_images,MAPE_ci_lo,MAPE_ci_hi,MAE_ci_lo,MAE_ci_hi
+vlm-gpu,molmo2_8b_bf16 P1,"VLM trimmed window, 644 px (RTX 4090)",axis,both,26,53.8462,79.8878,0,0,50.5,13,76.7268,83.0778,43.576,64.7337
+vlm-gpu,molmo2_8b_bf16 P1,"VLM trimmed window, 644 px (RTX 4090)",sorted,both,26,53.8462,79.8878,0,0,50.5,13,76.7268,83.0778,43.576,64.7337
+vlm-gpu,molmo2_8b_bf16 P2,"VLM trimmed window, 644 px (RTX 4090)",axis,both,26,43.1154,72.2844,1,2,44.5,13,54.5056,88.4524,34.1519,50.2692
+vlm-gpu,molmo2_8b_bf16 P2,"VLM trimmed window, 644 px (RTX 4090)",sorted,both,26,43.1154,72.2844,1,2,44.5,13,54.5056,88.4524,34.1519,50.2692
+vlm-gpu,molmo2_8b_bf16 P3,"VLM trimmed window, 644 px (RTX 4090)",axis,both,26,16.9231,25.4155,4,6,14,13,19.7788,31.4806,12.5,21.5769
+vlm-gpu,molmo2_8b_bf16 P3,"VLM trimmed window, 644 px (RTX 4090)",sorted,both,26,16.9231,25.4155,4,6,14,13,19.7788,31.4806,12.5,21.5769
+vlm-gpu,molmo2_8b_bf16 P3s,"VLM trimmed window, 644 px (RTX 4090)",axis,both,26,19,27.2462,3,4,15.5,13,22.02,32.2163,13.4231,25.2317
+vlm-gpu,molmo2_8b_bf16 P3s,"VLM trimmed window, 644 px (RTX 4090)",sorted,both,26,19,27.2462,3,4,15.5,13,22.02,32.2163,13.4231,25.2317
+vlm-gpu,molmo2_8b_bf16 P4,"VLM trimmed window, 644 px (RTX 4090)",axis,both,26,34.4615,45.1163,1,3,19.5,13,32.2315,59.6374,20.8067,49.2702
+vlm-gpu,molmo2_8b_bf16 P4,"VLM trimmed window, 644 px (RTX 4090)",sorted,both,26,34,45.8239,1,2,19,13,32.335,60.7421,20.2308,49.0394
+vlm-gpu,molmo2_8b_bf16 P4q,"VLM trimmed window, 644 px (RTX 4090)",axis,both,26,15.9231,24.9411,6,8,11.5,13,17.0903,33.0323,11.2692,20.3077
+vlm-gpu,molmo2_8b_bf16 P4q,"VLM trimmed window, 644 px (RTX 4090)",sorted,both,26,13.9231,21.6996,6,8,11.5,13,14.8156,29.0072,9.95769,18.3077
+vlm-gpu,molmo2_8b_bf16_w4mlx P1,"VLM trimmed window, 644 px (RTX 4090)",axis,both,26,55.5385,82.9631,0,0,52.5,13,80.6164,85.224,45.5,66.3077
+vlm-gpu,molmo2_8b_bf16_w4mlx P1,"VLM trimmed window, 644 px (RTX 4090)",sorted,both,26,55.5385,82.9631,0,0,52.5,13,80.6164,85.224,45.5,66.3077
+vlm-gpu,molmo2_8b_bf16_w4mlx P4,"VLM trimmed window, 644 px (RTX 4090)",axis,both,22,36.8182,46.3204,2,4,21.5,11,29.5069,64.0675,20.0432,54.183
+vlm-gpu,molmo2_8b_bf16_w4mlx P4,"VLM trimmed window, 644 px (RTX 4090)",sorted,both,22,36.1818,46.4702,2,5,25,11,28.7305,64.2531,18.9989,53.8648
+specialist,countgd CG-B-yarn-ex3,"VLM trimmed window, native px",axis,both,26,225.385,341.798,0,0,174,13,255.803,435.896,155.562,315.852
+specialist,countgd CG-B-yarn-ex3,"VLM trimmed window, native px",sorted,both,26,225.385,329.454,0,0,174,13,246.238,420.499,155.562,315.852
+specialist,countgd CG-B-yarn-ex3@band,"VLM trimmed window, native px",axis,both,26,75.2308,113.877,2,3,45,13,73.9395,157.873,44.1115,114.579
+specialist,countgd CG-B-yarn-ex3@band,"VLM trimmed window, native px",sorted,both,26,73.9231,106.308,0,2,45,13,68.3489,147.505,42.499,113.502
+specialist,countgd CG-W-ex3-lat,"VLM trimmed window, native px",axis,both,26,12.5538,18.3197,9,12,6.82698,13,10.9544,27.0063,6.62837,20.221
+specialist,countgd CG-W-ex3-lat,"VLM trimmed window, native px",sorted,both,26,12.2747,17.8839,9,12,7.30252,13,10.7161,26.5212,6.40977,20.0589
+specialist,countgd PER,"VLM trimmed window, native px",axis,both,26,16.5594,24.5055,14,16,4.28951,13,12.7637,38.6871,7.992,28.2409
+specialist,countgd PER,"VLM trimmed window, native px",sorted,both,26,15.9849,24.365,12,14,5.33345,13,12.8004,38.0519,7.62398,27.7026

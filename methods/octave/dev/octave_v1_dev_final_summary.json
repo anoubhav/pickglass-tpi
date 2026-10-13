@@ -1,0 +1,274 @@
+{
+ "synthetic": {
+  "A: seeds 990000-990299, default v2 generator": {
+   "n_images": 300,
+   "frozen_ours": {
+    "n_axes": 600,
+    "MAPE": 8.89,
+    "within5": 82.2,
+    "within10": 88.3,
+    "half_axes": 9,
+    "double_axes": 5
+   },
+   "octave_v1": {
+    "n_axes": 600,
+    "MAPE": 8.81,
+    "within5": 82.3,
+    "within10": 88.5,
+    "half_axes": 8,
+    "double_axes": 5,
+    "changed": 1,
+    "fixed": 1,
+    "broken": 0
+   }
+  },
+  "B: seeds 991000-991299, + oxford / oxfordw paired yarns, more basket": {
+   "n_images": 300,
+   "frozen_ours": {
+    "n_axes": 600,
+    "MAPE": 11.95,
+    "within5": 78.7,
+    "within10": 83.5,
+    "half_axes": 48,
+    "double_axes": 16
+   },
+   "octave_v1": {
+    "n_axes": 600,
+    "MAPE": 10.56,
+    "within5": 81.5,
+    "within10": 86.3,
+    "half_axes": 31,
+    "double_axes": 16,
+    "changed": 17,
+    "fixed": 17,
+    "broken": 0
+   }
+  },
+  "C: seeds 992000-992149, unbalanced (ratio 1.6-2.4) plain / twill": {
+   "n_images": 150,
+   "frozen_ours": {
+    "n_axes": 300,
+    "MAPE": 7.47,
+    "within5": 85.7,
+    "within10": 89.3,
+    "half_axes": 2,
+    "double_axes": 4
+   },
+   "octave_v1": {
+    "n_axes": 300,
+    "MAPE": 7.31,
+    "within5": 86.0,
+    "within10": 89.7,
+    "half_axes": 1,
+    "double_axes": 4,
+    "changed": 1,
+    "fixed": 1,
+    "broken": 0
+   }
+  },
+  "all 750 renders": {
+   "n_images": 750,
+   "frozen_ours": {
+    "n_axes": 1500,
+    "MAPE": 9.83,
+    "within5": 81.5,
+    "within10": 86.6,
+    "half_axes": 59,
+    "double_axes": 25
+   },
+   "octave_v1": {
+    "n_axes": 1500,
+    "MAPE": 9.21,
+    "within5": 82.7,
+    "within10": 87.9,
+    "half_axes": 40,
+    "double_axes": 25,
+    "changed": 19,
+    "fixed": 19,
+    "broken": 0
+   }
+  }
+ },
+ "legacy13": {
+  "frozen_ours": {
+   "n_axes": 26,
+   "MAPE": 9.23,
+   "within5": 76.9,
+   "within10": 84.6,
+   "half_axes": 0,
+   "double_axes": 1
+  },
+  "octave_v1": {
+   "n_axes": 26,
+   "MAPE": 9.23,
+   "within5": 76.9,
+   "within10": 84.6,
+   "half_axes": 0,
+   "double_axes": 1,
+   "changed": 0,
+   "fixed": 0,
+   "broken": 0
+  },
+  "note": "this pipeline (legacy.rectify_legacy + frozen estimate) gives 9.23% for frozen ours; the paper figure 11.6% uses the legacy13 protocol of methods/results"
+ },
+ "real150_label_free_consistency": {
+  "frozen_ours": {
+   "copy": {
+    "n_axes": 54,
+    "octave_2x_axes": 0,
+    "x3_axes": 0,
+    "agree5_axes": 0.981,
+    "n_pairs": 27,
+    "pairs_with_2x": 0,
+    "pairs_both5": 0.963
+   },
+   "res": {
+    "n_axes": 94,
+    "octave_2x_axes": 4,
+    "x3_axes": 0,
+    "agree5_axes": 0.915,
+    "n_pairs": 47,
+    "pairs_with_2x": 3,
+    "pairs_both5": 0.872
+   },
+   "reshoot": {
+    "n_axes": 82,
+    "octave_2x_axes": 6,
+    "x3_axes": 0,
+    "agree5_axes": 0.72,
+    "n_pairs": 41,
+    "pairs_with_2x": 6,
+    "pairs_both5": 0.585
+   },
+   "rot": {
+    "n_axes": 102,
+    "octave_2x_axes": 2,
+    "x3_axes": 0,
+    "agree5_axes": 0.961,
+    "n_pairs": 51,
+    "pairs_with_2x": 1,
+    "pairs_both5": 0.941
+   }
+  },
+  "octave_v1": {
+   "copy": {
+    "n_axes": 54,
+    "octave_2x_axes": 0,
+    "x3_axes": 0,
+    "agree5_axes": 0.981,
+    "n_pairs": 27,
+    "pairs_with_2x": 0,
+    "pairs_both5": 0.963
+   },
+   "res": {
+    "n_axes": 94,
+    "octave_2x_axes": 3,
+    "x3_axes": 0,
+    "agree5_axes": 0.926,
+    "n_pairs": 47,
+    "pairs_with_2x": 3,
+    "pairs_both5": 0.872
+   },
+   "reshoot": {
+    "n_axes": 82,
+    "octave_2x_axes": 6,
+    "x3_axes": 0,
+    "agree5_axes": 0.72,
+    "n_pairs": 41,
+    "pairs_with_2x": 6,
+    "pairs_both5": 0.585
+   },
+   "rot": {
+    "n_axes": 102,
+    "octave_2x_axes": 1,
+    "x3_axes": 0,
+    "agree5_axes": 0.971,
+    "n_pairs": 51,
+    "pairs_with_2x": 1,
+    "pairs_both5": 0.941
+   }
+  },
+  "new_2x_disagreements": 0,
+  "resolved_2x_disagreements": 2,
+  "definition": "pairs: reshoot = 41 accepted same-patch pairs of scene reps (paper/tables/fabric_groups_v2.json; |angle|<15 same axes, 75-90 swapped, else sorted); res = quarter_res_copy vs rep; rot = members with scene_rot_k != 0 vs rep; copy = png/byte/notebook copies vs rep (manifest). Per axis r = max/min of the two counts; 2x if 1.70 <= r <= 2.35."
+ },
+ "real150_changes": {
+  "files_changed_axes": 8,
+  "rep_axes_doubled": 4,
+  "rep_axes_halved": 0,
+  "changed_files": [
+   {
+    "id": 35,
+    "frozen_h_count": 36.12,
+    "frozen_v_count": 45.06,
+    "h_count": 72.24,
+    "v_count": 45.06,
+    "octave_fx": 2.0,
+    "octave_fy": 1.0
+   },
+   {
+    "id": 63,
+    "frozen_h_count": 87.59,
+    "frozen_v_count": 20.28,
+    "h_count": 87.59,
+    "v_count": 40.55,
+    "octave_fx": 1.0,
+    "octave_fy": 2.0
+   },
+   {
+    "id": 66,
+    "frozen_h_count": 32.45,
+    "frozen_v_count": 35.65,
+    "h_count": 64.91,
+    "v_count": 35.65,
+    "octave_fx": 2.0,
+    "octave_fy": 1.0
+   },
+   {
+    "id": 78,
+    "frozen_h_count": 32.33,
+    "frozen_v_count": 35.37,
+    "h_count": 64.66,
+    "v_count": 35.37,
+    "octave_fx": 2.0,
+    "octave_fy": 1.0
+   },
+   {
+    "id": 98,
+    "frozen_h_count": 35.63,
+    "frozen_v_count": 32.2,
+    "h_count": 35.63,
+    "v_count": 64.39,
+    "octave_fx": 1.0,
+    "octave_fy": 2.0
+   },
+   {
+    "id": 121,
+    "frozen_h_count": 36.03,
+    "frozen_v_count": 45.09,
+    "h_count": 72.06,
+    "v_count": 45.09,
+    "octave_fx": 2.0,
+    "octave_fy": 1.0
+   },
+   {
+    "id": 124,
+    "frozen_h_count": 35.93,
+    "frozen_v_count": 32.26,
+    "h_count": 35.93,
+    "v_count": 64.52,
+    "octave_fx": 1.0,
+    "octave_fy": 2.0
+   },
+   {
+    "id": 135,
+    "frozen_h_count": 44.82,
+    "frozen_v_count": 36.55,
+    "h_count": 44.82,
+    "v_count": 73.1,
+    "octave_fx": 1.0,
+    "octave_fy": 2.0
+   }
+  ]
+ }
+}

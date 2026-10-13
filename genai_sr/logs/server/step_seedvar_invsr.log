@@ -1,0 +1,14 @@
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 52.91it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 54.22it/s]
+Processing done, enjoy the results in $HOME/pickglass/genai_sr/outputs/_invsr_s1_raw/D4
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 53.83it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 55.79it/s]
+Processing done, enjoy the results in $HOME/pickglass/genai_sr/outputs/_invsr_s1_raw/D8
+invsr_s1 finalized 132 missing 66
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 54.56it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 56.42it/s]
+Processing done, enjoy the results in $HOME/pickglass/genai_sr/outputs/_invsr_s2_raw/D4
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 54.41it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 55.36it/s]
+Processing done, enjoy the results in $HOME/pickglass/genai_sr/outputs/_invsr_s2_raw/D8
+invsr_s2 finalized 132 missing 66

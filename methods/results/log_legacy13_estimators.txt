@@ -1,0 +1,11 @@
+  2/20 images  88s
+  4/20 images  123s
+  6/20 images  148s
+  8/20 images  179s
+  10/20 images  210s
+  12/20 images  247s
+  14/20 images  269s
+  16/20 images  287s
+  18/20 images  326s
+  20/20 images  336s
+wrote results/legacy13_estimators.csv: 540 rows, 20 images, 339s

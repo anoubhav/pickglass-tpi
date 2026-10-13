@@ -1,0 +1,15 @@
+model,set,tag,repeat,n_calls,usd
+google/gemini-3.8-flash,legacy,main,0,100,0.466347
+google/gemini-3.8-flash,legacy,main,1,100,0.410791
+google/gemini-3.8-flash,rect150,main,0,150,0.611139
+google/gemini-3.8-flash,synth,pilot,0,18,0.08831800000000001
+openai/gpt-6.1-sol,legacy,main,0,100,1.503789
+openai/gpt-6.1-sol,legacy,main,1,100,0.766739
+openai/gpt-6.1-sol,rect150,main,0,150,2.292058
+openai/gpt-6.1-sol,synth,pilot,0,18,0.256545
+qwen/qwen3.8-27b,legacy,main,0,100,0.054133
+qwen/qwen3.8-27b,legacy,main,1,100,0.044514
+qwen/qwen3.8-27b,legacy,p1rep,1,20,0.008687
+qwen/qwen3.8-27b,legacy,p1rep,2,20,0.006736
+qwen/qwen3.8-27b,rect150,main,0,150,0.076253
+qwen/qwen3.8-27b,synth,pilot,0,18,0.009547

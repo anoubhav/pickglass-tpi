@@ -1,0 +1,333 @@
+{
+ "A1_scenes_match_provenance": {
+  "status": "PASS",
+  "msg": "150 files, 76 scenes, identical to originals_provenance.json groups: True"
+ },
+ "A2_one_split_per_scene": {
+  "status": "PASS",
+  "msg": "every file of a scene carries the scene's split"
+ },
+ "A3_train_val_disjoint": {
+  "status": "PASS",
+  "msg": "28 pseudo-train scenes, 10 pseudo-val scenes, overlap []"
+ },
+ "A4_val_reps_real_only": {
+  "status": "PASS",
+  "msg": "pseudo-val = 10 representatives, kinds {'real': 10}"
+ },
+ "A5_nb_synth_never_heldout": {
+  "status": "PASS",
+  "msg": "notebook-synthetic files: 11; used as training variants of their scene: 5; held out: 0"
+ },
+ "A6_confidence_rule_reproduced": {
+  "status": "PASS",
+  "msg": "pre-declared cut = median ours' confidence over the 76 representatives = 0.8480; 38 accepted scenes"
+ },
+ "A7_orientation_parity": {
+  "status": "PASS",
+  "msg": "h/v swap parity vs provenance rot90_k: 52/52"
+ },
+ "B1_legacy_only_in_final": {
+  "status": "PASS",
+  "msg": "functions reading the legacy crops: ['cmd_final']; legacy GT imported by training code: []"
+ },
+ "C1_no_legacy_copy_in_150": {
+  "status": "PASS",
+  "msg": "max band-pass NCC legacy vs 150 = 0.664 (best match ('a4.png', (0.664, 58))); same-scene pairs: min 0.757, median 0.986",
+  "per_legacy": {
+   "a1.png": [
+    0.158,
+    78
+   ],
+   "a10.png": [
+    0.112,
+    32
+   ],
+   "a2.png": [
+    0.383,
+    68
+   ],
+   "a3.png": [
+    0.557,
+    58
+   ],
+   "a4.png": [
+    0.664,
+    58
+   ],
+   "a5.png": [
+    0.451,
+    43
+   ],
+   "a6.png": [
+    0.273,
+    68
+   ],
+   "a7.png": [
+    0.552,
+    58
+   ],
+   "a8.png": [
+    0.281,
+    122
+   ],
+   "a9.png": [
+    0.483,
+    58
+   ],
+   "r1.png": [
+    0.59,
+    58
+   ],
+   "r10.png": [
+    0.222,
+    77
+   ],
+   "r2.png": [
+    0.414,
+    117
+   ],
+   "r3.png": [
+    0.195,
+    68
+   ],
+   "r4.png": [
+    0.522,
+    58
+   ],
+   "r5.png": [
+    0.355,
+    43
+   ],
+   "r6.png": [
+    0.554,
+    11
+   ],
+   "r7.png": [
+    0.591,
+    58
+   ],
+   "r8.png": [
+    0.367,
+    48
+   ],
+   "r9.png": [
+    0.124,
+    113
+   ]
+  }
+ },
+ "D1_selection_from_val_only": {
+  "status": "PASS",
+  "msg": "selection.json reproduced from val.csv: True; all 11 legacy prediction files written after selection.json: True"
+ },
+ "E1_fabric_near_duplicates_not_straddling": {
+  "status": "PASS",
+  "msg": "13 pairs of different scenes with band-pass NCC > 0.9 (same fabric re-photographed?); straddling pseudo-train / pseudo-val: 0",
+  "pairs": [
+   {
+    "scene_a": "4",
+    "scene_b": "6",
+    "ncc": 0.949,
+    "split_a": "train",
+    "split_b": "train",
+    "ours_a": [
+     64.3,
+     128.6
+    ],
+    "ours_b": [
+     64.5,
+     128.9
+    ]
+   },
+   {
+    "scene_a": "5",
+    "scene_b": "118",
+    "ncc": 0.967,
+    "split_a": "train",
+    "split_b": "train",
+    "ours_a": [
+     72.6,
+     51.4
+    ],
+    "ours_b": [
+     72.5,
+     51.5
+    ]
+   },
+   {
+    "scene_a": "24",
+    "scene_b": "126",
+    "ncc": 0.924,
+    "split_a": "lowconf",
+    "split_b": "lowconf",
+    "ours_a": [
+     74.3,
+     160.0
+    ],
+    "ours_b": [
+     74.3,
+     160.1
+    ]
+   },
+   {
+    "scene_a": "25",
+    "scene_b": "47",
+    "ncc": 0.968,
+    "split_a": "lowconf",
+    "split_b": "lowconf",
+    "ours_a": [
+     110.3,
+     38.8
+    ],
+    "ours_b": [
+     111.1,
+     38.9
+    ]
+   },
+   {
+    "scene_a": "28",
+    "scene_b": "95",
+    "ncc": 0.977,
+    "split_a": "lowconf",
+    "split_b": "lowconf",
+    "ours_a": [
+     86.2,
+     148.9
+    ],
+    "ours_b": [
+     85.8,
+     148.5
+    ]
+   },
+   {
+    "scene_a": "35",
+    "scene_b": "121",
+    "ncc": 0.96,
+    "split_a": "train",
+    "split_b": "train",
+    "ours_a": [
+     36.1,
+     45.1
+    ],
+    "ours_b": [
+     36.0,
+     45.1
+    ]
+   },
+   {
+    "scene_a": "38",
+    "scene_b": "60",
+    "ncc": 0.954,
+    "split_a": "lowconf",
+    "split_b": "train",
+    "ours_a": [
+     104.6,
+     142.3
+    ],
+    "ours_b": [
+     105.4,
+     142.6
+    ]
+   },
+   {
+    "scene_a": "38",
+    "scene_b": "61",
+    "ncc": 0.933,
+    "split_a": "lowconf",
+    "split_b": "lowconf",
+    "ours_a": [
+     104.6,
+     142.3
+    ],
+    "ours_b": [
+     104.7,
+     35.3
+    ]
+   },
+   {
+    "scene_a": "50",
+    "scene_b": "91",
+    "ncc": 0.987,
+    "split_a": "train",
+    "split_b": "train",
+    "ours_a": [
+     102.3,
+     69.7
+    ],
+    "ours_b": [
+     103.1,
+     70.5
+    ]
+   },
+   {
+    "scene_a": "59",
+    "scene_b": "97",
+    "ncc": 0.926,
+    "split_a": "lowconf",
+    "split_b": "lowconf",
+    "ours_a": [
+     119.6,
+     18.7
+    ],
+    "ours_b": [
+     90.6,
+     19.3
+    ]
+   },
+   {
+    "scene_a": "60",
+    "scene_b": "61",
+    "ncc": 0.973,
+    "split_a": "train",
+    "split_b": "lowconf",
+    "ours_a": [
+     105.4,
+     142.6
+    ],
+    "ours_b": [
+     104.7,
+     35.3
+    ]
+   },
+   {
+    "scene_a": "76",
+    "scene_b": "92",
+    "ncc": 0.953,
+    "split_a": "train",
+    "split_b": "train",
+    "ours_a": [
+     63.6,
+     107.2
+    ],
+    "ours_b": [
+     63.3,
+     108.0
+    ]
+   },
+   {
+    "scene_a": "77",
+    "scene_b": "88",
+    "ncc": 0.934,
+    "split_a": "lowconf",
+    "split_b": "lowconf",
+    "ours_a": [
+     38.0,
+     152.2
+    ],
+    "ours_b": [
+     39.0,
+     150.7
+    ]
+   }
+  ]
+ },
+ "E2_val_vs_train_similarity": {
+  "status": "INFO",
+  "msg": "max band-pass NCC of each held-out representative to any training file: {17: 0.46, 18: 0.376, 45: 0.317, 52: 0.661, 56: 0.345, 87: 0.404, 93: 0.572, 102: 0.352, 110: 0.577, 128: 0.506} (same-scene 5th percentile 0.864)"
+ },
+ "F1_frozen_counter_unchanged": {
+  "status": "PASS",
+  "msg": "md5 3d0520d6bec8a016543ce7e5b353d784"
+ }
+}

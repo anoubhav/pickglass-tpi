@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thread Count Annotator</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand">Thread-count annotator <span class="ver" id="appversion">v2</span> <span class="muted">WVAQ 2027</span></div>
+    <label class="field">Annotator
+      <input id="annotator" type="text" placeholder="your name" autocomplete="off" spellcheck="false">
+    </label>
+    <label class="field">Show
+      <select id="filter">
+        <option value="scenes">Scenes to annotate (76)</option>
+        <option value="attention" id="attnopt" title="Photos flagged 'check carefully' first (not the IAA subset or blind images)">High attention first</option>
+        <option value="all">All images</option>
+        <option value="todo">Not done</option>
+        <option value="done">Done</option>
+        <option value="iaa" id="iaaopt">IAA subset (20)</option>
+        <option value="flagged">Flagged / low confidence</option>
+      </select>
+    </label>
+    <div class="nav">
+      <button id="prev" title="Previous (←)">&larr;</button>
+      <input id="jump" type="number" min="0" max="149" title="Jump to image id (Enter)">
+      <button id="next" title="Next (→)">&rarr;</button>
+      <span id="navpos" class="muted"></span>
+    </div>
+    <div class="progress" title="Scenes (photos to annotate) marked done; with an older manifest: images">
+      <div class="bar"><div id="progbar"></div></div>
+      <span id="progtext">0 / 150</span>
+    </div>
+    <span id="savestatus" class="muted" title="Autosave status"></span>
+    <div class="actions">
+      <button id="download" title="Download annotations JSON + CSV">Download</button>
+      <button id="importbtn" title="Import a previously downloaded annotations JSON (or CSV)">Import</button>
+      <input id="importfile" type="file" accept=".json,.csv,application/json,text/csv" hidden>
+      <button id="examplesbtn" title="Example figures and your own finished scenes (X)">Examples</button>
+      <button id="helpbtn" title="How to annotate + keyboard shortcuts (?)">? Help</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="stage" tabindex="0" aria-label="Rectified crop viewer">
+      <canvas id="imgcanvas"></canvas>
+      <canvas id="ovlcanvas"></canvas>
+      <div id="stagebadges">
+        <span id="iaabadge" class="badge iaa" hidden>IAA SUBSET &mdash; double-annotated, count blind</span>
+        <span id="scenebadge" class="badge scene" hidden><span id="scenetext"></span>
+          <button id="scenego" type="button" title="Open the scene's representative photo (G)">Go to #</button>
+          <button id="sceneunlock" type="button" title="Edit this copy anyway (its own record is kept separately)">Edit anyway</button></span>
+        <span id="blindbadge" class="badge warn" hidden>BLIND MODE &mdash; proposals hidden</span>
+        <span id="attnbadge" class="badge attn" hidden
+          title="From the automatic estimators and capture checks only (no counts are shown). Count every yarn as usual."></span>
+        <span id="donebadge" class="badge ok" hidden>DONE</span>
+        <span id="warnbadge" class="badge err" hidden></span>
+      </div>
+      <span id="timer" class="pill" hidden
+        title="Active time on this image. It pauses after 60 s without input, and an idle gap longer than 60 s is not counted at all."></span>
+      <div id="stagehint" class="muted">
+        Click on a line to add a dot &middot; click a dot to delete &middot; shift-drag box-deletes &middot;
+        <kbd>A</kbd> auto-align &middot; <kbd>[</kbd> <kbd>]</kbd> rotate line &middot; <kbd>,</kbd> <kbd>.</kbd> rotate image &middot; <kbd>L</kbd> switch line &middot;
+        wheel zooms &middot; drag empty space pans &middot; <kbd>?</kbd> help
+      </div>
+      <div id="loading" hidden>Loading&hellip;</div>
+    </section>
+
+    <aside id="side">
+      <div id="imginfo" class="card"></div>
+
+      <div class="card counts edit">
+        <div class="count h" id="counth" title="Click to select the H line">
+          <div class="label">H line <span class="muted">&middot; vertical yarns</span></div>
+          <div class="num"><span id="hcount">0</span><span class="unit">/in</span></div>
+          <div class="sub raw" id="hraw"></div>
+          <div class="sub" id="hsub"></div>
+        </div>
+        <div class="count v" id="countv" title="Click to select the V line">
+          <div class="label">V line <span class="muted">&middot; horizontal yarns</span></div>
+          <div class="num"><span id="vcount">0</span><span class="unit">/in</span></div>
+          <div class="sub raw" id="vraw"></div>
+          <div class="sub" id="vsub"></div>
+        </div>
+        <div id="outwarn" class="sub full warnrow" hidden>
+          <span id="outwarntext"></span> <button id="removeout" type="button">Remove</button>
+        </div>
+        <div id="warpweft" class="sub full"></div>
+        <div class="sub full muted tiny">threads/inch = dots on the line &divide; line length inside the window (in)</div>
+      </div>
+
+      <div class="card edit" id="linescard">
+        <div class="title">Guide lines <span class="muted"><kbd>L</kbd> switch &middot; <kbd>[</kbd><kbd>]</kbd> line &middot; <kbd>,</kbd><kbd>.</kbd> image &middot; <kbd>0</kbd> level</span></div>
+        <div class="row">
+          <div class="seg" role="group" aria-label="Selected line">
+            <button id="selh" type="button">H line</button><button id="selv" type="button">V line</button>
+          </div>
+          <span class="angle"><span id="angleval">H 0.0&deg;</span> <span id="angleother" class="muted"></span></span>
+        </div>
+        <div class="row rotrow">
+          <button id="rotm" type="button" title="Rotate the selected line counter-clockwise 0.5° ([); Shift: 5°">&#10226; 0.5&deg;</button>
+          <button id="rotp" type="button" title="Rotate the selected line clockwise 0.5° (]); Shift: 5°">&#10227; 0.5&deg;</button>
+          <button id="rot0" type="button" title="Back to 0° (key 0)">0&deg;</button>
+          <button id="autoalign" type="button" class="accent" disabled>Auto-align <kbd>A</kbd></button>
+        </div>
+        <div class="row viewrow" title="Turn the image on screen to line the yarns up with the guide lines. The guide lines keep their place on screen (they turn with it on the fabric), so the count is the same as turning both lines.">
+          <span class="vlabel">Image</span>
+          <input id="viewrot" type="range" min="-45" max="45" step="0.1" value="0" aria-label="Image rotation (degrees)">
+          <span id="viewval" class="angle">0.0&deg;</span>
+          <button id="view0" type="button" title="Turn the image back to 0° (/); the guide lines turn back with it">0&deg;</button>
+        </div>
+        <div class="row rotrow">
+          <button id="viewm" type="button" title="Turn the image counter-clockwise 0.5° (,); Shift: 5°">&#10226; 0.5&deg; <kbd>,</kbd></button>
+          <button id="viewp" type="button" title="Turn the image clockwise 0.5° (.); Shift: 5°">&#10227; 0.5&deg; <kbd>.</kbd></button>
+          <button id="viewalign" type="button" class="accent" disabled>Align image <kbd>R</kbd></button>
+        </div>
+        <div id="estinfo" class="sub"></div>
+      </div>
+
+      <div class="card edit">
+        <div class="row">
+          <label class="toggle"><input type="checkbox" id="blind"> Blind mode <kbd>B</kbd></label>
+          <select id="blindpolicy" title="Blind setting used when an image is opened for the first time">
+            <option value="iaa">new images: blind if IAA subset</option>
+            <option value="manual">new images: follow B</option>
+            <option value="random">new images: random 50%</option>
+            <option value="all">new images: always blind</option>
+            <option value="none">new images: never blind</option>
+          </select>
+        </div>
+        <div id="propinfo" class="sub"></div>
+      </div>
+
+      <div class="card edit">
+        <div class="title">Weave type <span class="muted">keys 1&ndash;7</span></div>
+        <div id="weaves" class="chips"></div>
+        <div class="title second">Warp direction <span class="muted">key W cycles</span></div>
+        <div id="warpdirs" class="chips"></div>
+      </div>
+
+      <div class="card edit">
+        <div class="title">Capture quality</div>
+        <div id="flags" class="checks"></div>
+        <label class="check wide"><input type="checkbox" id="nonwoven"> Not a woven fabric (knit, felt&hellip;)</label>
+      </div>
+
+      <div class="card edit">
+        <div class="title">Confidence <span class="muted">key C cycles</span></div>
+        <div id="confs" class="chips"></div>
+        <textarea id="notes" rows="2" placeholder="Notes (optional)"></textarea>
+      </div>
+
+      <div class="card buttons edit">
+        <button id="savebtn" class="primary" title="Mark done and save (S); Enter = done + next">Save &amp; mark done <kbd>S</kbd></button>
+        <button id="undodone" title="Mark this image as not done">Mark not done</button>
+        <button id="undo" title="Undo (Z / Cmd-Z)">Undo <kbd>Z</kbd></button>
+        <button id="reset" title="Replace all dots with the current proposals (lines back to 0°)">Reset to proposals</button>
+        <button id="clearh" title="Remove all dots on the H line">Clear H dots</button>
+        <button id="clearv" title="Remove all dots on the V line">Clear V dots</button>
+      </div>
+
+      <div class="card">
+        <div class="title">Display</div>
+        <div class="row">
+          <label class="toggle"><input type="checkbox" id="enhanced"> Contrast-enhanced <kbd>E</kbd></label>
+          <button id="fit" title="Fit image (F)">Fit <kbd>F</kbd></button>
+        </div>
+        <label class="slider">Brightness <input id="brightness" type="range" min="40" max="250" value="100"></label>
+        <label class="slider">Contrast <input id="contrast" type="range" min="40" max="250" value="100"></label>
+        <label class="slider">Dot size <input id="dotsize" type="range" min="2" max="14" value="5"></label>
+        <label class="toggle"><input type="checkbox" id="showgaps" checked> Highlight suspicious gaps</label>
+      </div>
+
+      <div class="card">
+        <div class="title">Original photo</div>
+        <img id="thumb" alt="original photo with the window outlined">
+      </div>
+
+      <footer id="about" class="about">
+        <div><b>Thread-count annotator</b> <span id="aboutversion">v2</span> &middot; WVAQ 2027 &middot; <a href="#" id="abouthelp">how to</a></div>
+        <div>Licence: <span class="ph">[licence placeholder]</span></div>
+        <div>Please cite: <span class="ph">[citation placeholder &mdash; authors, title, venue, year]</span></div>
+        <div class="muted">Dependency-free: open <code>index.html</code> through <code>python3 server.py</code>.</div>
+      </footer>
+    </aside>
+  </main>
+
+  <div id="help" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="helptitle">
+    <div class="modal-body">
+      <div class="modal-head">
+        <h2 id="helptitle">How to annotate <span class="muted">&mdash; one dot per yarn the guide line crosses</span></h2>
+        <button id="helpclose" class="primary" type="button">Close <kbd>Esc</kbd></button>
+      </div>
+
+      <div class="howto">
+        <figure>
+          <svg viewBox="0 0 160 100" aria-hidden="true">
+            <rect width="160" height="100" rx="6" fill="#0b0c0e"/>
+            <g transform="rotate(10 80 50)">
+              <rect x="22" y="-20" width="9" height="140" fill="#5b6470"/><rect x="44" y="-20" width="9" height="140" fill="#5b6470"/>
+              <rect x="66" y="-20" width="9" height="140" fill="#5b6470"/><rect x="88" y="-20" width="9" height="140" fill="#5b6470"/>
+              <rect x="110" y="-20" width="9" height="140" fill="#5b6470"/><rect x="132" y="-20" width="9" height="140" fill="#5b6470"/>
+              <line x1="8" y1="50" x2="150" y2="50" stroke="var(--accent)" stroke-width="2"/>
+              <circle cx="152" cy="50" r="5" fill="var(--rot)" stroke="#000"/>
+            </g>
+            <line x1="8" y1="50" x2="152" y2="50" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+          </svg>
+          <figcaption><b>1 &middot; Align.</b> Turn the selected line across its yarns: <kbd>A</kbd> auto-aligns (the estimate is shown first, never applied by itself), drag the green <span class="rotdot"></span> handle, or <kbd>[</kbd> <kbd>]</kbd> &plusmn;0.5&deg; (<kbd>Shift</kbd> 5&deg;). <kbd>0</kbd> levels it, <kbd>L</kbd> switches H/V. Or turn the <em>image</em> under the lines: <kbd>,</kbd> <kbd>.</kbd> (or the Image slider), <kbd>R</kbd> aligns it.</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 160 100" aria-hidden="true">
+            <rect width="160" height="100" rx="6" fill="#0b0c0e"/>
+            <rect x="14" y="0" width="9" height="100" fill="#5b6470"/><rect x="36" y="0" width="9" height="100" fill="#5b6470"/>
+            <rect x="58" y="0" width="9" height="100" fill="#5b6470"/><rect x="80" y="0" width="9" height="100" fill="#5b6470"/>
+            <rect x="102" y="0" width="9" height="100" fill="#5b6470"/><rect x="124" y="0" width="9" height="100" fill="#5b6470"/>
+            <line x1="4" y1="50" x2="156" y2="50" stroke="var(--accent)" stroke-width="1.5"/>
+            <g fill="none" stroke="var(--hdot)" stroke-width="2">
+              <circle cx="18.5" cy="50" r="5"/><circle cx="40.5" cy="50" r="5"/><circle cx="62.5" cy="50" r="5"/>
+              <circle cx="84.5" cy="50" r="5"/><circle cx="106.5" cy="50" r="5"/>
+            </g>
+            <circle cx="128.5" cy="50" r="5" fill="none" stroke="#fff" stroke-dasharray="2 2"/>
+          </svg>
+          <figcaption><b>2 &middot; Dot every yarn.</b> Click on the line at each yarn it crosses, edge to edge (an edge yarn counts if its centre is inside). Click a dot to delete it, <kbd>Shift</kbd>-drag deletes a box, <kbd>Z</kbd> undoes.</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 160 100" aria-hidden="true">
+            <rect width="160" height="100" rx="6" fill="#0b0c0e"/>
+            <line x1="4" y1="50" x2="156" y2="50" stroke="var(--accent)" stroke-width="1.5"/>
+            <rect x="52" y="46" width="44" height="8" fill="rgba(239,68,68,.55)"/>
+            <rect x="118" y="46" width="7" height="8" fill="rgba(245,158,11,.8)"/>
+            <g fill="none" stroke="var(--hdot)" stroke-width="2">
+              <circle cx="14" cy="50" r="5"/><circle cx="33" cy="50" r="5"/><circle cx="52" cy="50" r="5"/>
+              <circle cx="96" cy="50" r="5"/><circle cx="118" cy="50" r="5"/><circle cx="125" cy="50" r="5"/><circle cx="144" cy="50" r="5"/>
+            </g>
+            <text x="80" y="82" fill="var(--text)" font-size="10" text-anchor="middle">TPI = dots &#247; line length (in)</text>
+          </svg>
+          <figcaption><b>3 &middot; Check.</b> A red bar is a gap (missed yarn?), an orange bar two dots too close (duplicate?). The big number is threads/inch = dots &divide; length of the line inside the window; for a level line that is the dot count.</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 160 100" aria-hidden="true">
+            <rect width="160" height="100" rx="6" fill="#0b0c0e"/>
+            <g font-size="10" fill="#fff">
+              <rect x="10" y="12" width="44" height="16" rx="4" fill="var(--primary)"/><text x="32" y="23.5" text-anchor="middle">Plain</text>
+              <rect x="58" y="12" width="44" height="16" rx="4" fill="#262b33" stroke="#3a404a"/><text x="80" y="23.5" text-anchor="middle">Twill</text>
+              <rect x="106" y="12" width="44" height="16" rx="4" fill="#262b33" stroke="#3a404a"/><text x="128" y="23.5" text-anchor="middle">Satin</text>
+              <rect x="10" y="38" width="10" height="10" rx="2" fill="var(--primary)"/><text x="25" y="46.5">Glare</text>
+              <rect x="70" y="38" width="10" height="10" rx="2" fill="#262b33" stroke="#3a404a"/><text x="85" y="46.5">Blur</text>
+              <rect x="10" y="66" width="140" height="20" rx="4" fill="var(--primary)"/><text x="80" y="79.5" text-anchor="middle" font-weight="bold">Enter = done + next</text>
+            </g>
+          </svg>
+          <figcaption><b>4 &middot; Describe &amp; save.</b> Weave <kbd>1</kbd>&ndash;<kbd>7</kbd>, warp direction <kbd>W</kbd>, quality flags, confidence <kbd>C</kbd>. <kbd>Enter</kbd> = done + next, <kbd>S</kbd> = done, <kbd>N</kbd> = next unfinished.</figcaption>
+        </figure>
+      </div>
+
+      <p class="protocol"><b>Protocol.</b> The 150 files are only 76 distinct photos (<b>scenes</b>): the other files are copies (byte-identical,
+        a quarter-resolution copy, a PNG copy or a synthetic crop). Annotate <b>one photo per scene</b> (Show &rarr; Scenes to annotate, the
+        default); a copy shows a teal badge &ldquo;same scene as #&hellip; &mdash; labels copied&rdquo;, is read-only, and <kbd>G</kbd> opens its scene.
+        Annotate the 20 <b>IAA subset</b> scenes first (Show &rarr; IAA subset, purple badge). They open in
+        <b>blind mode</b> (no machine proposals): count from scratch and never turn blind off on them; every toggle is logged. Then do the rest
+        (Show &rarr; Scenes to annotate, or <kbd>N</kbd>) with proposals, which are often wrong (one dot per stripe or per float pair). In a two-colour plain weave a light
+        and the next dark float are <b>two</b> yarns. If glare hides yarns, move the line (drag its round handle) to a clearer row.</p>
+      <p class="protocol"><b>Check carefully.</b> Some photos show an orange <span class="badge attn high">Check carefully: &hellip;</span> or a
+        yellow <span class="badge attn medium">Take care: &hellip;</span> badge with a reason, e.g. the automatic estimators disagree on a line,
+        the yarns are fine for the resolution (zoom in), glare or blur. It comes from machine checks only, never shows a count and says nothing
+        about which count is right: count every yarn as usual. It never appears on IAA-subset or blind images. Show &rarr; <b>High attention first</b>
+        lists the other photos with the flagged ones first (<kbd>&larr;</kbd> <kbd>&rarr;</kbd> and <kbd>N</kbd> follow that order).</p>
+
+      <p class="protocol"><b>Turning the image.</b> <kbd>,</kbd> <kbd>.</kbd> turn the image &minus;/+0.5&deg; (<kbd>Shift</kbd> 5&deg;), the Image slider
+        sets any angle up to &plusmn;45&deg;, and <kbd>/</kbd> turns it back to 0&deg;. The guide lines <b>stay where they are on screen</b>: the fabric
+        turns under them, so you can turn it until the yarns cross the lines at right angles. On the fabric the lines turn by the same angle the
+        other way (their angles in the card change), so the count is exactly the count of turned lines: dots &divide; line length inside the window
+        (the turned dashed square). <kbd>R</kbd> (Align image) turns the image until the selected line crosses its yarns at right angles, using the
+        same estimate as <kbd>A</kbd>; <kbd>A</kbd> turns the line instead. <kbd>[</kbd> <kbd>]</kbd> and <kbd>0</kbd> still turn a single line on the
+        fabric (0&deg; = parallel to the window edge). Zoom, pan, clicks, box-delete and handles all work on the turned image.</p>
+
+      <h3>Keyboard</h3>
+      <div class="keys">
+        <div><kbd>&larr;</kbd> <kbd>&rarr;</kbd></div><div>previous / next image (in the current filter)</div>
+        <div><kbd>N</kbd></div><div>next scene that is not done (in <b>High attention first</b>: the next one in that order)</div>
+        <div><kbd>G</kbd></div><div>on a copy: open its scene&rsquo;s photo (the one to annotate)</div>
+        <div><kbd>S</kbd> &middot; <kbd>Enter</kbd></div><div>mark done &middot; mark done and go to next</div>
+        <div><kbd>L</kbd></div><div>switch the selected guide line (H &harr; V)</div>
+        <div><kbd>A</kbd> &middot; <kbd>Shift</kbd>-<kbd>A</kbd></div><div>auto-align the selected line &middot; both lines</div>
+        <div><kbd>[</kbd> <kbd>]</kbd></div><div>rotate the selected line &#8723;0.5&deg; (<kbd>Shift</kbd>: 5&deg;)</div>
+        <div><kbd>0</kbd></div><div>selected line back to 0&deg;</div>
+        <div><kbd>,</kbd> <kbd>.</kbd></div><div>turn the image &minus;0.5&deg; &middot; +0.5&deg; (<kbd>Shift</kbd>: 5&deg;); the guide lines stay put on screen</div>
+        <div><kbd>/</kbd> &middot; <kbd>R</kbd></div><div>image back to 0&deg; &middot; turn the image to align it to the selected line&rsquo;s yarns</div>
+        <div><kbd>1</kbd>&ndash;<kbd>7</kbd></div><div>weave: plain, twill 2/1, twill 3/1, twill 2/2, satin, other, unsure</div>
+        <div><kbd>W</kbd> &middot; <kbd>C</kbd></div><div>cycle warp direction &middot; confidence</div>
+        <div><kbd>B</kbd></div><div>blind mode (hide proposals) for this image; every toggle is recorded</div>
+        <div><kbd>Z</kbd> &middot; <kbd>Cmd/Ctrl</kbd>-<kbd>Z</kbd></div><div>undo</div>
+        <div><kbd>E</kbd> &middot; <kbd>F</kbd> &middot; <kbd>+</kbd> <kbd>-</kbd></div><div>contrast-enhanced view &middot; fit &middot; zoom</div>
+        <div>wheel &middot; space-drag</div><div>zoom &middot; pan (dragging empty space or middle-drag also pans)</div>
+        <div>round handle &middot; <kbd>Alt</kbd>-drag line</div><div>move a guide line (keeps its angle)</div>
+        <div><kbd>Shift</kbd>-drag</div><div>box-delete dots</div>
+        <div><kbd>X</kbd></div><div>examples: how it looks &middot; my finished scenes</div>
+        <div><kbd>?</kbd> &middot; <kbd>H</kbd> &middot; <kbd>Esc</kbd></div><div>this help &middot; close</div>
+      </div>
+      <p class="muted small">Work autosaves in this browser and, with <code>python3 server.py</code>, to <code>data/saved/</code>.
+        Use <b>Download</b> (JSON + CSV) at the end of every session; <b>Import</b> restores a download (newer record wins).
+        The timer counts active time only: it pauses after 60 s without input and an idle gap longer than 60 s is not counted.</p>
+    </div>
+  </div>
+
+  <div id="examples" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="extitle">
+    <div class="modal-body wide">
+      <div class="modal-head">
+        <h2 id="extitle">Examples</h2>
+        <div class="tabs" role="tablist" aria-label="Examples">
+          <button id="extab-look" type="button" role="tab" aria-selected="true" aria-controls="expane-look">How it looks</button>
+          <button id="extab-mine" type="button" role="tab" aria-selected="false" aria-controls="expane-mine">My finished scenes</button>
+        </div>
+        <button id="exclose" class="primary" type="button">Close <kbd>Esc</kbd></button>
+      </div>
+
+      <div id="expane-look" role="tabpanel" aria-labelledby="extab-look">
+        <ul class="tips">
+          <li>One dot on <b>every yarn the guide line crosses</b>, edge to edge; an edge yarn counts if its centre is inside the window.</li>
+          <li>Count <b>yarns</b>, not colour blocks or twill diagonals: in a two-colour plain weave a light and the next dark float are two yarns.</li>
+          <li>The machine dots are often wrong (one per stripe or per float pair): check every one, add missed yarns, delete extras.</li>
+          <li>Tilted yarns: <kbd>A</kbd> turns the line across its yarns, or <kbd>,</kbd> <kbd>.</kbd> / <kbd>R</kbd> turn the image; TPI = dots &divide; line length in the window.</li>
+          <li>Glare or blur: drag the line&rsquo;s round handle to a clearer row, zoom until yarns are ~10 px apart, <kbd>E</kbd> for the enhanced view.</li>
+          <li><b>IAA subset</b> (purple badge): count blind from scratch and never turn blind off. No example below is from the IAA subset or shows the same patch of fabric as an IAA scene.</li>
+        </ul>
+        <p class="exnote"><b>Machine proposals &mdash; shows the layout, not verified counts.</b> The dots in these figures are the
+          machine&rsquo;s first guesses, drawn to show where dots go; they are not checked and are not the answer for these photos.</p>
+        <p id="exstatus" class="muted small"></p>
+        <div id="exfigs" class="exfigs"></div>
+      </div>
+
+      <div id="expane-mine" role="tabpanel" aria-labelledby="extab-mine" hidden>
+        <div id="minehead" class="minehead"></div>
+        <div id="minegrid" class="minegrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" hidden></div>
+
+  <script src="core.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

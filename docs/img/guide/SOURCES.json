@@ -1,0 +1,98 @@
+{
+ "note": "every picture here is synthetic (cnn/synth.py with fixed seeds and clean capture parameters, colours set by the guide builder); none comes from a real photo",
+ "renders": {
+  "plain_two_tone_71001": {
+   "seed": 71001,
+   "weave": "plain",
+   "epi": 36,
+   "ppi": 36,
+   "style": "two_tone",
+   "crop_px": 1100
+  },
+  "twill21_two_tone_71002": {
+   "seed": 71002,
+   "weave": "twill21",
+   "epi": 40,
+   "ppi": 40,
+   "style": "two_tone",
+   "crop_px": 1000
+  },
+  "plain_two_tone_71003": {
+   "seed": 71003,
+   "weave": "plain",
+   "epi": 40,
+   "ppi": 40,
+   "style": "two_tone",
+   "crop_px": 1000
+  },
+  "plain_check_71004": {
+   "seed": 71004,
+   "weave": "plain",
+   "epi": 40,
+   "ppi": 40,
+   "style": "check",
+   "crop_px": 1000
+  },
+  "plain_solid_71005": {
+   "seed": 71005,
+   "weave": "plain",
+   "epi": 36,
+   "ppi": 34,
+   "style": "solid",
+   "crop_px": 800
+  },
+  "photo_problems": {
+   "base_seed": 71005,
+   "degrade": [
+    "glare 0.10",
+    "gblur 6",
+    "shadow 0.5",
+    "down 8",
+    "corners 0.06",
+    "shadow 0.28 factor 0 (covered)"
+   ]
+  },
+  "plain_solid_71010": {
+   "seed": 71010,
+   "weave": "plain",
+   "epi": 36,
+   "ppi": 36,
+   "style": "solid",
+   "crop_px": 900
+  },
+  "twill21_solid_71011": {
+   "seed": 71011,
+   "weave": "twill21",
+   "epi": 36,
+   "ppi": 36,
+   "style": "solid",
+   "crop_px": 900
+  },
+  "twill31_solid_71012": {
+   "seed": 71012,
+   "weave": "twill31",
+   "epi": 36,
+   "ppi": 36,
+   "style": "solid",
+   "crop_px": 900
+  },
+  "twill22_solid_71013": {
+   "seed": 71013,
+   "weave": "twill22",
+   "epi": 36,
+   "ppi": 36,
+   "style": "solid",
+   "crop_px": 900
+  },
+  "satin5_solid_71014": {
+   "seed": 71014,
+   "weave": "satin5",
+   "epi": 36,
+   "ppi": 36,
+   "style": "solid",
+   "crop_px": 900
+  }
+ },
+ "post_example.jpg": "freelancer/post_example.png (make_post_example.py, synthetic seed 900070)",
+ "practice_tool.jpg": "screenshot of web/practice (synthetic practice photo 801) after 11 dots on the H line"
+}

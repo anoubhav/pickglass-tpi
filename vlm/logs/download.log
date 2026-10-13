@@ -1,0 +1,83 @@
+Fetching 17 files:   0%|          | 0/17 [00:00<?, ?it/s]Fetching 17 files:   6%|▌         | 1/17 [00:00<00:04,  3.83it/s]Fetching 17 files:  24%|██▎       | 4/17 [00:00<00:01,  7.63it/s]Fetching 17 files:  53%|█████▎    | 9/17 [00:00<00:00, 15.66it/s]Fetching 17 files:  88%|████████▊ | 15/17 [00:00<00:00, 18.21it/s]Fetching 17 files: 100%|██████████| 17/17 [00:15<00:00,  1.08it/s]
+internvl3_2b: mlx-community/InternVL3-2B-4bit@e474b39487e5 -> $HOME/.cache/huggingface/hub/models--mlx-community--InternVL3-2B-4bit/snapshots/e474b39487e563dbfa12c12e6a7e7d743cf340d4 (16s)
+Fetching 13 files:   0%|          | 0/13 [00:00<?, ?it/s]Fetching 13 files:   8%|▊         | 1/13 [00:00<00:02,  4.39it/s]Fetching 13 files:  54%|█████▍    | 7/13 [00:00<00:00, 18.36it/s]Fetching 13 files:  77%|███████▋  | 10/13 [00:00<00:00, 13.96it/s]Fetching 13 files:  85%|████████▍ | 11/13 [00:14<00:00, 13.96it/s]Fetching 13 files:  92%|█████████▏| 12/13 [00:25<00:03,  3.42s/it]Fetching 13 files: 100%|██████████| 13/13 [00:39<00:00,  5.09s/it]Fetching 13 files: 100%|██████████| 13/13 [00:39<00:00,  3.02s/it]
+qwen35_9b: mlx-community/Qwen3.5-9B-MLX-4bit@938d8919941c -> $HOME/.cache/huggingface/hub/models--mlx-community--Qwen3.5-9B-MLX-4bit/snapshots/938d8919941c6e7efd3c7150eff7fe9d12afa631 (39s)
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files:   5%|▍         | 1/21 [00:00<00:04,  4.48it/s]Fetching 21 files:  43%|████▎     | 9/21 [00:00<00:00, 20.56it/s]Fetching 21 files:  71%|███████▏  | 15/21 [00:00<00:00, 21.04it/s]Fetching 21 files:  86%|████████▌ | 18/21 [00:00<00:00, 18.62it/s]Fetching 21 files:  90%|█████████ | 19/21 [00:14<00:00, 18.62it/s]Fetching 21 files:  95%|█████████▌| 20/21 [00:23<00:02,  2.28s/it]Fetching 21 files: 100%|██████████| 21/21 [00:39<00:00,  4.06s/it]Fetching 21 files: 100%|██████████| 21/21 [00:39<00:00,  1.90s/it]
+molmo2_8b: mlx-community/Molmo2-8B-4bit@4fcbe9265776 -> $HOME/.cache/huggingface/hub/models--mlx-community--Molmo2-8B-4bit/snapshots/4fcbe926577641af12aa5086cf5c292db9dd9730 (40s)
+Traceback (most recent call last):
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "$HOME/miniconda3/lib/python3.11/contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: [Errno 60] Operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "vlm/download_models.py", line 21, in <module>
+    main(sys.argv[1:] or [k for k in MODELS if not k.startswith("_")])
+  File "vlm/download_models.py", line 17, in main
+    p = snapshot_download(spec["repo"], revision=spec["revision"])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 266, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 395, in snapshot_download
+    tree_entries = {
+                   ^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 395, in <dictcomp>
+    tree_entries = {
+                   ^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/huggingface_hub/hf_api.py", line 4103, in list_repo_tree
+    for path_info in paginate(path=tree_url, headers=headers, params={"recursive": recursive, "expand": expand}):
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/huggingface_hub/utils/_pagination.py", line 36, in paginate
+    r = session.get(path, params=params, headers=headers, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "$HOME/miniconda3/lib/python3.11/contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: [Errno 60] Operation timed out

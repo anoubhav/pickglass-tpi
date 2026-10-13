@@ -1,0 +1,50 @@
+part,family,kind,level,n,conf_mean,conf_median,dconf_mean,n_conf_lower,wilcoxon_p,n_conf_ge_0p9,n_both_w10,mean_ape_img,scope,predictor,target_method,target,n_images,spearman,spearman_lo,spearman_hi,auc_both_w10,acc_both_w10_conf_ge_0p9,acc_both_w10_conf_lt_0p9
+A_conf_by_condition,clean,clean,0.0,13,0.8289,0.9122,0.0,0.0,,7.0,9,11.611,,,,,,,,,,,
+A_conf_by_condition,corners,corners,0.02,13,0.8212,0.9367,-0.0077,8.0,0.4548,7.0,9,9.7587,,,,,,,,,,,
+A_conf_by_condition,corners,corners,0.05,13,0.7861,0.9154,-0.0429,8.0,0.3757,7.0,7,11.5364,,,,,,,,,,,
+A_conf_by_condition,corners,corners,0.1,13,0.7187,0.8693,-0.1102,10.0,0.0479,4.0,6,13.2109,,,,,,,,,,,
+A_conf_by_condition,downscale,down,2.0,13,0.8261,0.9122,-0.0028,4.0,0.5879,7.0,9,11.7159,,,,,,,,,,,
+A_conf_by_condition,downscale,down,4.0,13,0.8111,0.9085,-0.0178,9.0,0.2439,8.0,10,9.5607,,,,,,,,,,,
+A_conf_by_condition,downscale,down,8.0,13,0.7363,0.7628,-0.0926,10.0,0.0803,5.0,7,7.5507,,,,,,,,,,,
+A_conf_by_condition,defocus,gblur,1.0,13,0.827,0.9037,-0.0019,8.0,0.5879,7.0,9,50.4876,,,,,,,,,,,
+A_conf_by_condition,defocus,gblur,2.0,13,0.765,0.7876,-0.0639,8.0,0.4973,4.0,3,246.1581,,,,,,,,,,,
+A_conf_by_condition,defocus,gblur,3.0,13,0.7262,0.7732,-0.1028,9.0,0.1465,3.0,5,212.2573,,,,,,,,,,,
+A_conf_by_condition,defocus,gblur,4.0,13,0.7599,0.772,-0.069,10.0,0.0942,4.0,5,185.9474,,,,,,,,,,,
+A_conf_by_condition,defocus,gblur,6.0,13,0.6409,0.7042,-0.188,9.0,0.0327,3.0,5,51.8946,,,,,,,,,,,
+A_conf_by_condition,glare,glare,0.05,13,0.784,0.9158,-0.045,11.0,0.0171,7.0,9,11.4895,,,,,,,,,,,
+A_conf_by_condition,glare,glare,0.1,13,0.7686,0.9094,-0.0604,10.0,0.0681,7.0,8,13.6235,,,,,,,,,,,
+A_conf_by_condition,glare,glare,0.2,13,0.7684,0.8759,-0.0605,11.0,0.0266,4.0,9,12.0534,,,,,,,,,,,
+A_conf_by_condition,glare,glare,0.3,13,0.6843,0.7594,-0.1447,11.0,0.0105,3.0,9,11.8626,,,,,,,,,,,
+A_conf_by_condition,jpeg,jpeg,20.0,13,0.8192,0.9197,-0.0098,4.0,0.3396,7.0,9,11.6011,,,,,,,,,,,
+A_conf_by_condition,jpeg,jpeg,50.0,13,0.8192,0.9161,-0.0098,5.0,0.4973,7.0,9,11.5977,,,,,,,,,,,
+A_conf_by_condition,jpeg,jpeg,90.0,13,0.8134,0.9131,-0.0156,7.0,0.6355,7.0,9,11.6011,,,,,,,,,,,
+B_conf_vs_error,,,,247,,,,,,108.0,146,,all 19 conditions,ours conf,ours,mean APE of the 2 counts (axis),13.0,-0.4036,-0.6266,-0.0643,0.7464,0.8704,0.3741
+B_conf_vs_error,,,,247,,,,,,108.0,126,,all 19 conditions,ours conf,log-Gabor,mean APE of the 2 counts (axis),13.0,-0.5823,-0.7232,-0.332,0.8234,0.8333,0.259
+B_conf_vs_error,,,,247,,,,,,108.0,58,,all 19 conditions,ours conf,CNN,mean APE of the 2 counts (axis),13.0,-0.2732,-0.5501,0.0692,0.7038,0.3796,0.1223
+B_conf_vs_error,,,,247,,,,,,,146,,all 19 conditions,FFT peak-height conf,ours,mean APE of the 2 counts (axis),13.0,-0.2691,-0.4899,0.069,0.7447,,
+B_conf_vs_error,,,,247,,,,,,,146,,all 19 conditions,log-Gabor agreement conf,ours,mean APE of the 2 counts (axis),13.0,-0.4832,-0.604,-0.2565,0.7866,,
+B_conf_vs_error,,,,247,,,,,,,126,,all 19 conditions,log-Gabor agreement conf,log-Gabor,mean APE of the 2 counts (axis),13.0,-0.7289,-0.82,-0.5229,0.9101,,
+B_conf_vs_error,,,,247,,,,,,,146,,all 19 conditions,CNN -rel. tile IQR,ours,mean APE of the 2 counts (axis),13.0,-0.0579,-0.3172,0.2292,0.543,,
+B_conf_vs_error,,,,247,,,,,,,58,,all 19 conditions,CNN -rel. tile IQR,CNN,mean APE of the 2 counts (axis),13.0,-0.5513,-0.6923,-0.3222,0.8237,,
+B_conf_vs_error,,,,234,,,,,,101.0,137,,18 degraded only,ours conf,ours,mean APE of the 2 counts (axis),13.0,-0.4084,-0.639,-0.0759,0.7458,0.8713,0.3684
+B_conf_vs_error,,,,234,,,,,,101.0,118,,18 degraded only,ours conf,log-Gabor,mean APE of the 2 counts (axis),13.0,-0.5766,-0.7088,-0.3531,0.8205,0.8317,0.2556
+B_conf_vs_error,,,,234,,,,,,101.0,55,,18 degraded only,ours conf,CNN,mean APE of the 2 counts (axis),13.0,-0.2834,-0.5515,0.0502,0.7094,0.3861,0.1203
+B_conf_vs_error,,,,104,,,,,,43.0,48,,18 degraded only,ours conf,gpt-6.1-sol P1,mean APE of the 2 counts (axis),13.0,-0.3303,-0.5904,-0.046,0.7202,0.7442,0.2623
+B_conf_vs_error,,,,92,,,,,,41.0,43,,18 degraded only,ours conf,gpt-6.1-sol P3,mean APE of the 2 counts (axis),13.0,-0.3716,-0.5493,-0.0979,0.6317,0.6585,0.3137
+B_conf_vs_error,,,,104,,,,,,43.0,13,,18 degraded only,ours conf,gemini-3.8-flash P3,mean APE of the 2 counts (axis),13.0,-0.2521,-0.4765,-0.0051,0.7126,0.2558,0.0328
+B_conf_vs_error,,,,234,,,,,,,137,,18 degraded only,FFT peak-height conf,ours,mean APE of the 2 counts (axis),13.0,-0.2505,-0.4719,0.0569,0.7365,,
+B_conf_vs_error,,,,234,,,,,,,137,,18 degraded only,log-Gabor agreement conf,ours,mean APE of the 2 counts (axis),13.0,-0.4798,-0.5973,-0.2626,0.7827,,
+B_conf_vs_error,,,,234,,,,,,,118,,18 degraded only,log-Gabor agreement conf,log-Gabor,mean APE of the 2 counts (axis),13.0,-0.7265,-0.8144,-0.5151,0.9099,,
+B_conf_vs_error,,,,234,,,,,,,137,,18 degraded only,CNN -rel. tile IQR,ours,mean APE of the 2 counts (axis),13.0,-0.051,-0.3085,0.2296,0.5401,,
+B_conf_vs_error,,,,234,,,,,,,55,,18 degraded only,CNN -rel. tile IQR,CNN,mean APE of the 2 counts (axis),13.0,-0.5468,-0.686,-0.344,0.8166,,
+B_conf_vs_error,,,,117,,,,,,50.0,70,,VLM conditions (clean + 8),ours conf,ours,mean APE of the 2 counts (axis),13.0,-0.3782,-0.6246,0.0014,0.7243,0.88,0.3881
+B_conf_vs_error,,,,117,,,,,,50.0,60,,VLM conditions (clean + 8),ours conf,log-Gabor,mean APE of the 2 counts (axis),13.0,-0.606,-0.7036,-0.4104,0.8304,0.84,0.2687
+B_conf_vs_error,,,,117,,,,,,50.0,26,,VLM conditions (clean + 8),ours conf,CNN,mean APE of the 2 counts (axis),13.0,-0.3449,-0.5929,-0.0076,0.7358,0.38,0.1045
+B_conf_vs_error,,,,117,,,,,,50.0,56,,VLM conditions (clean + 8),ours conf,gpt-6.1-sol P1,mean APE of the 2 counts (axis),13.0,-0.3529,-0.5925,-0.0488,0.7239,0.76,0.2687
+B_conf_vs_error,,,,105,,,,,,48.0,50,,VLM conditions (clean + 8),ours conf,gpt-6.1-sol P3,mean APE of the 2 counts (axis),13.0,-0.3978,-0.5781,-0.1016,0.6385,0.6667,0.3158
+B_conf_vs_error,,,,117,,,,,,50.0,17,,VLM conditions (clean + 8),ours conf,gemini-3.8-flash P3,mean APE of the 2 counts (axis),13.0,-0.2266,-0.4643,0.0221,0.6959,0.28,0.0448
+B_conf_vs_error,,,,117,,,,,,,70,,VLM conditions (clean + 8),FFT peak-height conf,ours,mean APE of the 2 counts (axis),13.0,-0.2584,-0.487,0.0806,0.741,,
+B_conf_vs_error,,,,117,,,,,,,70,,VLM conditions (clean + 8),log-Gabor agreement conf,ours,mean APE of the 2 counts (axis),13.0,-0.4614,-0.6046,-0.1849,0.7866,,
+B_conf_vs_error,,,,117,,,,,,,60,,VLM conditions (clean + 8),log-Gabor agreement conf,log-Gabor,mean APE of the 2 counts (axis),13.0,-0.71,-0.8034,-0.4827,0.9102,,
+B_conf_vs_error,,,,117,,,,,,,70,,VLM conditions (clean + 8),CNN -rel. tile IQR,ours,mean APE of the 2 counts (axis),13.0,-0.092,-0.3493,0.2183,0.5498,,
+B_conf_vs_error,,,,117,,,,,,,26,,VLM conditions (clean + 8),CNN -rel. tile IQR,CNN,mean APE of the 2 counts (axis),13.0,-0.6008,-0.7134,-0.3948,0.855,,

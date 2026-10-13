@@ -1,0 +1,46 @@
+                                    method prompt  n_counts  MAPE  MAPE_lo  MAPE_hi  n_w10   MAE  bias  primary
+                        Leave-one-out mean     --        26  32.5     25.6     39.6      5  20.3  -0.0    False
+       Ours (PG-Lattice: lattice + fusion)     --        26  11.6      3.1     23.1     21   7.0   2.3    False
+                            Log-Gabor bank     --        26   9.2      3.9     15.2     21   6.0  -4.2    False
+           CNN, synthetic only (zero-shot)     --        26  16.0     10.8     21.8     10  10.3   5.1    False
+                               GPT-6.1-sol     P1        26   8.8      4.5     13.8     21   6.9  -6.3    False
+                            Molmo2-8B bf16     P1        26  79.9     76.7     83.1      0  53.8 -53.8    False
+                            Molmo2-8B bf16     P3        26  25.4     19.8     31.6      6  16.9  -5.4    False
+                            Molmo2-8B bf16     P4        26  45.1     32.1     60.0      3  34.5 -33.5    False
+                            Molmo2-8B bf16    P4q        26  24.9     17.0     33.0      8  15.9   2.9    False
+               Molmo2-4B (base, zero-shot)     P1        26  82.9     80.4     85.4      0  55.5 -55.5    False
+               Molmo2-4B (base, zero-shot)     P4        26  65.3     46.9     82.5      2  47.0 -45.2    False
+               Molmo2-4B (base, zero-shot)    P4q        26  37.0     23.5     51.2      5  22.4   1.2    False
+               Molmo2-4B (base, zero-shot)    P4s        26  33.6     22.4     46.2      7  20.0   3.8    False
+               Molmo2-4B (base, zero-shot) P4q_sp        24  35.3     21.5     50.8      7  20.2   4.3    False
+               Molmo2-4B (base, zero-shot) P4s_sp        26 122.6     23.9    306.6      6 101.7  92.8    False
+Molmo2-4B + synthetic-pointing LoRA (ours)     P1        26  18.4     10.6     29.1      9  11.8   1.2     True
+Molmo2-4B + synthetic-pointing LoRA (ours)     P4        26  18.6     11.8     26.5      7  12.2   2.1    False
+Molmo2-4B + synthetic-pointing LoRA (ours)    P4q        26  16.9      8.2     28.1     17   9.9   2.6    False
+Molmo2-4B + synthetic-pointing LoRA (ours)    P4s        26  16.4      7.8     27.2     15   9.7   2.5    False
+Molmo2-4B + synthetic-pointing LoRA (ours) P4q_sp        26  16.5      7.5     28.1     19   9.7   2.3    False
+Molmo2-4B + synthetic-pointing LoRA (ours) P4s_sp        26  16.6      8.0     27.3     15   9.9   3.0    False
+                              comparison  n_counts  MAPE_A  MAPE_B    dMAPE  dMAPE_lo  dMAPE_hi  p_boot_MAPE  p_wilcoxon_abs_pct_err_26  n_w10_A  n_w10_B  p_mcnemar_w10
+                     FT P1 vs base 4B P1        26  18.360  82.867  -64.507   -72.962   -52.773        0.000                      0.000        9        0          0.004
+                     FT P1 vs base 4B P4        26  18.360  65.344  -46.984   -64.601   -29.912        0.000                      0.000        9        2          0.016
+                    FT P1 vs base 4B P4q        26  18.360  36.999  -18.639   -32.056    -6.936        0.000                      0.043        9        5          0.388
+              FT P1 vs Molmo2-8B bf16 P4        26  18.360  45.116  -26.756   -45.227    -8.969        0.002                      0.001        9        3          0.070
+             FT P1 vs Molmo2-8B bf16 P4q        26  18.360  24.941   -6.581   -18.516     4.993        0.266                      0.304        9        8          1.000
+              FT P1 vs Molmo2-8B bf16 P1        26  18.360  79.888  -61.528   -70.337   -49.444        0.000                      0.000        9        0          0.004
+              FT P1 vs ours (PG-Lattice)        26  18.360  11.611    6.749    -4.910    18.659        0.258                      0.024        9       21          0.000
+                  FT P1 vs CNN synthetic        26  18.360  16.006    2.353    -4.007     9.142        0.514                      0.960        9       10          1.000
+                 FT P1 vs GPT-6.1-sol P1        26  18.360   8.792    9.568     2.658    18.462        0.004                      0.017        9       21          0.000
+                      FT P1 vs log-Gabor        26  18.360   9.227    9.132     0.146    19.659        0.046                      0.018        9       21          0.000
+             FT P1 vs leave-one-out mean        26  18.360  32.536  -14.176   -22.481    -5.602        0.001                      0.006        9        5          0.344
+ [secondary] FT P4s vs ours (PG-Lattice)        26  16.384  11.611    4.773    -3.166    13.728        0.263                      0.009       15       21          0.031
+     [secondary] FT P4s vs CNN synthetic        26  16.384  16.006    0.377    -5.437     7.146        0.963                      0.227       15       10          0.125
+    [secondary] FT P4s vs GPT-6.1-sol P1        26  16.384   8.792    7.592     0.636    15.958        0.028                      0.039       15       21          0.109
+[secondary] FT P4s vs Molmo2-8B bf16 P4q        26  16.384  24.941   -8.557   -20.393     3.658        0.181                      0.088       15        8          0.118
+         [secondary] FT P4s vs log-Gabor        26  16.384   9.227    7.156    -1.051    16.601        0.089                      0.010       15       21          0.031
+[secondary] FT P4s vs leave-one-out mean        26  16.384  32.536  -16.152   -23.463    -9.031        0.000                      0.003       15        5          0.021
+             [secondary] FT P4s vs FT P1        26  16.384  18.360   -1.976    -7.070     3.457        0.460                      0.394       15        9          0.109
+         [secondary] FT P4 vs base 4B P4        26  18.602  65.344  -46.742   -63.279   -29.817        0.000                      0.000        7        2          0.062
+       [secondary] FT P4q vs base 4B P4q        26  16.882  36.999  -20.117   -31.723    -9.981        0.000                      0.013       17        5          0.004
+       [secondary] FT P4s vs base 4B P4s        26  16.384  33.644  -17.260   -24.527   -10.357        0.000                      0.000       15        7          0.039
+ [secondary] FT P4q_sp vs base 4B P4q_sp        24  17.401  35.346  -17.945   -29.506    -8.027        0.000                      0.021       17        7          0.013
+ [secondary] FT P4s_sp vs base 4B P4s_sp        26  16.559 122.626 -106.067  -290.875    -9.986        0.000                      0.000       15        6          0.012

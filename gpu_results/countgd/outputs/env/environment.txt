@@ -1,0 +1,10 @@
+CountGD repo commit: b6f362b3f5cd20db4a171faa410dfed8f2f466d8
+HF model nikigoli/CountGD revision 6b989ad11db9413e44863ea5c57735cae6cacff8 (model.safetensors, verified tensor-identical to space checkpoint_best_regular.pth @ 6e82e59)
+nvcc used for ops: Build cuda_11.8.r11.8/compiler.31833905_0 (NVIDIA redist tarballs, sha256 verified; system nvcc 11.5 fails with gcc-11 std_function bug, see build_ops_nvcc115.log)
+gcc: gcc-11 (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+TORCH_CUDA_ARCH_LIST=8.9
+Python headers: libpython3.10-dev 3.10.12-1~22.04.18 extracted locally (no sudo)
+0, NVIDIA GeForce RTX 4090, 535.309.01
+1, NVIDIA GeForce RTX 4090, 535.309.01
+2, NVIDIA GeForce RTX 4090, 535.309.01
+3, NVIDIA GeForce RTX 4090, 535.309.01

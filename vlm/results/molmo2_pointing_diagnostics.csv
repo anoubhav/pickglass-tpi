@@ -1,0 +1,15 @@
+image,view,n_points,spacing_cv,truncated,max_tokens,mean_offset_from_line_per1000,seconds
+a1,guide_h,25,0.005001,False,2500,29.96,17.73
+a1,guide_v,30,0,False,2500,10,24.54
+a1,qc_guide_h,12,0.03682,False,2500,30,17.87
+a1,qc_guide_v,93,0.5735,True,1024,40.88,86.36
+a2,guide_h,40,0,False,1024,20,147.5
+a2,guide_v,45,0,False,1024,10,62.96
+a2,qc_guide_h,13,0.00801,False,1024,30,106
+a2,qc_guide_v,9,0.05457,False,1024,10,184.4
+a4,guide_h,136,0,True,1536,30,284.5
+a4,guide_v,63,0.0193,False,1536,10,67.36
+a4,qc_guide_h,23,0.03445,False,1536,30,31.29
+a4,qc_guide_v,21,0.08896,False,1536,35,33.29
+a5,guide_h,25,0.005001,False,1536,30,42.69
+a5,guide_v,45,0,False,1536,10,1424

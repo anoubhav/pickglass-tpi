@@ -1,0 +1,266 @@
+{
+ "openai/gpt-6.1-sol": {
+  "name": "OpenAI: GPT-6.1 Sol",
+  "created": 1790702882,
+  "pricing": {
+   "prompt": "0.000002",
+   "completion": "0.00001",
+   "web_search": "0.01",
+   "input_cache_read": "0.0000001",
+   "input_cache_write": "0.0000025",
+   "overrides": [
+    {
+     "min_prompt_tokens": 272000,
+     "prompt": "0.000004",
+     "completion": "0.000015",
+     "input_cache_read": "0.0000002",
+     "input_cache_write": "0.000005"
+    }
+   ]
+  },
+  "input_modalities": [
+   "file",
+   "image",
+   "text"
+  ],
+  "supported_parameters": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "structured_outputs",
+   "tool_choice",
+   "tools",
+   "verbosity"
+  ],
+  "context_length": 1050000
+ },
+ "anthropic/claude-fable-5.1": {
+  "name": "Anthropic: Claude Fable 5.1",
+  "created": 1788285838,
+  "pricing": {
+   "prompt": "0.00001",
+   "completion": "0.00005",
+   "web_search": "0.01",
+   "input_cache_read": "0.00000025",
+   "input_cache_write": "0.0000125",
+   "input_cache_write_1h": "0.00002"
+  },
+  "input_modalities": [
+   "text",
+   "image",
+   "file"
+  ],
+  "supported_parameters": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "stop",
+   "structured_outputs",
+   "tool_choice",
+   "tools",
+   "verbosity"
+  ],
+  "context_length": 1000000
+ },
+ "google/gemini-3.1-pro-preview": {
+  "name": "Google: Gemini 3.1 Pro Preview",
+  "created": 1771509627,
+  "pricing": {
+   "prompt": "0.000002",
+   "completion": "0.000012",
+   "image": "0.000002",
+   "audio": "0.000002",
+   "input_audio_cache": "0.0000002",
+   "web_search": "0.014",
+   "internal_reasoning": "0.000012",
+   "input_cache_read": "0.0000002",
+   "input_cache_write": "0.000000375",
+   "overrides": [
+    {
+     "min_prompt_tokens": 200000,
+     "prompt": "0.000004",
+     "completion": "0.000018",
+     "audio": "0.000004",
+     "input_audio_cache": "0.0000004",
+     "input_cache_read": "0.0000004"
+    }
+   ]
+  },
+  "input_modalities": [
+   "audio",
+   "file",
+   "image",
+   "text",
+   "video"
+  ],
+  "supported_parameters": [
+   "include_reasoning",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_p"
+  ],
+  "context_length": 1048576
+ },
+ "google/gemini-3.8-flash": {
+  "name": "Google: Gemini 3.8 Flash",
+  "created": 1788362056,
+  "pricing": {
+   "prompt": "0.00000075",
+   "completion": "0.00000375",
+   "image": "0.00000075",
+   "audio": "0.00000075",
+   "input_audio_cache": "0.000000075",
+   "web_search": "0.014",
+   "internal_reasoning": "0.00000375",
+   "input_cache_read": "0.000000075",
+   "input_cache_write": "0.0000000416666666666667"
+  },
+  "input_modalities": [
+   "text",
+   "image",
+   "video",
+   "file",
+   "audio"
+  ],
+  "supported_parameters": [
+   "include_reasoning",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_p"
+  ],
+  "context_length": 1048576
+ },
+ "qwen/qwen3.8-max-prime": {
+  "name": "Qwen: Qwen3.8 Max Prime",
+  "created": 1790191228,
+  "pricing": {
+   "prompt": "0.000004",
+   "completion": "0.000012",
+   "input_cache_read": "0.0000005"
+  },
+  "input_modalities": [
+   "text",
+   "image",
+   "video"
+  ],
+  "supported_parameters": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logprobs",
+   "max_tokens",
+   "presence_penalty",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_logprobs",
+   "top_p"
+  ],
+  "context_length": 1000000
+ },
+ "qwen/qwen3.8-27b": {
+  "name": "Qwen: Qwen3.8 27B",
+  "created": 1786722910,
+  "pricing": {
+   "prompt": "0.000000425",
+   "completion": "0.00000255",
+   "input_cache_read": "0.000000085",
+   "input_cache_write": "0.00000053125"
+  },
+  "input_modalities": [
+   "text",
+   "image",
+   "video"
+  ],
+  "supported_parameters": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logit_bias",
+   "logprobs",
+   "max_tokens",
+   "min_p",
+   "presence_penalty",
+   "reasoning",
+   "reasoning_effort",
+   "repetition_penalty",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_a",
+   "top_k",
+   "top_logprobs",
+   "top_p"
+  ],
+  "context_length": 1000000
+ },
+ "google/gemma-4-26b-a4b-it": {
+  "name": "Google: Gemma 4 26B A4B ",
+  "created": 1775227989,
+  "pricing": {
+   "prompt": "0.00000009",
+   "completion": "0.0000003",
+   "input_cache_read": "0.00000005"
+  },
+  "input_modalities": [
+   "image",
+   "text",
+   "video"
+  ],
+  "supported_parameters": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logit_bias",
+   "logprobs",
+   "max_tokens",
+   "min_p",
+   "presence_penalty",
+   "reasoning",
+   "repetition_penalty",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_logprobs",
+   "top_p"
+  ],
+  "context_length": 262144
+ },
+ "_checked": "2026-10-07T10:55:11"
+}

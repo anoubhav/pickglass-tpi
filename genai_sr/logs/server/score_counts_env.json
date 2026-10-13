@@ -1,0 +1,15 @@
+{
+ "counting_md5": "2bf64a3ab76458d1e852248fb0a4047f",
+ "conf_model_md5": "3aea9b50e4b75e191cac08cb5161ca59",
+ "cv2": "4.11.0",
+ "numpy": "1.26.4",
+ "estimators": [
+  "ours",
+  "gabor",
+  "lattice",
+  "fft"
+ ],
+ "preproc": "lcn",
+ "glare": "mask",
+ "max_work": 1024
+}

@@ -1,0 +1,10 @@
+clean: ours h=41.090 v=33.045 (truth 41.0, 33.0)
+k1=-0.10: ours factor h 1.0528 v 1.0531 | label factor: guide-line mean 0.9607  area-mean 0.9630  Hann 1.0530  Hann^2 1.0755
+k1=-0.05: ours factor h 1.0110 v 1.0101 | label factor: guide-line mean 0.9814  area-mean 0.9825  Hann 1.0251  Hann^2 1.0358
+k1=-0.02: ours factor h 0.9977 v 1.0000 | label factor: guide-line mean 0.9928  area-mean 0.9932  Hann 1.0097  Hann^2 1.0139
+k1=+0.02: ours factor h 0.9818 v 0.9776 | label factor: guide-line mean 0.9876  area-mean 0.9872  Hann 0.9716  Hann^2 0.9677
+k1=+0.05: ours factor h 0.9464 v 0.9387 | label factor: guide-line mean 0.9706  area-mean 0.9697  Hann 0.9329  Hann^2 0.9236
+k1=+0.10: ours factor h 0.8833 v 0.8530 | label factor: guide-line mean 0.9461  area-mean 0.9444  Hann 0.8769  Hann^2 0.8600
+  vs guide-line mean : through-origin slope of log factors 1.242, median |residual| 2.97%, max 9.84%
+  vs Hann            : through-origin slope of log factors 0.997, median |residual| 1.01%, max 2.73%
+  vs Hann^2          : through-origin slope of log factors 0.837, median |residual| 1.86%, max 2.71%

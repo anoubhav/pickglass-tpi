@@ -1,0 +1,38 @@
+D8 leg_a10 fail NonexNone $0.0000 tok=0+0 (img 0, r 0) 13s job=$0.138 no image returned
+D8 leg_a2 ok 2048x2048 $0.1381 tok=571+1330 (img 1120, r 210) 24s job=$0.276 
+D8 leg_a4 ok 2048x2048 $0.1381 tok=571+1332 (img 1120, r 212) 24s job=$0.415 
+D8 leg_a5 ok 2048x2048 $0.1384 tok=571+1362 (img 1120, r 214) 25s job=$0.553 
+D8 leg_a6 ok 2048x2048 $0.1379 tok=571+1314 (img 1120, r 194) 25s job=$0.691 
+D8 leg_a8 ok 2048x2048 $0.1384 tok=571+1355 (img 1120, r 235) 25s job=$0.829 
+D8 leg_r2 ok 2048x2048 $0.1381 tok=571+1332 (img 1120, r 212) 23s job=$0.967 
+D8 leg_r3 ok 2048x2048 $0.1384 tok=571+1357 (img 1120, r 237) 24s job=$1.106 
+D8 leg_r4 ok 2048x2048 $0.1383 tok=571+1349 (img 1120, r 221) 25s job=$1.244 
+D8 leg_r6 ok 2048x2048 $0.1381 tok=571+1336 (img 1120, r 216) 27s job=$1.382 
+D8 leg_r7 ok 2048x2048 $0.1386 tok=571+1373 (img 1120, r 253) 24s job=$1.521 
+D8 leg_r8 ok 2048x2048 $0.1382 tok=571+1340 (img 1120, r 220) 26s job=$1.659 
+D4 leg_a1 ok 2048x2048 $0.1382 tok=571+1340 (img 1120, r 220) 25s job=$1.797 
+D4 leg_a10 ok 2048x2048 $0.1383 tok=571+1346 (img 1120, r 218) 25s job=$1.935 
+D4 leg_a2 ok 2048x2048 $0.1381 tok=571+1336 (img 1120, r 216) 24s job=$2.073 
+D4 leg_a4 ok 2048x2048 $0.1382 tok=571+1341 (img 1120, r 221) 30s job=$2.212 
+D4 leg_a5 fail NonexNone $0.0000 tok=0+0 (img 0, r 0) 13s job=$2.212 no image returned
+D4 leg_a6 ok 2048x2048 $0.1383 tok=571+1346 (img 1120, r 226) 26s job=$2.350 
+D4 leg_a8 ok 2048x2048 $0.1382 tok=571+1345 (img 1120, r 225) 25s job=$2.488 
+D4 leg_r2 ok 2048x2048 $0.1383 tok=571+1352 (img 1120, r 232) 26s job=$2.626 
+D4 leg_r3 ok 2048x2048 $0.1384 tok=571+1356 (img 1120, r 228) 25s job=$2.765 
+D4 leg_r4 ok 2048x2048 $0.1386 tok=571+1378 (img 1120, r 250) 26s job=$2.903 
+D4 leg_r6 ok 2048x2048 $0.1386 tok=571+1371 (img 1120, r 251) 25s job=$3.042 
+D4 leg_r7 ok 2048x2048 $0.1383 tok=571+1348 (img 1120, r 228) 24s job=$3.180 
+D4 leg_r8 ok 2048x2048 $0.1383 tok=571+1346 (img 1120, r 218) 24s job=$3.319 
+D4J leg_a1 ok 2048x2048 $0.1384 tok=571+1354 (img 1120, r 226) 24s job=$3.480 
+D4J leg_a10 fail NonexNone $0.0000 tok=0+0 (img 0, r 0) 14s job=$3.492 no image returned
+D4J leg_a2 fail NonexNone $0.0000 tok=0+0 (img 0, r 0) 13s job=$3.503 no image returned
+D4J leg_a4 ok 2048x2048 $0.1378 tok=571+1308 (img 1120, r 188) 24s job=$3.663 
+D4J leg_a5 ok 2048x2048 $0.1385 tok=571+1368 (img 1120, r 248) 25s job=$3.827 
+D4J leg_a6 ok 2048x2048 $0.1384 tok=571+1355 (img 1120, r 235) 24s job=$3.978 
+D4J leg_a8 ok 2048x2048 $0.1385 tok=571+1369 (img 1120, r 249) 27s job=$4.151 
+D4J leg_r2 ok 2048x2048 $0.1378 tok=571+1308 (img 1120, r 188) 24s job=$4.301 
+D4J leg_r3 ok 2048x2048 $0.1386 tok=571+1375 (img 1120, r 247) 24s job=$4.439 
+D4J leg_r4 ok 2048x2048 $0.1383 tok=571+1348 (img 1120, r 228) 26s job=$4.578 
+D4J leg_r6 ok 2048x2048 $0.1379 tok=571+1314 (img 1120, r 194) 23s job=$4.716 
+D4J leg_r7 ok 2048x2048 $0.1381 tok=571+1334 (img 1120, r 214) 24s job=$4.854 
+D4J leg_r8 ok 2048x2048 $0.1384 tok=571+1362 (img 1120, r 242) 25s job=$4.992 

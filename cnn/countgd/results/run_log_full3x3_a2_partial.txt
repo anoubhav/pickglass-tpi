@@ -1,0 +1,19 @@
+$PICKGLASS_SCRATCH/venv_countgd/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+$PICKGLASS_SCRATCH/countgd_space/models/GroundingDINO/utils.py:61: SyntaxWarning: invalid escape sequence '\s'
+  - memory: bs, \sum{hw}, d_model
+$PICKGLASS_SCRATCH/venv_countgd/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at <pytorch-ci-build>/pytorch/aten/src/ATen/native/TensorShape.cpp:3596.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Some weights of BertModel were not initialized from the model checkpoint at checkpoints/bert-base-uncased and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+final text_encoder_type: checkpoints/bert-base-uncased
+load tokenizer done.
+final text_encoder_type: checkpoints/bert-base-uncased
+load tokenizer done.
+model built on mps in 80s; missing keys 0, unexpected 38
+[a2] GT warp 48.0 weft 47.0; lattice fx 47.5 fy 46.3 /in (cell 25.2 x 25.9 px at 1200 px/in); 3x3 tiles
+$PICKGLASS_SCRATCH/venv_countgd/lib/python3.12/site-packages/transformers/modeling_utils.py:1161: FutureWarning: The `device` argument is deprecated and will be removed in v5 of Transformers.
+  warnings.warn(
+$PICKGLASS_SCRATCH/countgd_space/models/GroundingDINO/transformer.py:901: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+   ex       count  1163 (max/tile 146) -> sqrt(C/A)   48.7 /in  vs GT geo-mean 47.5 (APE 3%)  [344s]

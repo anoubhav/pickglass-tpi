@@ -1,0 +1,29 @@
+wrote 200 crops to $PICKGLASS_SCRATCH/cascade/synth_cal_legacygrid in 77s; S median 1779 [1608, 1989]
+methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+  200/3800  195s
+  400/3800  360s
+methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+  600/3800  520s
+  800/3800  706s
+  1000/3800  870s
+  1200/3800  1033s
+methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+  1400/3800  1188s
+  1600/3800  1379s
+  1800/3800  1568s
+  2000/3800  1759s
+  2200/3800  1959s
+  2400/3800  2111s
+  2600/3800  2250s
+  2800/3800  2403s
+  3000/3800  2576s
+  3200/3800  2725s
+methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+  3400/3800  2866s
+  3600/3800  2974s
+  3800/3800  3089s
+wrote methods/results/cascade_synth_cal_legacygrid.csv: 3800 rows, 3089s

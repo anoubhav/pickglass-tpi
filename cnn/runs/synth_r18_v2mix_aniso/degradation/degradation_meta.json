@@ -1,0 +1,7 @@
+{
+ "ckpt": "runs/synth_r18_v2mix_aniso/model.pt",
+ "base_ppi": 600,
+ "test_P": 768,
+ "flips": false,
+ "legacy_window": "detect"
+}

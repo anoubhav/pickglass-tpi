@@ -1,0 +1,31 @@
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  10/100 images  209s
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  20/100 images  391s
+  30/100 images  576s
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  40/100 images  777s
+  50/100 images  998s
+  60/100 images  1226s
+  70/100 images  1376s
+  80/100 images  1486s
+  90/100 images  1600s
+  100/100 images  1697s
+wrote results/all150_degrade_partB.csv: 14500 rows, 100 images, 1698s

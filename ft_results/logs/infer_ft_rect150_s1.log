@@ -1,0 +1,90 @@
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 4886.42it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.16s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.15s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.18s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.22s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.20s/it]
+loaded in 8s adapter=../ckpt/run1/step01000
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 4128.58it/s]
+[rect150] 975 jobs (0 cached) -> $HOME/pickglass/ft/code/../raw/molmo2_4b_synthft__rect150__shard1of2.jsonl
+  rect150 P1 12/75 batch 2.3s maxgen 30
+  rect150 P1 24/75 batch 2.2s maxgen 30
+  rect150 P1 36/75 batch 2.2s maxgen 29
+  rect150 P1 48/75 batch 2.2s maxgen 30
+  rect150 P1 60/75 batch 2.2s maxgen 30
+  rect150 P1 72/75 batch 2.2s maxgen 30
+  rect150 P1 75/75 batch 1.1s maxgen 30
+  rect150 P4h 12/450 batch 19.5s maxgen 685
+  rect150 P4h 24/450 batch 18.8s maxgen 641
+  rect150 P4h 36/450 batch 24.2s maxgen 850
+  rect150 P4h 48/450 batch 41.3s maxgen 1392
+  rect150 P4h 60/450 batch 30.4s maxgen 1092
+  rect150 P4h 72/450 batch 17.1s maxgen 608
+  rect150 P4h 84/450 batch 25.1s maxgen 916
+  rect150 P4h 96/450 batch 39.2s maxgen 1404
+  rect150 P4h 108/450 batch 23.8s maxgen 905
+  rect150 P4h 120/450 batch 19.4s maxgen 729
+  rect150 P4h 132/450 batch 16.5s maxgen 608
+  rect150 P4h 144/450 batch 25.1s maxgen 916
+  rect150 P4h 156/450 batch 38.5s maxgen 1404
+  rect150 P4h 168/450 batch 17.3s maxgen 608
+  rect150 P4h 180/450 batch 20.0s maxgen 729
+  rect150 P4h 192/450 batch 25.8s maxgen 916
+  rect150 P4h 204/450 batch 27.5s maxgen 982
+  rect150 P4h 216/450 batch 22.5s maxgen 784
+  rect150 P4h 228/450 batch 30.7s maxgen 1092
+  rect150 P4h 240/450 batch 27.5s maxgen 993
+  rect150 P4h 252/450 batch 20.6s maxgen 729
+  rect150 P4h 264/450 batch 22.4s maxgen 784
+  rect150 P4h 276/450 batch 30.7s maxgen 1092
+  rect150 P4h 288/450 batch 46.6s maxgen 1608
+  rect150 P4h 300/450 batch 20.9s maxgen 729
+  rect150 P4h 312/450 batch 26.0s maxgen 916
+  rect150 P4h 324/450 batch 21.0s maxgen 729
+  rect150 P4h 336/450 batch 37.2s maxgen 1380
+  rect150 P4h 348/450 batch 21.1s maxgen 784
+  rect150 P4h 360/450 batch 15.1s maxgen 575
+  rect150 P4h 372/450 batch 16.8s maxgen 652
+  rect150 P4h 384/450 batch 20.3s maxgen 784
+  rect150 P4h 396/450 batch 21.7s maxgen 850
+  rect150 P4h 408/450 batch 25.6s maxgen 993
+  rect150 P4h 420/450 batch 23.5s maxgen 916
+  rect150 P4h 432/450 batch 23.4s maxgen 916
+  rect150 P4h 444/450 batch 23.5s maxgen 916
+  rect150 P4h 450/450 batch 24.4s maxgen 1004
+  rect150 P4v 12/450 batch 17.5s maxgen 685
+  rect150 P4v 24/450 batch 14.3s maxgen 553
+  rect150 P4v 36/450 batch 18.6s maxgen 729
+  rect150 P4v 48/450 batch 37.2s maxgen 1392
+  rect150 P4v 60/450 batch 28.2s maxgen 1092
+  rect150 P4v 72/450 batch 17.7s maxgen 685
+  rect150 P4v 84/450 batch 18.7s maxgen 729
+  rect150 P4v 96/450 batch 37.5s maxgen 1404
+  rect150 P4v 108/450 batch 28.3s maxgen 1092
+  rect150 P4v 120/450 batch 21.7s maxgen 850
+  rect150 P4v 132/450 batch 18.6s maxgen 729
+  rect150 P4v 144/450 batch 23.1s maxgen 905
+  rect150 P4v 156/450 batch 37.5s maxgen 1404
+  rect150 P4v 168/450 batch 13.4s maxgen 520
+  rect150 P4v 180/450 batch 17.5s maxgen 685
+  rect150 P4v 192/450 batch 14.3s maxgen 553
+  rect150 P4v 204/450 batch 21.4s maxgen 839
+  rect150 P4v 216/450 batch 20.0s maxgen 784
+  rect150 P4v 228/450 batch 28.6s maxgen 1104
+  rect150 P4v 240/450 batch 32.2s maxgen 1224
+  rect150 P4v 252/450 batch 18.7s maxgen 729
+  rect150 P4v 264/450 batch 32.1s maxgen 1224
+  rect150 P4v 276/450 batch 23.2s maxgen 905
+  rect150 P4v 288/450 batch 37.1s maxgen 1392
+  rect150 P4v 300/450 batch 21.4s maxgen 839
+  rect150 P4v 312/450 batch 32.1s maxgen 1224
+  rect150 P4v 324/450 batch 14.3s maxgen 553
+  rect150 P4v 336/450 batch 25.3s maxgen 982
+  rect150 P4v 348/450 batch 17.6s maxgen 685
+  rect150 P4v 360/450 batch 25.8s maxgen 1004
+  rect150 P4v 372/450 batch 23.4s maxgen 916
+  rect150 P4v 384/450 batch 14.2s maxgen 553
+  rect150 P4v 396/450 batch 19.0s maxgen 740
+  rect150 P4v 408/450 batch 25.7s maxgen 993
+  rect150 P4v 420/450 batch 26.0s maxgen 1004
+  rect150 P4v 432/450 batch 32.0s maxgen 1224
+  rect150 P4v 444/450 batch 18.6s maxgen 729
+  rect150 P4v 450/450 batch 16.6s maxgen 685
+ALL DONE

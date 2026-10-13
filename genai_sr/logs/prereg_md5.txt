@@ -1,0 +1,3 @@
+0257e8e01f354e90675c4a1d233c9cf4  README.md (protocol sections 1-8) frozen at 2026-10-07T23:13:41Z, before any restoration model download/run
+746b8ea15ab5834776ec7aff93d13985  README.md after deviation D1 at 2026-10-07T23:27:48Z
+55bd6f90558e822f9ca66d4a0ab02798  README.md D1 timestamp corrected to 23:28 UTC (actual) at 2026-10-07T23:27:51Z

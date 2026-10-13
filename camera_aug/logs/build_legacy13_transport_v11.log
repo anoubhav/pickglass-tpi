@@ -1,0 +1,6 @@
+legacy13: 78 renders to do (workers=2)
+  25/78  45s
+  50/78  87s
+  75/78  130s
+  78/78  138s
+wrote camera_aug/stress/legacy13/labels.csv

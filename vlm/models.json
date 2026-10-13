@@ -1,0 +1,7 @@
+{
+  "_note": "Local VLMs for the fabric thread-density baseline. All MLX 4-bit conversions from mlx-community, pinned to the commit sha that was downloaded (checked via the HF API on 2026-10-06). Sizes are the sum of safetensors shards.",
+  "qwen35_9b":   {"repo": "mlx-community/Qwen3.5-9B-MLX-4bit",   "revision": "938d8919941c6e7efd3c7150eff7fe9d12afa631", "base": "Qwen/Qwen3.5-9B",            "size_gb": 5.95, "family": "Qwen3.5 (Alibaba), native multimodal, 2026-02"},
+  "gemma4_12b":  {"repo": "mlx-community/gemma-4-12B-it-4bit",    "revision": "73bcf09092aa277861d5a191b989b666f7f32e8f", "base": "google/gemma-4-12B-it",      "size_gb": 6.74, "family": "Gemma 4 (Google), 2026-05"},
+  "molmo2_8b":   {"repo": "mlx-community/Molmo2-8B-4bit",         "revision": "4fcbe926577641af12aa5086cf5c292db9dd9730", "base": "allenai/Molmo2-8B",          "size_gb": 6.46, "family": "Molmo2 (AI2), trained for pointing/counting, 2026-01"},
+  "internvl3_2b":{"repo": "mlx-community/InternVL3-2B-4bit",      "revision": "e474b39487e563dbfa12c12e6a7e7d743cf340d4", "base": "OpenGVLab/InternVL3-2B",     "size_gb": 1.62, "family": "InternVL3 (Shanghai AI Lab), small, 2025-04"}
+}

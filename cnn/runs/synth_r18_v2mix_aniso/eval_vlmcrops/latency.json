@@ -1,0 +1,8 @@
+{
+ "hw": "M2 Max MPS (PyTorch), TTA 3 scales x 3 flips, median",
+ "median_s": 4.3700512499781325,
+ "min_s": 3.400677458033897,
+ "max_s": 5.954678832902573,
+ "n": 13,
+ "device": "mps"
+}

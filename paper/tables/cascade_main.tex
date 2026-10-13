@@ -1,0 +1,15 @@
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Policy & MAPE (\%) & $\le$10\% & Worst cond. & Offline & US\$/1k \\
+\midrule
+\ours only & 37.7 [20.7, 55.5] & 74 & 212.3 & 100\% & 0.00 \\
+GPT-6.1-sol P1 only & 13.5 [9.2, 18.1] & 70 & 36.4 & 0\% & 11.51 \\
+\midrule
+Cascade: confidence $<t_c$ & 38.5 [22.6, 55.6] & 70 & 215.7 & 79\% & 2.45 \\
+Cascade: confidence or resolvability (gate) & 13.6 [7.9, 21.4] & 74 & 32.9 & 76\% & 2.77 \\
+Cascade: \ours vs log-Gabor disagree & 11.0 [7.5, 14.7] & 75 & 36.3 & 60\% & 4.66 \\
+\midrule
+Always both: median of 3 & 10.4 [6.9, 14.1] & 76 & 35.8 & 0\% & 11.51 \\
+Oracle router (labels) & 7.2 [4.2, 10.7] & 83 & 12.8 & 62\% & 4.36 \\
+\bottomrule
+\end{tabular}

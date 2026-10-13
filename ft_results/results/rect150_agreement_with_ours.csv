@@ -1,0 +1,7 @@
+key,n_images,median_abs_rel_diff_vs_ours,frac_within10_of_ours,spearman_vs_ours,median_ratio,low_res_median_rel_diff
+molmo2_4b_synthft@P1,150,17.1036,0.3367,0.3719,1.0446,18.9733
+molmo2_4b_synthft@P4,150,17.84,0.3167,0.5712,1.0534,18.8477
+molmo2_4b_synthft@P4q,150,18.8635,0.3167,0.3108,1.1173,20.6431
+molmo2_4b_synthft@P4s,150,20.6909,0.31,0.3791,1.0386,22.5603
+molmo2_4b_base@P1,150,83.0279,0.0,-0.0772,0.1697,83.8436
+molmo2_4b_base@P4s,150,38.536,0.1233,0.3816,1.0499,40.2903

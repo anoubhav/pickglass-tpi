@@ -1,0 +1,126 @@
+[molmo2_8b/legacy] 140 jobs to run (0 cached) -> vlm/raw/molmo2_8b__legacy.jsonl
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files: 100%|██████████| 21/21 [00:00<00:00, 200.06it/s]
+$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/transformers/modeling_rope_utils.py:1126: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+  loaded mlx-community/Molmo2-8B-4bit in 10.6s
+  [1/140] a1/crop/P1 492.2s gen=34 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "twill" }
+  [2/140] a1/crop/P2 105.0s gen=28 :: {"vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}
+  [3/140] a1/qc/P3 13.1s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [4/140] a1/guide_h/P4h 17.7s gen=285 :: <points coords="1 1 011 529 2 050 530 3 090 530 4 130 530 5 170 530 6 210 530 7 250 530 8 290 530 9 330 530 10
+  [5/140] a1/guide_v/P4v 24.5s gen=340 :: <points coords="1 1 490 100 2 490 130 3 490 160 4 490 190 5 490 220 6 490 250 7 490 280 8 490 310 9 490 340 10
+  [6/140] a1/qc_guide_h/P4h 17.9s gen=142 :: <points coords="1 1 011 530 2 090 530 3 180 530 4 269 530 5 359 530 6 445 530 7 530 530 8 619 530 9 705 530 10
+### driver: molmo2_8b/legacy exit code -15 (attempt 1)
+$HOME/miniconda3/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[molmo2_8b/legacy] 134 jobs to run (6 cached) -> vlm/raw/molmo2_8b__legacy.jsonl
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files: 100%|██████████| 21/21 [00:00<00:00, 1002.11it/s]
+$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/transformers/modeling_rope_utils.py:1126: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+  loaded mlx-community/Molmo2-8B-4bit in 7.9s
+  Metal error on a1/qc_guide_v/P4v -> exiting for restart
+### driver: molmo2_8b/legacy exit code 3 (attempt 2)
+$HOME/miniconda3/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[molmo2_8b/legacy] 134 jobs to run (6 cached) -> vlm/raw/molmo2_8b__legacy.jsonl
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files: 100%|██████████| 21/21 [00:00<00:00, 797.77it/s]
+$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/transformers/modeling_rope_utils.py:1126: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+  loaded mlx-community/Molmo2-8B-4bit in 6.1s
+  [1/134] a1/qc_guide_v/P4v 86.4s gen=1024 :: <points coords="1 1 455 501 2 455 590 3 455 631 4 455 675 5 455 720 6 455 765 7 455 809 8 455 855 9 455 899 10
+  [2/134] a2/crop/P1 44.5s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [3/134] a2/crop/P2 24.3s gen=181 :: To analyze this fabric, I'll follow the steps:  1. The weave appears to be plain, with vertical and horizontal
+$HOME/miniconda3/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[molmo2_8b/legacy] 18 jobs to run (9 cached) -> vlm/raw/molmo2_8b__legacy.jsonl
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files: 100%|██████████| 21/21 [00:00<00:00, 1161.84it/s]
+$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/transformers/modeling_rope_utils.py:1126: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+  loaded mlx-community/Molmo2-8B-4bit in 7.8s
+  [1/18] a3/crop/P1 13.6s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [2/18] a4/crop/P1 13.3s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [3/18] a5/crop/P1 13.6s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [4/18] a6/crop/P1 15.8s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [5/18] a7/crop/P1 82.8s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [6/18] a8/crop/P1 12.4s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [7/18] a9/crop/P1 72.4s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [8/18] a10/crop/P1 16.0s gen=34 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "twill" }
+  [9/18] r1/crop/P1 15.5s gen=34 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "twill" }
+  [10/18] r2/crop/P1 13.3s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [11/18] r3/crop/P1 9.6s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [12/18] r4/crop/P1 6.4s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [13/18] r5/crop/P1 8.8s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [14/18] r6/crop/P1 5.4s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [15/18] r7/crop/P1 151.8s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [16/18] r8/crop/P1 15.7s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [17/18] r9/crop/P1 9.2s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [18/18] r10/crop/P1 10.6s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+### driver: molmo2_8b/legacy exit code 0 (attempt 1)
+[molmo2_8b/legacy] 71 jobs to run (27 cached) -> vlm/raw/molmo2_8b__legacy.jsonl
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files: 100%|██████████| 21/21 [00:00<00:00, 1161.64it/s]
+$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/transformers/modeling_rope_utils.py:1126: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+  loaded mlx-community/Molmo2-8B-4bit in 6.9s
+  [1/71] a2/qc/P3 23.6s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [2/71] a2/guide_h/P4h 147.5s gen=450 :: <points coords="1 1 005 520 2 030 520 3 055 520 4 080 520 5 105 520 6 130 520 7 155 520 8 180 520 9 205 520 10
+  [3/71] a2/guide_v/P4v 63.0s gen=505 :: <points coords="1 1 490 100 2 490 120 3 490 140 4 490 160 5 490 180 6 490 200 7 490 220 8 490 240 9 490 260 10
+  [4/71] a2/qc_guide_h/P4h 106.0s gen=153 :: <points coords="1 1 011 530 2 090 530 3 170 530 4 251 530 5 330 530 6 409 530 7 489 530 8 569 530 9 650 530 10
+  [5/71] a2/qc_guide_v/P4v 184.4s gen=109 :: <points coords="1 1 490 111 2 490 195 3 490 290 4 490 390 5 490 490 6 490 590 7 490 690 8 490 790 9 490 890">h
+  [6/71] a4/crop/P2 119.1s gen=189 :: To analyze this fabric, I'll follow the steps:  1. The weave appears to be plain, with vertical and horizontal
+  [7/71] a4/qc/P3 38.2s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+$HOME/miniconda3/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+### manual restart for P4 v1.2 cap Wed Oct  7 09:44:13 EDT 2026
+[molmo2_8b/legacy] 64 jobs to run (34 cached) -> vlm/raw/molmo2_8b__legacy.jsonl
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files: 100%|██████████| 21/21 [00:00<00:00, 263.39it/s]
+$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/transformers/modeling_rope_utils.py:1126: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+  loaded mlx-community/Molmo2-8B-4bit in 7.4s
+  [1/64] a4/guide_h/P4h 284.5s gen=1536 :: <points coords="1 1 005 530 2 010 539 3 015 521 4 020 530 5 025 539 6 030 521 7 035 530 8 040 539 9 045 521 10
+  [2/64] a4/guide_v/P4v 67.4s gen=703 :: <points coords="1 1 490 005 2 490 021 3 490 039 4 490 055 5 490 071 6 490 087 7 490 103 8 490 119 9 490 135 10
+  [3/64] a4/qc_guide_h/P4h 31.3s gen=263 :: <points coords="1 1 011 530 2 051 530 3 095 530 4 139 530 5 180 530 6 220 530 7 265 530 8 309 530 9 351 530 10
+  [4/64] a4/qc_guide_v/P4v 33.3s gen=241 :: <points coords="1 1 465 010 2 465 060 3 465 110 4 465 160 5 465 210 6 465 260 7 465 310 8 465 360 9 465 410 10
+  [5/64] a5/crop/P2 58.5s gen=167 :: To analyze this fabric, I'll follow the steps:  1. The weave appears to be plain, with vertical and horizontal
+  [6/64] a5/qc/P3 161.2s gen=33 :: {   "vertical_yarns": 10,   "horizontal_yarns": 10,   "weave": "plain" }
+  [7/64] a5/guide_h/P4h 42.7s gen=285 :: <points coords="1 1 011 530 2 050 530 3 090 530 4 130 530 5 170 530 6 210 530 7 250 530 8 290 530 9 330 530 10
+$HOME/miniconda3/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+### manual restart with MLX_MAX_OPS_PER_BUFFER=100 MLX_MAX_MB_PER_BUFFER=200 Wed Oct  7 10:04:14 EDT 2026
+[molmo2_8b/legacy] 57 jobs to run (41 cached) -> vlm/raw/molmo2_8b__legacy.jsonl
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files:   5%|▍         | 1/21 [00:00<00:09,  2.09it/s]Fetching 21 files: 100%|██████████| 21/21 [00:00<00:00, 42.04it/s]
+$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/transformers/modeling_rope_utils.py:1126: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+  loaded mlx-community/Molmo2-8B-4bit in 26.8s
+python(38911) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  warm-up failed: RuntimeError('[METAL] Command buffer execution failed: Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout).')
+### driver: molmo2_8b/legacy exit code 3 (attempt 1)
+$HOME/miniconda3/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[molmo2_8b/legacy] 57 jobs to run (41 cached) -> vlm/raw/molmo2_8b__legacy.jsonl
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files:  81%|████████  | 17/21 [00:00<00:00, 66.16it/s]Fetching 21 files: 100%|██████████| 21/21 [00:00<00:00, 56.04it/s]
+$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/transformers/modeling_rope_utils.py:1126: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+  loaded mlx-community/Molmo2-8B-4bit in 39.2s
+### manual restart, back to MLX_MAX_OPS_PER_BUFFER=10 MLX_MAX_MB_PER_BUFFER=20 (larger buffers -> Metal timeouts under contention) Wed Oct  7 10:14:10 EDT 2026
+[molmo2_8b/legacy] 57 jobs to run (41 cached) -> vlm/raw/molmo2_8b__legacy.jsonl
+$HOME/miniconda3/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files:   5%|▍         | 1/21 [00:00<00:12,  1.62it/s]Fetching 21 files: 100%|██████████| 21/21 [00:00<00:00, 33.65it/s]
+$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/transformers/modeling_rope_utils.py:1126: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+  loaded mlx-community/Molmo2-8B-4bit in 84.8s
+  warm-up failed: RuntimeError('[METAL] Command buffer execution failed: Caused GPU Timeout Error (00000002:kIOGPUCommandBufferCallbackErrorTimeout).')
+### driver: molmo2_8b/legacy exit code 3 (attempt 1)
+$HOME/miniconda3/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[molmo2_8b/legacy] 57 jobs to run (41 cached) -> vlm/raw/molmo2_8b__legacy.jsonl
+### stopped: Metal timeouts even with small buffers (GPU saturated by other jobs) Wed Oct  7 10:24:25 EDT 2026
+### restart Wed Oct  7 10:38:23 EDT 2026 (GPU, small buffers)
+[molmo2_8b/legacy] 57 jobs to run (41 cached) -> vlm/raw/molmo2_8b__legacy.jsonl
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files: 100%|██████████| 21/21 [00:00<00:00, 1973.44it/s]
+$PICKGLASS_SCRATCH/venv_vlm/lib/python3.11/site-packages/transformers/modeling_rope_utils.py:1126: FutureWarning: `rope_config_validation` is deprecated and has been removed. Its functionality has been moved to RotaryEmbeddingConfigMixin.validate_rope method. PreTrainedConfig inherits this class, so please call self.validate_rope() instead. Also, make sure to use the new rope_parameters syntax. You can call self.standardize_rope_params() in the meantime.
+  warnings.warn(
+  loaded mlx-community/Molmo2-8B-4bit in 9.0s
+  [1/57] a5/guide_v/P4v 1423.9s gen=505 :: <points coords="1 1 490 100 2 490 120 3 490 140 4 490 160 5 490 180 6 490 200 7 490 220 8 490 240 9 490 260 10
+$HOME/miniconda3/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+### stopped by the VLM job at Wed Oct  7 11:05:49 EDT 2026: GPU saturated by other workloads (24 min per pointing generation). Resume with the commands in RESULTS.md.

@@ -1,0 +1,262 @@
+policy,cond,n_photos,MAPE,w10_pct,escalated_pct,usd_per_1k
+ours only,clean,13,11.611,80.7692,0.0,0.0
+ours only,defocus 3u,13,212.2573,42.3077,0.0,0.0
+ours only,defocus 6u,13,51.8946,65.3846,0.0,0.0
+ours only,down x4,13,9.5607,84.6154,0.0,0.0
+ours only,down x8,13,7.5507,76.9231,0.0,0.0
+ours only,JPEG q20,13,11.6011,80.7692,0.0,0.0
+ours only,glare 5%,13,11.4895,80.7692,0.0,0.0
+ours only,glare 30%,13,11.8626,80.7692,0.0,0.0
+ours only,corners 5%,13,11.5364,73.0769,0.0,0.0
+log-Gabor only,clean,13,9.2275,80.7692,0.0,0.0
+log-Gabor only,defocus 3u,13,28.1576,53.8462,0.0,0.0
+log-Gabor only,defocus 6u,13,51.2823,23.0769,0.0,0.0
+log-Gabor only,down x4,13,10.0614,76.9231,0.0,0.0
+log-Gabor only,down x8,13,12.685,73.0769,0.0,0.0
+log-Gabor only,JPEG q20,13,9.1866,80.7692,0.0,0.0
+log-Gabor only,glare 5%,13,9.2833,80.7692,0.0,0.0
+log-Gabor only,glare 30%,13,15.742,69.2308,0.0,0.0
+log-Gabor only,corners 5%,13,10.4277,76.9231,0.0,0.0
+GPT only,clean,13,8.7917,80.7692,100.0,10.8453
+GPT only,defocus 3u,13,15.9086,65.3846,100.0,11.6358
+GPT only,defocus 6u,13,36.3559,30.7692,100.0,10.9489
+GPT only,down x4,13,9.0165,76.9231,100.0,11.7089
+GPT only,down x8,13,12.6196,69.2308,100.0,11.6104
+GPT only,JPEG q20,13,9.433,80.7692,100.0,12.0097
+GPT only,glare 5%,13,7.9646,80.7692,100.0,11.7489
+GPT only,glare 30%,13,10.7639,69.2308,100.0,11.185
+GPT only,corners 5%,13,11.0811,73.0769,100.0,11.8981
+cascade gate,clean,13,11.7864,80.7692,7.6923,0.9618
+cascade gate,defocus 3u,13,16.5481,69.2308,61.5385,7.3675
+cascade gate,defocus 6u,13,32.8541,38.4615,69.2308,7.5401
+cascade gate,down x4,13,9.661,84.6154,7.6923,0.9357
+cascade gate,down x8,13,8.4073,73.0769,15.3846,1.8675
+cascade gate,JPEG q20,13,11.7851,80.7692,7.6923,0.8449
+cascade gate,glare 5%,13,9.0877,84.6154,15.3846,1.8044
+cascade gate,glare 30%,13,9.8237,76.9231,23.0769,2.7354
+cascade gate,corners 5%,13,12.1975,73.0769,7.6923,0.8933
+cascade conf,clean,13,11.7864,80.7692,7.6923,0.9618
+cascade conf,defocus 3u,13,215.7021,34.6154,30.7692,3.5226
+cascade conf,defocus 6u,13,56.2694,50.0,38.4615,4.0083
+cascade conf,down x4,13,10.2895,84.6154,15.3846,1.8675
+cascade conf,down x8,13,8.6694,73.0769,23.0769,2.6785
+cascade conf,JPEG q20,13,11.7851,80.7692,7.6923,0.8449
+cascade conf,glare 5%,13,9.3315,80.7692,23.0769,2.7931
+cascade conf,glare 30%,13,10.287,73.0769,30.7692,3.5595
+cascade conf,corners 5%,13,12.4164,73.0769,15.3846,1.7805
+cascade blur (gate's r_min only),clean,13,11.611,80.7692,0.0,0.0
+cascade blur (gate's r_min only),defocus 3u,13,15.4301,73.0769,46.1538,5.647
+cascade blur (gate's r_min only),defocus 6u,13,31.0453,42.3077,53.8462,5.9642
+cascade blur (gate's r_min only),down x4,13,9.5607,84.6154,0.0,0.0
+cascade blur (gate's r_min only),down x8,13,7.5507,76.9231,0.0,0.0
+cascade blur (gate's r_min only),JPEG q20,13,11.6011,80.7692,0.0,0.0
+cascade blur (gate's r_min only),glare 5%,13,11.4895,80.7692,0.0,0.0
+cascade blur (gate's r_min only),glare 30%,13,11.8626,80.7692,0.0,0.0
+cascade blur (gate's r_min only),corners 5%,13,11.5364,73.0769,0.0,0.0
+cascade agree-ext,clean,13,5.5782,88.4615,23.0769,2.7685
+cascade agree-ext,defocus 3u,13,15.667,69.2308,84.6154,10.046
+cascade agree-ext,defocus 6u,13,36.2797,30.7692,84.6154,9.423
+cascade agree-ext,down x4,13,6.1474,84.6154,30.7692,3.398
+cascade agree-ext,down x8,13,9.0066,73.0769,23.0769,2.7223
+cascade agree-ext,JPEG q20,13,5.3779,88.4615,23.0769,2.6262
+cascade agree-ext,glare 5%,13,5.7691,88.4615,23.0769,2.6654
+cascade agree-ext,glare 30%,13,7.5278,80.7692,30.7692,3.5765
+cascade agree-ext,corners 5%,13,7.6992,73.0769,38.4615,4.7313
+"cascade gate [vlm9, a=0.05]",clean,13,8.2798,80.7692,46.1538,4.969
+"cascade gate [vlm9, a=0.05]",defocus 3u,13,18.875,65.3846,76.9231,9.1696
+"cascade gate [vlm9, a=0.05]",defocus 6u,13,34.2952,34.6154,84.6154,9.2768
+"cascade gate [vlm9, a=0.05]",down x4,13,8.5787,80.7692,38.4615,4.5721
+"cascade gate [vlm9, a=0.05]",down x8,13,10.551,73.0769,53.8462,6.2011
+"cascade gate [vlm9, a=0.05]",JPEG q20,13,12.6409,76.9231,38.4615,4.8013
+"cascade gate [vlm9, a=0.05]",glare 5%,13,6.1981,84.6154,38.4615,4.6067
+"cascade gate [vlm9, a=0.05]",glare 30%,13,8.7675,76.9231,61.5385,6.9098
+"cascade gate [vlm9, a=0.05]",corners 5%,13,8.0449,73.0769,46.1538,5.5608
+"cascade conf [vlm9, a=0.05]",clean,13,8.2798,80.7692,46.1538,4.969
+"cascade conf [vlm9, a=0.05]",defocus 3u,13,86.0484,50.0,61.5385,7.5275
+"cascade conf [vlm9, a=0.05]",defocus 6u,13,29.5861,42.3077,76.9231,8.4765
+"cascade conf [vlm9, a=0.05]",down x4,13,8.5787,80.7692,38.4615,4.5721
+"cascade conf [vlm9, a=0.05]",down x8,13,10.551,73.0769,53.8462,6.2011
+"cascade conf [vlm9, a=0.05]",JPEG q20,13,8.952,80.7692,46.1538,5.6685
+"cascade conf [vlm9, a=0.05]",glare 5%,13,6.1981,84.6154,38.4615,4.6067
+"cascade conf [vlm9, a=0.05]",glare 30%,13,8.7675,76.9231,61.5385,6.9098
+"cascade conf [vlm9, a=0.05]",corners 5%,13,8.0449,73.0769,46.1538,5.5608
+"cascade gate [vlm9, a=0.20]",clean,13,11.611,80.7692,0.0,0.0
+"cascade gate [vlm9, a=0.20]",defocus 3u,13,212.2573,42.3077,0.0,0.0
+"cascade gate [vlm9, a=0.20]",defocus 6u,13,45.7863,61.5385,7.6923,0.9618
+"cascade gate [vlm9, a=0.20]",down x4,13,9.5607,84.6154,0.0,0.0
+"cascade gate [vlm9, a=0.20]",down x8,13,8.0905,73.0769,7.6923,0.9318
+"cascade gate [vlm9, a=0.20]",JPEG q20,13,11.6011,80.7692,0.0,0.0
+"cascade gate [vlm9, a=0.20]",glare 5%,13,11.4895,80.7692,0.0,0.0
+"cascade gate [vlm9, a=0.20]",glare 30%,13,11.8626,80.7692,0.0,0.0
+"cascade gate [vlm9, a=0.20]",corners 5%,13,11.5364,73.0769,0.0,0.0
+"cascade conf [vlm9, a=0.20]",clean,13,11.611,80.7692,0.0,0.0
+"cascade conf [vlm9, a=0.20]",defocus 3u,13,212.2573,42.3077,0.0,0.0
+"cascade conf [vlm9, a=0.20]",defocus 6u,13,45.7863,61.5385,7.6923,0.9618
+"cascade conf [vlm9, a=0.20]",down x4,13,9.5607,84.6154,0.0,0.0
+"cascade conf [vlm9, a=0.20]",down x8,13,8.0905,73.0769,7.6923,0.9318
+"cascade conf [vlm9, a=0.20]",JPEG q20,13,11.6011,80.7692,0.0,0.0
+"cascade conf [vlm9, a=0.20]",glare 5%,13,11.4895,80.7692,0.0,0.0
+"cascade conf [vlm9, a=0.20]",glare 30%,13,11.8626,80.7692,0.0,0.0
+"cascade conf [vlm9, a=0.20]",corners 5%,13,11.5364,73.0769,0.0,0.0
+"cascade gate [all19, a=0.10]",clean,13,11.7864,80.7692,7.6923,0.9618
+"cascade gate [all19, a=0.10]",defocus 3u,13,18.875,65.3846,76.9231,9.1696
+"cascade gate [all19, a=0.10]",defocus 6u,13,32.1073,38.4615,61.5385,6.6198
+"cascade gate [all19, a=0.10]",down x4,13,10.9369,80.7692,23.0769,2.7608
+"cascade gate [all19, a=0.10]",down x8,13,8.6694,73.0769,23.0769,2.6785
+"cascade gate [all19, a=0.10]",JPEG q20,13,11.7851,80.7692,7.6923,0.8449
+"cascade gate [all19, a=0.10]",glare 5%,13,9.3315,80.7692,23.0769,2.7931
+"cascade gate [all19, a=0.10]",glare 30%,13,10.287,73.0769,30.7692,3.5595
+"cascade gate [all19, a=0.10]",corners 5%,13,9.4164,73.0769,30.7692,3.318
+"cascade conf [all19, a=0.10]",clean,13,9.1805,84.6154,15.3846,1.899
+"cascade conf [all19, a=0.10]",defocus 3u,13,179.1753,42.3077,38.4615,4.6506
+"cascade conf [all19, a=0.10]",defocus 6u,13,60.1544,42.3077,46.1538,4.7801
+"cascade conf [all19, a=0.10]",down x4,13,10.9369,80.7692,23.0769,2.7608
+"cascade conf [all19, a=0.10]",down x8,13,8.6694,73.0769,23.0769,2.6785
+"cascade conf [all19, a=0.10]",JPEG q20,13,12.5156,76.9231,15.3846,1.8067
+"cascade conf [all19, a=0.10]",glare 5%,13,9.3315,80.7692,23.0769,2.7931
+"cascade conf [all19, a=0.10]",glare 30%,13,8.26,76.9231,46.1538,5.3008
+"cascade conf [all19, a=0.10]",corners 5%,13,9.4164,73.0769,30.7692,3.318
+"cascade gate [all19, a=0.05]",clean,13,8.2798,80.7692,46.1538,4.969
+"cascade gate [all19, a=0.05]",defocus 3u,13,18.875,65.3846,76.9231,9.1696
+"cascade gate [all19, a=0.05]",defocus 6u,13,34.2952,34.6154,84.6154,9.2768
+"cascade gate [all19, a=0.05]",down x4,13,8.5787,80.7692,38.4615,4.5721
+"cascade gate [all19, a=0.05]",down x8,13,10.551,73.0769,53.8462,6.2011
+"cascade gate [all19, a=0.05]",JPEG q20,13,8.952,80.7692,46.1538,5.6685
+"cascade gate [all19, a=0.05]",glare 5%,13,6.1981,84.6154,38.4615,4.6067
+"cascade gate [all19, a=0.05]",glare 30%,13,8.7675,76.9231,61.5385,6.9098
+"cascade gate [all19, a=0.05]",corners 5%,13,8.0449,73.0769,46.1538,5.5608
+"cascade conf [all19, a=0.05]",clean,13,8.2798,80.7692,46.1538,4.969
+"cascade conf [all19, a=0.05]",defocus 3u,13,82.5316,53.8462,69.2308,8.3655
+"cascade conf [all19, a=0.05]",defocus 6u,13,29.5861,42.3077,76.9231,8.4765
+"cascade conf [all19, a=0.05]",down x4,13,8.5787,80.7692,38.4615,4.5721
+"cascade conf [all19, a=0.05]",down x8,13,10.551,73.0769,53.8462,6.2011
+"cascade conf [all19, a=0.05]",JPEG q20,13,8.952,80.7692,46.1538,5.6685
+"cascade conf [all19, a=0.05]",glare 5%,13,6.1834,84.6154,46.1538,5.6155
+"cascade conf [all19, a=0.05]",glare 30%,13,9.0165,76.9231,69.2308,7.8717
+"cascade conf [all19, a=0.05]",corners 5%,13,8.0449,73.0769,46.1538,5.5608
+"cascade gate [all19, a=0.20]",clean,13,11.611,80.7692,0.0,0.0
+"cascade gate [all19, a=0.20]",defocus 3u,13,212.2573,42.3077,0.0,0.0
+"cascade gate [all19, a=0.20]",defocus 6u,13,17.1301,61.5385,23.0769,2.7562
+"cascade gate [all19, a=0.20]",down x4,13,9.5607,84.6154,0.0,0.0
+"cascade gate [all19, a=0.20]",down x8,13,8.0905,73.0769,7.6923,0.9318
+"cascade gate [all19, a=0.20]",JPEG q20,13,11.6011,80.7692,0.0,0.0
+"cascade gate [all19, a=0.20]",glare 5%,13,11.4895,80.7692,0.0,0.0
+"cascade gate [all19, a=0.20]",glare 30%,13,11.8626,80.7692,0.0,0.0
+"cascade gate [all19, a=0.20]",corners 5%,13,11.5364,73.0769,0.0,0.0
+"cascade conf [all19, a=0.20]",clean,13,11.611,80.7692,0.0,0.0
+"cascade conf [all19, a=0.20]",defocus 3u,13,212.2573,42.3077,0.0,0.0
+"cascade conf [all19, a=0.20]",defocus 6u,13,45.7863,61.5385,7.6923,0.9618
+"cascade conf [all19, a=0.20]",down x4,13,9.5607,84.6154,0.0,0.0
+"cascade conf [all19, a=0.20]",down x8,13,8.0905,73.0769,7.6923,0.9318
+"cascade conf [all19, a=0.20]",JPEG q20,13,11.6011,80.7692,0.0,0.0
+"cascade conf [all19, a=0.20]",glare 5%,13,11.4895,80.7692,0.0,0.0
+"cascade conf [all19, a=0.20]",glare 30%,13,12.177,76.9231,7.6923,0.9003
+"cascade conf [all19, a=0.20]",corners 5%,13,11.5364,73.0769,0.0,0.0
+cascade gate [default-generator synth],clean,13,11.7864,80.7692,7.6923,0.9618
+cascade gate [default-generator synth],defocus 3u,13,213.3752,38.4615,15.3846,1.7205
+cascade gate [default-generator synth],defocus 6u,13,52.1693,53.8462,30.7692,3.2534
+cascade gate [default-generator synth],down x4,13,9.661,84.6154,7.6923,0.9357
+cascade gate [default-generator synth],down x8,13,8.4073,73.0769,15.3846,1.8675
+cascade gate [default-generator synth],JPEG q20,13,11.7851,80.7692,7.6923,0.8449
+cascade gate [default-generator synth],glare 5%,13,9.0877,84.6154,15.3846,1.8044
+cascade gate [default-generator synth],glare 30%,13,9.8237,76.9231,23.0769,2.7354
+cascade gate [default-generator synth],corners 5%,13,11.5364,73.0769,0.0,0.0
+cascade conf [default-generator synth],clean,13,11.7864,80.7692,7.6923,0.9618
+cascade conf [default-generator synth],defocus 3u,13,213.3752,38.4615,15.3846,1.7205
+cascade conf [default-generator synth],defocus 6u,13,52.1693,53.8462,30.7692,3.2534
+cascade conf [default-generator synth],down x4,13,9.661,84.6154,7.6923,0.9357
+cascade conf [default-generator synth],down x8,13,8.4073,73.0769,15.3846,1.8675
+cascade conf [default-generator synth],JPEG q20,13,11.7851,80.7692,7.6923,0.8449
+cascade conf [default-generator synth],glare 5%,13,9.0877,84.6154,15.3846,1.8044
+cascade conf [default-generator synth],glare 30%,13,9.8237,76.9231,23.0769,2.7354
+cascade conf [default-generator synth],corners 5%,13,11.5364,73.0769,0.0,0.0
+cascade conf + blur(real-150 p05),clean,13,11.7864,80.7692,7.6923,0.9618
+cascade conf + blur(real-150 p05),defocus 3u,13,18.875,65.3846,76.9231,9.1696
+cascade conf + blur(real-150 p05),defocus 6u,13,32.8541,38.4615,69.2308,7.5401
+cascade conf + blur(real-150 p05),down x4,13,10.2895,84.6154,15.3846,1.8675
+cascade conf + blur(real-150 p05),down x8,13,10.2165,69.2308,38.4615,4.419
+cascade conf + blur(real-150 p05),JPEG q20,13,11.7851,80.7692,7.6923,0.8449
+cascade conf + blur(real-150 p05),glare 5%,13,9.3315,80.7692,23.0769,2.7931
+cascade conf + blur(real-150 p05),glare 30%,13,10.287,73.0769,30.7692,3.5595
+cascade conf + blur(real-150 p05),corners 5%,13,12.4164,73.0769,15.3846,1.7805
+cascade conf + blur(real-150 p02),clean,13,11.7864,80.7692,7.6923,0.9618
+cascade conf + blur(real-150 p02),defocus 3u,13,18.875,65.3846,76.9231,9.1696
+cascade conf + blur(real-150 p02),defocus 6u,13,32.8541,38.4615,69.2308,7.5401
+cascade conf + blur(real-150 p02),down x4,13,10.2895,84.6154,15.3846,1.8675
+cascade conf + blur(real-150 p02),down x8,13,10.2165,69.2308,38.4615,4.419
+cascade conf + blur(real-150 p02),JPEG q20,13,11.7851,80.7692,7.6923,0.8449
+cascade conf + blur(real-150 p02),glare 5%,13,9.3315,80.7692,23.0769,2.7931
+cascade conf + blur(real-150 p02),glare 30%,13,10.287,73.0769,30.7692,3.5595
+cascade conf + blur(real-150 p02),corners 5%,13,12.4164,73.0769,15.3846,1.7805
+cascade conf + blur(real-150 p10),clean,13,11.7864,80.7692,7.6923,0.9618
+cascade conf + blur(real-150 p10),defocus 3u,13,19.3511,61.5385,84.6154,9.9614
+cascade conf + blur(real-150 p10),defocus 6u,13,34.7104,34.6154,76.9231,8.4735
+cascade conf + blur(real-150 p10),down x4,13,10.2895,84.6154,15.3846,1.8675
+cascade conf + blur(real-150 p10),down x8,13,10.2954,69.2308,46.1538,5.2762
+cascade conf + blur(real-150 p10),JPEG q20,13,11.7851,80.7692,7.6923,0.8449
+cascade conf + blur(real-150 p10),glare 5%,13,9.3315,80.7692,23.0769,2.7931
+cascade conf + blur(real-150 p10),glare 30%,13,10.287,73.0769,30.7692,3.5595
+cascade conf + blur(real-150 p10),corners 5%,13,12.4164,73.0769,15.3846,1.7805
+cascade agree-int,clean,13,13.695,73.0769,23.0769,2.2798
+cascade agree-int,defocus 3u,13,86.0484,50.0,61.5385,7.5275
+cascade agree-int,defocus 6u,13,29.5861,42.3077,76.9231,8.4765
+cascade agree-int,down x4,13,11.4525,76.9231,15.3846,1.9259
+cascade agree-int,down x8,13,9.5855,73.0769,38.4615,4.469
+cascade agree-int,JPEG q20,13,14.0005,73.0769,23.0769,2.7154
+cascade agree-int,glare 5%,13,9.3315,80.7692,23.0769,2.7931
+cascade agree-int,glare 30%,13,12.6404,73.0769,15.3846,1.7244
+cascade agree-int,corners 5%,13,12.2668,69.2308,15.3846,1.6575
+cascade conf<0.9 (a priori),clean,13,8.2798,80.7692,46.1538,4.969
+cascade conf<0.9 (a priori),defocus 3u,13,53.9424,61.5385,76.9231,9.1212
+cascade conf<0.9 (a priori),defocus 6u,13,29.5861,42.3077,76.9231,8.4765
+cascade conf<0.9 (a priori),down x4,13,8.5787,80.7692,38.4615,4.5721
+cascade conf<0.9 (a priori),down x8,13,10.6687,73.0769,61.5385,7.0283
+cascade conf<0.9 (a priori),JPEG q20,13,8.952,80.7692,46.1538,5.6685
+cascade conf<0.9 (a priori),glare 5%,13,6.1834,84.6154,46.1538,5.6155
+cascade conf<0.9 (a priori),glare 30%,13,9.7812,73.0769,76.9231,8.7758
+cascade conf<0.9 (a priori),corners 5%,13,8.0449,73.0769,46.1538,5.5608
+cascade gate -> GPT P3,clean,13,11.8811,80.7692,7.6923,1.1107
+cascade gate -> GPT P3,defocus 3u,13,11.2701,76.9231,61.5385,6.4968
+cascade gate -> GPT P3,defocus 6u,13,23.2841,46.1538,69.2308,6.889
+cascade gate -> GPT P3,down x4,13,9.8283,84.6154,7.6923,0.9637
+cascade gate -> GPT P3,down x8,13,7.118,80.7692,15.3846,1.8052
+cascade gate -> GPT P3,JPEG q20,13,11.8688,80.7692,7.6923,0.8083
+cascade gate -> GPT P3,glare 5%,13,10.3922,76.9231,15.3846,1.8052
+cascade gate -> GPT P3,glare 30%,13,11.8626,80.7692,23.0769,0.7617
+cascade gate -> GPT P3,corners 5%,13,11.6931,73.0769,7.6923,0.8083
+cascade gate -> Gemini P3,clean,13,12.55,76.9231,7.6923,0.5901
+cascade gate -> Gemini P3,defocus 3u,13,19.1581,38.4615,61.5385,2.893
+cascade gate -> Gemini P3,defocus 6u,13,26.9048,38.4615,69.2308,1.7661
+cascade gate -> Gemini P3,down x4,13,12.3272,76.9231,7.6923,0.0801
+cascade gate -> Gemini P3,down x8,13,8.7091,69.2308,15.3846,0.5747
+cascade gate -> Gemini P3,JPEG q20,13,12.5376,76.9231,7.6923,0.0798
+cascade gate -> Gemini P3,glare 5%,13,11.51,73.0769,15.3846,0.7077
+cascade gate -> Gemini P3,glare 30%,13,28.2262,69.2308,23.0769,0.3599
+cascade gate -> Gemini P3,corners 5%,13,12.741,69.2308,7.6923,0.3209
+"both, median of 3",clean,13,5.56,88.4615,100.0,10.8453
+"both, median of 3",defocus 3u,13,11.8567,73.0769,100.0,11.6358
+"both, median of 3",defocus 6u,13,35.7609,30.7692,100.0,10.9489
+"both, median of 3",down x4,13,6.0614,84.6154,100.0,11.7089
+"both, median of 3",down x8,13,8.0503,76.9231,100.0,11.6104
+"both, median of 3",JPEG q20,13,5.4435,88.4615,100.0,12.0097
+"both, median of 3",glare 5%,13,5.7287,88.4615,100.0,11.7489
+"both, median of 3",glare 30%,13,7.4485,80.7692,100.0,11.185
+"both, median of 3",corners 5%,13,7.6007,76.9231,100.0,11.8981
+"both, vote",clean,13,5.6068,88.4615,100.0,10.8453
+"both, vote",defocus 3u,13,15.5192,69.2308,100.0,11.6358
+"both, vote",defocus 6u,13,35.7894,30.7692,100.0,10.9489
+"both, vote",down x4,13,6.2985,84.6154,100.0,11.7089
+"both, vote",down x8,13,8.7729,76.9231,100.0,11.6104
+"both, vote",JPEG q20,13,5.3975,88.4615,100.0,12.0097
+"both, vote",glare 5%,13,6.0809,88.4615,100.0,11.7489
+"both, vote",glare 30%,13,7.4206,84.6154,100.0,11.185
+"both, vote",corners 5%,13,8.2822,73.0769,100.0,11.8981
+oracle router,clean,13,5.2522,88.4615,38.4615,4.4052
+oracle router,defocus 3u,13,11.6788,76.9231,61.5385,7.2829
+oracle router,defocus 6u,13,12.7951,65.3846,30.7692,3.5988
+oracle router,down x4,13,5.1809,88.4615,30.7692,3.2111
+oracle router,down x8,13,6.8123,80.7692,23.0769,2.71
+oracle router,JPEG q20,13,5.0333,88.4615,38.4615,4.469
+oracle router,glare 5%,13,5.4298,88.4615,46.1538,5.2101
+oracle router,glare 30%,13,6.1514,88.4615,23.0769,2.5685
+oracle router,corners 5%,13,6.2211,80.7692,46.1538,5.7847

@@ -1,0 +1,10 @@
+  25/247  128s
+  50/247  212s
+  75/247  304s
+  100/247  377s
+  125/247  406s
+  150/247  435s
+  175/247  463s
+  200/247  494s
+  225/247  522s
+wrote methods/results/legacy13_vlmcrops_degrade.csv: 741 rows, 546s

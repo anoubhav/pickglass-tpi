@@ -1,0 +1,13 @@
+{
+ "device": "mps",
+ "missing_keys": 0,
+ "unexpected_keys": 38,
+ "conf_thresh": 0.23,
+ "region_in": [
+  0.15,
+  0.85
+ ],
+ "max_cells_per_tile": 250,
+ "text": "yarn crossing",
+ "total_minutes": 4.335095798969268
+}

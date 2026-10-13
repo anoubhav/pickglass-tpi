@@ -1,0 +1,14 @@
+# Core (counter, ruler, rectification, tables, figures, annotation-tool helpers).
+# Tested with Python 3.11 and these versions; every result of the paper was produced with numpy < 2 (keep it so).
+numpy==1.26.4
+scipy==1.17.1
+pandas==3.0.6
+matplotlib==3.11.2
+opencv-python-headless==4.11.0.86
+pillow==12.3.0
+# Optional, by script:
+#   methods/ruler_summary.py (AUCs): scikit-learn
+#   paper/tools/legacy_unified.py, cnn/score_aug.py, vlm/gt_legacy.py (2019 hand-count sheet): openpyxl
+#   cnn/ (training, CV, evaluation): see requirements-cnn.txt
+#   paper/tools/iqa_*.py: pyiqa
+#   annotation_tool/tests/*.js: Node.js >= 18 (no npm packages)

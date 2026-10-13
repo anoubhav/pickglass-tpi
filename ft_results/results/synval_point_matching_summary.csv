@@ -1,0 +1,5 @@
+model,scale,n_calls,precision,recall,f1,med_offset_spacing,pred_spacing_cv,gt_spacing_cv,truncated
+molmo2_4b_base,full,200,0.8076,0.3948,0.4478,0.2345,0.01,0.0427,1
+molmo2_4b_base,quarter,1000,0.7504,0.7043,0.6481,0.1913,0.0187,0.0181,2
+molmo2_4b_synthft,full,200,0.9215,0.9361,0.9249,0.2314,0.0,0.0427,3
+molmo2_4b_synthft,quarter,1000,0.9476,0.9477,0.9413,0.192,0.0,0.0181,0

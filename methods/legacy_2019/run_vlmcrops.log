@@ -1,0 +1,23 @@
+GT: 13 usable (9 clear); cross-check mismatches vs FR xlsx: []
+[precropped] a1.png    warp80=7 weft80=2 -> warp/in=158.2 weft/in=45.2 GT warp=76.0 weft=64.0 seg=skipped (input already cropped to window) angle=0
+[precropped] a2.png    warp80=14 weft80=6 -> warp/in=317.1 weft/in=135.9 GT warp=48.0 weft=47.0 seg=skipped (input already cropped to window) angle=1
+[precropped] a3.png    warp80=0 weft80=0 -> warp/in=0.0 weft/in=0.0 GT warp=None weft=None seg=skipped (input already cropped to window) angle=-2
+[precropped] a4.png    warp80=0 weft80=3 -> warp/in=0.0 weft/in=67.12 GT warp=115.0 weft=73.0 seg=skipped (input already cropped to window) angle=-1
+[precropped] a5.png    warp80=12 weft80=6 -> warp/in=265.5 weft/in=132.75 GT warp=47.0 weft=49.0 seg=skipped (input already cropped to window) angle=2
+[precropped] a6.png    warp80=4 weft80=6 -> warp/in=89.3 weft/in=133.95 GT warp=46.0 weft=43.0 seg=skipped (input already cropped to window) angle=0
+[precropped] a7.png    warp80=13 weft80=4 -> warp/in=282.43 weft/in=86.9 GT warp=None weft=None seg=skipped (input already cropped to window) angle=-4
+[precropped] a8.png    warp80=14 weft80=8 -> warp/in=303.8 weft/in=173.6 GT warp=45.0 weft=42.0 seg=skipped (input already cropped to window) angle=-1
+[precropped] a9.png    warp80=9 weft80=16 -> warp/in=197.1 weft/in=350.4 GT warp=None weft=None seg=skipped (input already cropped to window) angle=0
+[precropped] a10.png   warp80=7 weft80=7 -> warp/in=155.4 weft/in=155.4 GT warp=46.0 weft=53.0 seg=skipped (input already cropped to window) angle=0
+[precropped] r1.png    warp80=5 weft80=4 -> warp/in=101.62 weft/in=81.3 GT warp=None weft=None seg=skipped (input already cropped to window) angle=4
+[precropped] r2.png    warp80=4 weft80=6 -> warp/in=89.1 weft/in=133.65 GT warp=99.0 weft=69.0 seg=skipped (input already cropped to window) angle=0
+[precropped] r3.png    warp80=0 weft80=8 -> warp/in=0.0 weft/in=177.6 GT warp=48.0 weft=62.0 seg=skipped (input already cropped to window) angle=9
+[precropped] r4.png    warp80=12 weft80=12 -> warp/in=269.1 weft/in=269.1 GT warp=63.0 weft=91.0 seg=skipped (input already cropped to window) angle=-3
+[precropped] r5.png    warp80=7 weft80=12 -> warp/in=162.49 weft/in=278.55 GT warp=None weft=None seg=skipped (input already cropped to window) angle=5
+[precropped] r6.png    warp80=1 weft80=6 -> warp/in=24.26 weft/in=145.57 GT warp=92.0 weft=90.0 seg=skipped (input already cropped to window) angle=-1
+[precropped] r7.png    warp80=10 weft80=8 -> warp/in=231.88 weft/in=185.5 GT warp=42.0 weft=65.0 seg=skipped (input already cropped to window) angle=-1
+[precropped] r8.png    warp80=0 weft80=4 -> warp/in=0.0 weft/in=92.8 GT warp=122.0 weft=71.0 seg=skipped (input already cropped to window) angle=2
+[precropped] r9.png    warp80=1 weft80=4 -> warp/in=22.45 weft/in=89.8 GT warp=None weft=None seg=skipped (input already cropped to window) angle=-1
+[precropped] r10.png   warp80=6 weft80=0 -> warp/in=137.85 weft/in=0.0 GT warp=None weft=None seg=skipped (input already cropped to window) angle=-1
+precropped {"usable": {"warp": {"n": 13, "MAE": 133.84, "MAPE_pct": 246.4, "within_10pct": 0, "median_abs_err": 115.0}, "weft": {"n": 13, "MAE": 82.96, "MAPE_pct": 143.8, "within_10pct": 1, "median_abs_err": 88.9}}, "usable__inmem_doc3_L91_97": {"warp": {"n": 13, "MAE": 58.84, "MAPE_pct": 84.4, "within_10pct": 1, "median_abs_err": 48.0}, "weft": {"n": 13, "MAE": 26.37, "MAPE_pct": 42.6, "within_10pct": 3, "median_abs_err": 20.68}}, "clear_only": {"warp": {"n": 9, "MAE": 123.17, "MAPE_pct": 222.5, "within_10pct": 0, "median_abs_err": 109.4}, "weft": {"n": 9, "MAE": 84.99, "MAPE_pct": 144.5, "within_10pct": 0, "median_abs_err": 88.9}}, "clear_only__inmem_doc3_L91_97": {"warp": {"n": 9, "MAE": 55.66, "MAPE_pct": 78.7, "within_10pct": 1, "median_abs_err": 48.0}, "weft": {"n": 9, "MAE": 22.61, "MAPE_pct": 39.2, "within_10pct": 2, "median_abs_err": 20.68}}, "seg_fallbacks": 0, "errors": {}}
+wrote run_vlmcrops/metrics.json runtime 620.8 s

@@ -1,0 +1,26 @@
+set,file,repo_path,what,rows,sha256
+pickglass150,ours_pg-lattice_and_spectral.csv,methods/predictions_ours_150.csv,"PG-Lattice (frozen counter) + FFT/profile/tiles/Gabor, per file",150,ad48068f96be8e97be742e667939aa3ccc2070e6b92f2a9cc0f2842841f014d6
+pickglass150,ours_dot_positions.json,methods/proposals.json,PG-Lattice dot positions on the two guide lines (machine proposals),,ecf35d1e2611a41387f565e4752c16a59304c87e8cdfa5af6f74f20bb4ba8a1c
+pickglass150,ruler_counts.csv,methods/results/ruler/count150.csv,PG-Lattice on ruler-calibrated windows,150,6f31bcc2c281280517d857f218727d2e068f848c390ce68f9f7a0ebca27f94e7
+pickglass150,ruler_window_corners.csv,methods/results/ruler/calib150.csv,window corners and scale from the glass's ruler,150,501e96074a8e9fd7a19842269e50f3cd5d6ec034415c28de94cf504d9cbe804b
+pickglass150,pg-lattice-ruler_and_cascade_wide.csv,paper/tables/src/extra150_wide.csv,pg-lattice@ruler and cascade-gate in score150 wide format,150,adb703b34643c02cf3fe7e0bdae04e968816d6adff64459cdba9f3a6ef4eb52e
+pickglass150,combined_v1_wide.csv,methods/results/combined_v1_150_wide.csv,"combined-v1 (PG-Lattice + log-Gabor, frozen rule, pre-registered) in score150 wide format",150,c3849108f2bf03a36d9e0ad98287ef6ee6916d7fbef9ba6cb843ef6cb52bd9ff
+pickglass150,cascade_decisions_FROZEN.csv,paper/tables/cascade_150_decisions.csv,frozen cascade gate decisions (held-out test),150,0c65bc6addd018d228fde594b9d6928394211fe89f9451c6c16c8b4596aa1488
+pickglass150,vlm_P1_wide.csv,vlm/results/rect150_P1_predictions_wide.csv,"API VLMs, prompt P1",150,7cb5a2c83df5b729c1380f4ec7e6d3431924ecabe7bd456d67b5e5b79c987d33
+pickglass150,vlm_P1_long.csv,vlm/results/rect150_P1_predictions_long.csv,"API VLMs, prompt P1, long format with repeats",1050,7383ccfc17f7dfe22eb37660238ad7b1e27922cf4da15c82c89ea40515157354
+pickglass150,vlm_scaffold_S3_wide.csv,vlm/scaffold/results/rect150_S3_predictions_wide.csv,VLMs with measurement scaffold S3 + S4 profile peaks,150,b8bd7e9eecc956ebc9137a21a07ee3c106b1147db0a4792c8b521a1cc42fa146
+pickglass150,countgd_wide.csv,gpu_results/countgd/outputs/results/rect150_predictions_wide.csv,"CountGD (strips, cells->lattice)",150,3278af59ad79aa9415d01474de552ea40f7294e429fcd3dc98be6290b6196852
+pickglass150,molmo2_8b_wide.csv,gpu_results/scored/molmo2_rect150_predictions_wide.csv,"Molmo2-8B bf16 (P1, P4)",150,78d50f78a7f0307ab5fcddb98de2c3e4e4279e62d63b13021ce6656e28ac9762
+pickglass150,molmo2_4b_lora_wide.csv,ft_results/results/rect150_predictions_wide.csv,Molmo2-4B + synthetic-pointing LoRA,150,ea1d3c7e107bb3dfacfec173110074fb4322ac2fd8ada157af0d6609303f907c
+pickglass150,cnn_synthetic_zero_shot.csv,cnn/runs/synth_r18_v2mix_aniso/eval_final/real150_predictions.csv,ResNet-18 trained on synthetic data only,150,573f850242c9d39282e6d88fd96bd60d803060483f281f4da6541117a7bae4c1
+pickglass150,cnn_aug_wide.csv,cnn/runs_aug/report/real150_aug_wide.csv,CNN V2-V5 (label-exact augmentation / pseudo-labels),150,6b32da8eb1c2bb5718d999b2b0393dde39390c97c5f40016e4d33059652d121f
+pickglass150,cnn_aug_wide_heldout.csv,cnn/runs_aug/report/real150_aug_wide_heldout.csv,"same, blank on the pseudo-label training scenes (use this one)",150,ef82d3aba43eb7e6a97820417be9e56c57ece4194b7fd3defe68a0d8efefef58
+pickglass150,cnn_pseudo_labels.csv,cnn/runs_aug/pseudo_labels.csv,pseudo-labels (frozen counter) used to fine-tune V3-V5,150,5749b66675e633c052699ea4ad819ec977e8d9bbaa77cd6ac9c22473936eb621
+legacy13,ours_and_spectral.csv,methods/results/legacy13_vlmcrops_estimators.csv,frozen counter + estimators on the canonical legacy crops,400,919d8b31b980bd319d4e05d20145235b395076d13132043732aee3eb6eee081d
+legacy13,legacy2019_pipeline.csv,methods/legacy_2019/run_vlmcrops/results.csv,faithful 2019 pipeline on the canonical crops,20,13191567cb3465311aaad34014b3a104a849c8695f620011fd68cea63d2169b6
+legacy13,vlm_api_and_local.csv,vlm/results/legacy_predictions.csv,"VLMs (all prompts, repeats)",696,1c16bf3405dd760c5360ca53521ea18c7759ab83c3527034675c60db9d10cf9d
+legacy13,vlm_degraded.csv,vlm/results/legacy_deg_predictions.csv,VLMs on degraded legacy crops,546,b551f52e80c938c0b0e331f99d45b76f2791b28c026ff2ccae06a63f6d4974ff
+legacy13,molmo2_countgd.csv,gpu_results/scored/legacy_predictions_gpu.csv,Molmo2-8B bf16 and CountGD,715,90c301cbba7aab7d49218fdfa048d9e2f266337ed16be7327e9e89c282cfb27e
+legacy13,molmo2_4b_lora.csv,ft_results/results/legacy_predictions.csv,Molmo2-4B + LoRA,240,8d609b66a4a86bd5dc3409ea5662a6aecf9a1fba94fcf9b2886ea6ed702ba32a
+legacy13,cnn_synthetic.csv,cnn/runs/synth_r18_v2mix_aniso/eval_vlmcrops/legacy_predictions_vlm.csv,synthetic CNN,13,137e2a21df4f8b3ec09c6998d37cdc5fb443e924ee1508598576dc34a47fbbc6
+legacy13,all_methods_per_count.csv,paper/tables/legacy13_unified_per_count.csv,"every Tab. 2 / S2 row per count, with the hand count",3129,8ae731ae26fbc1eab9808019f861de91e0ae7571423c8e54c5135a10b1b8fd49

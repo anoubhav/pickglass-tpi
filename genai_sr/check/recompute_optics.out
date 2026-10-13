@@ -1,0 +1,23 @@
+conditions: 20 points: 40 values: 5828 images: 150
+(1) slope 0.9857 [0.9801, 0.9886]; median |resid| 0.174%  max 1.52%
+    share of values >10% off prediction, by condition: {'bowy_0.01': 11.8, 'bowy_0.02': 14.8, 'bowy_0.04': 18.7, 'shearx_0.1': 23.6, 'sheary_0.05': 17.7, 'sheary_0.1': 25.5, 'sheary_0.18': 39.5, 'sheary_0.1_frame': 25.5, 'sheary_0.27': 52.6, 'strx_0.85': 13.1, 'strx_1.15': 12.2, 'strx_1.3': 19.3, 'strx_1.6': 27.0, 'stry_1.3': 20.1, 'zoom_0.8': 13.5, 'zoom_0.9': 6.7, 'zoom_1.1': 6.5, 'zoom_1.25': 9.9, 'zoom_1.5': 28.9, 'zoom_2': 35.2}
+
+(2) high-res real, phone pipeline, vs clean prediction (all applicable images per level)
+   ppt  2.0: n_img 65  median |change|  49.54%  within10  21.5%  >10%  78.5%
+   ppt  2.5: n_img 65  median |change|   2.38%  within10  60.0%  >10%  40.0%
+   ppt  3.0: n_img 65  median |change|   1.23%  within10  73.1%  >10%  26.9%
+   ppt  3.5: n_img 65  median |change|   0.70%  within10  78.5%  >10%  21.5%
+   ppt  4.0: n_img 65  median |change|   0.49%  within10  89.2%  >10%  10.8%
+   ppt  5.0: n_img 65  median |change|   0.33%  within10  92.3%  >10%   7.7%
+   ppt  6.0: n_img 64  median |change|   0.17%  within10  94.5%  >10%   5.5%
+   ppt  8.0: n_img 53  median |change|   0.15%  within10  91.5%  >10%   8.5%
+   ppt 10.0: n_img 41  median |change|   0.07%  within10  92.7%  >10%   7.3%
+
+    synth100 vs exact label, phone pipeline, on the 73 images applicable at every level 2-5 px/yarn:
+   ppt  2.0: median |err| 53.56%  within10  15.8%
+   ppt  2.5: median |err|  3.49%  within10  65.8%
+   ppt  3.0: median |err|  2.02%  within10  82.2%
+   ppt  3.5: median |err|  1.98%  within10  84.9%
+   ppt  4.0: median |err|  1.89%  within10  91.1%
+   ppt  5.0: median |err|  1.57%  within10  88.4%
+    (raw_ours_synth.csv columns: ['set', 'image', 'cond', 'model', 'side', 'out_w', 'out_h', 'ext_x', 'ext_y', 'pred_h', 'pred_v', 'pred_weave'] )

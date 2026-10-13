@@ -1,0 +1,11 @@
+{
+ "keys": [
+  "leg_a1",
+  "leg_a4"
+ ],
+ "why": {
+  "leg_a1": "largest over-count (seedvr2)",
+  "leg_a4": "largest under-count (invsr)"
+ },
+ "cond": "D8"
+}

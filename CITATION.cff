@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper below (final title; venue details after review)."
+title: "PickGlass: counting threads per inch from smartphone photos through a pick glass"
+type: software
+authors:
+  - family-names: "Agarwaal"
+    given-names: "Anoubhav"
+    affiliation: "Indian Institute of Technology Madras"
+repository-code: "https://github.com/anoubhav/pickglass-thread-count"
+license: MIT
+version: "0.1.0"
+date-released: "2026-10-14"
+preferred-citation:
+  type: conference-paper
+  title: "Image Quality and Fabric-Density Measurement: Counting Threads with a Smartphone Through a Pick Glass"
+  authors:
+    - family-names: "Agarwaal"
+      given-names: "Anoubhav"
+      affiliation: "Indian Institute of Technology Madras"
+  collection-title: "WACV 2027 Workshop on Image/Video/Audio Quality Assessment in Computer Vision, VLM and Diffusion Model (WVAQ), under review"
+  year: 2027
+  notes: "Final title (2026-10-12). TODO: venue, pages and DOI after acceptance; set date-released to the day of the first public commit."

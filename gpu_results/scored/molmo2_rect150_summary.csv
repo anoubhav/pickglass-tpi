@@ -1,0 +1,7 @@
+key,model,method,n_run,n_parsed,n_distinct_answers,most_common_answer,most_common_share,median_v,median_h,p05,p95,mean_tpi_small_crops,n_small,mean_tpi_large_crops,n_large,sec_per_img
+molmo2_8b_bf16,molmo2_8b_bf16,P1,150,150,6,12 x 12,0.72,12,12,10,13,11.9882,85,12.0308,65,0.979916
+molmo2_8b_bf16@P3,molmo2_8b_bf16,P3,150,150,3,64 x 64,0.84,64,64,40,64,58.3529,85,61.7846,65,0.976012
+molmo2_8b_bf16@P3s,molmo2_8b_bf16,P3s,150,150,9,58 x 58,0.393333,58,58,41.95,64,55.2412,85,57.1692,65,3.90489
+molmo2_8b_bf16@P4,molmo2_8b_bf16,P4,150,150,110,33 x 50,0.0666667,31,42,2,50,31.5235,85,30.3385,65,18.1562
+molmo2_8b_bf16_w4mlx,molmo2_8b_bf16_w4mlx,P1,150,150,6,10 x 10,0.846667,10,10,10,12,11.2765,85,10.0769,65,0.982774
+molmo2_8b_bf16_w4mlx@P4,molmo2_8b_bf16_w4mlx,P4,20,20,16,23 x 50,0.15,24,50,5.9,56.2,29.8571,14,33.4167,6,18.1618

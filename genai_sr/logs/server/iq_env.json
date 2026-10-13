@@ -1,0 +1,8 @@
+{
+ "pyiqa": "0.1.16",
+ "lpips": "alex v0.1",
+ "torch": "2.6.0+cu118",
+ "side_nr": 1024,
+ "device": "cuda",
+ "cuda_visible": "3"
+}

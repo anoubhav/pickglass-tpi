@@ -1,0 +1,116 @@
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 4946.81it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.27it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.28it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.28it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.23it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.25it/s]
+loaded in 6s adapter=../ckpt/run1/step01000
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 4981.60it/s]
+[synval] 1300 jobs (0 cached) -> $HOME/pickglass/ft/code/../raw/molmo2_4b_synthft__synval.jsonl
+  synval P1 12/100 batch 2.2s maxgen 30
+  synval P1 24/100 batch 2.1s maxgen 30
+  synval P1 36/100 batch 2.2s maxgen 30
+  synval P1 48/100 batch 2.1s maxgen 30
+  synval P1 60/100 batch 2.1s maxgen 30
+  synval P1 72/100 batch 2.1s maxgen 30
+  synval P1 84/100 batch 2.1s maxgen 30
+  synval P1 96/100 batch 2.1s maxgen 30
+  synval P1 100/100 batch 1.1s maxgen 29
+  synval P4h 12/600 batch 16.9s maxgen 652
+  synval P4h 24/600 batch 10.2s maxgen 322
+  synval P4h 36/600 batch 72.5s maxgen 2292
+  synval P4h 48/600 batch 19.7s maxgen 696
+  synval P4h 60/600 batch 39.6s maxgen 1392
+  synval P4h 72/600 batch 40.7s maxgen 1404
+  synval P4h 84/600 batch 58.0s maxgen 1896
+  synval P4h 96/600 batch 20.1s maxgen 685
+  synval P4h 108/600 batch 56.6s maxgen 1896
+  synval P4h 120/600 batch 16.2s maxgen 575
+  synval P4h 132/600 batch 30.6s maxgen 1104
+  synval P4h 144/600 batch 25.3s maxgen 916
+  synval P4h 156/600 batch 34.3s maxgen 1212
+  synval P4h 168/600 batch 48.2s maxgen 1620
+  synval P4h 180/600 batch 15.5s maxgen 520
+  synval P4h 192/600 batch 17.2s maxgen 586
+  synval P4h 204/600 batch 25.9s maxgen 894
+  synval P4h 216/600 batch 35.4s maxgen 1212
+  synval P4h 228/600 batch 45.3s maxgen 1524
+  synval P4h 240/600 batch 17.7s maxgen 608
+  synval P4h 252/600 batch 48.1s maxgen 1596
+  synval P4h 264/600 batch 12.4s maxgen 421
+  synval P4h 276/600 batch 34.8s maxgen 1236
+  synval P4h 288/600 batch 55.7s maxgen 1896
+  synval P4h 300/600 batch 19.4s maxgen 729
+  synval P4h 312/600 batch 30.5s maxgen 1104
+  synval P4h 324/600 batch 69.7s maxgen 2292
+  synval P4h 336/600 batch 26.2s maxgen 916
+  synval P4h 348/600 batch 28.8s maxgen 993
+  synval P4h 360/600 batch 22.1s maxgen 740
+  synval P4h 372/600 batch 58.2s maxgen 1908
+  synval P4h 384/600 batch 47.0s maxgen 1608
+  synval P4h 396/600 batch 55.4s maxgen 1860
+  synval P4h 408/600 batch 17.8s maxgen 630
+  synval P4h 420/600 batch 39.5s maxgen 1392
+  synval P4h 432/600 batch 25.2s maxgen 916
+  synval P4h 444/600 batch 11.4s maxgen 388
+  synval P4h 456/600 batch 15.9s maxgen 608
+  synval P4h 468/600 batch 20.4s maxgen 784
+  synval P4h 480/600 batch 44.4s maxgen 1584
+  synval P4h 492/600 batch 53.5s maxgen 1896
+  synval P4h 504/600 batch 44.2s maxgen 1620
+  synval P4h 516/600 batch 21.8s maxgen 850
+  synval P4h 528/600 batch 67.9s maxgen 2304
+  synval P4h 540/600 batch 43.5s maxgen 1596
+  synval P4h 552/600 batch 17.6s maxgen 685
+  synval P4h 564/600 batch 43.2s maxgen 1584
+  synval P4h 576/600 batch 37.4s maxgen 1404
+  synval P4h 588/600 batch 37.1s maxgen 1392
+  synval P4h 600/600 batch 79.0s maxgen 2600
+  synval P4v 12/600 batch 21.5s maxgen 839
+  synval P4v 24/600 batch 9.7s maxgen 355
+  synval P4v 36/600 batch 44.0s maxgen 1608
+  synval P4v 48/600 batch 15.1s maxgen 586
+  synval P4v 60/600 batch 51.7s maxgen 1848
+  synval P4v 72/600 batch 44.2s maxgen 1620
+  synval P4v 84/600 batch 53.4s maxgen 1896
+  synval P4v 96/600 batch 14.4s maxgen 553
+  synval P4v 108/600 batch 44.3s maxgen 1620
+  synval P4v 120/600 batch 15.6s maxgen 608
+  synval P4v 132/600 batch 37.4s maxgen 1404
+  synval P4v 144/600 batch 23.5s maxgen 916
+  synval P4v 156/600 batch 23.5s maxgen 916
+  synval P4v 168/600 batch 44.2s maxgen 1620
+  synval P4v 180/600 batch 13.6s maxgen 520
+  synval P4v 192/600 batch 14.4s maxgen 553
+  synval P4v 204/600 batch 23.2s maxgen 905
+  synval P4v 216/600 batch 36.4s maxgen 1368
+  synval P4v 228/600 batch 65.3s maxgen 2232
+  synval P4v 240/600 batch 15.7s maxgen 608
+  synval P4v 252/600 batch 37.1s maxgen 1392
+  synval P4v 264/600 batch 11.7s maxgen 443
+  synval P4v 276/600 batch 37.4s maxgen 1404
+  synval P4v 288/600 batch 44.2s maxgen 1620
+  synval P4v 300/600 batch 12.7s maxgen 487
+  synval P4v 312/600 batch 25.8s maxgen 993
+  synval P4v 324/600 batch 85.3s maxgen 2600
+  synval P4v 336/600 batch 26.3s maxgen 883
+  synval P4v 348/600 batch 27.5s maxgen 916
+  synval P4v 360/600 batch 22.4s maxgen 740
+  synval P4v 372/600 batch 73.1s maxgen 2304
+  synval P4v 384/600 batch 48.9s maxgen 1608
+  synval P4v 396/600 batch 36.9s maxgen 1236
+  synval P4v 408/600 batch 25.5s maxgen 839
+  synval P4v 420/600 batch 48.2s maxgen 1608
+  synval P4v 432/600 batch 19.0s maxgen 740
+  synval P4v 444/600 batch 11.1s maxgen 410
+  synval P4v 456/600 batch 15.0s maxgen 575
+  synval P4v 468/600 batch 25.7s maxgen 993
+  synval P4v 480/600 batch 37.6s maxgen 1404
+  synval P4v 492/600 batch 65.2s maxgen 2220
+  synval P4v 504/600 batch 44.3s maxgen 1620
+  synval P4v 516/600 batch 25.9s maxgen 1004
+  synval P4v 528/600 batch 43.8s maxgen 1608
+  synval P4v 540/600 batch 32.4s maxgen 1236
+  synval P4v 552/600 batch 23.6s maxgen 916
+  synval P4v 564/600 batch 52.1s maxgen 1860
+  synval P4v 576/600 batch 44.2s maxgen 1620
+  synval P4v 588/600 batch 35.9s maxgen 1356
+  synval P4v 600/600 batch 78.9s maxgen 2600
+ALL DONE

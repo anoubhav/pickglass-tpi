@@ -1,0 +1,11 @@
+  15/150 images  70s
+  30/150 images  144s
+  45/150 images  210s
+  60/150 images  268s
+  75/150 images  327s
+  90/150 images  393s
+  105/150 images  437s
+  120/150 images  481s
+  135/150 images  545s
+  150/150 images  647s
+wrote results/all150_crops.csv: 1350 rows, 150 images, 647s

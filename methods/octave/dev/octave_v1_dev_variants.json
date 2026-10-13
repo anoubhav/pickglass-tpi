@@ -1,0 +1,257 @@
+{
+ "frozen": {
+  "synth": {
+   "A": {
+    "mape": 8.89,
+    "w10": 88.3,
+    "half": 9,
+    "dbl": 5,
+    "fixed": 0,
+    "broken": 0,
+    "changed": 0
+   },
+   "B": {
+    "mape": 11.95,
+    "w10": 83.5,
+    "half": 48,
+    "dbl": 16,
+    "fixed": 0,
+    "broken": 0,
+    "changed": 0
+   },
+   "C": {
+    "mape": 7.47,
+    "w10": 89.3,
+    "half": 2,
+    "dbl": 4,
+    "fixed": 0,
+    "broken": 0,
+    "changed": 0
+   }
+  },
+  "legacy": {
+   "mape": 9.23,
+   "w5": 76.9,
+   "w10": 84.6,
+   "changed": 0
+  },
+  "real": {
+   "copy_oct": 0,
+   "res_oct": 4,
+   "reshoot_oct": 6,
+   "rot_oct": 2,
+   "copy_ag5": 0.981,
+   "res_ag5": 0.915,
+   "reshoot_ag5": 0.72,
+   "rot_ag5": 0.961,
+   "new_oct": 0,
+   "resolved_oct": 0,
+   "reps_up": 0,
+   "reps_down": 0
+  }
+ },
+ "ridge_double_only": {
+  "synth": {
+   "A": {
+    "mape": 8.81,
+    "w10": 88.5,
+    "half": 8,
+    "dbl": 5,
+    "fixed": 1,
+    "broken": 0,
+    "changed": 1
+   },
+   "B": {
+    "mape": 10.56,
+    "w10": 86.3,
+    "half": 31,
+    "dbl": 16,
+    "fixed": 17,
+    "broken": 0,
+    "changed": 17
+   },
+   "C": {
+    "mape": 7.31,
+    "w10": 89.7,
+    "half": 1,
+    "dbl": 4,
+    "fixed": 1,
+    "broken": 0,
+    "changed": 1
+   }
+  },
+  "legacy": {
+   "mape": 9.23,
+   "w5": 76.9,
+   "w10": 84.6,
+   "changed": 0
+  },
+  "real": {
+   "copy_oct": 0,
+   "res_oct": 3,
+   "reshoot_oct": 6,
+   "rot_oct": 1,
+   "copy_ag5": 0.981,
+   "res_ag5": 0.926,
+   "reshoot_ag5": 0.72,
+   "rot_ag5": 0.971,
+   "new_oct": 0,
+   "resolved_oct": 2,
+   "reps_up": 4,
+   "reps_down": 0
+  }
+ },
+ "double+halve_posfilter": {
+  "synth": {
+   "A": {
+    "mape": 8.86,
+    "w10": 88.3,
+    "half": 9,
+    "dbl": 5,
+    "fixed": 1,
+    "broken": 1,
+    "changed": 4
+   },
+   "B": {
+    "mape": 10.1,
+    "w10": 86.7,
+    "half": 32,
+    "dbl": 12,
+    "fixed": 20,
+    "broken": 1,
+    "changed": 24
+   },
+   "C": {
+    "mape": 7.47,
+    "w10": 89.3,
+    "half": 2,
+    "dbl": 4,
+    "fixed": 1,
+    "broken": 1,
+    "changed": 2
+   }
+  },
+  "legacy": {
+   "mape": 9.23,
+   "w5": 76.9,
+   "w10": 84.6,
+   "changed": 0
+  },
+  "real": {
+   "copy_oct": 0,
+   "res_oct": 3,
+   "reshoot_oct": 5,
+   "rot_oct": 1,
+   "copy_ag5": 0.981,
+   "res_ag5": 0.926,
+   "reshoot_ag5": 0.732,
+   "rot_ag5": 0.971,
+   "new_oct": 0,
+   "resolved_oct": 3,
+   "reps_up": 4,
+   "reps_down": 1
+  }
+ },
+ "double+halve_r2h": {
+  "synth": {
+   "A": {
+    "mape": 8.86,
+    "w10": 88.3,
+    "half": 9,
+    "dbl": 5,
+    "fixed": 1,
+    "broken": 1,
+    "changed": 4
+   },
+   "B": {
+    "mape": 10.1,
+    "w10": 86.7,
+    "half": 32,
+    "dbl": 12,
+    "fixed": 20,
+    "broken": 1,
+    "changed": 24
+   },
+   "C": {
+    "mape": 7.47,
+    "w10": 89.3,
+    "half": 2,
+    "dbl": 4,
+    "fixed": 1,
+    "broken": 1,
+    "changed": 2
+   }
+  },
+  "legacy": {
+   "mape": 9.23,
+   "w5": 76.9,
+   "w10": 84.6,
+   "changed": 0
+  },
+  "real": {
+   "copy_oct": 0,
+   "res_oct": 3,
+   "reshoot_oct": 5,
+   "rot_oct": 1,
+   "copy_ag5": 0.981,
+   "res_ag5": 0.926,
+   "reshoot_ag5": 0.732,
+   "rot_ag5": 0.971,
+   "new_oct": 0,
+   "resolved_oct": 3,
+   "reps_up": 4,
+   "reps_down": 1
+  }
+ },
+ "double+halve_gsub": {
+  "synth": {
+   "A": {
+    "mape": 8.83,
+    "w10": 88.5,
+    "half": 8,
+    "dbl": 5,
+    "fixed": 1,
+    "broken": 0,
+    "changed": 2
+   },
+   "B": {
+    "mape": 10.1,
+    "w10": 86.8,
+    "half": 31,
+    "dbl": 13,
+    "fixed": 20,
+    "broken": 0,
+    "changed": 21
+   },
+   "C": {
+    "mape": 7.47,
+    "w10": 89.3,
+    "half": 2,
+    "dbl": 4,
+    "fixed": 1,
+    "broken": 1,
+    "changed": 2
+   }
+  },
+  "legacy": {
+   "mape": 9.23,
+   "w5": 76.9,
+   "w10": 84.6,
+   "changed": 0
+  },
+  "real": {
+   "copy_oct": 0,
+   "res_oct": 3,
+   "reshoot_oct": 6,
+   "rot_oct": 1,
+   "copy_ag5": 0.981,
+   "res_ag5": 0.926,
+   "reshoot_ag5": 0.72,
+   "rot_ag5": 0.971,
+   "new_oct": 0,
+   "resolved_oct": 2,
+   "reps_up": 4,
+   "reps_down": 0
+  }
+ }
+}

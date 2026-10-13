@@ -1,0 +1,12 @@
+{
+ "bicubic": {
+  "weights": null,
+  "weights_md5": null,
+  "url": null,
+  "device": "cpu",
+  "n": 198,
+  "s_per_img": 0.0005251169204711914,
+  "wall_s": 39.7,
+  "cuda_visible": ""
+ }
+}

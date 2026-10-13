@@ -1,0 +1,94 @@
+{
+ "variant": "legacygrid",
+ "n_images": 200,
+ "conds": [
+  [
+   "clean",
+   0
+  ],
+  [
+   "gblur",
+   1
+  ],
+  [
+   "gblur",
+   2
+  ],
+  [
+   "gblur",
+   3
+  ],
+  [
+   "gblur",
+   4
+  ],
+  [
+   "gblur",
+   6
+  ],
+  [
+   "down",
+   2
+  ],
+  [
+   "down",
+   4
+  ],
+  [
+   "down",
+   8
+  ],
+  [
+   "jpeg",
+   90
+  ],
+  [
+   "jpeg",
+   50
+  ],
+  [
+   "jpeg",
+   20
+  ],
+  [
+   "glare",
+   0.05
+  ],
+  [
+   "glare",
+   0.1
+  ],
+  [
+   "glare",
+   0.2
+  ],
+  [
+   "glare",
+   0.3
+  ],
+  [
+   "corners",
+   0.02
+  ],
+  [
+   "corners",
+   0.05
+  ],
+  [
+   "corners",
+   0.1
+  ]
+ ],
+ "estimators": [
+  "ours",
+  "gabor",
+  "fft"
+ ],
+ "seeds": "930000..930199",
+ "synth_profile": "v2",
+ "counting_py_md5": "2bf64a3ab76458d1e852248fb0a4047f",
+ "conf_model_md5": "3aea9b50e4b75e191cac08cb5161ca59",
+ "degrade_py_md5": "fd049ff34a86f2249dd695af8ee6e0bf",
+ "wall_s": 3088.9,
+ "created": "2026-10-07T15:44:52"
+}

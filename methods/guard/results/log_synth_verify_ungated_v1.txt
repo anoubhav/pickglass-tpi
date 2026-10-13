@@ -1,0 +1,41 @@
+  depth=float(np.nanmin([axes["x"]["depth"], axes["y"]["depth"]])),
+  depth=float(np.nanmin([axes["x"]["depth"], axes["y"]["depth"]])),
+  depth=float(np.nanmin([axes["x"]["depth"], axes["y"]["depth"]])),
+  depth=float(np.nanmin([axes["x"]["depth"], axes["y"]["depth"]])),
+  depth=float(np.nanmin([axes["x"]["depth"], axes["y"]["depth"]])),
+  depth=float(np.nanmin([axes["x"]["depth"], axes["y"]["depth"]])),
+  depth=float(np.nanmin([axes["x"]["depth"], axes["y"]["depth"]])),
+  depth=float(np.nanmin([axes["x"]["depth"], axes["y"]["depth"]])),
+  depth=float(np.nanmin([axes["x"]["depth"], axes["y"]["depth"]])),
+  depth=float(np.nanmin([axes["x"]["depth"], axes["y"]["depth"]])),
+  return _methods._mean(a, axis=axis, dtype=dtype,
+  return _methods._mean(a, axis=axis, dtype=dtype,
+  return _methods._mean(a, axis=axis, dtype=dtype,
+                         n  fired  mape_ug  mape_guard   chg1   chg5  insufficient  ratio_med
+set cond                                                                                     
+hr  bicubicJ_x4        120  1.000   62.561      16.383  0.667  0.550         0.350    459.107
+    bicubic_x2         120  0.142   13.681      13.683  0.033  0.008         0.033    970.775
+    bicubic_x4         120  0.983   46.857      13.611  0.567  0.417         0.358    491.190
+    bicubic_x4_jpeg85  120  0.750   28.542      18.800  0.375  0.242         0.250    561.739
+    bicubic_x8         120  1.000  184.317      25.808  0.950  0.933         0.533    281.053
+    bilinear_x2        120  0.142   13.750      13.700  0.025  0.017         0.033   1059.596
+    bilinear_x4        120  0.883   92.617      27.528  0.558  0.475         0.308    582.737
+    bilinear_x8        120  0.983  298.978      43.701  0.967  0.958         0.525    340.137
+    clean              120  0.000   13.421      13.421  0.000  0.000         0.000   1720.000
+    gblur1             120  0.950   15.963      13.489  0.492  0.225         0.400    484.907
+    gblur2             120  1.000   75.504      30.862  0.750  0.658         0.533    264.898
+    gblur3             120  0.983   63.849      38.192  0.833  0.708         0.567    205.325
+    gblur4             120  0.983   64.330      44.171  0.900  0.800         0.708    163.418
+    gblur6             120  0.975   51.991      52.312  0.908  0.858         0.875    117.730
+    lanczos_x2         120  0.125   14.177      13.790  0.025  0.017         0.042    895.880
+    lanczos_x4         120  0.992   25.609      14.676  0.508  0.267         0.400    450.927
+    lanczos_x8         120  1.000  143.290      28.790  0.925  0.792         0.625    247.671
+    none_x2            120  0.000   13.625      13.625  0.000  0.000         0.067    862.000
+    none_x4            120  0.000   14.632      14.632  0.000  0.000         0.425    431.000
+    none_x8            120  0.000   31.050      31.050  0.000  0.000         0.700    215.500
+    sharp_x2           120  0.008   13.140      13.139  0.000  0.000         0.000   1089.808
+    sharp_x4           120  0.908   48.759      15.964  0.442  0.358         0.275    560.192
+    sharp_x8           120  0.975  195.872      45.563  0.942  0.900         0.533    312.858
+lr  clean               60  0.000   11.507      11.507  0.000  0.000         0.183    551.000
+    jpeg50              60  0.000   16.358      16.358  0.000  0.000         0.200    551.000
+verify: 2880 in 433s

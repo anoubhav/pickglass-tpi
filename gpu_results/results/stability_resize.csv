@@ -1,0 +1,3 @@
+model,set,method,resizes_px,n_images,n_images_all_parsed,mean_sd_tpi,mean_range_tpi,max_range_tpi,mean_range_pct,identical_all3,mae_best_644,within10_best_644,mae_axis_644,n_ok_644,mae_best_588,within10_best_588,mae_axis_588,n_ok_588,mae_best_700,within10_best_700,mae_axis_700,n_ok_700
+molmo2_8b_bf16,legacy,P1,644/588/700,6,6,0,0,0,0,6,48.8,0,48.8,5,48.8,0,48.8,5,48.8,0,48.8,5
+molmo2_8b_bf16,legacy,P4,644/588/700,5,5,2.126,3.8,14,9.668,0,21.75,2,21.75,4,22,3,22,4,21.88,2,21.88,4

@@ -1,0 +1,26 @@
+method,crop_rule,note,n_counts,MAE,MAPE,MAPE_lo,MAPE_hi,n_w5,n_w10,MAE_plain,bias
+Ours (PG-Lattice: lattice + fusion),P1: whole 2019 hand crop = 1 inch,legacy13_estimators.csv,26,8.073,13.33,5.161,24.426,11,20,5.297,4.31
+Ours (PG-Lattice: lattice + fusion),P2: methods/legacy.detect_window scale,count_P1 x window/image side,26,7.06,11.712,3.203,23.257,20,21,4.087,2.468
+Ours (PG-Lattice: lattice + fusion),canonical: vlm/crops/legacy PNG,this table,26,6.99,11.611,3.074,23.134,19,21,4.042,2.345
+Log-Gabor bank,P1: whole 2019 hand crop = 1 inch,legacy13_estimators.csv,26,7.382,10.795,5.902,16.305,15,20,6.423,-3.536
+Log-Gabor bank,P2: methods/legacy.detect_window scale,count_P1 x window/image side,26,6.801,9.861,4.535,15.801,18,20,5.714,-5.279
+Log-Gabor bank,canonical: vlm/crops/legacy PNG,this table,26,6.046,9.227,3.924,15.247,18,21,4.736,-4.248
+Lattice only,P1: whole 2019 hand crop = 1 inch,legacy13_estimators.csv,26,9.582,14.922,6.49,26.007,11,18,7.248,5.768
+Lattice only,P2: methods/legacy.detect_window scale,count_P1 x window/image side,26,8.268,13.102,4.331,24.659,18,19,5.646,3.883
+Lattice only,canonical: vlm/crops/legacy PNG,this table,26,8.683,13.92,5.564,24.892,17,19,4.923,3.878
+FFT max near-axis peak,P1: whole 2019 hand crop = 1 inch,legacy13_estimators.csv,26,10.639,19.53,7.426,34.171,14,19,8.683,5.102
+FFT max near-axis peak,P2: methods/legacy.detect_window scale,count_P1 x window/image side,26,9.803,18.109,5.798,32.977,17,20,7.701,3.252
+FFT max near-axis peak,canonical: vlm/crops/legacy PNG,this table,26,9.888,18.202,6.035,32.841,17,20,7.817,3.411
+"CNN, synthetic only",P1: whole 2019 hand crop = 1 inch,eval_final/legacy_predictions_raw.csv,26,12.309,18.774,13.051,25.248,3,6,11.723,7.693
+"CNN, synthetic only",det.: methods/legacy.detect_window homography,eval_final/legacy_predictions_detect.csv,26,10.414,16.054,10.515,22.194,5,10,9.42,5.197
+"CNN, synthetic only",trim: fabric_data.legacy_inner_window,eval_final/legacy_predictions_trim.csv,26,9.704,15.104,10.422,20.399,4,12,8.563,4.243
+"CNN, synthetic only",canonical: vlm/crops/legacy PNG,this table,26,10.323,16.006,10.79,21.807,4,10,9.25,5.098
+2019 dot map + transition count,P1: whole 2019 hand crop (seed 0),legacy_2019/run1,26,104.977,171.38,131.968,215.251,0,2,101.474,73.641
+2019 dot map + transition count,canonical (seed 0),this table,26,108.401,195.11,124.964,269.419,0,1,121.969,78.607
+2019 dot map + transition count,canonical (seed 1),k-means seed sweep,26,95.321,158.459,118.064,201.836,0,0,107.672,53.19
+2019 dot map + transition count,canonical (seed 2),k-means seed sweep,26,104.914,183.182,122.19,252.961,0,0,120.143,59.439
+2019 dot map + transition count,canonical (seed 3),k-means seed sweep,26,91.588,154.357,111.634,199.521,0,0,102.819,49.457
+2019 dot map + transition count,canonical (seed 4),k-means seed sweep,26,120.767,213.574,147.264,281.323,0,0,134.979,91.006
+2019 RGB irregularity (weft only),P1: 2019 xlsx column,n=13 weft,13,19.0,36.881,17.704,58.102,3,5,20.1,17.0
+2019 RGB irregularity (weft only),"P1: whole 2019 hand crop, no-blur re-run",n=13 weft; reproduces 14/20 xlsx values exactly,13,18.692,36.283,17.322,57.403,4,5,20.1,16.538
+2019 RGB irregularity (weft only),canonical: vlm/crops/legacy PNG,"n=13 weft, no-blur variant",13,21.615,39.399,21.962,58.833,2,4,23.9,21.308

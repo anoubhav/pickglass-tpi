@@ -1,0 +1,5 @@
+# CNN baselines (cnn/): synthetic pretraining, label-exact augmentation, scene-grouped CV.
+-r requirements.txt
+torch>=2.3
+torchvision>=0.18
+timm>=0.9

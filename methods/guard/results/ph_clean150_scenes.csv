@@ -1,0 +1,4 @@
+unit,n,fired,chg1,chg5,eligible,flag_upsampled,flag_insufficient
+scenes (76; any file of the scene),76,0,0,0,2,6,28
+scene representatives (scenes_to_annotate.txt),76,0,0,0,1,6,12
+files (150),150,0,0,0,2,9,34

@@ -1,0 +1,39 @@
+{
+ "starts": [
+  {
+   "at": "2026-10-07T23:02:43",
+   "n_jobs": 1884,
+   "limit": 0,
+   "force": false,
+   "guard_params_md5": "1182f9e926b09dbcbb63559ed4914d0a"
+  }
+ ],
+ "guard_params": {
+  "n_bands_per_decade": 30,
+  "floor_pct": 30.0,
+  "f_lo": 8.0,
+  "dead_delta": 0.8,
+  "live_eps": 0.5,
+  "ref_win": [
+   0.3,
+   0.5
+  ],
+  "mid_frac": 0.3,
+  "depth_min": 1.1,
+  "kappa": 0.9,
+  "fire_tol": 0.3,
+  "n_min": 64,
+  "ppy_min": 5.0,
+  "max_work": 1024
+ },
+ "guard_module_md5": "ce52fa03e6644e56e55fc6860c3af4d1",
+ "frozen_counter_md5": "3d0520d6bec8a016543ce7e5b353d784",
+ "conf_model_md5": "3aea9b50e4b75e191cac08cb5161ca59",
+ "cv2": "4.11.0",
+ "numpy": "1.26.4",
+ "finished": {
+  "at": "2026-10-07T23:09:49",
+  "n_rows": 1884,
+  "wall_s": 426
+ }
+}

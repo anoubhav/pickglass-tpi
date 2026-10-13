@@ -1,0 +1,252 @@
+{
+ "id": "PREREG_combined_v1",
+ "title": "Pre-registered offline combined counter combined-v1 (PG-Lattice + log-Gabor bank), WVAQ @ WACV 2027",
+ "created": "2026-10-11T22:26:09-0400",
+ "created_utc": "2026-10-12T02:26:09Z",
+ "statement_no_labels": "When this record and every prediction file listed below were written, no human count of the 76 PickGlass scene representatives (or of any of the 150 files) existed: the single external annotator's (FL_SA) exports are due Mon 2026-10-12 18:00 IST (08:30 US Eastern). This job did not look for, open or use any annotation export (annotation_tool/data/saved, freelancer exports) or any propagated label. The only labels used were exact synthetic-generator labels (fit) and, AFTER this freeze and reported as post hoc, the 13 legacy (2019) hand counts, which had already been used during the development of the counters.",
+ "motivation": "Known pattern on the legacy-13 degradation study (post hoc): ours (PG-Lattice) is better clean-ish and under x8 down-scaling, strong glare and phone-camera profiles, but over-counts catastrophically under Gaussian defocus 1-4u (MAPE 50-246 %) where the log-Gabor bank degrades gracefully (10-40 %). The rule family therefore contains a defocus fallback to log-Gabor driven by the resolvability ratio rho of the cascade (supp. S14), plus an agreement term; thresholds were left to the synthetic fit.",
+ "rule": {
+  "file": {
+   "path": "methods/results/combined_frozen_v1.py",
+   "sha256": "81f7d83df3777d767239200314a14f2a9a8c851d1b0985c83ee3d9371843cbe5"
+  },
+  "rule_id": "combined-v1",
+  "definition": "Per photo: rho = sharpness / (4 sin^2(pi f))^2, f = max(ours_h, ours_v) / n_work, n_work = min(max(H, W), 1024); if rho < R_MIN -> log-Gabor on both axes; else per axis: if |ln(ours/gabor)| <= D_AGREE -> sqrt(ours * gabor), else ours. A non-finite component is replaced by the other; both non-finite -> NaN. Inputs are the frozen counter's ours and log-Gabor outputs on the same pixels (preproc lcn, glare mask).",
+  "thresholds_primary": {
+   "R_MIN": 0.0,
+   "D_AGREE": 0.18
+  },
+  "thresholds_secondary": {
+   "rule_id": "combined-v1-mape",
+   "R_MIN": 0.0011375274142385549,
+   "D_AGREE": 0.55,
+   "status": "sensitivity analysis only (MAPE objective); not for Tab. 1"
+  },
+  "effective_primary_rule_in_words": "The P5 objective switched the defocus fallback off (R_MIN = 0): combined-v1 = per axis, the geometric mean of ours and log-Gabor when they agree within a factor e^0.18 = 1.197, otherwise ours.",
+  "deterministic": true,
+  "label_free_at_inference": true,
+  "n_thresholds": 2
+ },
+ "objective": {
+  "primary": "maximise P5 = share of counts with |pred/true-1| <= 5% (non-finite = miss, APE 100%); ties (equal hits) -> lower MAPE; remaining ties -> smaller R_MIN, then smaller D_AGREE",
+  "secondary": "minimise MAPE; ties -> more hits within 5%; then smaller R_MIN, smaller D_AGREE",
+  "grid": {
+   "r_min": "0 and the 0.25%..30% quantiles (step 0.25%) of rho over the fit rows (119 values)",
+   "d_agree": "0.00..0.60 step 0.01 (61 values)"
+  },
+  "declared_before_fitting": true,
+  "source": "objective fixed by the task brief ('maximise share of counts within 5 % (P5), tie-break MAPE')"
+ },
+ "fit": {
+  "script": {
+   "path": "methods/combined_v1.py",
+   "sha256": "fb1abf122a5c6d9f90cf06c49c547352461fa1d11f1499a244a43b7263713727"
+  },
+  "fit_json": {
+   "path": "methods/results/combined_v1_fit.json",
+   "sha256": "b35fc2301cdcd8864d42829d2f40bdb7ff8ea26b5a18e9e457218f41c5305b1a"
+  },
+  "fit_grid_csv": {
+   "path": "methods/results/combined_v1_fit_grid.csv",
+   "sha256": "58a66f37ee6ef477bc9d29aa6c10fa11279c6d499f6b22116ddd947c63f48656"
+  },
+  "fitted_at": "2026-10-11T22:18:21-0400",
+  "synthetic_data": {
+   "S-cal-legacygrid": {
+    "path": "methods/results/cascade_synth_cal_legacygrid.csv",
+    "sha256": "a96ab72b4ad93bf573bdb2329196789e13c92e7b0644ae40751155763a3d16e9",
+    "seeds": "930000..930199",
+    "generator": "cnn/synth.py v2, r_sensor ~ U[1630, 1940] px/inch, crop not capped",
+    "scored_on": "M2 Max (numpy 1.x), methods/cascade_synth.py, Oct 7"
+   },
+   "S-cal-default": {
+    "path": "methods/results/cascade_synth_cal_default.csv",
+    "sha256": "42fba01cece100993addaf511f3b2f5f70bf6d4fd0940a7d4ef2adda35344bfe",
+    "seeds": "930000..930199",
+    "generator": "cnn/synth.py v2 defaults, crop <= 1024 px",
+    "scored_on": "gpu-server (numpy 2.2.6, cv2 5.0.0), methods/cascade_synth.py, Oct 7"
+   },
+   "conditions": [
+    "clean:0",
+    "corners:0.02",
+    "corners:0.05",
+    "corners:0.1",
+    "down:2",
+    "down:4",
+    "down:8",
+    "gblur:1",
+    "gblur:2",
+    "gblur:3",
+    "gblur:4",
+    "gblur:6",
+    "glare:0.05",
+    "glare:0.1",
+    "glare:0.2",
+    "glare:0.3",
+    "jpeg:20",
+    "jpeg:50",
+    "jpeg:90"
+   ],
+   "n_crops": 400,
+   "n_counts": 15200,
+   "labels": "exact generator labels (h_count, v_count)",
+   "note": "S-cal was produced on Oct 7 for the cascade (paper/tools/cascade_tradeoff.py); it had never been used to choose anything about ours vs log-Gabor. Same seeds in both variants (different sensor grids), so the two variants are not independent fabrics."
+  },
+  "result_primary": {
+   "r_min": 0.0,
+   "d_agree": 0.18,
+   "hits5": 11505,
+   "P5": 75.6907894736842,
+   "MAPE": 17.67425552979198,
+   "P10": 81.71710526315789,
+   "fallback_pct": 0.0,
+   "mean_pct": 69.6907894736842
+  },
+  "result_secondary": {
+   "r_min": 0.0011375274142385549,
+   "d_agree": 0.55,
+   "hits5": 11125,
+   "P5": 73.19078947368422,
+   "MAPE": 15.703291985834426,
+   "P10": 79.47368421052632,
+   "fallback_pct": 6.75,
+   "mean_pct": 72.78947368421052
+  },
+  "components_on_fit_set": {
+   "ours": {
+    "P5": 72.86842105263159,
+    "MAPE": 18.05700378159537,
+    "P10": 80.40131578947368
+   },
+   "gabor": {
+    "P5": 61.743421052631575,
+    "MAPE": 23.565539280033637,
+    "P10": 67.63157894736842
+   }
+  },
+  "objective_flatness": {
+   "r_min_within_0.1pt": [
+    0.0,
+    1.9799047095538472e-05
+   ],
+   "d_agree_within_0.1pt": [
+    0.14,
+    0.22
+   ]
+  }
+ },
+ "frozen_dependencies": {
+  "counter": {
+   "path": "methods/results/counting_frozen_final.py",
+   "sha256": "fd97f9efe7f5e0ef91116d70c71df577bfa768d4a8fd74524a4d30eeafa6117a",
+   "md5": "3d0520d6bec8a016543ce7e5b353d784",
+   "note": "byte-identical, md5 3d0520d6... as recorded in paper/PLAN.md; imported by path, never modified"
+  },
+  "conf_model": {
+   "path": "methods/conf_model.json",
+   "sha256": "082e01d380ea7619e95b862b111922db136a36aeade528d5c8f7ff678288dafb"
+  },
+  "degrade": {
+   "path": "methods/degrade.py",
+   "sha256": "3c34d91f07d8a6e6f380d39a4c9ea23986f1cb84ba94cc2c73e6ddbbc481e15c"
+  },
+  "synth_generator": {
+   "path": "cnn/synth.py",
+   "sha256": "7d332ebdc757dbebb91736173c7f5163ced8b5388832f6b5698419e68a939db4"
+  },
+  "scorer_score150": {
+   "path": "paper/tools/score150.py",
+   "sha256": "007af02bf3b16f8e75c191adfe4eeb283ca2a050143691dc363ca5147126b0c5",
+   "md5": "5879ef44698de7b2a090e8bbee973625"
+  }
+ },
+ "prediction_inputs": {
+  "real150": {
+   "path": "methods/predictions_ours_150.csv",
+   "sha256": "ad48068f96be8e97be742e667939aa3ccc2070e6b92f2a9cc0f2842841f014d6",
+   "note": "methods/run_ours_150.py (methods/counting.py, whose estimators are identical to the frozen counter; the two files differ only in guide_positions())"
+  },
+  "legacy13_clean": {
+   "path": "methods/results/legacy13_vlmcrops_estimators.csv",
+   "sha256": "919d8b31b980bd319d4e05d20145235b395076d13132043732aee3eb6eee081d",
+   "recount": {
+    "path": "methods/results/legacy13_vlmcrops_combined_v1_recount.csv",
+    "sha256": "264f78f43e7551051448ee4232f8a1d3b30ca5ddcc734e526c1f23fd43419c66"
+   },
+   "note": "recount = combined_frozen_v1.estimate() on vlm/crops/legacy/*.png; reproduces the stored ours and log-Gabor counts exactly"
+  },
+  "legacy13_degradations": {
+   "path": "methods/results/legacy13_vlmcrops_degrade.csv",
+   "sha256": "1421be6b0c3e892802f67ee206d30ac44c256b30880875ca278313621c3d600a"
+  },
+  "legacy13_degradations_extra": {
+   "path": "methods/results/legacy13_vlmcrops_degrade_extra.csv",
+   "sha256": "894c40c2648872a1f8f38f50ec1844cb42c3993622ccef0411517d73feebfaab"
+  },
+  "legacy13_pickglass_stress": {
+   "path": "camera_aug/results/stress_legacy13_classical.csv",
+   "sha256": "7b4090e458708dc89c22f093cb06f188705c39488deac376d6a9f6981d426f48"
+  }
+ },
+ "predictions": {
+  "real150_wide_for_score150": {
+   "path": "methods/results/combined_v1_150_wide.csv",
+   "sha256": "c3849108f2bf03a36d9e0ad98287ef6ee6916d7fbef9ba6cb843ef6cb52bd9ff",
+   "keys": [
+    "combined-v1",
+    "combined-v1-mape"
+   ],
+   "convention": "<key>__v = VERTICAL yarns = our h (VLM wide format)"
+  },
+  "real150_long": {
+   "path": "methods/results/predictions_combined_v1_150.csv",
+   "sha256": "b1fe5356ce9de25c0a065ba86e09f06d9d41f0e1bfc81a79b287d3da0210f137"
+  },
+  "legacy13_clean": {
+   "path": "methods/results/legacy13_vlmcrops_estimators_combined_v1.csv",
+   "sha256": "3cab1a1328c59d2a770185f101dc01037de1c58b73da023d28e3e85617521bd0"
+  },
+  "legacy13_degradations": {
+   "path": "methods/results/legacy13_vlmcrops_degrade_combined_v1.csv",
+   "sha256": "cfe6744837d4af4e95cf867da1caccc5fd77c63dd1391654cd29b4e7396d5813"
+  },
+  "legacy13_degradations_extra": {
+   "path": "methods/results/legacy13_vlmcrops_degrade_extra_combined_v1.csv",
+   "sha256": "fdf941f74bd7ed793fcdeaabf2df68ebf7a4e84c6f15d10c7f68983124c1683c"
+  },
+  "legacy13_pickglass_stress_primary_only": {
+   "path": "methods/results/stress_legacy13_combined_v1.csv",
+   "sha256": "c3f3995fb77778e75c83b302ba395ca33be50b0fe90e035b10f5c0051b48757b"
+  }
+ },
+ "heldout_test": {
+  "status": "declared here, run after this record was written (methods/combined_v1.py --heldout-score, --eval-synth); crops rendered before the freeze but never scored before it",
+  "data": {
+   "H-legacygrid": "fresh cnn/synth.py v2 seeds 970000..970199, legacy-like sensor grid (as S-cal)",
+   "H-default": "fresh seeds 975000..975199, generator defaults (crop <= 1024 px)",
+   "conditions": "the same 19 as S-cal (clean; gblur 1,2,3,4,6u; down x2,4,8; jpeg 90,50,20; glare 5,10,20,30 %; corners 2,5,10 %), methods/degrade.py, seed crc32(name) % 100003",
+   "counter": "methods/results/counting_frozen_final.py by path (ours + log-Gabor)",
+   "seed_check": "no other study uses 970000+ or 975000+ (training 0..102399, synth_val 900000+, synth_val_v2 910000+, S-cal 930000+, guard 960000+/965000+)"
+  },
+  "primary_metric": "P5 over all held-out counts (both sets, all 19 conditions, 2 counts per row)",
+  "comparisons": [
+   "combined-v1 - ours",
+   "combined-v1 - log-Gabor"
+  ],
+  "inference": "paired cluster bootstrap over synthetic crops (both counts and all 19 conditions of a crop resampled together), 10 000 resamples, seed 20261011; 95 % percentile CI of the P5 difference (percentage points) and of the MAPE difference",
+  "decision_rule": "combined-v1 is 'better than both components' iff its held-out P5 exceeds both ours' and log-Gabor's AND both 95 % CIs of the P5 difference exclude 0. Otherwise the record says so and recommends NOT adding combined-v1 to Tab. 1.",
+  "also_reported": "MAPE, P10, per condition, per generator variant, clean only; the secondary variant"
+ },
+ "label_day_plan": {
+  "scoring": "tools/score150.py ... --extra-wide ../methods/results/combined_v1_150_wide.csv::combined-v1 (per scene, n = labelled representatives; same metrics as every Tab. 1 row: MAE, MAPE [CI], w5, w10, both5, bias_med)",
+  "paired": "label_day.py paired(): per-scene mean APE, combined-v1 vs Ours and vs Log-Gabor bank (scene bootstrap 10 000, Wilcoxon)",
+  "condition": "only if the held-out synthetic test passes; the secondary variant only in the supplement",
+  "no_refit": "thresholds are never refitted on human labels"
+ },
+ "legacy_disclosure": "Legacy-13 results (clean, degradations, PickGlass-Stress) are POST HOC: the 13 hand counts were used during development of ours and the defocus pattern motivated this rule family.",
+ "software": {
+  "python": "3.11.4",
+  "numpy": "1.26.4",
+  "pandas": "3.0.6"
+ }
+}

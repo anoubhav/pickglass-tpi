@@ -1,0 +1,48 @@
+sweep: 2583 jobs, workers=5
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  100/2583 34s
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  200/2583 44s
+  300/2583 89s
+  400/2583 103s
+  500/2583 129s
+  600/2583 175s
+  700/2583 186s
+  800/2583 244s
+  900/2583 264s
+  1000/2583 301s
+  1100/2583 359s
+  1200/2583 372s
+  1300/2583 418s
+  1400/2583 435s
+  1500/2583 459s
+  1600/2583 504s
+  1700/2583 516s
+  1800/2583 560s
+  1900/2583 579s
+  2000/2583 603s
+  2100/2583 641s
+  2200/2583 655s
+  2300/2583 692s
+  2400/2583 711s
+  2500/2583 731s
+  2583/2583 760s
+wrote camera_aug/results/audit_sweep_raw.csv

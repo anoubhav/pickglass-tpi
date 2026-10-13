@@ -1,0 +1,9 @@
+estimators: 40 jobs in 175s
+estimate() vs estimate_many() max |diff|: 0.0
+latency per image (s), median [min, max]:
+            50%   min    max  mean
+estimator                         
+gabor      3.98  2.97   5.63  4.03
+ours       3.52  2.71  12.18  3.95
+wrote methods/results/legacy13_vlmcrops_estimators.csv
+P1 reproduction vs legacy13_estimators.csv: 180 (image, estimator) pairs, max |diff| = 2.84e-14 TPI, n exact(<1e-6) = 360/360

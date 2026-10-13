@@ -1,0 +1,209 @@
+image,axis,pred,true,plain,formula,err,ae,ape,key,method,prompt,assign
+a1,warp,76.392,76.0,False,True,0.392,0.392,0.516,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a1,weft,64.522,64.0,False,False,0.522,0.522,0.816,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a10,warp,46.599,46.0,True,False,0.599,0.599,1.301,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a10,weft,53.893,53.0,True,False,0.893,0.893,1.685,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a2,warp,47.755,48.0,True,False,-0.245,0.245,0.511,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a2,weft,46.974,47.0,True,False,-0.026,0.026,0.056,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a4,warp,109.753,115.0,True,False,-5.247,5.247,4.563,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a4,weft,73.546,73.0,True,False,0.546,0.546,0.748,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a5,warp,48.85,47.0,True,False,1.85,1.85,3.936,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a5,weft,48.76,49.0,True,False,-0.24,0.24,0.49,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a6,warp,31.213,46.0,False,True,-14.787,14.787,32.146,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a6,weft,85.407,43.0,False,False,42.407,42.407,98.62,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a8,warp,56.043,45.0,True,False,11.043,11.043,24.539,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a8,weft,41.288,42.0,True,False,-0.712,0.712,1.695,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r2,warp,98.211,99.0,True,False,-0.789,0.789,0.797,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r2,weft,70.04,69.0,True,False,1.04,1.04,1.508,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r3,warp,51.811,48.0,True,False,3.811,3.811,7.939,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r3,weft,103.086,62.0,True,False,41.086,41.086,66.267,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r4,warp,64.193,63.0,True,False,1.193,1.193,1.893,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r4,weft,94.263,91.0,True,False,3.263,3.263,3.585,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r6,warp,94.436,92.0,True,False,2.436,2.436,2.648,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r6,weft,94.424,90.0,True,False,4.424,4.424,4.915,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r7,warp,43.008,42.0,True,False,1.008,1.008,2.401,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r7,weft,65.393,65.0,True,False,0.393,0.393,0.605,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r8,warp,83.662,122.0,False,True,-38.338,38.338,31.425,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r8,weft,75.459,71.0,False,False,4.459,4.459,6.28,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a1,weft,64.522,64.0,False,False,0.522,0.522,0.816,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a1,warp,76.392,76.0,False,True,0.392,0.392,0.516,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a10,warp,46.599,46.0,True,False,0.599,0.599,1.301,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a10,weft,53.893,53.0,True,False,0.893,0.893,1.685,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a2,weft,46.974,47.0,True,False,-0.026,0.026,0.056,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a2,warp,47.755,48.0,True,False,-0.245,0.245,0.511,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a4,weft,73.546,73.0,True,False,0.546,0.546,0.748,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a4,warp,109.753,115.0,True,False,-5.247,5.247,4.563,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a5,warp,48.76,47.0,True,False,1.76,1.76,3.745,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a5,weft,48.85,49.0,True,False,-0.15,0.15,0.306,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a6,weft,31.213,43.0,False,False,-11.787,11.787,27.412,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a6,warp,85.407,46.0,False,True,39.407,39.407,85.666,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a8,weft,41.288,42.0,True,False,-0.712,0.712,1.695,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a8,warp,56.043,45.0,True,False,11.043,11.043,24.539,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r2,weft,70.04,69.0,True,False,1.04,1.04,1.508,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r2,warp,98.211,99.0,True,False,-0.789,0.789,0.797,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r3,warp,51.811,48.0,True,False,3.811,3.811,7.939,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r3,weft,103.086,62.0,True,False,41.086,41.086,66.267,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r4,warp,64.193,63.0,True,False,1.193,1.193,1.893,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r4,weft,94.263,91.0,True,False,3.263,3.263,3.585,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r6,weft,94.424,90.0,True,False,4.424,4.424,4.915,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r6,warp,94.436,92.0,True,False,2.436,2.436,2.648,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r7,warp,43.008,42.0,True,False,1.008,1.008,2.401,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r7,weft,65.393,65.0,True,False,0.393,0.393,0.605,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r8,weft,75.459,71.0,False,False,4.459,4.459,6.28,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r8,warp,83.662,122.0,False,True,-38.338,38.338,31.425,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a1,warp,75.803,76.0,False,True,-0.197,0.197,0.259,est:gabor,Log-Gabor bank,--,axis
+a1,weft,63.538,64.0,False,False,-0.462,0.462,0.722,est:gabor,Log-Gabor bank,--,axis
+a10,warp,23.367,46.0,True,False,-22.633,22.633,49.203,est:gabor,Log-Gabor bank,--,axis
+a10,weft,48.454,53.0,True,False,-4.546,4.546,8.578,est:gabor,Log-Gabor bank,--,axis
+a2,warp,47.736,48.0,True,False,-0.264,0.264,0.55,est:gabor,Log-Gabor bank,--,axis
+a2,weft,46.585,47.0,True,False,-0.415,0.415,0.883,est:gabor,Log-Gabor bank,--,axis
+a4,warp,104.573,115.0,True,False,-10.427,10.427,9.067,est:gabor,Log-Gabor bank,--,axis
+a4,weft,73.175,73.0,True,False,0.175,0.175,0.24,est:gabor,Log-Gabor bank,--,axis
+a5,warp,48.261,47.0,True,False,1.261,1.261,2.683,est:gabor,Log-Gabor bank,--,axis
+a5,weft,48.353,49.0,True,False,-0.647,0.647,1.319,est:gabor,Log-Gabor bank,--,axis
+a6,warp,31.053,46.0,False,True,-14.947,14.947,32.493,est:gabor,Log-Gabor bank,--,axis
+a6,weft,42.228,43.0,False,False,-0.772,0.772,1.795,est:gabor,Log-Gabor bank,--,axis
+a8,warp,55.715,45.0,True,False,10.715,10.715,23.811,est:gabor,Log-Gabor bank,--,axis
+a8,weft,41.289,42.0,True,False,-0.711,0.711,1.692,est:gabor,Log-Gabor bank,--,axis
+r2,warp,95.924,99.0,True,False,-3.076,3.076,3.107,est:gabor,Log-Gabor bank,--,axis
+r2,weft,68.738,69.0,True,False,-0.262,0.262,0.38,est:gabor,Log-Gabor bank,--,axis
+r3,warp,51.273,48.0,True,False,3.273,3.273,6.819,est:gabor,Log-Gabor bank,--,axis
+r3,weft,30.853,62.0,True,False,-31.147,31.147,50.237,est:gabor,Log-Gabor bank,--,axis
+r4,warp,63.71,63.0,True,False,0.71,0.71,1.127,est:gabor,Log-Gabor bank,--,axis
+r4,weft,92.956,91.0,True,False,1.956,1.956,2.15,est:gabor,Log-Gabor bank,--,axis
+r6,warp,92.358,92.0,True,False,0.358,0.358,0.39,est:gabor,Log-Gabor bank,--,axis
+r6,weft,91.606,90.0,True,False,1.606,1.606,1.785,est:gabor,Log-Gabor bank,--,axis
+r7,warp,42.444,42.0,True,False,0.444,0.444,1.056,est:gabor,Log-Gabor bank,--,axis
+r7,weft,65.092,65.0,True,False,0.092,0.092,0.142,est:gabor,Log-Gabor bank,--,axis
+r8,warp,78.677,122.0,False,True,-43.323,43.323,35.511,est:gabor,Log-Gabor bank,--,axis
+r8,weft,73.781,71.0,False,False,2.781,2.781,3.918,est:gabor,Log-Gabor bank,--,axis
+a1,weft,63.538,64.0,False,False,-0.462,0.462,0.722,est:gabor,Log-Gabor bank,--,sorted
+a1,warp,75.803,76.0,False,True,-0.197,0.197,0.259,est:gabor,Log-Gabor bank,--,sorted
+a10,warp,23.367,46.0,True,False,-22.633,22.633,49.203,est:gabor,Log-Gabor bank,--,sorted
+a10,weft,48.454,53.0,True,False,-4.546,4.546,8.578,est:gabor,Log-Gabor bank,--,sorted
+a2,weft,46.585,47.0,True,False,-0.415,0.415,0.883,est:gabor,Log-Gabor bank,--,sorted
+a2,warp,47.736,48.0,True,False,-0.264,0.264,0.55,est:gabor,Log-Gabor bank,--,sorted
+a4,weft,73.175,73.0,True,False,0.175,0.175,0.24,est:gabor,Log-Gabor bank,--,sorted
+a4,warp,104.573,115.0,True,False,-10.427,10.427,9.067,est:gabor,Log-Gabor bank,--,sorted
+a5,warp,48.261,47.0,True,False,1.261,1.261,2.683,est:gabor,Log-Gabor bank,--,sorted
+a5,weft,48.353,49.0,True,False,-0.647,0.647,1.319,est:gabor,Log-Gabor bank,--,sorted
+a6,weft,31.053,43.0,False,False,-11.947,11.947,27.783,est:gabor,Log-Gabor bank,--,sorted
+a6,warp,42.228,46.0,False,True,-3.772,3.772,8.199,est:gabor,Log-Gabor bank,--,sorted
+a8,weft,41.289,42.0,True,False,-0.711,0.711,1.692,est:gabor,Log-Gabor bank,--,sorted
+a8,warp,55.715,45.0,True,False,10.715,10.715,23.811,est:gabor,Log-Gabor bank,--,sorted
+r2,weft,68.738,69.0,True,False,-0.262,0.262,0.38,est:gabor,Log-Gabor bank,--,sorted
+r2,warp,95.924,99.0,True,False,-3.076,3.076,3.107,est:gabor,Log-Gabor bank,--,sorted
+r3,warp,30.853,48.0,True,False,-17.147,17.147,35.723,est:gabor,Log-Gabor bank,--,sorted
+r3,weft,51.273,62.0,True,False,-10.727,10.727,17.302,est:gabor,Log-Gabor bank,--,sorted
+r4,warp,63.71,63.0,True,False,0.71,0.71,1.127,est:gabor,Log-Gabor bank,--,sorted
+r4,weft,92.956,91.0,True,False,1.956,1.956,2.15,est:gabor,Log-Gabor bank,--,sorted
+r6,weft,91.606,90.0,True,False,1.606,1.606,1.785,est:gabor,Log-Gabor bank,--,sorted
+r6,warp,92.358,92.0,True,False,0.358,0.358,0.39,est:gabor,Log-Gabor bank,--,sorted
+r7,warp,42.444,42.0,True,False,0.444,0.444,1.056,est:gabor,Log-Gabor bank,--,sorted
+r7,weft,65.092,65.0,True,False,0.092,0.092,0.142,est:gabor,Log-Gabor bank,--,sorted
+r8,weft,73.781,71.0,False,False,2.781,2.781,3.918,est:gabor,Log-Gabor bank,--,sorted
+r8,warp,78.677,122.0,False,True,-43.323,43.323,35.511,est:gabor,Log-Gabor bank,--,sorted
+a1,warp,76.097,76.0,False,True,0.097,0.097,0.128,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a1,weft,64.028,64.0,False,False,0.028,0.028,0.044,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a10,warp,46.599,46.0,True,False,0.599,0.599,1.301,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a10,weft,51.101,53.0,True,False,-1.899,1.899,3.583,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a2,warp,47.745,48.0,True,False,-0.255,0.255,0.53,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a2,weft,46.779,47.0,True,False,-0.221,0.221,0.47,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a4,warp,107.131,115.0,True,False,-7.869,7.869,6.842,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a4,weft,73.361,73.0,True,False,0.361,0.361,0.494,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a5,warp,48.554,47.0,True,False,1.554,1.554,3.307,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a5,weft,48.556,49.0,True,False,-0.444,0.444,0.906,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a6,warp,31.133,46.0,False,True,-14.867,14.867,32.32,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a6,weft,85.407,43.0,False,False,42.407,42.407,98.62,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a8,warp,55.879,45.0,True,False,10.879,10.879,24.175,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a8,weft,41.289,42.0,True,False,-0.711,0.711,1.694,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r2,warp,97.061,99.0,True,False,-1.939,1.939,1.959,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r2,weft,69.386,69.0,True,False,0.386,0.386,0.56,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r3,warp,51.541,48.0,True,False,3.541,3.541,7.378,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r3,weft,103.086,62.0,True,False,41.086,41.086,66.267,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r4,warp,63.951,63.0,True,False,0.951,0.951,1.51,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r4,weft,93.607,91.0,True,False,2.607,2.607,2.865,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r6,warp,93.391,92.0,True,False,1.391,1.391,1.512,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r6,weft,93.004,90.0,True,False,3.004,3.004,3.338,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r7,warp,42.725,42.0,True,False,0.725,0.725,1.726,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r7,weft,65.242,65.0,True,False,0.242,0.242,0.373,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r8,warp,81.131,122.0,False,True,-40.869,40.869,33.499,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+r8,weft,74.616,71.0,False,False,3.616,3.616,5.092,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,axis
+a1,weft,64.028,64.0,False,False,0.028,0.028,0.044,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a1,warp,76.097,76.0,False,True,0.097,0.097,0.128,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a10,warp,46.599,46.0,True,False,0.599,0.599,1.301,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a10,weft,51.101,53.0,True,False,-1.899,1.899,3.583,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a2,weft,46.779,47.0,True,False,-0.221,0.221,0.47,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a2,warp,47.745,48.0,True,False,-0.255,0.255,0.53,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a4,weft,73.361,73.0,True,False,0.361,0.361,0.494,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a4,warp,107.131,115.0,True,False,-7.869,7.869,6.842,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a5,warp,48.554,47.0,True,False,1.554,1.554,3.307,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a5,weft,48.556,49.0,True,False,-0.444,0.444,0.906,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a6,weft,31.133,43.0,False,False,-11.867,11.867,27.598,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a6,warp,85.407,46.0,False,True,39.407,39.407,85.666,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a8,weft,41.289,42.0,True,False,-0.711,0.711,1.694,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a8,warp,55.879,45.0,True,False,10.879,10.879,24.175,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r2,weft,69.386,69.0,True,False,0.386,0.386,0.56,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r2,warp,97.061,99.0,True,False,-1.939,1.939,1.959,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r3,warp,51.541,48.0,True,False,3.541,3.541,7.378,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r3,weft,103.086,62.0,True,False,41.086,41.086,66.267,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r4,warp,63.951,63.0,True,False,0.951,0.951,1.51,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r4,weft,93.607,91.0,True,False,2.607,2.607,2.865,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r6,weft,93.004,90.0,True,False,3.004,3.004,3.338,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r6,warp,93.391,92.0,True,False,1.391,1.391,1.512,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r7,warp,42.725,42.0,True,False,0.725,0.725,1.726,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r7,weft,65.242,65.0,True,False,0.242,0.242,0.373,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r8,weft,74.616,71.0,False,False,3.616,3.616,5.092,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+r8,warp,81.131,122.0,False,True,-40.869,40.869,33.499,est:combined_v1,"Combined v1 (PG-Lattice + log-Gabor, pre-registered)",--,sorted
+a1,warp,76.097,76.0,False,True,0.097,0.097,0.128,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a1,weft,64.028,64.0,False,False,0.028,0.028,0.044,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a10,warp,46.599,46.0,True,False,0.599,0.599,1.301,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a10,weft,51.101,53.0,True,False,-1.899,1.899,3.583,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a2,warp,47.745,48.0,True,False,-0.255,0.255,0.53,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a2,weft,46.779,47.0,True,False,-0.221,0.221,0.47,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a4,warp,107.131,115.0,True,False,-7.869,7.869,6.842,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a4,weft,73.361,73.0,True,False,0.361,0.361,0.494,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a5,warp,48.554,47.0,True,False,1.554,1.554,3.307,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a5,weft,48.556,49.0,True,False,-0.444,0.444,0.906,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a6,warp,31.133,46.0,False,True,-14.867,14.867,32.32,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a6,weft,85.407,43.0,False,False,42.407,42.407,98.62,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a8,warp,55.879,45.0,True,False,10.879,10.879,24.175,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a8,weft,41.289,42.0,True,False,-0.711,0.711,1.694,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r2,warp,97.061,99.0,True,False,-1.939,1.939,1.959,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r2,weft,69.386,69.0,True,False,0.386,0.386,0.56,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r3,warp,51.541,48.0,True,False,3.541,3.541,7.378,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r3,weft,103.086,62.0,True,False,41.086,41.086,66.267,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r4,warp,63.951,63.0,True,False,0.951,0.951,1.51,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r4,weft,93.607,91.0,True,False,2.607,2.607,2.865,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r6,warp,93.391,92.0,True,False,1.391,1.391,1.512,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r6,weft,93.004,90.0,True,False,3.004,3.004,3.338,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r7,warp,42.725,42.0,True,False,0.725,0.725,1.726,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r7,weft,65.242,65.0,True,False,0.242,0.242,0.373,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r8,warp,81.131,122.0,False,True,-40.869,40.869,33.499,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+r8,weft,74.616,71.0,False,False,3.616,3.616,5.092,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,axis
+a1,weft,64.028,64.0,False,False,0.028,0.028,0.044,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a1,warp,76.097,76.0,False,True,0.097,0.097,0.128,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a10,warp,46.599,46.0,True,False,0.599,0.599,1.301,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a10,weft,51.101,53.0,True,False,-1.899,1.899,3.583,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a2,weft,46.779,47.0,True,False,-0.221,0.221,0.47,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a2,warp,47.745,48.0,True,False,-0.255,0.255,0.53,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a4,weft,73.361,73.0,True,False,0.361,0.361,0.494,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a4,warp,107.131,115.0,True,False,-7.869,7.869,6.842,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a5,warp,48.554,47.0,True,False,1.554,1.554,3.307,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a5,weft,48.556,49.0,True,False,-0.444,0.444,0.906,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a6,weft,31.133,43.0,False,False,-11.867,11.867,27.598,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a6,warp,85.407,46.0,False,True,39.407,39.407,85.666,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a8,weft,41.289,42.0,True,False,-0.711,0.711,1.694,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+a8,warp,55.879,45.0,True,False,10.879,10.879,24.175,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r2,weft,69.386,69.0,True,False,0.386,0.386,0.56,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r2,warp,97.061,99.0,True,False,-1.939,1.939,1.959,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r3,warp,51.541,48.0,True,False,3.541,3.541,7.378,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r3,weft,103.086,62.0,True,False,41.086,41.086,66.267,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r4,warp,63.951,63.0,True,False,0.951,0.951,1.51,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r4,weft,93.607,91.0,True,False,2.607,2.607,2.865,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r6,weft,93.004,90.0,True,False,3.004,3.004,3.338,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r6,warp,93.391,92.0,True,False,1.391,1.391,1.512,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r7,warp,42.725,42.0,True,False,0.725,0.725,1.726,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r7,weft,65.242,65.0,True,False,0.242,0.242,0.373,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r8,weft,74.616,71.0,False,False,3.616,3.616,5.092,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted
+r8,warp,81.131,122.0,False,True,-40.869,40.869,33.499,est:combined_v1_mape,"Combined v1, MAPE-objective variant (secondary)",--,sorted

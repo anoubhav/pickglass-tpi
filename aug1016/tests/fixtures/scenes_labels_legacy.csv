@@ -1,0 +1,13 @@
+image,aug_id,source_id,group,k_deg,swap_hv,h_tpi,v_tpi,h_count,v_count,weave,warp_dir,h_angle_deg,v_angle_deg,uncertain,confidence,n_annotations,annotators,source_group,rect_size,source_rect_size,review_decision,label_files
+aug1016/crops/0_aug0.jpg,0_aug0,0,0,270,True,38.0,47.0,38.0,47.0,plain,vertical,0.0,0.0,False,,1,T,,590,490,,scenes_export.json
+aug1016/crops/0_aug1.jpg,0_aug1,0,0,270,True,38.0,47.0,38.0,47.0,plain,vertical,0.0,0.0,False,,1,T,,501,490,,scenes_export.json
+aug1016/crops/0_aug2.jpg,0_aug2,0,0,0,False,47.0,38.0,47.0,38.0,plain,horizontal,0.0,0.0,False,,1,T,,566,490,,scenes_export.json
+aug1016/crops/0_aug3.jpg,0_aug3,0,0,90,True,38.0,47.0,38.0,47.0,plain,vertical,0.0,0.0,False,,1,T,,553,490,,scenes_export.json
+aug1016/crops/0_aug4.jpg,0_aug4,0,0,180,False,47.0,38.0,47.0,38.0,plain,horizontal,0.0,0.0,False,,1,T,,496,490,,scenes_export.json
+aug1016/crops/0_aug5.jpg,0_aug5,0,0,90,True,38.0,47.0,38.0,47.0,plain,vertical,0.0,0.0,False,,1,T,,492,490,,scenes_export.json
+aug1016/crops/45_aug0.jpg,45_aug0,45,45,0,False,27.0,43.0,27.0,43.0,plain,vertical,0.0,0.0,False,,1,T,,2207,1895,,scenes_export.json
+aug1016/crops/45_aug1.jpg,45_aug1,45,45,90,True,43.0,27.0,43.0,27.0,plain,horizontal,0.0,0.0,False,,1,T,,1983,1895,,scenes_export.json
+aug1016/crops/45_aug2.jpg,45_aug2,45,45,0,False,27.0,43.0,27.0,43.0,plain,vertical,0.0,0.0,False,,1,T,,2120,1895,,scenes_export.json
+aug1016/crops/45_aug3.jpg,45_aug3,45,45,90,True,43.0,27.0,43.0,27.0,plain,horizontal,0.0,0.0,False,,1,T,,2119,1895,,scenes_export.json
+aug1016/crops/45_aug4.jpg,45_aug4,45,45,90,True,43.0,27.0,43.0,27.0,plain,horizontal,0.0,0.0,False,,1,T,,1895,1895,,scenes_export.json
+aug1016/crops/45_aug5.jpg,45_aug5,45,45,180,False,27.0,43.0,27.0,43.0,plain,vertical,0.0,0.0,False,,1,T,,2123,1895,,scenes_export.json

@@ -1,0 +1,11 @@
+cond,n_photos,ours_fail,ours_gross,conf_mean,conf_mean_fail,conf: escalated,conf: fail caught,conf: gross caught,gate conf part: escalated,gate conf part: fail caught,gate conf part: gross caught,gate blur part: escalated,gate blur part: fail caught,gate blur part: gross caught,gate: escalated,gate: fail caught,gate: gross caught,agree-ext: escalated,agree-ext: fail caught,agree-ext: gross caught
+all,117,47,34,0.7574,0.6876,25,12,10,17,8,7,13,11,10,28,17,15,47,31,27
+clean,13,4,3,0.8289,0.7776,1,0,0,1,0,0,0,0,0,1,0,0,3,2,2
+defocus 3u,13,8,8,0.7262,0.7663,4,1,1,2,0,0,6,6,6,8,6,6,11,8,8
+defocus 6u,13,8,6,0.6409,0.5616,5,4,3,4,3,3,7,5,4,9,6,5,11,8,6
+down x4,13,3,2,0.8111,0.7516,2,1,1,1,0,0,0,0,0,1,0,0,4,1,1
+down x8,13,6,3,0.7363,0.65,3,2,1,2,1,0,0,0,0,2,1,0,3,2,1
+JPEG q20,13,4,3,0.8192,0.801,1,0,0,1,0,0,0,0,0,1,0,0,3,2,2
+glare 5%,13,4,3,0.784,0.6781,3,1,1,2,1,1,0,0,0,2,1,1,3,2,2
+glare 30%,13,4,3,0.6843,0.5377,4,2,2,3,2,2,0,0,0,3,2,2,4,3,3
+corners 5%,13,6,3,0.7861,0.7266,2,1,1,1,1,1,0,0,0,1,1,1,5,3,2

@@ -1,0 +1,95 @@
+{
+ "created": "2026-10-12T00:00:57-0400",
+ "n_rows": 7600,
+ "seeds": {
+  "legacygrid": "970000..970199",
+  "default": "975000..975199"
+ },
+ "conditions": [
+  [
+   "clean",
+   0
+  ],
+  [
+   "gblur",
+   1
+  ],
+  [
+   "gblur",
+   2
+  ],
+  [
+   "gblur",
+   3
+  ],
+  [
+   "gblur",
+   4
+  ],
+  [
+   "gblur",
+   6
+  ],
+  [
+   "down",
+   2
+  ],
+  [
+   "down",
+   4
+  ],
+  [
+   "down",
+   8
+  ],
+  [
+   "jpeg",
+   90
+  ],
+  [
+   "jpeg",
+   50
+  ],
+  [
+   "jpeg",
+   20
+  ],
+  [
+   "glare",
+   0.05
+  ],
+  [
+   "glare",
+   0.1
+  ],
+  [
+   "glare",
+   0.2
+  ],
+  [
+   "glare",
+   0.3
+  ],
+  [
+   "corners",
+   0.02
+  ],
+  [
+   "corners",
+   0.05
+  ],
+  [
+   "corners",
+   0.1
+  ]
+ ],
+ "counter": "methods/results/counting_frozen_final.py",
+ "counter_sha256": "fd97f9efe7f5e0ef91116d70c71df577bfa768d4a8fd74524a4d30eeafa6117a",
+ "conf_model_sha256": "082e01d380ea7619e95b862b111922db136a36aeade528d5c8f7ff678288dafb",
+ "degrade_sha256": "3c34d91f07d8a6e6f380d39a4c9ea23986f1cb84ba94cc2c73e6ddbbc481e15c",
+ "synth_sha256": "7d332ebdc757dbebb91736173c7f5163ced8b5388832f6b5698419e68a939db4",
+ "numpy": "1.26.4",
+ "cv2": "4.11.0",
+ "wall_s": 5675.6,
+ "prereg_sha256": "1e4fd17727a0d47fb8a3b3db4accbeef0af143bb5dfdc5dfe0e0ed2deaf5197a"
+}

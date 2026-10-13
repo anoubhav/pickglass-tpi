@@ -1,0 +1,6 @@
+contrast,isolates,model_a,model_b,set,method,n_records,n_images,identical_text,mean_abs_diff_per_call,median_abs_diff_per_call,mean_rel_diff_pct,mean_abs_estimate_diff_tpi,n_identical_estimates,n_gt_images_both,mae_best_a,mape_best_a,within10_best_a,mae_axis_a,mae_best_b,mape_best_b,within10_best_b,mae_axis_b,gt_images,n_distinct_answers_a,n_distinct_answers_b,median_s_per_call_a,median_s_per_call_b
+total,reference bf16 HF vs the Mac MLX-4bit run,molmo2_8b_bf16,molmo2_8b,legacy,P1,20,20,3,2,2,,2,3,13,53.85,79.89,0,53.85,55.69,83.14,0,55.69,"a1,a2,a4,a5,a6,a8,a10,r2,r3,r4,r6,r7,r8",4,1,0.9748,13.55
+total,reference bf16 HF vs the Mac MLX-4bit run,molmo2_8b_bf16,molmo2_8b,legacy,P2,4,4,0,23,23.5,,23,1,4,37.88,61.79,2,37.88,46.88,80.05,0,47.38,"a1,a2,a4,a5",4,2,5.35,81.77
+total,reference bf16 HF vs the Mac MLX-4bit run,molmo2_8b_bf16,molmo2_8b,legacy,P3,4,4,2,3,3,,12,2,4,12.88,17.16,1,12.88,24.88,32.51,0,24.88,"a1,a2,a4,a5",2,1,0.9732,30.91
+total,reference bf16 HF vs the Mac MLX-4bit run,molmo2_8b_bf16,molmo2_8b,legacy,P4,8,4,0,20.25,9,35.36,20.25,0,4,21.75,29.54,2,21.75,19,28.69,2,19,"a1,a2,a4,a5",4,4,12.92,65.16
+total,reference bf16 HF vs the Mac MLX-4bit run,molmo2_8b_bf16,molmo2_8b,legacy,P4q,6,3,0,17.33,6.5,52.01,69.33,0,3,15.17,25.39,2,19.17,60.17,80.21,1,64.17,"a1,a2,a4",3,3,5.934,59.82

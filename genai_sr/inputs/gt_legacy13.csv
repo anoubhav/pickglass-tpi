@@ -1,0 +1,14 @@
+image,warp,weft,weave,unclear,warp_raw,weft_raw,warp_formula,weft_formula,is_range,key
+a1,76.0,64.0,2/1,False,26 + 25*2 = 76,64.0,True,False,False,leg_a1
+a2,48.0,47.0,1/1,False,48.0,47.0,False,False,False,leg_a2
+a4,115.0,73.0,1/1,True,110-120,73.0,False,False,True,leg_a4
+a5,47.0,49.0,1/1,False,47.0,49.0,False,False,False,leg_a5
+a6,46.0,43.0,2/1,False,16 + 15*2 = 46,43.0,True,False,False,leg_a6
+a8,45.0,42.0,1/1,True,45.0,42.0,False,False,False,leg_a8
+a10,46.0,53.0,1/1,False,46.0,53.0,False,False,False,leg_a10
+r2,99.0,69.0,1/1,False,99.0,69.0,False,False,False,leg_r2
+r3,48.0,62.0,1/1,False,48.0,62.0,False,False,False,leg_r3
+r4,63.0,91.0,1/1,False,63.0,91.0,False,False,False,leg_r4
+r6,92.0,90.0,1/1,True,92.0,90.0,False,False,False,leg_r6
+r7,42.0,65.0,1/1,True,42.0,65.0,False,False,False,leg_r7
+r8,122.0,71.0,2/1,False,40+41*2=122,71.0,True,False,False,leg_r8

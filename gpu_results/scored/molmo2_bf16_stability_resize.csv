@@ -1,0 +1,5 @@
+model,set,method,input_px,n_images,n_images_all_parsed,mean_sd_tpi,mean_range_tpi,max_range_tpi,mean_range_pct,identical_all3,mae_axis_644,mape_axis_644,within10_axis_644,mae_best_644,mape_best_644,within10_best_644,n_ok_644,mae_axis_588,mape_axis_588,within10_axis_588,mae_best_588,mape_best_588,within10_best_588,n_ok_588,mae_axis_700,mape_axis_700,within10_axis_700,mae_best_700,mape_best_700,within10_best_700,n_ok_700
+molmo2_8b_bf16,legacy,P1,644 / 588 / 700,20,20,0.144338,0.25,3,2.13235,18,53.8462,79.8878,0,53.8462,79.8878,0,13,53.4615,79.4326,0,53.4615,79.4326,0,13,53.4615,79.4326,0,53.4615,79.4326,0,13
+molmo2_8b_bf16,legacy,P4,644 / 588 / 700,20,20,2.3826,4.325,23,15.0326,2,34.4615,45.1163,3,34,45.8239,2,13,36.3846,47.8767,4,35.9231,49.0175,3,13,35.0769,46.6604,3,34.5385,47.4577,2,13
+molmo2_8b_bf16,rect150,P1,644 / 588 / 700,20,20,0,0,0,0,20,,,,,,,,,,,,,,,,,,,,,
+molmo2_8b_bf16,rect150,P4,644 / 588 / 700,20,20,4.8526,8.775,97,24.432,3,,,,,,,,,,,,,,,,,,,,,

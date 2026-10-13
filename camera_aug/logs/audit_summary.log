@@ -1,0 +1,174 @@
+floor (max of no-op baselines): {'med_abs': 0.02, 'p90_abs': 0.19, 'gt10': 3.64}
+                         cond subset   n  n_scenes  med_abs  p90_abs  gt10  med_signed  mean_abs_lo  mean_abs_hi  PASS  n_not_applicable  factor_min  factor_max  med_abs_if_label_ignored  tracking_slope
+       budget_binned_12mp:cfa    all 275        76     0.03     0.83  5.09       -0.00         1.46         8.32  True                 3        1.00        1.00                      0.03             NaN
+ budget_binned_12mp:chromatic    all 275        76     0.03     0.14  2.55        0.00         0.29         4.31  True                 3        1.00        1.00                      0.03             NaN
+   budget_binned_12mp:defocus    all 275        76     0.01     0.21  1.45        0.00         0.10         2.02  True                 3        1.00        1.00                      0.01             NaN
+   budget_binned_12mp:denoise    all 275        76     0.01     0.06  1.09        0.00         0.03         4.00  True                 3        1.00        1.00                      0.01             NaN
+budget_binned_12mp:distortion    all 274        76     1.39     4.58  9.49       -0.05         3.72        10.69 False                 4        0.98        1.02                      2.66           -0.40
+       budget_binned_12mp:isp    all 275        76     0.03     0.14  2.18       -0.00         0.16         5.81  True                 3        1.00        1.00                      0.03             NaN
+      budget_binned_12mp:jpeg    all 275        76     0.01     0.05  1.82       -0.00         0.39         5.06  True                 3        1.00        1.00                      0.01             NaN
+    budget_binned_12mp:motion    all 275        76     0.16    70.83 24.00       -0.00        13.57        27.78 False                 3        1.00        1.00                      0.16             NaN
+     budget_binned_12mp:noise    all 275        76     0.03     0.26  4.36       -0.00         0.87         7.15  True                 3        1.00        1.00                      0.03             NaN
+    budget_binned_12mp:sample    all 275        76     0.04     0.56  2.91        0.00         0.49         5.04  True                 3        1.00        1.00                      0.04             NaN
+   budget_binned_12mp:sharpen    all 275        76     0.02     0.18  2.55       -0.01         0.96         6.75  True                 3        1.00        1.00                      0.02             NaN
+  budget_binned_12mp:vignette    all 275        76     0.01     0.05  0.73        0.00         0.03         2.43  True                 3        1.00        1.00                      0.01             NaN
+      budget_binned_12mp:zoom    all 275        76     0.04     0.74  8.00       -0.00         6.32        38.15 False                 3        1.00        1.00                      0.04             NaN
+      budget_fullres_50mp:cfa    all 275        76     0.34   191.36 31.64        0.03        39.72        71.25 False                 3        1.00        1.00                      0.34             NaN
+      budget_lowlight:denoise    all 275        76     0.01     0.10  2.91        0.00         0.67         5.01  True                 3        1.00        1.00                      0.01             NaN
+       budget_lowlight:motion    all 275        76     0.45    67.02 28.73       -0.02        17.93        34.01 False                 3        1.00        1.00                      0.45             NaN
+        budget_lowlight:noise    all 275        76     0.03     0.25  4.00       -0.00         0.92         8.27  True                 3        1.00        1.00                      0.03             NaN
+budget_lowlight:noise+denoise    all 275        76     0.03     0.29  2.91       -0.00         0.76         5.82  True                 3        1.00        1.00                      0.03             NaN
+                 flagship:cfa    all 275        76     0.03     0.52  4.73       -0.00         1.34         8.20  True                 3        1.00        1.00                      0.03             NaN
+           full:budget+gblur3    all 275        76     1.80    62.88 24.73       -0.10        14.55        46.17 False                 3        0.98        1.02                      3.01           -0.39
+           full:budget+gblur6    all 275        76     3.55    86.75 46.18       -0.25        35.40        67.67 False                 3        0.98        1.02                      4.82            5.51
+        full:budget+glare0.05    all 275        76     1.57    49.15 17.45        0.04        10.83        37.27 False                 3        0.98        1.02                      2.58            1.65
+         full:budget+glare0.3    all 275        76     2.37    75.37 30.18       -0.97        18.64        47.59 False                 3        0.98        1.02                      2.99            2.72
+      full:budget_binned_12mp    all 275        76     1.64    50.66 17.45        0.05        10.04        34.45 False                 3        0.98        1.02                      2.85            1.06
+     full:budget_fullres_50mp    all 276        76     1.91    80.50 28.99       -0.01        24.22        49.37 False                 2        0.98        1.02                      3.07            2.92
+         full:budget_lowlight    all 275        76     1.60    57.61 22.91       -0.16        12.57        29.80 False                 3        0.98        1.02                      2.82            0.10
+         full:budget_whatsapp    all 275        76     1.64    49.02 16.36        0.10         6.66        18.78 False                 3        0.98        1.02                      2.78            0.65
+                full:flagship    all 275        76     1.65    49.97 16.36        0.08         9.08        20.78 False                 3        0.98        1.02                      2.94            3.11
+        full:legacy_16mp_2019    all 275        76     1.42    36.52 15.27       -0.11         5.82        11.29 False                 3        0.98        1.02                      2.57            1.51
+          full:legacy_quarter    all 275        76     1.45    40.57 18.91       -0.34         8.54        19.29 False                 3        0.98        1.02                      2.51            0.08
+         full:midrange_binned    all 275        76     1.43    31.03 14.18        0.17         7.34        16.65 False                 3        0.98        1.02                      2.55            2.59
+         legacy_16mp_2019:cfa    all 275        76     0.03     1.56  7.64       -0.00         4.21        17.77 False                 3        1.00        1.00                      0.03             NaN
+          midrange_binned:cfa    all 275        76     0.03     0.59  5.09       -0.00         1.01         3.82  True                 3        1.00        1.00                      0.03             NaN
+                     noop_q75    all 275        76     0.02     0.19  3.64       -0.00         1.91        10.67  True                 3        1.00        1.00                      0.02             NaN
+                   noop_store    all 275        76     0.00     0.02  0.36        0.00         0.01         2.00  True                 3        1.00        1.00                      0.00             NaN
+       transport:messaging_hd    all 275        76     0.02     0.18  2.91        0.00         1.35        10.36  True                 3        1.00        1.00                      0.02             NaN
+ transport:messaging_standard    all 275        76     0.05     0.84  6.18        0.00         2.58        11.74 False                 3        1.00        1.00                      0.05             NaN
+         transport:resave_q75    all 275        76     0.02     0.19  3.64       -0.00         1.91        10.67  True                 3        1.00        1.00                      0.02             NaN
+   transport:resave_q75_x0.25    all 169        57     0.29     8.11 10.06        0.04         2.17         8.19 False               109        1.00        1.00                      0.29             NaN
+
+by source resolution (hi >= 1500 px, lo ~490 px):
+                         cond subset   n  med_abs  p90_abs  gt10  med_signed  PASS
+       budget_binned_12mp:cfa     hi 120     0.01     0.06  0.83        0.00  True
+       budget_binned_12mp:cfa     lo 155     0.10     3.94  8.39       -0.01 False
+ budget_binned_12mp:chromatic     hi 120     0.04     0.29  2.50        0.01  True
+ budget_binned_12mp:chromatic     lo 155     0.03     0.10  2.58        0.00  True
+   budget_binned_12mp:defocus     hi 120     0.02     0.32  3.33        0.00  True
+   budget_binned_12mp:defocus     lo 155     0.01     0.09  0.00        0.00  True
+   budget_binned_12mp:denoise     hi 120     0.01     0.06  0.83       -0.00  True
+   budget_binned_12mp:denoise     lo 155     0.01     0.05  1.29        0.00  True
+budget_binned_12mp:distortion     hi 120     1.46     3.14  6.67       -0.20 False
+budget_binned_12mp:distortion     lo 154     1.33    33.99 11.69        0.01 False
+       budget_binned_12mp:isp     hi 120     0.02     0.14  0.83       -0.00  True
+       budget_binned_12mp:isp     lo 155     0.03     0.17  3.23       -0.01  True
+      budget_binned_12mp:jpeg     hi 120     0.00     0.02  0.00        0.00  True
+      budget_binned_12mp:jpeg     lo 155     0.01     0.08  3.23       -0.00  True
+    budget_binned_12mp:motion     hi 120     0.22    54.10 23.33       -0.02 False
+    budget_binned_12mp:motion     lo 155     0.13    73.89 24.52        0.00 False
+     budget_binned_12mp:noise     hi 120     0.03     0.35  5.83        0.00 False
+     budget_binned_12mp:noise     lo 155     0.03     0.23  3.23       -0.00  True
+    budget_binned_12mp:sample     hi 120     0.02     0.20  2.50        0.00  True
+    budget_binned_12mp:sample     lo 155     0.06     0.66  3.23        0.01  True
+   budget_binned_12mp:sharpen     hi 120     0.02     0.20  0.83       -0.01  True
+   budget_binned_12mp:sharpen     lo 155     0.02     0.15  3.87       -0.00  True
+  budget_binned_12mp:vignette     hi 120     0.01     0.06  0.00        0.00  True
+  budget_binned_12mp:vignette     lo 155     0.01     0.04  1.29        0.00  True
+      budget_binned_12mp:zoom     hi 120     0.01     0.03  0.00       -0.00  True
+      budget_binned_12mp:zoom     lo 155     0.12    50.33 14.19       -0.04 False
+      budget_fullres_50mp:cfa     hi 120     0.04     4.18 10.00        0.01 False
+      budget_fullres_50mp:cfa     lo 155     8.06   232.71 48.39        0.83 False
+      budget_lowlight:denoise     hi 120     0.02     0.14  4.17       -0.00  True
+      budget_lowlight:denoise     lo 155     0.01     0.06  1.94        0.00  True
+       budget_lowlight:motion     hi 120     0.65    66.20 26.67       -0.02 False
+       budget_lowlight:motion     lo 155     0.33    66.99 30.32       -0.01 False
+        budget_lowlight:noise     hi 120     0.03     0.16  3.33        0.00  True
+        budget_lowlight:noise     lo 155     0.03     0.35  4.52       -0.01  True
+budget_lowlight:noise+denoise     hi 120     0.04     0.27  1.67        0.00  True
+budget_lowlight:noise+denoise     lo 155     0.03     0.32  3.87       -0.01  True
+                 flagship:cfa     hi 120     0.01     0.05  0.83        0.00  True
+                 flagship:cfa     lo 155     0.09     5.60  7.74       -0.01 False
+           full:budget+gblur3     hi 120     1.82    52.52 25.00       -0.60 False
+           full:budget+gblur3     lo 155     1.73    64.89 24.52        0.19 False
+           full:budget+gblur6     hi 120     3.58    74.79 45.00       -0.56 False
+           full:budget+gblur6     lo 155     3.54   120.00 47.10        0.09 False
+        full:budget+glare0.05     hi 120     1.62    40.40 15.00        0.14 False
+        full:budget+glare0.05     lo 155     1.53    50.68 19.35       -0.01 False
+         full:budget+glare0.3     hi 120     2.31    54.30 27.50       -1.78 False
+         full:budget+glare0.3     lo 155     2.44    91.78 32.26       -0.26 False
+      full:budget_binned_12mp     hi 120     1.47    35.04 13.33        0.16 False
+      full:budget_binned_12mp     lo 155     1.76    59.75 20.65       -0.01 False
+     full:budget_fullres_50mp     hi 120     1.48    52.79 17.50       -0.25 False
+     full:budget_fullres_50mp     lo 156     2.26   132.77 37.82        0.33 False
+         full:budget_lowlight     hi 120     1.70    50.46 21.67       -0.40 False
+         full:budget_lowlight     lo 155     1.49    70.87 23.87       -0.03 False
+         full:budget_whatsapp     hi 120     1.64    40.94 17.50        0.24 False
+         full:budget_whatsapp     lo 155     1.64    49.19 15.48       -0.00 False
+                full:flagship     hi 120     1.70    27.03 11.67        0.07 False
+                full:flagship     lo 155     1.53    64.18 20.00        0.08 False
+        full:legacy_16mp_2019     hi 120     1.53    39.52 16.67        0.08 False
+        full:legacy_16mp_2019     lo 155     1.25    34.49 14.19       -0.31 False
+          full:legacy_quarter     hi 120     1.50    39.04 19.17       -0.23 False
+          full:legacy_quarter     lo 155     1.37    45.17 18.71       -0.39 False
+         full:midrange_binned     hi 120     1.17    39.41 14.17        0.32 False
+         full:midrange_binned     lo 155     1.61    25.96 14.19       -0.03 False
+         legacy_16mp_2019:cfa     hi 120     0.01     0.06  0.83       -0.00  True
+         legacy_16mp_2019:cfa     lo 155     0.09    25.03 12.90       -0.02 False
+          midrange_binned:cfa     hi 120     0.01     0.05  0.00       -0.00  True
+          midrange_binned:cfa     lo 155     0.08     7.80  9.03       -0.02 False
+                     noop_q75     hi 120     0.01     0.06  0.00       -0.00  True
+                     noop_q75     lo 155     0.04     0.53  6.45       -0.00 False
+                   noop_store     hi 120     0.00     0.01  0.00       -0.00  True
+                   noop_store     lo 155     0.00     0.02  0.65        0.00  True
+       transport:messaging_hd     hi 120     0.01     0.04  1.67        0.00  True
+       transport:messaging_hd     lo 155     0.03     0.36  3.87        0.00  True
+ transport:messaging_standard     hi 120     0.11     1.58  5.83        0.02 False
+ transport:messaging_standard     lo 155     0.04     0.52  6.45       -0.00 False
+         transport:resave_q75     hi 120     0.01     0.06  0.00       -0.00  True
+         transport:resave_q75     lo 155     0.04     0.53  6.45       -0.00 False
+   transport:resave_q75_x0.25     hi 120     0.15     2.03  5.83        0.04 False
+   transport:resave_q75_x0.25     lo  49     1.50    29.18 20.41       -0.15 False
+
+px-per-yarn sweep:
+    route ppt_bin   n  med_abs  p90_abs   gt10  med_signed  PASS  collapse_ok  plateau_ok  legacy_mape_vs_gt
+     area    <1.9  82    54.19   100.00  97.56      -48.30 False        False       False              31.33
+     area     2.0  84    51.13    76.58  97.62      -49.62 False        False       False              36.80
+     area    2.25  85    39.04    75.11  81.18      -35.70 False        False       False              21.44
+     area     2.5 100     1.50    51.39  41.00       -0.87 False         True       False               7.60
+     area    2.75 100     1.20    48.30  20.00       -1.04 False         True       False               3.30
+     area     3.0 125     1.34    32.83  14.40        0.42 False         True       False              12.30
+     area     3.5 133     0.66    17.74  11.28       -0.11 False         True       False              10.30
+     area     4.0 145     0.77     2.35   6.21        0.57 False         True        True               7.09
+     area     5.0 134     0.44     1.35   4.48        0.29  True         True        True               5.54
+     area     6.0 142     0.26     1.77   4.93        0.16  True         True        True               4.96
+     area      >7 130     0.14     2.63   5.38        0.07 False         True        True              10.80
+messaging    <1.9  82    56.92   100.00  91.46      -47.51 False        False       False              36.20
+messaging     2.0  84    50.81   100.00  94.05      -42.25 False        False       False              35.82
+messaging    2.25  85    39.11    75.34  84.71      -31.55 False        False       False              24.81
+messaging     2.5 100     2.18    51.22  45.00       -1.02 False         True       False              10.37
+messaging    2.75 100     1.68    49.70  26.00       -1.42 False         True       False               5.29
+messaging     3.0 125     1.73    49.04  20.00        0.51 False         True       False               9.74
+messaging     3.5 133     1.30    38.59  17.29       -0.33 False         True       False              10.59
+messaging     4.0 145     0.76    17.56  11.72        0.45 False         True       False               7.67
+messaging     5.0 134     0.51     3.19   8.96        0.22 False         True        True               5.55
+messaging     6.0 142     0.39     7.77   9.86        0.12 False         True        True               4.86
+messaging      >7 130     0.23     8.20  10.00        0.06 False         True       False              10.22
+    phone    <1.9  82    71.27   100.00 100.00      -61.16 False        False       False              52.66
+    phone     2.0  84    62.73   100.00 100.00      -55.15 False        False       False              54.13
+    phone    2.25  85    59.01    78.10 100.00      -52.50 False        False       False              52.15
+    phone     2.5 100    37.72    75.13  74.00      -32.00 False        False       False              20.35
+    phone    2.75 100    32.12    75.10  69.00      -29.40 False        False       False              16.42
+    phone     3.0 125    24.68    64.77  57.60      -24.68 False        False       False              15.99
+    phone     3.5 133     2.88    57.76  42.86       -1.87 False         True       False              14.22
+    phone     4.0 145     1.22    49.72  24.83       -0.50 False         True       False              10.38
+    phone     5.0 134     0.81    33.40  17.16       -0.03 False         True       False               8.06
+    phone     6.0 142     0.53    25.72  12.68       -0.01 False         True       False               5.15
+    phone      >7 130     0.23     5.18   4.62        0.01 False         True        True              10.37
+   sensor    <1.9  82    68.23   100.00 100.00      -60.00 False        False       False              49.00
+   sensor     2.0  84    54.02    82.04 100.00      -51.11 False        False       False              48.65
+   sensor    2.25  85    49.90    75.30  96.47      -48.13 False        False       False              38.76
+   sensor     2.5 100    28.60    73.50  66.00      -25.90 False        False       False              17.13
+   sensor    2.75 100    20.24    71.22  52.00       -5.97 False        False       False               9.00
+   sensor     3.0 125     2.44    50.69  44.00       -2.28 False         True       False              13.05
+   sensor     3.5 133     1.27    39.95  28.57       -0.77 False         True       False              10.56
+   sensor     4.0 145     1.04    36.49  19.31       -0.02 False         True       False               6.79
+   sensor     5.0 134     0.78    36.38  15.67        0.26 False         True       False               5.36
+   sensor     6.0 142     0.40     8.95   9.86        0.19 False         True        True               5.09
+   sensor      >7 130     0.30     9.50  10.00        0.08 False         True       False              10.67
+thresholds (px per yarn; smallest bin from which every larger bin satisfies the rule): {'strict_PASS': {'area': None, 'messaging': None, 'phone': None, 'sensor': None}, 'collapse_median_abs_le_3pct': {'area': '2.5', 'messaging': '2.5', 'phone': '3.5', 'sensor': '3.0'}, 'gross_le_plateau_plus_5pp': {'area': '4.0', 'messaging': None, 'phone': '>7', 'sensor': None}, 'resampling_plateau_gt10_pct': 4.926108374384237}
+
+real full/quarter pairs: 62 pairs, 47 scenes; |drift| median 0.57 %, p90 2.81 %, >10 %: 7.3 %; signed median +0.12 %
+  simulated legacy_quarter on the same full-res crops: |drift| median 2.61 %, p90 47.76 %, >10 %: 19.4 %
+  simulated noop_q75 on the same full-res crops: |drift| median 0.01 %, p90 0.06 %, >10 %: 0.0 %

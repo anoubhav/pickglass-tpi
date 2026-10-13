@@ -1,0 +1,261 @@
+[
+ {
+  "id": "V2O_r18",
+  "deps": [],
+  "cmd": [
+   "train",
+   "--name",
+   "V2O_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--policy",
+   "whitelist_optics"
+  ]
+ },
+ {
+  "id": "V2O_b0",
+  "deps": [],
+  "cmd": [
+   "train",
+   "--name",
+   "V2O_b0",
+   "--backbone",
+   "efficientnet_b0",
+   "--workers",
+   "24",
+   "--policy",
+   "whitelist_optics"
+  ]
+ },
+ {
+  "id": "V3E_r18",
+  "deps": [],
+  "cmd": [
+   "train",
+   "--name",
+   "V3E_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--policy",
+   "whitelist_ext",
+   "--real-frac",
+   "1.0",
+   "--steps",
+   "3000",
+   "--lr",
+   "3e-4",
+   "--eval-every",
+   "250"
+  ]
+ },
+ {
+  "id": "V3E_b0",
+  "deps": [],
+  "cmd": [
+   "train",
+   "--name",
+   "V3E_b0",
+   "--backbone",
+   "efficientnet_b0",
+   "--workers",
+   "24",
+   "--policy",
+   "whitelist_ext",
+   "--real-frac",
+   "1.0",
+   "--steps",
+   "3000",
+   "--lr",
+   "3e-4",
+   "--eval-every",
+   "250"
+  ]
+ },
+ {
+  "id": "V3O_r18",
+  "deps": [],
+  "cmd": [
+   "train",
+   "--name",
+   "V3O_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "1.0",
+   "--steps",
+   "3000",
+   "--lr",
+   "3e-4",
+   "--eval-every",
+   "250"
+  ]
+ },
+ {
+  "id": "V3O_b0",
+  "deps": [],
+  "cmd": [
+   "train",
+   "--name",
+   "V3O_b0",
+   "--backbone",
+   "efficientnet_b0",
+   "--workers",
+   "24",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "1.0",
+   "--steps",
+   "3000",
+   "--lr",
+   "3e-4",
+   "--eval-every",
+   "250"
+  ]
+ },
+ {
+  "id": "REF_mps_r18",
+  "deps": [],
+  "cmd": [
+   "evalonly",
+   "--name",
+   "REF_mps_r18",
+   "--ckpt",
+   "runs/synth_r18_v2mix_aniso/model.pt"
+  ]
+ },
+ {
+  "id": "adopt_V1_r18",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "V1_r18"
+  ]
+ },
+ {
+  "id": "adopt_V1_b0",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "V1_b0"
+  ]
+ },
+ {
+  "id": "adopt_V2A_r18",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "V2A_r18"
+  ]
+ },
+ {
+  "id": "adopt_V2A_b0",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "V2A_b0"
+  ]
+ },
+ {
+  "id": "adopt_V2E_r18",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "V2E_r18"
+  ]
+ },
+ {
+  "id": "adopt_V2E_b0",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "V2E_b0"
+  ]
+ },
+ {
+  "id": "adopt_SEED1_pre_r18",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "SEED1_pre_r18"
+  ]
+ },
+ {
+  "id": "adopt_SEED2_pre_r18",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "SEED2_pre_r18"
+  ]
+ },
+ {
+  "id": "adopt_ABL_geometry_pre_r18",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "ABL_geometry_pre_r18"
+  ]
+ },
+ {
+  "id": "adopt_ABL_photometric_pre_r18",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "ABL_photometric_pre_r18"
+  ]
+ },
+ {
+  "id": "adopt_ABL_compression_blur_pre_r18",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "ABL_compression_blur_pre_r18"
+  ]
+ },
+ {
+  "id": "adopt_ABL_illumination_pre_r18",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "ABL_illumination_pre_r18"
+  ]
+ },
+ {
+  "id": "adopt_ABL_zoom_pre_r18",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "ABL_zoom_pre_r18"
+  ]
+ },
+ {
+  "id": "adopt_ABL_tiling_pre_r18",
+  "deps": [],
+  "cmd": [
+   "adopt",
+   "--name",
+   "ABL_tiling_pre_r18"
+  ]
+ }
+]

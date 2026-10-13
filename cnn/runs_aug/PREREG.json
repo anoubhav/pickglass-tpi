@@ -1,0 +1,81 @@
+{
+ "written": "2026-10-08T00:56:51",
+ "status": "written BEFORE any training / evaluation of the scene-split round; supersedes the 2026-10-07 auto-group PREREG (runs_aug/_superseded_autogroup_split/PREREG.json), whose split could place copies of one scene on both sides of the acceptance rule. Legacy-13 predictions of the superseded round were written on the GPU server but never scored.",
+ "scene_unit": "76 scenes of camera_aug/originals_provenance.json; representative = highest-res real JPEG (annotation_tool/scenes_to_annotate.txt); per-file orientation vs the representative from data/scene_map.csv (NCC of low-passed crops, parity agrees with the provenance rot90_k on all 52 representative pairs)",
+ "pseudo_label_rule": "accept SCENE s iff ours' confidence on its representative >= the median ours' confidence over the 76 representatives (0.8480) AND f_fused_lattice == 1 on the representative. Target of every file of s = ours' (h_count, v_count) on the representative, h <-> v swapped for files rotated by 90 deg; yarn tilt = ours' angle_x / angle_y on the file itself; weave = ours' weave on the representative ('unknown' -> ignored).",
+ "training_files": "files of accepted pseudo-train scenes of kind 'real' (representative, quarter-res copies) and 'nb_synth' (notebook re-crops = augmentations of their scene); byte-identical duplicates and PNG decodes are skipped (same pixels). One file is drawn per sample, so each scene has equal weight.",
+ "split": "hold out ceil(0.25 x n_accepted) accepted scenes, shuffled with seed 20261008; pseudo-val = their representatives only",
+ "split_info": {
+  "n_scenes": 76,
+  "conf_median_76_reps": 0.8480081336061225,
+  "n_accepted_scenes": 38,
+  "n_val_scenes": 10,
+  "n_train_scenes": 28,
+  "n_train_files": 51,
+  "n_train_files_by_kind": {
+   "real": 46,
+   "nb_synth": 5
+  },
+  "n_lowconf_scenes": 38,
+  "val_scenes": [
+   17,
+   18,
+   45,
+   52,
+   56,
+   87,
+   93,
+   102,
+   110,
+   128
+  ],
+  "train_scenes": [
+   1,
+   4,
+   5,
+   6,
+   27,
+   29,
+   35,
+   39,
+   48,
+   49,
+   50,
+   51,
+   53,
+   60,
+   62,
+   64,
+   65,
+   67,
+   70,
+   76,
+   80,
+   91,
+   92,
+   99,
+   107,
+   118,
+   121,
+   123
+  ]
+ },
+ "selection_score": "mean of (a) per-axis MAPE on data/synth_val (300, exact labels, P=768, no flips) and (b) per-axis MAPE vs ours' pseudo-labels on the held-out scene representatives (3 scales x 3 flips). Lower is better.",
+ "legacy13": "test only: predictions written by 'final' after all selection; scored once (score_aug.py)",
+ "variants": {
+  "V1": "synthetic only (synth_train + synth_train_v2, 4800), policy 'existing', 4750 steps, batch 32, AdamW 3e-4, cosine, aniso 0.5, lam_ratio 1, rot90 on (= the MPS recipe of runs/synth_r18_v2mix_aniso). Trained in the superseded round (synthetic only, no real image): adopted unchanged and re-evaluated with this validator.",
+  "V2": "as V1 with policy 'whitelist' (V2A), 'whitelist_ext' (V2E; both adopted from the superseded round) or 'whitelist_optics' (V2O, new); the policy with the lowest selection score (final step) is V2, per backbone",
+  "V3": "ImageNet init, pseudo-train scenes only, 3000 steps, lr 3e-4, snapshot every 250 steps; policy 'whitelist_ext' (V3E) and 'whitelist_optics' (V3O); best (policy, snapshot) by score",
+  "V4": "init = the selected V2 checkpoint of the same backbone; fine-tune with the selected V2 policy, lr 1e-4, 2000 steps, snapshot every 250, real fraction rho in {1.0, 0.5} (rest synthetic); best (rho, snapshot) by score",
+  "V5": "V4 checkpoint + TTA: 3 scales x {id, hflip, vflip, rot90, rot270} x {-5, 0, +5} deg",
+  "ablation": "ResNet-18. Stage 2 (new): the V4-R18 fine-tuning recipe (selected init, policy, rho) with one family dropped (the families active in the policy: geometry, photometric, compression_blur, illumination, zoom, tiling [+ optics, phone]), plus fine-tuning seeds 1 and 2 of the full recipe as the noise band; a family matters only if its score lies outside the 3-seed range. Stage 1 (adopted): the superseded round's synthetic-only drop-one pre-trainings of 'whitelist_ext' (6 families, seeds 0-2), re-evaluated with this validator. Reported: selection metrics only."
+ },
+ "report": "legacy-13 (canonical vlm/crops/legacy PNG, axis-matched, GT via paper/tools/legacy_unified.load_gt): MAE, MAPE with image-bootstrap 95 % CI (10k), within 5/10 %, paired vs the MPS synthetic-only CNN (cnn:synth_r18, 16.0 %) and vs ours (11.6 %) with legacy_unified.paired (bootstrap dMAPE CI, Wilcoxon), Holm over the final variants per comparator.",
+ "budget": "<= 8 GPU-hours (RTX 4090) for the whole job INCLUDING the superseded round (~3.4 h), idle GPUs only",
+ "amendment_1": {
+  "written": "2026-10-08T01:04:23",
+  "status": "written while V2O_r18 / V2O_b0 were at step < 500, before ANY evaluation of the scene-split round",
+  "reason": "measured throughput on gpu-server with two concurrent jobs: 'whitelist_optics' ~3 it/s (CPU-bound augmentation), 'whitelist_ext' ~8 it/s; the 8 GPU-hour cap (incl. ~3.4 h of the superseded round) does not fit a 2000-step stage-2 ablation with the optics policy",
+  "rule": "stage-2 ablation fine-tuning length: 2000 steps (= V4; the V4-R18 run is the seed-0 reference) if the selected V2-R18 policy is 'whitelist' or 'whitelist_ext'; 1000 steps for ALL stage-2 ablation runs if it is 'whitelist_optics', with a separate 1000-step seed-0 reference (ABLFT_seed0_r18) so that every ablation run and its 3-seed noise band have the same length. Eval every 250 steps, best snapshot."
+ }
+}

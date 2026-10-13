@@ -1,0 +1,7 @@
+clean: 66 images, 13s
+$HOME/pickglass/genai_sr/wvaq_copy/methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+none: 198 images, 25s
+$HOME/pickglass/genai_sr/wvaq_copy/methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+bicubic: 198 images, 36s

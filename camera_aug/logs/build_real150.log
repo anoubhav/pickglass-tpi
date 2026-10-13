@@ -1,0 +1,328 @@
+real150: 2100 renders to do (workers=3)
+  25/2100  55s
+  50/2100  80s
+  75/2100  100s
+  100/2100  118s
+  125/2100  141s
+  150/2100  174s
+  175/2100  178s
+  200/2100  180s
+  225/2100  214s
+  250/2100  279s
+  275/2100  341s
+  300/2100  382s
+  325/2100  386s
+  350/2100  391s
+  375/2100  425s
+  400/2100  470s
+  425/2100  493s
+  450/2100  586s
+  475/2100  635s
+  500/2100  686s
+  525/2100  694s
+  550/2100  756s
+  575/2100  799s
+  600/2100  806s
+  625/2100  857s
+  650/2100  918s
+  675/2100  1003s
+  700/2100  1102s
+  725/2100  1161s
+  750/2100  1245s
+  775/2100  1303s
+  800/2100  1311s
+  825/2100  1315s
+  850/2100  1356s
+  875/2100  1427s
+  900/2100  1463s
+  925/2100  1532s
+  950/2100  1585s
+  975/2100  1591s
+  1000/2100  1640s
+  1025/2100  1657s
+  1050/2100  1698s
+  1075/2100  1703s
+  1100/2100  1748s
+  1125/2100  1763s
+  1150/2100  1800s
+  1175/2100  1804s
+  1200/2100  1853s
+  1225/2100  1899s
+  1250/2100  1941s
+  1275/2100  1986s
+  1300/2100  2012s
+  1325/2100  2014s
+  1350/2100  2034s
+  1375/2100  2046s
+  1400/2100  2087s
+  1425/2100  2091s
+  1450/2100  2106s
+  1475/2100  2121s
+  1500/2100  2124s
+  1525/2100  2128s
+  1550/2100  2153s
+  1575/2100  2165s
+  1600/2100  2169s
+  1625/2100  2172s
+  1650/2100  2174s
+  1675/2100  2193s
+  1700/2100  2196s
+  1725/2100  2204s
+  1750/2100  2246s
+  1775/2100  2249s
+  1800/2100  2252s
+  1825/2100  2283s
+  1850/2100  2322s
+  1875/2100  2347s
+  1900/2100  2351s
+  1925/2100  2359s
+  1950/2100  2398s
+  1975/2100  2422s
+  2000/2100  2444s
+  2025/2100  2481s
+  2050/2100  2523s
+  2075/2100  2562s
+  2100/2100  2585s
+real150: 2100 renders to do (workers=5)
+  25/2100  18s
+  50/2100  31s
+  75/2100  45s
+  100/2100  53s
+  125/2100  64s
+  150/2100  84s
+  175/2100  86s
+  200/2100  88s
+  225/2100  101s
+  250/2100  118s
+  275/2100  137s
+  300/2100  148s
+  325/2100  151s
+  350/2100  153s
+  375/2100  170s
+  400/2100  188s
+  425/2100  194s
+  450/2100  204s
+  475/2100  212s
+  500/2100  220s
+  525/2100  222s
+  550/2100  231s
+  575/2100  236s
+  600/2100  237s
+  625/2100  244s
+  650/2100  251s
+  675/2100  262s
+  700/2100  273s
+  725/2100  281s
+  750/2100  294s
+  775/2100  303s
+  800/2100  303s
+  825/2100  304s
+  850/2100  310s
+  875/2100  321s
+  900/2100  328s
+  925/2100  339s
+  950/2100  345s
+  975/2100  346s
+  1000/2100  353s
+  1025/2100  357s
+  1050/2100  361s
+  1075/2100  362s
+  1100/2100  370s
+  1125/2100  375s
+  1150/2100  379s
+  1175/2100  380s
+  1200/2100  388s
+  1225/2100  396s
+  1250/2100  406s
+  1275/2100  418s
+  1300/2100  425s
+  1325/2100  426s
+  1350/2100  433s
+  1375/2100  436s
+  1400/2100  447s
+  1425/2100  449s
+  1450/2100  455s
+  1475/2100  457s
+  1500/2100  458s
+  1525/2100  459s
+  1550/2100  467s
+  1575/2100  468s
+  1600/2100  469s
+  1625/2100  470s
+  1650/2100  471s
+  1675/2100  477s
+  1700/2100  478s
+  1725/2100  481s
+Process SpawnPoolWorker-2:
+Traceback (most recent call last):
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 199, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 410, in _send_bytes
+    self._send(header + buf)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 367, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 199, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 410, in _send_bytes
+    self._send(header + buf)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 367, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-4:
+Traceback (most recent call last):
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 199, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 410, in _send_bytes
+    self._send(header + buf)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 367, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 199, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 410, in _send_bytes
+    self._send(header + buf)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 367, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-1:
+Traceback (most recent call last):
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 199, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 410, in _send_bytes
+    self._send(header + buf)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 367, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 199, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 410, in _send_bytes
+    self._send(header + buf)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 367, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-5:
+Traceback (most recent call last):
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 199, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 410, in _send_bytes
+    self._send(header + buf)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 367, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 199, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 410, in _send_bytes
+    self._send(header + buf)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 367, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-3:
+Traceback (most recent call last):
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 199, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 410, in _send_bytes
+    self._send(header + buf)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 367, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/queues.py", line 377, in put
+    self._writer.send_bytes(obj)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 199, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 410, in _send_bytes
+    self._send(header + buf)
+  File "$HOME/miniconda3/lib/python3.11/multiprocessing/connection.py", line 367, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+$HOME/miniconda3/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+real150: 0 renders to do (workers=5)

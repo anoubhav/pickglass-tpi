@@ -1,0 +1,1089 @@
+image,axis,pred,true,plain,formula,err,ae,ape,key,method,prompt,assign
+a1,warp,67.75,76.0,False,True,-8.25,8.25,10.855,ref:loo_mean,Leave-one-out mean,--,axis
+a1,weft,62.917,64.0,False,False,-1.083,1.083,1.693,ref:loo_mean,Leave-one-out mean,--,axis
+a2,warp,70.083,48.0,True,False,22.083,22.083,46.007,ref:loo_mean,Leave-one-out mean,--,axis
+a2,weft,64.333,47.0,True,False,17.333,17.333,36.879,ref:loo_mean,Leave-one-out mean,--,axis
+a4,warp,64.5,115.0,True,False,-50.5,50.5,43.913,ref:loo_mean,Leave-one-out mean,--,axis
+a4,weft,62.167,73.0,True,False,-10.833,10.833,14.84,ref:loo_mean,Leave-one-out mean,--,axis
+a5,warp,70.167,47.0,True,False,23.167,23.167,49.291,ref:loo_mean,Leave-one-out mean,--,axis
+a5,weft,64.167,49.0,True,False,15.167,15.167,30.952,ref:loo_mean,Leave-one-out mean,--,axis
+a6,warp,70.25,46.0,False,True,24.25,24.25,52.717,ref:loo_mean,Leave-one-out mean,--,axis
+a6,weft,64.667,43.0,False,False,21.667,21.667,50.388,ref:loo_mean,Leave-one-out mean,--,axis
+a8,warp,70.333,45.0,True,False,25.333,25.333,56.296,ref:loo_mean,Leave-one-out mean,--,axis
+a8,weft,64.75,42.0,True,False,22.75,22.75,54.167,ref:loo_mean,Leave-one-out mean,--,axis
+a10,warp,70.25,46.0,True,False,24.25,24.25,52.717,ref:loo_mean,Leave-one-out mean,--,axis
+a10,weft,63.833,53.0,True,False,10.833,10.833,20.44,ref:loo_mean,Leave-one-out mean,--,axis
+r2,warp,65.833,99.0,True,False,-33.167,33.167,33.502,ref:loo_mean,Leave-one-out mean,--,axis
+r2,weft,62.5,69.0,True,False,-6.5,6.5,9.42,ref:loo_mean,Leave-one-out mean,--,axis
+r3,warp,70.083,48.0,True,False,22.083,22.083,46.007,ref:loo_mean,Leave-one-out mean,--,axis
+r3,weft,63.083,62.0,True,False,1.083,1.083,1.747,ref:loo_mean,Leave-one-out mean,--,axis
+r4,warp,68.833,63.0,True,False,5.833,5.833,9.259,ref:loo_mean,Leave-one-out mean,--,axis
+r4,weft,60.667,91.0,True,False,-30.333,30.333,33.333,ref:loo_mean,Leave-one-out mean,--,axis
+r6,warp,66.417,92.0,True,False,-25.583,25.583,27.808,ref:loo_mean,Leave-one-out mean,--,axis
+r6,weft,60.75,90.0,True,False,-29.25,29.25,32.5,ref:loo_mean,Leave-one-out mean,--,axis
+r7,warp,70.583,42.0,True,False,28.583,28.583,68.056,ref:loo_mean,Leave-one-out mean,--,axis
+r7,weft,62.833,65.0,True,False,-2.167,2.167,3.333,ref:loo_mean,Leave-one-out mean,--,axis
+r8,warp,63.917,122.0,False,True,-58.083,58.083,47.609,ref:loo_mean,Leave-one-out mean,--,axis
+r8,weft,62.333,71.0,False,False,-8.667,8.667,12.207,ref:loo_mean,Leave-one-out mean,--,axis
+a1,weft,62.917,64.0,False,False,-1.083,1.083,1.693,ref:loo_mean,Leave-one-out mean,--,sorted
+a1,warp,67.75,76.0,False,True,-8.25,8.25,10.855,ref:loo_mean,Leave-one-out mean,--,sorted
+a2,weft,64.333,47.0,True,False,17.333,17.333,36.879,ref:loo_mean,Leave-one-out mean,--,sorted
+a2,warp,70.083,48.0,True,False,22.083,22.083,46.007,ref:loo_mean,Leave-one-out mean,--,sorted
+a4,weft,62.167,73.0,True,False,-10.833,10.833,14.84,ref:loo_mean,Leave-one-out mean,--,sorted
+a4,warp,64.5,115.0,True,False,-50.5,50.5,43.913,ref:loo_mean,Leave-one-out mean,--,sorted
+a5,warp,64.167,47.0,True,False,17.167,17.167,36.525,ref:loo_mean,Leave-one-out mean,--,sorted
+a5,weft,70.167,49.0,True,False,21.167,21.167,43.197,ref:loo_mean,Leave-one-out mean,--,sorted
+a6,weft,64.667,43.0,False,False,21.667,21.667,50.388,ref:loo_mean,Leave-one-out mean,--,sorted
+a6,warp,70.25,46.0,False,True,24.25,24.25,52.717,ref:loo_mean,Leave-one-out mean,--,sorted
+a8,weft,64.75,42.0,True,False,22.75,22.75,54.167,ref:loo_mean,Leave-one-out mean,--,sorted
+a8,warp,70.333,45.0,True,False,25.333,25.333,56.296,ref:loo_mean,Leave-one-out mean,--,sorted
+a10,warp,63.833,46.0,True,False,17.833,17.833,38.768,ref:loo_mean,Leave-one-out mean,--,sorted
+a10,weft,70.25,53.0,True,False,17.25,17.25,32.547,ref:loo_mean,Leave-one-out mean,--,sorted
+r2,weft,62.5,69.0,True,False,-6.5,6.5,9.42,ref:loo_mean,Leave-one-out mean,--,sorted
+r2,warp,65.833,99.0,True,False,-33.167,33.167,33.502,ref:loo_mean,Leave-one-out mean,--,sorted
+r3,warp,63.083,48.0,True,False,15.083,15.083,31.424,ref:loo_mean,Leave-one-out mean,--,sorted
+r3,weft,70.083,62.0,True,False,8.083,8.083,13.038,ref:loo_mean,Leave-one-out mean,--,sorted
+r4,warp,60.667,63.0,True,False,-2.333,2.333,3.704,ref:loo_mean,Leave-one-out mean,--,sorted
+r4,weft,68.833,91.0,True,False,-22.167,22.167,24.359,ref:loo_mean,Leave-one-out mean,--,sorted
+r6,weft,60.75,90.0,True,False,-29.25,29.25,32.5,ref:loo_mean,Leave-one-out mean,--,sorted
+r6,warp,66.417,92.0,True,False,-25.583,25.583,27.808,ref:loo_mean,Leave-one-out mean,--,sorted
+r7,warp,62.833,42.0,True,False,20.833,20.833,49.603,ref:loo_mean,Leave-one-out mean,--,sorted
+r7,weft,70.583,65.0,True,False,5.583,5.583,8.59,ref:loo_mean,Leave-one-out mean,--,sorted
+r8,weft,62.333,71.0,False,False,-8.667,8.667,12.207,ref:loo_mean,Leave-one-out mean,--,sorted
+r8,warp,63.917,122.0,False,True,-58.083,58.083,47.609,ref:loo_mean,Leave-one-out mean,--,sorted
+a1,warp,76.392,76.0,False,True,0.392,0.392,0.516,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a1,weft,64.522,64.0,False,False,0.522,0.522,0.816,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a2,warp,47.755,48.0,True,False,-0.245,0.245,0.511,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a2,weft,46.974,47.0,True,False,-0.026,0.026,0.056,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a4,warp,109.753,115.0,True,False,-5.247,5.247,4.563,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a4,weft,73.546,73.0,True,False,0.546,0.546,0.748,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a5,warp,48.85,47.0,True,False,1.85,1.85,3.936,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a5,weft,48.76,49.0,True,False,-0.24,0.24,0.49,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a6,warp,31.213,46.0,False,True,-14.787,14.787,32.146,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a6,weft,85.407,43.0,False,False,42.407,42.407,98.62,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a8,warp,56.043,45.0,True,False,11.043,11.043,24.539,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a8,weft,41.288,42.0,True,False,-0.712,0.712,1.695,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a10,warp,46.599,46.0,True,False,0.599,0.599,1.301,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a10,weft,53.893,53.0,True,False,0.893,0.893,1.685,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r2,warp,98.211,99.0,True,False,-0.789,0.789,0.797,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r2,weft,70.04,69.0,True,False,1.04,1.04,1.508,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r3,warp,51.811,48.0,True,False,3.811,3.811,7.939,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r3,weft,103.086,62.0,True,False,41.086,41.086,66.267,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r4,warp,64.193,63.0,True,False,1.193,1.193,1.893,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r4,weft,94.263,91.0,True,False,3.263,3.263,3.585,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r6,warp,94.436,92.0,True,False,2.436,2.436,2.648,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r6,weft,94.424,90.0,True,False,4.424,4.424,4.915,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r7,warp,43.008,42.0,True,False,1.008,1.008,2.401,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r7,weft,65.393,65.0,True,False,0.393,0.393,0.605,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r8,warp,83.662,122.0,False,True,-38.338,38.338,31.425,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+r8,weft,75.459,71.0,False,False,4.459,4.459,6.28,est:ours,Ours (PG-Lattice: lattice + fusion),--,axis
+a1,weft,64.522,64.0,False,False,0.522,0.522,0.816,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a1,warp,76.392,76.0,False,True,0.392,0.392,0.516,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a2,weft,46.974,47.0,True,False,-0.026,0.026,0.056,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a2,warp,47.755,48.0,True,False,-0.245,0.245,0.511,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a4,weft,73.546,73.0,True,False,0.546,0.546,0.748,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a4,warp,109.753,115.0,True,False,-5.247,5.247,4.563,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a5,warp,48.76,47.0,True,False,1.76,1.76,3.745,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a5,weft,48.85,49.0,True,False,-0.15,0.15,0.306,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a6,weft,31.213,43.0,False,False,-11.787,11.787,27.412,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a6,warp,85.407,46.0,False,True,39.407,39.407,85.666,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a8,weft,41.288,42.0,True,False,-0.712,0.712,1.695,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a8,warp,56.043,45.0,True,False,11.043,11.043,24.539,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a10,warp,46.599,46.0,True,False,0.599,0.599,1.301,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a10,weft,53.893,53.0,True,False,0.893,0.893,1.685,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r2,weft,70.04,69.0,True,False,1.04,1.04,1.508,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r2,warp,98.211,99.0,True,False,-0.789,0.789,0.797,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r3,warp,51.811,48.0,True,False,3.811,3.811,7.939,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r3,weft,103.086,62.0,True,False,41.086,41.086,66.267,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r4,warp,64.193,63.0,True,False,1.193,1.193,1.893,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r4,weft,94.263,91.0,True,False,3.263,3.263,3.585,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r6,weft,94.424,90.0,True,False,4.424,4.424,4.915,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r6,warp,94.436,92.0,True,False,2.436,2.436,2.648,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r7,warp,43.008,42.0,True,False,1.008,1.008,2.401,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r7,weft,65.393,65.0,True,False,0.393,0.393,0.605,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r8,weft,75.459,71.0,False,False,4.459,4.459,6.28,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+r8,warp,83.662,122.0,False,True,-38.338,38.338,31.425,est:ours,Ours (PG-Lattice: lattice + fusion),--,sorted
+a1,warp,75.803,76.0,False,True,-0.197,0.197,0.259,est:gabor,Log-Gabor bank,--,axis
+a1,weft,63.538,64.0,False,False,-0.462,0.462,0.722,est:gabor,Log-Gabor bank,--,axis
+a2,warp,47.736,48.0,True,False,-0.264,0.264,0.55,est:gabor,Log-Gabor bank,--,axis
+a2,weft,46.585,47.0,True,False,-0.415,0.415,0.883,est:gabor,Log-Gabor bank,--,axis
+a4,warp,104.573,115.0,True,False,-10.427,10.427,9.067,est:gabor,Log-Gabor bank,--,axis
+a4,weft,73.175,73.0,True,False,0.175,0.175,0.24,est:gabor,Log-Gabor bank,--,axis
+a5,warp,48.261,47.0,True,False,1.261,1.261,2.683,est:gabor,Log-Gabor bank,--,axis
+a5,weft,48.353,49.0,True,False,-0.647,0.647,1.319,est:gabor,Log-Gabor bank,--,axis
+a6,warp,31.053,46.0,False,True,-14.947,14.947,32.493,est:gabor,Log-Gabor bank,--,axis
+a6,weft,42.228,43.0,False,False,-0.772,0.772,1.795,est:gabor,Log-Gabor bank,--,axis
+a8,warp,55.715,45.0,True,False,10.715,10.715,23.811,est:gabor,Log-Gabor bank,--,axis
+a8,weft,41.289,42.0,True,False,-0.711,0.711,1.692,est:gabor,Log-Gabor bank,--,axis
+a10,warp,23.367,46.0,True,False,-22.633,22.633,49.203,est:gabor,Log-Gabor bank,--,axis
+a10,weft,48.454,53.0,True,False,-4.546,4.546,8.578,est:gabor,Log-Gabor bank,--,axis
+r2,warp,95.924,99.0,True,False,-3.076,3.076,3.107,est:gabor,Log-Gabor bank,--,axis
+r2,weft,68.738,69.0,True,False,-0.262,0.262,0.38,est:gabor,Log-Gabor bank,--,axis
+r3,warp,51.273,48.0,True,False,3.273,3.273,6.819,est:gabor,Log-Gabor bank,--,axis
+r3,weft,30.853,62.0,True,False,-31.147,31.147,50.237,est:gabor,Log-Gabor bank,--,axis
+r4,warp,63.71,63.0,True,False,0.71,0.71,1.127,est:gabor,Log-Gabor bank,--,axis
+r4,weft,92.956,91.0,True,False,1.956,1.956,2.15,est:gabor,Log-Gabor bank,--,axis
+r6,warp,92.358,92.0,True,False,0.358,0.358,0.39,est:gabor,Log-Gabor bank,--,axis
+r6,weft,91.606,90.0,True,False,1.606,1.606,1.785,est:gabor,Log-Gabor bank,--,axis
+r7,warp,42.444,42.0,True,False,0.444,0.444,1.056,est:gabor,Log-Gabor bank,--,axis
+r7,weft,65.092,65.0,True,False,0.092,0.092,0.142,est:gabor,Log-Gabor bank,--,axis
+r8,warp,78.677,122.0,False,True,-43.323,43.323,35.511,est:gabor,Log-Gabor bank,--,axis
+r8,weft,73.781,71.0,False,False,2.781,2.781,3.918,est:gabor,Log-Gabor bank,--,axis
+a1,weft,63.538,64.0,False,False,-0.462,0.462,0.722,est:gabor,Log-Gabor bank,--,sorted
+a1,warp,75.803,76.0,False,True,-0.197,0.197,0.259,est:gabor,Log-Gabor bank,--,sorted
+a2,weft,46.585,47.0,True,False,-0.415,0.415,0.883,est:gabor,Log-Gabor bank,--,sorted
+a2,warp,47.736,48.0,True,False,-0.264,0.264,0.55,est:gabor,Log-Gabor bank,--,sorted
+a4,weft,73.175,73.0,True,False,0.175,0.175,0.24,est:gabor,Log-Gabor bank,--,sorted
+a4,warp,104.573,115.0,True,False,-10.427,10.427,9.067,est:gabor,Log-Gabor bank,--,sorted
+a5,warp,48.261,47.0,True,False,1.261,1.261,2.683,est:gabor,Log-Gabor bank,--,sorted
+a5,weft,48.353,49.0,True,False,-0.647,0.647,1.319,est:gabor,Log-Gabor bank,--,sorted
+a6,weft,31.053,43.0,False,False,-11.947,11.947,27.783,est:gabor,Log-Gabor bank,--,sorted
+a6,warp,42.228,46.0,False,True,-3.772,3.772,8.199,est:gabor,Log-Gabor bank,--,sorted
+a8,weft,41.289,42.0,True,False,-0.711,0.711,1.692,est:gabor,Log-Gabor bank,--,sorted
+a8,warp,55.715,45.0,True,False,10.715,10.715,23.811,est:gabor,Log-Gabor bank,--,sorted
+a10,warp,23.367,46.0,True,False,-22.633,22.633,49.203,est:gabor,Log-Gabor bank,--,sorted
+a10,weft,48.454,53.0,True,False,-4.546,4.546,8.578,est:gabor,Log-Gabor bank,--,sorted
+r2,weft,68.738,69.0,True,False,-0.262,0.262,0.38,est:gabor,Log-Gabor bank,--,sorted
+r2,warp,95.924,99.0,True,False,-3.076,3.076,3.107,est:gabor,Log-Gabor bank,--,sorted
+r3,warp,30.853,48.0,True,False,-17.147,17.147,35.723,est:gabor,Log-Gabor bank,--,sorted
+r3,weft,51.273,62.0,True,False,-10.727,10.727,17.302,est:gabor,Log-Gabor bank,--,sorted
+r4,warp,63.71,63.0,True,False,0.71,0.71,1.127,est:gabor,Log-Gabor bank,--,sorted
+r4,weft,92.956,91.0,True,False,1.956,1.956,2.15,est:gabor,Log-Gabor bank,--,sorted
+r6,weft,91.606,90.0,True,False,1.606,1.606,1.785,est:gabor,Log-Gabor bank,--,sorted
+r6,warp,92.358,92.0,True,False,0.358,0.358,0.39,est:gabor,Log-Gabor bank,--,sorted
+r7,warp,42.444,42.0,True,False,0.444,0.444,1.056,est:gabor,Log-Gabor bank,--,sorted
+r7,weft,65.092,65.0,True,False,0.092,0.092,0.142,est:gabor,Log-Gabor bank,--,sorted
+r8,weft,73.781,71.0,False,False,2.781,2.781,3.918,est:gabor,Log-Gabor bank,--,sorted
+r8,warp,78.677,122.0,False,True,-43.323,43.323,35.511,est:gabor,Log-Gabor bank,--,sorted
+a1,warp,80.408,76.0,False,True,4.408,4.408,5.8,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a1,weft,64.947,64.0,False,False,0.947,0.947,1.479,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a2,warp,45.38,48.0,True,False,-2.62,2.62,5.459,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a2,weft,44.154,47.0,True,False,-2.846,2.846,6.055,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a4,warp,124.891,115.0,True,False,9.891,9.891,8.601,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a4,weft,91.052,73.0,True,False,18.052,18.052,24.728,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a5,warp,52.761,47.0,True,False,5.761,5.761,12.257,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a5,weft,55.301,49.0,True,False,6.301,6.301,12.859,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a6,warp,31.19,46.0,False,True,-14.81,14.81,32.195,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a6,weft,48.981,43.0,False,False,5.981,5.981,13.91,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a8,warp,58.951,45.0,True,False,13.951,13.951,31.003,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a8,weft,62.99,42.0,True,False,20.99,20.99,49.976,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a10,warp,54.042,46.0,True,False,8.042,8.042,17.484,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a10,weft,49.474,53.0,True,False,-3.526,3.526,6.653,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r2,warp,116.632,99.0,True,False,17.632,17.632,17.81,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r2,weft,89.029,69.0,True,False,20.029,20.029,29.028,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r3,warp,56.847,48.0,True,False,8.847,8.847,18.432,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r3,weft,68.659,62.0,True,False,6.659,6.659,10.74,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r4,warp,62.7,63.0,True,False,-0.3,0.3,0.476,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r4,weft,92.953,91.0,True,False,1.953,1.953,2.146,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r6,warp,108.691,92.0,True,False,16.691,16.691,18.143,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r6,weft,98.753,90.0,True,False,8.753,8.753,9.725,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r7,warp,51.113,42.0,True,False,9.113,9.113,21.698,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r7,weft,68.041,65.0,True,False,3.041,3.041,4.678,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r8,warp,78.176,122.0,False,True,-43.824,43.824,35.922,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+r8,weft,84.427,71.0,False,False,13.427,13.427,18.911,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,axis
+a1,weft,64.947,64.0,False,False,0.947,0.947,1.479,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a1,warp,80.408,76.0,False,True,4.408,4.408,5.8,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a2,weft,44.154,47.0,True,False,-2.846,2.846,6.055,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a2,warp,45.38,48.0,True,False,-2.62,2.62,5.459,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a4,weft,91.052,73.0,True,False,18.052,18.052,24.728,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a4,warp,124.891,115.0,True,False,9.891,9.891,8.601,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a5,warp,52.761,47.0,True,False,5.761,5.761,12.257,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a5,weft,55.301,49.0,True,False,6.301,6.301,12.859,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a6,weft,31.19,43.0,False,False,-11.81,11.81,27.465,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a6,warp,48.981,46.0,False,True,2.981,2.981,6.481,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a8,weft,58.951,42.0,True,False,16.951,16.951,40.36,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a8,warp,62.99,45.0,True,False,17.99,17.99,39.978,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a10,warp,49.474,46.0,True,False,3.474,3.474,7.552,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a10,weft,54.042,53.0,True,False,1.042,1.042,1.967,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r2,weft,89.029,69.0,True,False,20.029,20.029,29.028,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r2,warp,116.632,99.0,True,False,17.632,17.632,17.81,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r3,warp,56.847,48.0,True,False,8.847,8.847,18.432,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r3,weft,68.659,62.0,True,False,6.659,6.659,10.74,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r4,warp,62.7,63.0,True,False,-0.3,0.3,0.476,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r4,weft,92.953,91.0,True,False,1.953,1.953,2.146,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r6,weft,98.753,90.0,True,False,8.753,8.753,9.725,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r6,warp,108.691,92.0,True,False,16.691,16.691,18.143,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r7,warp,51.113,42.0,True,False,9.113,9.113,21.698,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r7,weft,68.041,65.0,True,False,3.041,3.041,4.678,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r8,weft,78.176,71.0,False,False,7.176,7.176,10.107,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+r8,warp,84.427,122.0,False,True,-37.573,37.573,30.798,cnn:synth_r18,"CNN, synthetic only (zero-shot)",--,sorted
+a1,warp,51.0,76.0,False,True,-25.0,25.0,32.895,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a1,weft,64.0,64.0,False,False,0.0,0.0,0.0,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a2,warp,47.0,48.0,True,False,-1.0,1.0,2.083,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a2,weft,48.0,47.0,True,False,1.0,1.0,2.128,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a4,warp,96.0,115.0,True,False,-19.0,19.0,16.522,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a4,weft,78.0,73.0,True,False,5.0,5.0,6.849,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a5,warp,48.0,47.0,True,False,1.0,1.0,2.128,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a5,weft,49.0,49.0,True,False,0.0,0.0,0.0,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a6,warp,30.0,46.0,False,True,-16.0,16.0,34.783,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a6,weft,44.0,43.0,False,False,1.0,1.0,2.326,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a8,warp,32.0,45.0,True,False,-13.0,13.0,28.889,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a8,weft,40.0,42.0,True,False,-2.0,2.0,4.762,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a10,warp,46.0,46.0,True,False,0.0,0.0,0.0,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a10,weft,49.0,53.0,True,False,-4.0,4.0,7.547,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r2,warp,94.0,99.0,True,False,-5.0,5.0,5.051,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r2,weft,68.0,69.0,True,False,-1.0,1.0,1.449,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r3,warp,48.0,48.0,True,False,0.0,0.0,0.0,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r3,weft,58.0,62.0,True,False,-4.0,4.0,6.452,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r4,warp,59.0,63.0,True,False,-4.0,4.0,6.349,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r4,weft,90.0,91.0,True,False,-1.0,1.0,1.099,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r6,warp,88.0,92.0,True,False,-4.0,4.0,4.348,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r6,weft,88.0,90.0,True,False,-2.0,2.0,2.222,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r7,warp,41.0,42.0,True,False,-1.0,1.0,2.381,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r7,weft,65.0,65.0,True,False,0.0,0.0,0.0,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r8,warp,56.0,122.0,False,True,-66.0,66.0,54.098,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+r8,weft,68.0,71.0,False,False,-3.0,3.0,4.225,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,axis
+a1,weft,51.0,64.0,False,False,-13.0,13.0,20.312,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a1,warp,64.0,76.0,False,True,-12.0,12.0,15.789,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a2,weft,47.0,47.0,True,False,0.0,0.0,0.0,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a2,warp,48.0,48.0,True,False,0.0,0.0,0.0,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a4,weft,78.0,73.0,True,False,5.0,5.0,6.849,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a4,warp,96.0,115.0,True,False,-19.0,19.0,16.522,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a5,warp,48.0,47.0,True,False,1.0,1.0,2.128,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a5,weft,49.0,49.0,True,False,0.0,0.0,0.0,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a6,weft,30.0,43.0,False,False,-13.0,13.0,30.233,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a6,warp,44.0,46.0,False,True,-2.0,2.0,4.348,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a8,weft,32.0,42.0,True,False,-10.0,10.0,23.81,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a8,warp,40.0,45.0,True,False,-5.0,5.0,11.111,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a10,warp,46.0,46.0,True,False,0.0,0.0,0.0,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a10,weft,49.0,53.0,True,False,-4.0,4.0,7.547,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r2,weft,68.0,69.0,True,False,-1.0,1.0,1.449,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r2,warp,94.0,99.0,True,False,-5.0,5.0,5.051,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r3,warp,48.0,48.0,True,False,0.0,0.0,0.0,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r3,weft,58.0,62.0,True,False,-4.0,4.0,6.452,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r4,warp,59.0,63.0,True,False,-4.0,4.0,6.349,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r4,weft,90.0,91.0,True,False,-1.0,1.0,1.099,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r6,weft,88.0,90.0,True,False,-2.0,2.0,2.222,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r6,warp,88.0,92.0,True,False,-4.0,4.0,4.348,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r7,warp,41.0,42.0,True,False,-1.0,1.0,2.381,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r7,weft,65.0,65.0,True,False,0.0,0.0,0.0,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r8,weft,56.0,71.0,False,False,-15.0,15.0,21.127,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+r8,warp,68.0,122.0,False,True,-54.0,54.0,44.262,vlm:gpt-6.1-sol|P1|r0,GPT-6.1-sol,P1,sorted
+a1,warp,12.0,76.0,False,True,-64.0,64.0,84.211,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a1,weft,12.0,64.0,False,False,-52.0,52.0,81.25,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a2,warp,12.0,48.0,True,False,-36.0,36.0,75.0,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a2,weft,12.0,47.0,True,False,-35.0,35.0,74.468,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a4,warp,12.0,115.0,True,False,-103.0,103.0,89.565,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a4,weft,12.0,73.0,True,False,-61.0,61.0,83.562,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a5,warp,12.0,47.0,True,False,-35.0,35.0,74.468,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a5,weft,12.0,49.0,True,False,-37.0,37.0,75.51,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a6,warp,12.0,46.0,False,True,-34.0,34.0,73.913,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a6,weft,12.0,43.0,False,False,-31.0,31.0,72.093,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a8,warp,12.0,45.0,True,False,-33.0,33.0,73.333,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a8,weft,12.0,42.0,True,False,-30.0,30.0,71.429,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a10,warp,12.0,46.0,True,False,-34.0,34.0,73.913,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a10,weft,12.0,53.0,True,False,-41.0,41.0,77.358,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r2,warp,10.0,99.0,True,False,-89.0,89.0,89.899,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r2,weft,10.0,69.0,True,False,-59.0,59.0,85.507,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r3,warp,12.0,48.0,True,False,-36.0,36.0,75.0,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r3,weft,12.0,62.0,True,False,-50.0,50.0,80.645,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r4,warp,12.0,63.0,True,False,-51.0,51.0,80.952,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r4,weft,12.0,91.0,True,False,-79.0,79.0,86.813,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r6,warp,13.0,92.0,True,False,-79.0,79.0,85.87,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r6,weft,13.0,90.0,True,False,-77.0,77.0,85.556,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r7,warp,13.0,42.0,True,False,-29.0,29.0,69.048,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r7,weft,13.0,65.0,True,False,-52.0,52.0,80.0,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r8,warp,10.0,122.0,False,True,-112.0,112.0,91.803,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+r8,weft,10.0,71.0,False,False,-61.0,61.0,85.915,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,axis
+a1,weft,12.0,64.0,False,False,-52.0,52.0,81.25,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a1,warp,12.0,76.0,False,True,-64.0,64.0,84.211,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a2,weft,12.0,47.0,True,False,-35.0,35.0,74.468,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a2,warp,12.0,48.0,True,False,-36.0,36.0,75.0,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a4,weft,12.0,73.0,True,False,-61.0,61.0,83.562,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a4,warp,12.0,115.0,True,False,-103.0,103.0,89.565,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a5,warp,12.0,47.0,True,False,-35.0,35.0,74.468,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a5,weft,12.0,49.0,True,False,-37.0,37.0,75.51,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a6,weft,12.0,43.0,False,False,-31.0,31.0,72.093,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a6,warp,12.0,46.0,False,True,-34.0,34.0,73.913,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a8,weft,12.0,42.0,True,False,-30.0,30.0,71.429,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a8,warp,12.0,45.0,True,False,-33.0,33.0,73.333,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a10,warp,12.0,46.0,True,False,-34.0,34.0,73.913,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a10,weft,12.0,53.0,True,False,-41.0,41.0,77.358,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r2,weft,10.0,69.0,True,False,-59.0,59.0,85.507,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r2,warp,10.0,99.0,True,False,-89.0,89.0,89.899,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r3,warp,12.0,48.0,True,False,-36.0,36.0,75.0,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r3,weft,12.0,62.0,True,False,-50.0,50.0,80.645,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r4,warp,12.0,63.0,True,False,-51.0,51.0,80.952,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r4,weft,12.0,91.0,True,False,-79.0,79.0,86.813,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r6,weft,13.0,90.0,True,False,-77.0,77.0,85.556,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r6,warp,13.0,92.0,True,False,-79.0,79.0,85.87,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r7,warp,13.0,42.0,True,False,-29.0,29.0,69.048,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r7,weft,13.0,65.0,True,False,-52.0,52.0,80.0,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r8,weft,10.0,71.0,False,False,-61.0,61.0,85.915,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+r8,warp,10.0,122.0,False,True,-112.0,112.0,91.803,vlm:molmo2_8b_bf16|P1|r0,Molmo2-8B bf16,P1,sorted
+a1,warp,64.0,76.0,False,True,-12.0,12.0,15.789,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a1,weft,64.0,64.0,False,False,0.0,0.0,0.0,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a2,warp,40.0,48.0,True,False,-8.0,8.0,16.667,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a2,weft,40.0,47.0,True,False,-7.0,7.0,14.894,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a4,warp,64.0,115.0,True,False,-51.0,51.0,44.348,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a4,weft,64.0,73.0,True,False,-9.0,9.0,12.329,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a5,warp,40.0,47.0,True,False,-7.0,7.0,14.894,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a5,weft,40.0,49.0,True,False,-9.0,9.0,18.367,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a6,warp,64.0,46.0,False,True,18.0,18.0,39.13,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a6,weft,64.0,43.0,False,False,21.0,21.0,48.837,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a8,warp,64.0,45.0,True,False,19.0,19.0,42.222,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a8,weft,64.0,42.0,True,False,22.0,22.0,52.381,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a10,warp,64.0,46.0,True,False,18.0,18.0,39.13,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a10,weft,64.0,53.0,True,False,11.0,11.0,20.755,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r2,warp,64.0,99.0,True,False,-35.0,35.0,35.354,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r2,weft,64.0,69.0,True,False,-5.0,5.0,7.246,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r3,warp,64.0,48.0,True,False,16.0,16.0,33.333,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r3,weft,64.0,62.0,True,False,2.0,2.0,3.226,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r4,warp,64.0,63.0,True,False,1.0,1.0,1.587,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r4,weft,64.0,91.0,True,False,-27.0,27.0,29.67,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r6,warp,64.0,92.0,True,False,-28.0,28.0,30.435,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r6,weft,64.0,90.0,True,False,-26.0,26.0,28.889,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r7,warp,64.0,42.0,True,False,22.0,22.0,52.381,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r7,weft,64.0,65.0,True,False,-1.0,1.0,1.538,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r8,warp,64.0,122.0,False,True,-58.0,58.0,47.541,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+r8,weft,64.0,71.0,False,False,-7.0,7.0,9.859,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,axis
+a1,weft,64.0,64.0,False,False,0.0,0.0,0.0,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a1,warp,64.0,76.0,False,True,-12.0,12.0,15.789,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a2,weft,40.0,47.0,True,False,-7.0,7.0,14.894,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a2,warp,40.0,48.0,True,False,-8.0,8.0,16.667,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a4,weft,64.0,73.0,True,False,-9.0,9.0,12.329,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a4,warp,64.0,115.0,True,False,-51.0,51.0,44.348,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a5,warp,40.0,47.0,True,False,-7.0,7.0,14.894,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a5,weft,40.0,49.0,True,False,-9.0,9.0,18.367,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a6,weft,64.0,43.0,False,False,21.0,21.0,48.837,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a6,warp,64.0,46.0,False,True,18.0,18.0,39.13,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a8,weft,64.0,42.0,True,False,22.0,22.0,52.381,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a8,warp,64.0,45.0,True,False,19.0,19.0,42.222,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a10,warp,64.0,46.0,True,False,18.0,18.0,39.13,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a10,weft,64.0,53.0,True,False,11.0,11.0,20.755,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r2,weft,64.0,69.0,True,False,-5.0,5.0,7.246,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r2,warp,64.0,99.0,True,False,-35.0,35.0,35.354,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r3,warp,64.0,48.0,True,False,16.0,16.0,33.333,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r3,weft,64.0,62.0,True,False,2.0,2.0,3.226,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r4,warp,64.0,63.0,True,False,1.0,1.0,1.587,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r4,weft,64.0,91.0,True,False,-27.0,27.0,29.67,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r6,weft,64.0,90.0,True,False,-26.0,26.0,28.889,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r6,warp,64.0,92.0,True,False,-28.0,28.0,30.435,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r7,warp,64.0,42.0,True,False,22.0,22.0,52.381,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r7,weft,64.0,65.0,True,False,-1.0,1.0,1.538,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r8,weft,64.0,71.0,False,False,-7.0,7.0,9.859,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+r8,warp,64.0,122.0,False,True,-58.0,58.0,47.541,vlm:molmo2_8b_bf16|P3|r0,Molmo2-8B bf16,P3,sorted
+a1,warp,46.0,76.0,False,True,-30.0,30.0,39.474,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a1,weft,48.0,64.0,False,False,-16.0,16.0,25.0,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a2,warp,32.0,48.0,True,False,-16.0,16.0,33.333,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a2,weft,44.0,47.0,True,False,-3.0,3.0,6.383,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a4,warp,43.0,115.0,True,False,-72.0,72.0,62.609,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a4,weft,53.0,73.0,True,False,-20.0,20.0,27.397,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a5,warp,31.0,47.0,True,False,-16.0,16.0,34.043,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a5,weft,50.0,49.0,True,False,1.0,1.0,2.041,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a6,warp,33.0,46.0,False,True,-13.0,13.0,28.261,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a6,weft,32.0,43.0,False,False,-11.0,11.0,25.581,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a8,warp,26.0,45.0,True,False,-19.0,19.0,42.222,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a8,weft,50.0,42.0,True,False,8.0,8.0,19.048,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a10,warp,39.0,46.0,True,False,-7.0,7.0,15.217,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a10,weft,42.0,53.0,True,False,-11.0,11.0,20.755,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r2,warp,2.0,99.0,True,False,-97.0,97.0,97.98,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r2,weft,2.0,69.0,True,False,-67.0,67.0,97.101,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r3,warp,36.0,48.0,True,False,-12.0,12.0,25.0,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r3,weft,30.0,62.0,True,False,-32.0,32.0,51.613,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r4,warp,40.0,63.0,True,False,-23.0,23.0,36.508,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r4,weft,1.0,91.0,True,False,-90.0,90.0,98.901,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r6,warp,28.0,92.0,True,False,-64.0,64.0,69.565,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r6,weft,11.0,90.0,True,False,-79.0,79.0,87.778,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r7,warp,45.0,42.0,True,False,3.0,3.0,7.143,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r7,weft,25.0,65.0,True,False,-40.0,40.0,61.538,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r8,warp,42.0,122.0,False,True,-80.0,80.0,65.574,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+r8,weft,5.0,71.0,False,False,-66.0,66.0,92.958,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,axis
+a1,weft,46.0,64.0,False,False,-18.0,18.0,28.125,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a1,warp,48.0,76.0,False,True,-28.0,28.0,36.842,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a2,weft,32.0,47.0,True,False,-15.0,15.0,31.915,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a2,warp,44.0,48.0,True,False,-4.0,4.0,8.333,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a4,weft,43.0,73.0,True,False,-30.0,30.0,41.096,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a4,warp,53.0,115.0,True,False,-62.0,62.0,53.913,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a5,warp,31.0,47.0,True,False,-16.0,16.0,34.043,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a5,weft,50.0,49.0,True,False,1.0,1.0,2.041,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a6,weft,32.0,43.0,False,False,-11.0,11.0,25.581,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a6,warp,33.0,46.0,False,True,-13.0,13.0,28.261,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a8,weft,26.0,42.0,True,False,-16.0,16.0,38.095,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a8,warp,50.0,45.0,True,False,5.0,5.0,11.111,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a10,warp,39.0,46.0,True,False,-7.0,7.0,15.217,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a10,weft,42.0,53.0,True,False,-11.0,11.0,20.755,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r2,weft,2.0,69.0,True,False,-67.0,67.0,97.101,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r2,warp,2.0,99.0,True,False,-97.0,97.0,97.98,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r3,warp,30.0,48.0,True,False,-18.0,18.0,37.5,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r3,weft,36.0,62.0,True,False,-26.0,26.0,41.935,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r4,warp,1.0,63.0,True,False,-62.0,62.0,98.413,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r4,weft,40.0,91.0,True,False,-51.0,51.0,56.044,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r6,weft,11.0,90.0,True,False,-79.0,79.0,87.778,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r6,warp,28.0,92.0,True,False,-64.0,64.0,69.565,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r7,warp,25.0,42.0,True,False,-17.0,17.0,40.476,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r7,weft,45.0,65.0,True,False,-20.0,20.0,30.769,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r8,weft,5.0,71.0,False,False,-66.0,66.0,92.958,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+r8,warp,42.0,122.0,False,True,-80.0,80.0,65.574,vlm:molmo2_8b_bf16|P4|r0,Molmo2-8B bf16,P4,sorted
+a1,warp,88.0,76.0,False,True,12.0,12.0,15.789,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a1,weft,68.0,64.0,False,False,4.0,4.0,6.25,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a2,warp,72.0,48.0,True,False,24.0,24.0,50.0,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a2,weft,68.0,47.0,True,False,21.0,21.0,44.681,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a4,warp,92.0,115.0,True,False,-23.0,23.0,20.0,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a4,weft,104.0,73.0,True,False,31.0,31.0,42.466,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a5,warp,48.0,47.0,True,False,1.0,1.0,2.128,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a5,weft,48.0,49.0,True,False,-1.0,1.0,2.041,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a6,warp,36.0,46.0,False,True,-10.0,10.0,21.739,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a6,weft,44.0,43.0,False,False,1.0,1.0,2.326,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a8,warp,76.0,45.0,True,False,31.0,31.0,68.889,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a8,weft,40.0,42.0,True,False,-2.0,2.0,4.762,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a10,warp,72.0,46.0,True,False,26.0,26.0,56.522,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a10,weft,32.0,53.0,True,False,-21.0,21.0,39.623,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r2,warp,80.0,99.0,True,False,-19.0,19.0,19.192,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r2,weft,68.0,69.0,True,False,-1.0,1.0,1.449,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r3,warp,80.0,48.0,True,False,32.0,32.0,66.667,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r3,weft,68.0,62.0,True,False,6.0,6.0,9.677,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r4,warp,64.0,63.0,True,False,1.0,1.0,1.587,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r4,weft,80.0,91.0,True,False,-11.0,11.0,12.088,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r6,warp,132.0,92.0,True,False,40.0,40.0,43.478,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r6,weft,80.0,90.0,True,False,-10.0,10.0,11.111,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r7,warp,48.0,42.0,True,False,6.0,6.0,14.286,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r7,weft,36.0,65.0,True,False,-29.0,29.0,44.615,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r8,warp,80.0,122.0,False,True,-42.0,42.0,34.426,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+r8,weft,80.0,71.0,False,False,9.0,9.0,12.676,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,axis
+a1,weft,68.0,64.0,False,False,4.0,4.0,6.25,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a1,warp,88.0,76.0,False,True,12.0,12.0,15.789,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a2,weft,68.0,47.0,True,False,21.0,21.0,44.681,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a2,warp,72.0,48.0,True,False,24.0,24.0,50.0,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a4,weft,92.0,73.0,True,False,19.0,19.0,26.027,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a4,warp,104.0,115.0,True,False,-11.0,11.0,9.565,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a5,warp,48.0,47.0,True,False,1.0,1.0,2.128,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a5,weft,48.0,49.0,True,False,-1.0,1.0,2.041,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a6,weft,36.0,43.0,False,False,-7.0,7.0,16.279,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a6,warp,44.0,46.0,False,True,-2.0,2.0,4.348,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a8,weft,40.0,42.0,True,False,-2.0,2.0,4.762,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a8,warp,76.0,45.0,True,False,31.0,31.0,68.889,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a10,warp,32.0,46.0,True,False,-14.0,14.0,30.435,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a10,weft,72.0,53.0,True,False,19.0,19.0,35.849,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r2,weft,68.0,69.0,True,False,-1.0,1.0,1.449,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r2,warp,80.0,99.0,True,False,-19.0,19.0,19.192,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r3,warp,68.0,48.0,True,False,20.0,20.0,41.667,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r3,weft,80.0,62.0,True,False,18.0,18.0,29.032,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r4,warp,64.0,63.0,True,False,1.0,1.0,1.587,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r4,weft,80.0,91.0,True,False,-11.0,11.0,12.088,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r6,weft,80.0,90.0,True,False,-10.0,10.0,11.111,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r6,warp,132.0,92.0,True,False,40.0,40.0,43.478,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r7,warp,36.0,42.0,True,False,-6.0,6.0,14.286,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r7,weft,48.0,65.0,True,False,-17.0,17.0,26.154,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r8,weft,80.0,71.0,False,False,9.0,9.0,12.676,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+r8,warp,80.0,122.0,False,True,-42.0,42.0,34.426,vlm:molmo2_8b_bf16|P4q|r0,Molmo2-8B bf16,P4q,sorted
+a1,warp,12.0,76.0,False,True,-64.0,64.0,84.211,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a1,weft,10.0,64.0,False,False,-54.0,54.0,84.375,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a2,warp,10.0,48.0,True,False,-38.0,38.0,79.167,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a2,weft,10.0,47.0,True,False,-37.0,37.0,78.723,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a4,warp,10.0,115.0,True,False,-105.0,105.0,91.304,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a4,weft,10.0,73.0,True,False,-63.0,63.0,86.301,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a5,warp,10.0,47.0,True,False,-37.0,37.0,78.723,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a5,weft,10.0,49.0,True,False,-39.0,39.0,79.592,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a6,warp,10.0,46.0,False,True,-36.0,36.0,78.261,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a6,weft,10.0,43.0,False,False,-33.0,33.0,76.744,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a8,warp,10.0,45.0,True,False,-35.0,35.0,77.778,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a8,weft,10.0,42.0,True,False,-32.0,32.0,76.19,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a10,warp,12.0,46.0,True,False,-34.0,34.0,73.913,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a10,weft,10.0,53.0,True,False,-43.0,43.0,81.132,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r2,warp,10.0,99.0,True,False,-89.0,89.0,89.899,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r2,weft,10.0,69.0,True,False,-59.0,59.0,85.507,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r3,warp,10.0,48.0,True,False,-38.0,38.0,79.167,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r3,weft,10.0,62.0,True,False,-52.0,52.0,83.871,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r4,warp,10.0,63.0,True,False,-53.0,53.0,84.127,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r4,weft,10.0,91.0,True,False,-81.0,81.0,89.011,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r6,warp,10.0,92.0,True,False,-82.0,82.0,89.13,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r6,weft,10.0,90.0,True,False,-80.0,80.0,88.889,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r7,warp,10.0,42.0,True,False,-32.0,32.0,76.19,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r7,weft,10.0,65.0,True,False,-55.0,55.0,84.615,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r8,warp,10.0,122.0,False,True,-112.0,112.0,91.803,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+r8,weft,10.0,71.0,False,False,-61.0,61.0,85.915,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,axis
+a1,weft,10.0,64.0,False,False,-54.0,54.0,84.375,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a1,warp,12.0,76.0,False,True,-64.0,64.0,84.211,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a2,weft,10.0,47.0,True,False,-37.0,37.0,78.723,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a2,warp,10.0,48.0,True,False,-38.0,38.0,79.167,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a4,weft,10.0,73.0,True,False,-63.0,63.0,86.301,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a4,warp,10.0,115.0,True,False,-105.0,105.0,91.304,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a5,warp,10.0,47.0,True,False,-37.0,37.0,78.723,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a5,weft,10.0,49.0,True,False,-39.0,39.0,79.592,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a6,weft,10.0,43.0,False,False,-33.0,33.0,76.744,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a6,warp,10.0,46.0,False,True,-36.0,36.0,78.261,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a8,weft,10.0,42.0,True,False,-32.0,32.0,76.19,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a8,warp,10.0,45.0,True,False,-35.0,35.0,77.778,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a10,warp,10.0,46.0,True,False,-36.0,36.0,78.261,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a10,weft,12.0,53.0,True,False,-41.0,41.0,77.358,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r2,weft,10.0,69.0,True,False,-59.0,59.0,85.507,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r2,warp,10.0,99.0,True,False,-89.0,89.0,89.899,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r3,warp,10.0,48.0,True,False,-38.0,38.0,79.167,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r3,weft,10.0,62.0,True,False,-52.0,52.0,83.871,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r4,warp,10.0,63.0,True,False,-53.0,53.0,84.127,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r4,weft,10.0,91.0,True,False,-81.0,81.0,89.011,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r6,weft,10.0,90.0,True,False,-80.0,80.0,88.889,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r6,warp,10.0,92.0,True,False,-82.0,82.0,89.13,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r7,warp,10.0,42.0,True,False,-32.0,32.0,76.19,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r7,weft,10.0,65.0,True,False,-55.0,55.0,84.615,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r8,weft,10.0,71.0,False,False,-61.0,61.0,85.915,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+r8,warp,10.0,122.0,False,True,-112.0,112.0,91.803,ft:molmo2_4b_base|P1,"Molmo2-4B (base, zero-shot)",P1,sorted
+a1,warp,42.0,76.0,False,True,-34.0,34.0,44.737,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a1,weft,2.0,64.0,False,False,-62.0,62.0,96.875,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a2,warp,42.0,48.0,True,False,-6.0,6.0,12.5,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a2,weft,49.0,47.0,True,False,2.0,2.0,4.255,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a4,warp,2.0,115.0,True,False,-113.0,113.0,98.261,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a4,weft,2.0,73.0,True,False,-71.0,71.0,97.26,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a5,warp,53.0,47.0,True,False,6.0,6.0,12.766,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a5,weft,52.0,49.0,True,False,3.0,3.0,6.122,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a6,warp,33.0,46.0,False,True,-13.0,13.0,28.261,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a6,weft,29.0,43.0,False,False,-14.0,14.0,32.558,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a8,warp,2.0,45.0,True,False,-43.0,43.0,95.556,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a8,weft,2.0,42.0,True,False,-40.0,40.0,95.238,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a10,warp,59.0,46.0,True,False,13.0,13.0,28.261,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a10,weft,29.0,53.0,True,False,-24.0,24.0,45.283,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r2,warp,2.0,99.0,True,False,-97.0,97.0,97.98,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r2,weft,1.0,69.0,True,False,-68.0,68.0,98.551,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r3,warp,38.0,48.0,True,False,-10.0,10.0,20.833,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r3,weft,2.0,62.0,True,False,-60.0,60.0,96.774,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r4,warp,36.0,63.0,True,False,-27.0,27.0,42.857,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r4,weft,1.0,91.0,True,False,-90.0,90.0,98.901,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r6,warp,2.0,92.0,True,False,-90.0,90.0,97.826,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r6,weft,2.0,90.0,True,False,-88.0,88.0,97.778,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r7,warp,2.0,42.0,True,False,-40.0,40.0,95.238,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r7,weft,2.0,65.0,True,False,-63.0,63.0,96.923,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r8,warp,40.0,122.0,False,True,-82.0,82.0,67.213,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+r8,weft,7.0,71.0,False,False,-64.0,64.0,90.141,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,axis
+a1,weft,2.0,64.0,False,False,-62.0,62.0,96.875,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a1,warp,42.0,76.0,False,True,-34.0,34.0,44.737,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a2,weft,42.0,47.0,True,False,-5.0,5.0,10.638,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a2,warp,49.0,48.0,True,False,1.0,1.0,2.083,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a4,weft,2.0,73.0,True,False,-71.0,71.0,97.26,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a4,warp,2.0,115.0,True,False,-113.0,113.0,98.261,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a5,warp,52.0,47.0,True,False,5.0,5.0,10.638,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a5,weft,53.0,49.0,True,False,4.0,4.0,8.163,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a6,weft,29.0,43.0,False,False,-14.0,14.0,32.558,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a6,warp,33.0,46.0,False,True,-13.0,13.0,28.261,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a8,weft,2.0,42.0,True,False,-40.0,40.0,95.238,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a8,warp,2.0,45.0,True,False,-43.0,43.0,95.556,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a10,warp,29.0,46.0,True,False,-17.0,17.0,36.957,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a10,weft,59.0,53.0,True,False,6.0,6.0,11.321,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r2,weft,1.0,69.0,True,False,-68.0,68.0,98.551,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r2,warp,2.0,99.0,True,False,-97.0,97.0,97.98,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r3,warp,2.0,48.0,True,False,-46.0,46.0,95.833,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r3,weft,38.0,62.0,True,False,-24.0,24.0,38.71,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r4,warp,1.0,63.0,True,False,-62.0,62.0,98.413,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r4,weft,36.0,91.0,True,False,-55.0,55.0,60.44,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r6,weft,2.0,90.0,True,False,-88.0,88.0,97.778,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r6,warp,2.0,92.0,True,False,-90.0,90.0,97.826,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r7,warp,2.0,42.0,True,False,-40.0,40.0,95.238,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r7,weft,2.0,65.0,True,False,-63.0,63.0,96.923,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r8,weft,7.0,71.0,False,False,-64.0,64.0,90.141,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+r8,warp,40.0,122.0,False,True,-82.0,82.0,67.213,ft:molmo2_4b_base|P4,"Molmo2-4B (base, zero-shot)",P4,sorted
+a1,warp,88.0,76.0,False,True,12.0,12.0,15.789,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a1,weft,68.0,64.0,False,False,4.0,4.0,6.25,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a2,warp,56.0,48.0,True,False,8.0,8.0,16.667,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a2,weft,52.0,47.0,True,False,5.0,5.0,10.638,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a4,warp,100.0,115.0,True,False,-15.0,15.0,13.043,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a4,weft,100.0,73.0,True,False,27.0,27.0,36.986,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a5,warp,52.0,47.0,True,False,5.0,5.0,10.638,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a5,weft,56.0,49.0,True,False,7.0,7.0,14.286,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a6,warp,32.0,46.0,False,True,-14.0,14.0,30.435,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a6,weft,96.0,43.0,False,False,53.0,53.0,123.256,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a8,warp,84.0,45.0,True,False,39.0,39.0,86.667,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a8,weft,24.0,42.0,True,False,-18.0,18.0,42.857,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a10,warp,64.0,46.0,True,False,18.0,18.0,39.13,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a10,weft,56.0,53.0,True,False,3.0,3.0,5.66,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r2,warp,88.0,99.0,True,False,-11.0,11.0,11.111,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r2,weft,72.0,69.0,True,False,3.0,3.0,4.348,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r3,warp,116.0,48.0,True,False,68.0,68.0,141.667,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r3,weft,84.0,62.0,True,False,22.0,22.0,35.484,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r4,warp,92.0,63.0,True,False,29.0,29.0,46.032,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r4,weft,76.0,91.0,True,False,-15.0,15.0,16.484,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r6,warp,4.0,92.0,True,False,-88.0,88.0,95.652,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r6,weft,92.0,90.0,True,False,2.0,2.0,2.222,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r7,warp,44.0,42.0,True,False,2.0,2.0,4.762,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r7,weft,32.0,65.0,True,False,-33.0,33.0,50.769,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r8,warp,100.0,122.0,False,True,-22.0,22.0,18.033,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+r8,weft,12.0,71.0,False,False,-59.0,59.0,83.099,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,axis
+a1,weft,68.0,64.0,False,False,4.0,4.0,6.25,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a1,warp,88.0,76.0,False,True,12.0,12.0,15.789,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a2,weft,52.0,47.0,True,False,5.0,5.0,10.638,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a2,warp,56.0,48.0,True,False,8.0,8.0,16.667,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a4,weft,100.0,73.0,True,False,27.0,27.0,36.986,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a4,warp,100.0,115.0,True,False,-15.0,15.0,13.043,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a5,warp,52.0,47.0,True,False,5.0,5.0,10.638,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a5,weft,56.0,49.0,True,False,7.0,7.0,14.286,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a6,weft,32.0,43.0,False,False,-11.0,11.0,25.581,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a6,warp,96.0,46.0,False,True,50.0,50.0,108.696,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a8,weft,24.0,42.0,True,False,-18.0,18.0,42.857,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a8,warp,84.0,45.0,True,False,39.0,39.0,86.667,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a10,warp,56.0,46.0,True,False,10.0,10.0,21.739,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a10,weft,64.0,53.0,True,False,11.0,11.0,20.755,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r2,weft,72.0,69.0,True,False,3.0,3.0,4.348,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r2,warp,88.0,99.0,True,False,-11.0,11.0,11.111,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r3,warp,84.0,48.0,True,False,36.0,36.0,75.0,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r3,weft,116.0,62.0,True,False,54.0,54.0,87.097,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r4,warp,76.0,63.0,True,False,13.0,13.0,20.635,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r4,weft,92.0,91.0,True,False,1.0,1.0,1.099,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r6,weft,4.0,90.0,True,False,-86.0,86.0,95.556,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r6,warp,92.0,92.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r7,warp,32.0,42.0,True,False,-10.0,10.0,23.81,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r7,weft,44.0,65.0,True,False,-21.0,21.0,32.308,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r8,weft,12.0,71.0,False,False,-59.0,59.0,83.099,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+r8,warp,100.0,122.0,False,True,-22.0,22.0,18.033,ft:molmo2_4b_base|P4q,"Molmo2-4B (base, zero-shot)",P4q,sorted
+a1,warp,87.0,76.0,False,True,11.0,11.0,14.474,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a1,weft,70.0,64.0,False,False,6.0,6.0,9.375,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a2,warp,57.0,48.0,True,False,9.0,9.0,18.75,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a2,weft,72.0,47.0,True,False,25.0,25.0,53.191,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a4,warp,121.0,115.0,True,False,6.0,6.0,5.217,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a4,weft,100.0,73.0,True,False,27.0,27.0,36.986,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a5,warp,64.0,47.0,True,False,17.0,17.0,36.17,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a5,weft,49.0,49.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a6,warp,28.0,46.0,False,True,-18.0,18.0,39.13,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a6,weft,87.0,43.0,False,False,44.0,44.0,102.326,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a8,warp,102.0,45.0,True,False,57.0,57.0,126.667,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a8,weft,30.0,42.0,True,False,-12.0,12.0,28.571,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a10,warp,74.0,46.0,True,False,28.0,28.0,60.87,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a10,weft,37.0,53.0,True,False,-16.0,16.0,30.189,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r2,warp,76.0,99.0,True,False,-23.0,23.0,23.232,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r2,weft,67.0,69.0,True,False,-2.0,2.0,2.899,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r3,warp,88.0,48.0,True,False,40.0,40.0,83.333,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r3,weft,82.0,62.0,True,False,20.0,20.0,32.258,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r4,warp,69.0,63.0,True,False,6.0,6.0,9.524,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r4,weft,62.0,91.0,True,False,-29.0,29.0,31.868,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r6,warp,40.0,92.0,True,False,-52.0,52.0,56.522,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r6,weft,84.0,90.0,True,False,-6.0,6.0,6.667,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r7,warp,47.0,42.0,True,False,5.0,5.0,11.905,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r7,weft,64.0,65.0,True,False,-1.0,1.0,1.538,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r8,warp,71.0,122.0,False,True,-51.0,51.0,41.803,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+r8,weft,79.0,71.0,False,False,8.0,8.0,11.268,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,axis
+a1,weft,70.0,64.0,False,False,6.0,6.0,9.375,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a1,warp,87.0,76.0,False,True,11.0,11.0,14.474,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a2,weft,57.0,47.0,True,False,10.0,10.0,21.277,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a2,warp,72.0,48.0,True,False,24.0,24.0,50.0,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a4,weft,100.0,73.0,True,False,27.0,27.0,36.986,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a4,warp,121.0,115.0,True,False,6.0,6.0,5.217,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a5,warp,49.0,47.0,True,False,2.0,2.0,4.255,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a5,weft,64.0,49.0,True,False,15.0,15.0,30.612,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a6,weft,28.0,43.0,False,False,-15.0,15.0,34.884,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a6,warp,87.0,46.0,False,True,41.0,41.0,89.13,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a8,weft,30.0,42.0,True,False,-12.0,12.0,28.571,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a8,warp,102.0,45.0,True,False,57.0,57.0,126.667,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a10,warp,37.0,46.0,True,False,-9.0,9.0,19.565,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a10,weft,74.0,53.0,True,False,21.0,21.0,39.623,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r2,weft,67.0,69.0,True,False,-2.0,2.0,2.899,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r2,warp,76.0,99.0,True,False,-23.0,23.0,23.232,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r3,warp,82.0,48.0,True,False,34.0,34.0,70.833,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r3,weft,88.0,62.0,True,False,26.0,26.0,41.935,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r4,warp,62.0,63.0,True,False,-1.0,1.0,1.587,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r4,weft,69.0,91.0,True,False,-22.0,22.0,24.176,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r6,weft,40.0,90.0,True,False,-50.0,50.0,55.556,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r6,warp,84.0,92.0,True,False,-8.0,8.0,8.696,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r7,warp,47.0,42.0,True,False,5.0,5.0,11.905,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r7,weft,64.0,65.0,True,False,-1.0,1.0,1.538,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r8,weft,71.0,71.0,False,False,0.0,0.0,0.0,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+r8,warp,79.0,122.0,False,True,-43.0,43.0,35.246,ft:molmo2_4b_base|P4s,"Molmo2-4B (base, zero-shot)",P4s,sorted
+a1,warp,87.5,76.0,False,True,11.5,11.5,15.132,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a1,weft,68.085,64.0,False,False,4.085,4.085,6.383,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a2,warp,55.615,48.0,True,False,7.615,7.615,15.865,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a2,weft,51.01,47.0,True,False,4.01,4.01,8.531,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a4,warp,99.792,115.0,True,False,-15.208,15.208,13.224,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a4,weft,100.0,73.0,True,False,27.0,27.0,36.986,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a5,warp,48.88,47.0,True,False,1.88,1.88,4.0,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a5,weft,53.83,49.0,True,False,4.83,4.83,9.858,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a6,warp,34.356,46.0,False,True,-11.644,11.644,25.313,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a6,weft,93.401,43.0,False,False,50.401,50.401,117.212,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a8,warp,85.745,45.0,True,False,40.745,40.745,90.544,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a8,weft,22.222,42.0,True,False,-19.778,19.778,47.09,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a10,warp,66.372,46.0,True,False,20.372,20.372,44.286,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a10,weft,54.968,53.0,True,False,1.968,1.968,3.714,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+r2,warp,88.795,99.0,True,False,-10.205,10.205,10.308,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+r2,weft,72.727,69.0,True,False,3.727,3.727,5.402,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+r3,warp,114.754,48.0,True,False,66.754,66.754,139.071,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+r3,weft,81.301,62.0,True,False,19.301,19.301,31.13,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+r4,warp,89.613,63.0,True,False,26.613,26.613,42.243,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+r4,weft,76.03,91.0,True,False,-14.97,14.97,16.451,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+r7,warp,44.444,42.0,True,False,2.444,2.444,5.82,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+r7,weft,30.435,65.0,True,False,-34.565,34.565,53.177,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+r8,warp,100.209,122.0,False,True,-21.791,21.791,17.862,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+r8,weft,8.016,71.0,False,False,-62.984,62.984,88.71,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,axis
+a1,weft,68.085,64.0,False,False,4.085,4.085,6.383,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a1,warp,87.5,76.0,False,True,11.5,11.5,15.132,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a2,weft,51.01,47.0,True,False,4.01,4.01,8.531,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a2,warp,55.615,48.0,True,False,7.615,7.615,15.865,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a4,weft,99.792,73.0,True,False,26.792,26.792,36.702,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a4,warp,100.0,115.0,True,False,-15.0,15.0,13.043,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a5,warp,48.88,47.0,True,False,1.88,1.88,4.0,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a5,weft,53.83,49.0,True,False,4.83,4.83,9.858,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a6,weft,34.356,43.0,False,False,-8.644,8.644,20.103,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a6,warp,93.401,46.0,False,True,47.401,47.401,103.046,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a8,weft,22.222,42.0,True,False,-19.778,19.778,47.09,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a8,warp,85.745,45.0,True,False,40.745,40.745,90.544,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a10,warp,54.968,46.0,True,False,8.968,8.968,19.496,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a10,weft,66.372,53.0,True,False,13.372,13.372,25.23,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+r2,weft,72.727,69.0,True,False,3.727,3.727,5.402,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+r2,warp,88.795,99.0,True,False,-10.205,10.205,10.308,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+r3,warp,81.301,48.0,True,False,33.301,33.301,69.377,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+r3,weft,114.754,62.0,True,False,52.754,52.754,85.087,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+r4,warp,76.03,63.0,True,False,13.03,13.03,20.682,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+r4,weft,89.613,91.0,True,False,-1.387,1.387,1.524,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+r7,warp,30.435,42.0,True,False,-11.565,11.565,27.536,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+r7,weft,44.444,65.0,True,False,-20.556,20.556,31.624,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+r8,weft,8.016,71.0,False,False,-62.984,62.984,88.71,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+r8,warp,100.209,122.0,False,True,-21.791,21.791,17.862,ft:molmo2_4b_base|P4q_sp,"Molmo2-4B (base, zero-shot)",P4q_sp,sorted
+a1,warp,86.16,76.0,False,True,10.16,10.16,13.369,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a1,weft,68.373,64.0,False,False,4.373,4.373,6.832,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a2,warp,56.505,48.0,True,False,8.505,8.505,17.718,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a2,weft,71.425,47.0,True,False,24.425,24.425,51.968,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a4,warp,121.129,115.0,True,False,6.129,6.129,5.33,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a4,weft,99.004,73.0,True,False,26.004,26.004,35.622,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a5,warp,63.153,47.0,True,False,16.153,16.153,34.369,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a5,weft,60.456,49.0,True,False,11.456,11.456,23.381,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a6,warp,29.537,46.0,False,True,-16.463,16.463,35.788,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a6,weft,87.147,43.0,False,False,44.147,44.147,102.668,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a8,warp,103.056,45.0,True,False,58.056,58.056,129.013,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a8,weft,36.767,42.0,True,False,-5.233,5.233,12.459,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a10,warp,74.117,46.0,True,False,28.117,28.117,61.124,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a10,weft,35.708,53.0,True,False,-17.292,17.292,32.627,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r2,warp,108.048,99.0,True,False,9.048,9.048,9.14,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r2,weft,69.209,69.0,True,False,0.209,0.209,0.303,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r3,warp,88.332,48.0,True,False,40.332,40.332,84.026,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r3,weft,84.426,62.0,True,False,22.426,22.426,36.171,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r4,warp,69.304,63.0,True,False,6.304,6.304,10.006,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r4,weft,69.01,91.0,True,False,-21.99,21.99,24.165,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r6,warp,2292.769,92.0,True,False,2200.769,2200.769,2392.14,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r6,weft,88.042,90.0,True,False,-1.958,1.958,2.175,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r7,warp,47.818,42.0,True,False,5.818,5.818,13.853,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r7,weft,64.202,65.0,True,False,-0.798,0.798,1.228,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r8,warp,69.899,122.0,False,True,-52.101,52.101,42.706,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+r8,weft,78.165,71.0,False,False,7.165,7.165,10.092,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,axis
+a1,weft,68.373,64.0,False,False,4.373,4.373,6.832,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a1,warp,86.16,76.0,False,True,10.16,10.16,13.369,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a2,weft,56.505,47.0,True,False,9.505,9.505,20.223,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a2,warp,71.425,48.0,True,False,23.425,23.425,48.802,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a4,weft,99.004,73.0,True,False,26.004,26.004,35.622,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a4,warp,121.129,115.0,True,False,6.129,6.129,5.33,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a5,warp,60.456,47.0,True,False,13.456,13.456,28.631,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a5,weft,63.153,49.0,True,False,14.153,14.153,28.884,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a6,weft,29.537,43.0,False,False,-13.463,13.463,31.309,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a6,warp,87.147,46.0,False,True,41.147,41.147,89.45,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a8,weft,36.767,42.0,True,False,-5.233,5.233,12.459,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a8,warp,103.056,45.0,True,False,58.056,58.056,129.013,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a10,warp,35.708,46.0,True,False,-10.292,10.292,22.374,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a10,weft,74.117,53.0,True,False,21.117,21.117,39.843,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r2,weft,69.209,69.0,True,False,0.209,0.209,0.303,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r2,warp,108.048,99.0,True,False,9.048,9.048,9.14,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r3,warp,84.426,48.0,True,False,36.426,36.426,75.887,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r3,weft,88.332,62.0,True,False,26.332,26.332,42.472,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r4,warp,69.01,63.0,True,False,6.01,6.01,9.539,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r4,weft,69.304,91.0,True,False,-21.696,21.696,23.842,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r6,weft,88.042,90.0,True,False,-1.958,1.958,2.175,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r6,warp,2292.769,92.0,True,False,2200.769,2200.769,2392.14,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r7,warp,47.818,42.0,True,False,5.818,5.818,13.853,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r7,weft,64.202,65.0,True,False,-0.798,0.798,1.228,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r8,weft,69.899,71.0,False,False,-1.101,1.101,1.55,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+r8,warp,78.165,122.0,False,True,-43.835,43.835,35.93,ft:molmo2_4b_base|P4s_sp,"Molmo2-4B (base, zero-shot)",P4s_sp,sorted
+a1,warp,62.0,76.0,False,True,-14.0,14.0,18.421,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a1,weft,72.0,64.0,False,False,8.0,8.0,12.5,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a2,warp,48.0,48.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a2,weft,46.0,47.0,True,False,-1.0,1.0,2.128,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a4,warp,89.0,115.0,True,False,-26.0,26.0,22.609,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a4,weft,100.0,73.0,True,False,27.0,27.0,36.986,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a5,warp,52.0,47.0,True,False,5.0,5.0,10.638,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a5,weft,46.0,49.0,True,False,-3.0,3.0,6.122,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a6,warp,38.0,46.0,False,True,-8.0,8.0,17.391,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a6,weft,62.0,43.0,False,False,19.0,19.0,44.186,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a8,warp,109.0,45.0,True,False,64.0,64.0,142.222,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a8,weft,42.0,42.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a10,warp,52.0,46.0,True,False,6.0,6.0,13.043,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a10,weft,46.0,53.0,True,False,-7.0,7.0,13.208,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r2,warp,89.0,99.0,True,False,-10.0,10.0,10.101,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r2,weft,71.0,69.0,True,False,2.0,2.0,2.899,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r3,warp,50.0,48.0,True,False,2.0,2.0,4.167,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r3,weft,75.0,62.0,True,False,13.0,13.0,20.968,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r4,warp,70.0,63.0,True,False,7.0,7.0,11.111,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r4,weft,75.0,91.0,True,False,-16.0,16.0,17.582,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r6,warp,85.0,92.0,True,False,-7.0,7.0,7.609,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r6,weft,100.0,90.0,True,False,10.0,10.0,11.111,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r7,warp,47.0,42.0,True,False,5.0,5.0,11.905,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r7,weft,62.0,65.0,True,False,-3.0,3.0,4.615,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r8,warp,80.0,122.0,False,True,-42.0,42.0,34.426,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+r8,weft,70.0,71.0,False,False,-1.0,1.0,1.408,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,axis
+a1,weft,62.0,64.0,False,False,-2.0,2.0,3.125,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a1,warp,72.0,76.0,False,True,-4.0,4.0,5.263,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a2,weft,46.0,47.0,True,False,-1.0,1.0,2.128,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a2,warp,48.0,48.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a4,weft,89.0,73.0,True,False,16.0,16.0,21.918,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a4,warp,100.0,115.0,True,False,-15.0,15.0,13.043,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a5,warp,46.0,47.0,True,False,-1.0,1.0,2.128,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a5,weft,52.0,49.0,True,False,3.0,3.0,6.122,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a6,weft,38.0,43.0,False,False,-5.0,5.0,11.628,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a6,warp,62.0,46.0,False,True,16.0,16.0,34.783,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a8,weft,42.0,42.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a8,warp,109.0,45.0,True,False,64.0,64.0,142.222,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a10,warp,46.0,46.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a10,weft,52.0,53.0,True,False,-1.0,1.0,1.887,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r2,weft,71.0,69.0,True,False,2.0,2.0,2.899,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r2,warp,89.0,99.0,True,False,-10.0,10.0,10.101,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r3,warp,50.0,48.0,True,False,2.0,2.0,4.167,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r3,weft,75.0,62.0,True,False,13.0,13.0,20.968,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r4,warp,70.0,63.0,True,False,7.0,7.0,11.111,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r4,weft,75.0,91.0,True,False,-16.0,16.0,17.582,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r6,weft,85.0,90.0,True,False,-5.0,5.0,5.556,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r6,warp,100.0,92.0,True,False,8.0,8.0,8.696,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r7,warp,47.0,42.0,True,False,5.0,5.0,11.905,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r7,weft,62.0,65.0,True,False,-3.0,3.0,4.615,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r8,weft,70.0,71.0,False,False,-1.0,1.0,1.408,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+r8,warp,80.0,122.0,False,True,-42.0,42.0,34.426,ft:molmo2_4b_synthft|P1,Molmo2-4B + synthetic-pointing LoRA (ours),P1,sorted
+a1,warp,67.0,76.0,False,True,-9.0,9.0,11.842,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a1,weft,77.0,64.0,False,False,13.0,13.0,20.312,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a2,warp,49.0,48.0,True,False,1.0,1.0,2.083,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a2,weft,47.0,47.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a4,warp,91.0,115.0,True,False,-24.0,24.0,20.87,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a4,weft,100.0,73.0,True,False,27.0,27.0,36.986,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a5,warp,55.0,47.0,True,False,8.0,8.0,17.021,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a5,weft,50.0,49.0,True,False,1.0,1.0,2.041,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a6,warp,38.0,46.0,False,True,-8.0,8.0,17.391,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a6,weft,66.0,43.0,False,False,23.0,23.0,53.488,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a8,warp,91.0,45.0,True,False,46.0,46.0,102.222,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a8,weft,43.0,42.0,True,False,1.0,1.0,2.381,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a10,warp,55.0,46.0,True,False,9.0,9.0,19.565,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a10,weft,45.0,53.0,True,False,-8.0,8.0,15.094,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r2,warp,83.0,99.0,True,False,-16.0,16.0,16.162,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r2,weft,76.0,69.0,True,False,7.0,7.0,10.145,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r3,warp,53.0,48.0,True,False,5.0,5.0,10.417,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r3,weft,69.0,62.0,True,False,7.0,7.0,11.29,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r4,warp,67.0,63.0,True,False,4.0,4.0,6.349,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r4,weft,89.0,91.0,True,False,-2.0,2.0,2.198,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r6,warp,75.0,92.0,True,False,-17.0,17.0,18.478,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r6,weft,107.0,90.0,True,False,17.0,17.0,18.889,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r7,warp,48.0,42.0,True,False,6.0,6.0,14.286,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r7,weft,66.0,65.0,True,False,1.0,1.0,1.538,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r8,warp,75.0,122.0,False,True,-47.0,47.0,38.525,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+r8,weft,81.0,71.0,False,False,10.0,10.0,14.085,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,axis
+a1,weft,67.0,64.0,False,False,3.0,3.0,4.688,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a1,warp,77.0,76.0,False,True,1.0,1.0,1.316,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a2,weft,47.0,47.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a2,warp,49.0,48.0,True,False,1.0,1.0,2.083,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a4,weft,91.0,73.0,True,False,18.0,18.0,24.658,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a4,warp,100.0,115.0,True,False,-15.0,15.0,13.043,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a5,warp,50.0,47.0,True,False,3.0,3.0,6.383,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a5,weft,55.0,49.0,True,False,6.0,6.0,12.245,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a6,weft,38.0,43.0,False,False,-5.0,5.0,11.628,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a6,warp,66.0,46.0,False,True,20.0,20.0,43.478,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a8,weft,43.0,42.0,True,False,1.0,1.0,2.381,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a8,warp,91.0,45.0,True,False,46.0,46.0,102.222,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a10,warp,45.0,46.0,True,False,-1.0,1.0,2.174,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a10,weft,55.0,53.0,True,False,2.0,2.0,3.774,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r2,weft,76.0,69.0,True,False,7.0,7.0,10.145,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r2,warp,83.0,99.0,True,False,-16.0,16.0,16.162,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r3,warp,53.0,48.0,True,False,5.0,5.0,10.417,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r3,weft,69.0,62.0,True,False,7.0,7.0,11.29,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r4,warp,67.0,63.0,True,False,4.0,4.0,6.349,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r4,weft,89.0,91.0,True,False,-2.0,2.0,2.198,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r6,weft,75.0,90.0,True,False,-15.0,15.0,16.667,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r6,warp,107.0,92.0,True,False,15.0,15.0,16.304,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r7,warp,48.0,42.0,True,False,6.0,6.0,14.286,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r7,weft,66.0,65.0,True,False,1.0,1.0,1.538,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r8,weft,75.0,71.0,False,False,4.0,4.0,5.634,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+r8,warp,81.0,122.0,False,True,-41.0,41.0,33.607,ft:molmo2_4b_synthft|P4,Molmo2-4B + synthetic-pointing LoRA (ours),P4,sorted
+a1,warp,68.0,76.0,False,True,-8.0,8.0,10.526,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a1,weft,68.0,64.0,False,False,4.0,4.0,6.25,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a2,warp,48.0,48.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a2,weft,48.0,47.0,True,False,1.0,1.0,2.128,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a4,warp,112.0,115.0,True,False,-3.0,3.0,2.609,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a4,weft,72.0,73.0,True,False,-1.0,1.0,1.37,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a5,warp,48.0,47.0,True,False,1.0,1.0,2.128,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a5,weft,56.0,49.0,True,False,7.0,7.0,14.286,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a6,warp,32.0,46.0,False,True,-14.0,14.0,30.435,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a6,weft,68.0,43.0,False,False,25.0,25.0,58.14,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a8,warp,104.0,45.0,True,False,59.0,59.0,131.111,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a8,weft,40.0,42.0,True,False,-2.0,2.0,4.762,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a10,warp,48.0,46.0,True,False,2.0,2.0,4.348,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a10,weft,48.0,53.0,True,False,-5.0,5.0,9.434,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r2,warp,96.0,99.0,True,False,-3.0,3.0,3.03,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r2,weft,88.0,69.0,True,False,19.0,19.0,27.536,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r3,warp,52.0,48.0,True,False,4.0,4.0,8.333,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r3,weft,80.0,62.0,True,False,18.0,18.0,29.032,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r4,warp,64.0,63.0,True,False,1.0,1.0,1.587,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r4,weft,84.0,91.0,True,False,-7.0,7.0,7.692,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r6,warp,96.0,92.0,True,False,4.0,4.0,4.348,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r6,weft,84.0,90.0,True,False,-6.0,6.0,6.667,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r7,warp,52.0,42.0,True,False,10.0,10.0,23.81,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r7,weft,68.0,65.0,True,False,3.0,3.0,4.615,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r8,warp,76.0,122.0,False,True,-46.0,46.0,37.705,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+r8,weft,76.0,71.0,False,False,5.0,5.0,7.042,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,axis
+a1,weft,68.0,64.0,False,False,4.0,4.0,6.25,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a1,warp,68.0,76.0,False,True,-8.0,8.0,10.526,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a2,weft,48.0,47.0,True,False,1.0,1.0,2.128,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a2,warp,48.0,48.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a4,weft,72.0,73.0,True,False,-1.0,1.0,1.37,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a4,warp,112.0,115.0,True,False,-3.0,3.0,2.609,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a5,warp,48.0,47.0,True,False,1.0,1.0,2.128,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a5,weft,56.0,49.0,True,False,7.0,7.0,14.286,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a6,weft,32.0,43.0,False,False,-11.0,11.0,25.581,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a6,warp,68.0,46.0,False,True,22.0,22.0,47.826,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a8,weft,40.0,42.0,True,False,-2.0,2.0,4.762,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a8,warp,104.0,45.0,True,False,59.0,59.0,131.111,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a10,warp,48.0,46.0,True,False,2.0,2.0,4.348,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a10,weft,48.0,53.0,True,False,-5.0,5.0,9.434,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r2,weft,88.0,69.0,True,False,19.0,19.0,27.536,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r2,warp,96.0,99.0,True,False,-3.0,3.0,3.03,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r3,warp,52.0,48.0,True,False,4.0,4.0,8.333,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r3,weft,80.0,62.0,True,False,18.0,18.0,29.032,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r4,warp,64.0,63.0,True,False,1.0,1.0,1.587,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r4,weft,84.0,91.0,True,False,-7.0,7.0,7.692,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r6,weft,84.0,90.0,True,False,-6.0,6.0,6.667,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r6,warp,96.0,92.0,True,False,4.0,4.0,4.348,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r7,warp,52.0,42.0,True,False,10.0,10.0,23.81,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r7,weft,68.0,65.0,True,False,3.0,3.0,4.615,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r8,weft,76.0,71.0,False,False,5.0,5.0,7.042,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+r8,warp,76.0,122.0,False,True,-46.0,46.0,37.705,ft:molmo2_4b_synthft|P4q,Molmo2-4B + synthetic-pointing LoRA (ours),P4q,sorted
+a1,warp,74.0,76.0,False,True,-2.0,2.0,2.632,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a1,weft,67.0,64.0,False,False,3.0,3.0,4.688,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a2,warp,49.0,48.0,True,False,1.0,1.0,2.083,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a2,weft,50.0,47.0,True,False,3.0,3.0,6.383,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a4,warp,108.0,115.0,True,False,-7.0,7.0,6.087,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a4,weft,82.0,73.0,True,False,9.0,9.0,12.329,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a5,warp,47.0,47.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a5,weft,52.0,49.0,True,False,3.0,3.0,6.122,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a6,warp,31.0,46.0,False,True,-15.0,15.0,32.609,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a6,weft,73.0,43.0,False,False,30.0,30.0,69.767,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a8,warp,97.0,45.0,True,False,52.0,52.0,115.556,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a8,weft,40.0,42.0,True,False,-2.0,2.0,4.762,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a10,warp,56.0,46.0,True,False,10.0,10.0,21.739,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a10,weft,50.0,53.0,True,False,-3.0,3.0,5.66,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r2,warp,97.0,99.0,True,False,-2.0,2.0,2.02,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r2,weft,79.0,69.0,True,False,10.0,10.0,14.493,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r3,warp,53.0,48.0,True,False,5.0,5.0,10.417,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r3,weft,72.0,62.0,True,False,10.0,10.0,16.129,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r4,warp,72.0,63.0,True,False,9.0,9.0,14.286,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r4,weft,88.0,91.0,True,False,-3.0,3.0,3.297,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r6,warp,96.0,92.0,True,False,4.0,4.0,4.348,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r6,weft,89.0,90.0,True,False,-1.0,1.0,1.111,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r7,warp,47.0,42.0,True,False,5.0,5.0,11.905,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r7,weft,62.0,65.0,True,False,-3.0,3.0,4.615,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r8,warp,66.0,122.0,False,True,-56.0,56.0,45.902,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+r8,weft,76.0,71.0,False,False,5.0,5.0,7.042,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,axis
+a1,weft,67.0,64.0,False,False,3.0,3.0,4.688,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a1,warp,74.0,76.0,False,True,-2.0,2.0,2.632,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a2,weft,49.0,47.0,True,False,2.0,2.0,4.255,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a2,warp,50.0,48.0,True,False,2.0,2.0,4.167,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a4,weft,82.0,73.0,True,False,9.0,9.0,12.329,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a4,warp,108.0,115.0,True,False,-7.0,7.0,6.087,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a5,warp,47.0,47.0,True,False,0.0,0.0,0.0,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a5,weft,52.0,49.0,True,False,3.0,3.0,6.122,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a6,weft,31.0,43.0,False,False,-12.0,12.0,27.907,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a6,warp,73.0,46.0,False,True,27.0,27.0,58.696,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a8,weft,40.0,42.0,True,False,-2.0,2.0,4.762,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a8,warp,97.0,45.0,True,False,52.0,52.0,115.556,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a10,warp,50.0,46.0,True,False,4.0,4.0,8.696,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a10,weft,56.0,53.0,True,False,3.0,3.0,5.66,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r2,weft,79.0,69.0,True,False,10.0,10.0,14.493,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r2,warp,97.0,99.0,True,False,-2.0,2.0,2.02,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r3,warp,53.0,48.0,True,False,5.0,5.0,10.417,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r3,weft,72.0,62.0,True,False,10.0,10.0,16.129,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r4,warp,72.0,63.0,True,False,9.0,9.0,14.286,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r4,weft,88.0,91.0,True,False,-3.0,3.0,3.297,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r6,weft,89.0,90.0,True,False,-1.0,1.0,1.111,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r6,warp,96.0,92.0,True,False,4.0,4.0,4.348,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r7,warp,47.0,42.0,True,False,5.0,5.0,11.905,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r7,weft,62.0,65.0,True,False,-3.0,3.0,4.615,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r8,weft,66.0,71.0,False,False,-5.0,5.0,7.042,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+r8,warp,76.0,122.0,False,True,-46.0,46.0,37.705,ft:molmo2_4b_synthft|P4s,Molmo2-4B + synthetic-pointing LoRA (ours),P4s,sorted
+a1,warp,70.175,76.0,False,True,-5.825,5.825,7.664,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a1,weft,65.574,64.0,False,False,1.574,1.574,2.459,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a2,warp,45.881,48.0,True,False,-2.119,2.119,4.414,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a2,weft,47.059,47.0,True,False,0.059,0.059,0.125,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a4,warp,111.111,115.0,True,False,-3.889,3.889,3.382,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a4,weft,72.727,73.0,True,False,-0.273,0.273,0.374,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a5,warp,47.059,47.0,True,False,0.059,0.059,0.125,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a5,weft,52.632,49.0,True,False,3.632,3.632,7.411,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a6,warp,31.25,46.0,False,True,-14.75,14.75,32.065,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a6,weft,70.175,43.0,False,False,27.175,27.175,63.199,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a8,warp,102.564,45.0,True,False,57.564,57.564,127.92,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a8,weft,38.835,42.0,True,False,-3.165,3.165,7.536,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a10,warp,47.619,46.0,True,False,1.619,1.619,3.52,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a10,weft,48.78,53.0,True,False,-4.22,4.22,7.961,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r2,warp,95.238,99.0,True,False,-3.762,3.762,3.8,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r2,weft,90.909,69.0,True,False,21.909,21.909,31.752,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r3,warp,52.632,48.0,True,False,4.632,4.632,9.649,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r3,weft,76.923,62.0,True,False,14.923,14.923,24.069,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r4,warp,66.667,63.0,True,False,3.667,3.667,5.82,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r4,weft,85.106,91.0,True,False,-5.894,5.894,6.477,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r6,warp,95.238,92.0,True,False,3.238,3.238,3.52,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r6,weft,83.333,90.0,True,False,-6.667,6.667,7.407,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r7,warp,51.282,42.0,True,False,9.282,9.282,22.1,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r7,weft,66.667,65.0,True,False,1.667,1.667,2.564,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r8,warp,76.923,122.0,False,True,-45.077,45.077,36.948,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+r8,weft,75.472,71.0,False,False,4.472,4.472,6.298,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,axis
+a1,weft,65.574,64.0,False,False,1.574,1.574,2.459,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a1,warp,70.175,76.0,False,True,-5.825,5.825,7.664,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a2,weft,45.881,47.0,True,False,-1.119,1.119,2.381,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a2,warp,47.059,48.0,True,False,-0.941,0.941,1.961,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a4,weft,72.727,73.0,True,False,-0.273,0.273,0.374,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a4,warp,111.111,115.0,True,False,-3.889,3.889,3.382,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a5,warp,47.059,47.0,True,False,0.059,0.059,0.125,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a5,weft,52.632,49.0,True,False,3.632,3.632,7.411,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a6,weft,31.25,43.0,False,False,-11.75,11.75,27.326,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a6,warp,70.175,46.0,False,True,24.175,24.175,52.555,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a8,weft,38.835,42.0,True,False,-3.165,3.165,7.536,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a8,warp,102.564,45.0,True,False,57.564,57.564,127.92,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a10,warp,47.619,46.0,True,False,1.619,1.619,3.52,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a10,weft,48.78,53.0,True,False,-4.22,4.22,7.961,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r2,weft,90.909,69.0,True,False,21.909,21.909,31.752,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r2,warp,95.238,99.0,True,False,-3.762,3.762,3.8,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r3,warp,52.632,48.0,True,False,4.632,4.632,9.649,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r3,weft,76.923,62.0,True,False,14.923,14.923,24.069,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r4,warp,66.667,63.0,True,False,3.667,3.667,5.82,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r4,weft,85.106,91.0,True,False,-5.894,5.894,6.477,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r6,weft,83.333,90.0,True,False,-6.667,6.667,7.407,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r6,warp,95.238,92.0,True,False,3.238,3.238,3.52,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r7,warp,51.282,42.0,True,False,9.282,9.282,22.1,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r7,weft,66.667,65.0,True,False,1.667,1.667,2.564,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r8,weft,75.472,71.0,False,False,4.472,4.472,6.298,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+r8,warp,76.923,122.0,False,True,-45.077,45.077,36.948,ft:molmo2_4b_synthft|P4q_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4q_sp,sorted
+a1,warp,73.674,76.0,False,True,-2.326,2.326,3.06,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a1,weft,66.19,64.0,False,False,2.19,2.19,3.422,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a2,warp,47.858,48.0,True,False,-0.142,0.142,0.296,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a2,weft,49.287,47.0,True,False,2.287,2.287,4.867,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a4,warp,107.143,115.0,True,False,-7.857,7.857,6.832,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a4,weft,82.206,73.0,True,False,9.206,9.206,12.611,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a5,warp,48.126,47.0,True,False,1.126,1.126,2.396,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a5,weft,52.487,49.0,True,False,3.487,3.487,7.117,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a6,warp,31.154,46.0,False,True,-14.846,14.846,32.274,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a6,weft,74.089,43.0,False,False,31.089,31.089,72.3,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a8,warp,97.619,45.0,True,False,52.619,52.619,116.931,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a8,weft,41.203,42.0,True,False,-0.797,0.797,1.897,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a10,warp,55.75,46.0,True,False,9.75,9.75,21.195,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a10,weft,50.399,53.0,True,False,-2.601,2.601,4.907,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r2,warp,97.727,99.0,True,False,-1.273,1.273,1.286,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r2,weft,79.073,69.0,True,False,10.073,10.073,14.599,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r3,warp,52.955,48.0,True,False,4.955,4.955,10.323,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r3,weft,74.861,62.0,True,False,12.861,12.861,20.743,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r4,warp,71.294,63.0,True,False,8.294,8.294,13.166,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r4,weft,90.51,91.0,True,False,-0.49,0.49,0.539,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r6,warp,98.626,92.0,True,False,6.626,6.626,7.202,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r6,weft,94.733,90.0,True,False,4.733,4.733,5.259,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r7,warp,47.106,42.0,True,False,5.106,5.106,12.158,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r7,weft,63.712,65.0,True,False,-1.288,1.288,1.982,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r8,warp,63.698,122.0,False,True,-58.302,58.302,47.789,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+r8,weft,74.824,71.0,False,False,3.824,3.824,5.386,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,axis
+a1,weft,66.19,64.0,False,False,2.19,2.19,3.422,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a1,warp,73.674,76.0,False,True,-2.326,2.326,3.06,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a2,weft,47.858,47.0,True,False,0.858,0.858,1.825,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a2,warp,49.287,48.0,True,False,1.287,1.287,2.682,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a4,weft,82.206,73.0,True,False,9.206,9.206,12.611,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a4,warp,107.143,115.0,True,False,-7.857,7.857,6.832,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a5,warp,48.126,47.0,True,False,1.126,1.126,2.396,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a5,weft,52.487,49.0,True,False,3.487,3.487,7.117,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a6,weft,31.154,43.0,False,False,-11.846,11.846,27.548,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a6,warp,74.089,46.0,False,True,28.089,28.089,61.063,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a8,weft,41.203,42.0,True,False,-0.797,0.797,1.897,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a8,warp,97.619,45.0,True,False,52.619,52.619,116.931,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a10,warp,50.399,46.0,True,False,4.399,4.399,9.564,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+a10,weft,55.75,53.0,True,False,2.75,2.75,5.188,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r2,weft,79.073,69.0,True,False,10.073,10.073,14.599,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r2,warp,97.727,99.0,True,False,-1.273,1.273,1.286,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r3,warp,52.955,48.0,True,False,4.955,4.955,10.323,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r3,weft,74.861,62.0,True,False,12.861,12.861,20.743,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r4,warp,71.294,63.0,True,False,8.294,8.294,13.166,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r4,weft,90.51,91.0,True,False,-0.49,0.49,0.539,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r6,weft,94.733,90.0,True,False,4.733,4.733,5.259,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r6,warp,98.626,92.0,True,False,6.626,6.626,7.202,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r7,warp,47.106,42.0,True,False,5.106,5.106,12.158,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r7,weft,63.712,65.0,True,False,-1.288,1.288,1.982,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r8,weft,63.698,71.0,False,False,-7.302,7.302,10.285,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted
+r8,warp,74.824,122.0,False,True,-47.176,47.176,38.669,ft:molmo2_4b_synthft|P4s_sp,Molmo2-4B + synthetic-pointing LoRA (ours),P4s_sp,sorted

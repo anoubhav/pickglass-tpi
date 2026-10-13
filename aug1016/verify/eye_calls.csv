@@ -1,0 +1,41 @@
+aug_id,k_eye,eye_conf,cue
+136_aug5,180,high,fuzzy-fibre patch at top (rot180) vs bottom (rot0)
+98_aug0,90,high,shadow block top-right with notch
+99_aug5,270,moderate,twill / direction -> 90|270; dark strip at right edge
+22_aug3,180,high,vertical stripes; dark side on right
+112_aug0,0,high,plaid bands + shadow at bottom
+147_aug4,180,high,fibre curl near top-centre in centre zoom
+64_aug1,0,high,lp layout and centre zoom identical to rot0
+66_aug3,270,high,shadow block top-left
+79_aug4,180,high,dark band at top
+97_aug3,0,high,steep twill + glare blob low-centre
+57_aug2,270,high,shadow left half with rounded corner at top
+86_aug4,180,moderate,straight twill strokes (0|180); lp bright lobes at bottom
+116_aug5,270,high,dark top half / light bottom half
+145_aug4,180,high,shadow block top-left with step
+97_aug5,180,high,steep twill; glare blob upper-left
+120_aug4,90,high,shadow block top-right with step
+46_aug3,90,high,shadow right-middle with step
+56_aug0,180,moderate,glare blob upper-centre; basket orientation 0|180
+99_aug2,90,moderate,twill / direction -> 90|270; dark strip lower-left edge
+87_aug4,0,high,bright diagonal streak lower-left to centre
+117_aug0,270,high,dark band at left edge
+99_aug0,180,high,twill \ (0|180); dark band along bottom edge
+117_aug1,90,high,dark band at right edge
+41_aug4,90,high,bright top-left / dark bottom lp
+0_aug5,90,high,dark plaid knot at upper-centre
+68_aug1,180,moderate,lp brighter left / darker right
+130_aug3,90,high,shadow along top-left
+82_aug1,90,high,glare on left edge
+11_aug1,90,high,shadow along top-left
+53_aug2,270,high,vertical ribs (90|270) + dark spot lower-centre in zoom
+127_aug1,270,high,dark band along top
+129_aug0,270,high,houndstooth chirality matches rot270
+118_aug2,270,high,shadow block bottom-left
+16_aug1,90,high,bright top-left / dark bottom lp
+78_aug1,90,high,shadow bottom-right with rounded corner
+131_aug3,180,high,shadow band along bottom
+23_aug5,0,high,shadow left with rounded corner
+62_aug4,0,high,dark band right edge
+43_aug2,90,high,dark band along top
+138_aug1,0,high,shadow top-right with rounded corner

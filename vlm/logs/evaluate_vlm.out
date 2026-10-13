@@ -1,0 +1,69 @@
+
+## Stage A: legacy GT images (n = 13)
+
+| Model | Prompt | parsed | MAE best | %err best | ≤10% best | MAE axis | %err axis | ≤10% axis | warp MAE | weft MAE | bias best | MAE best, plain only | weave | s/img | $/img |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| GPT-6.1-sol | P1 | 13/13 | 6.7 | 9.0 | 18/26 | 6.9 | 8.8 | 21/26 | 11.9 | 1.8 | -6.3 | 3.3 (10/10) | 10/13 | 16.2 | 0.0108 |
+| GPT-6.1-sol | P2 | 13/13 | 6.7 | 9.4 | 18/26 | 6.7 | 8.7 | 21/26 | 11.5 | 2.0 | -4.9 | 3.0 (10/10) | 10/13 | 21.0 | 0.0134 |
+| GPT-6.1-sol | P3 | 13/13 | 5.5 | 8.2 | 18/26 | 5.5 | 8.2 | 19/26 | 8.2 | 2.8 | -0.6 | 3.3 (10/10) | 10/13 | 15.9 | 0.0107 |
+| GPT-6.1-sol | P3s | 13/13 | 5.4 | 7.6 | 19/26 | 5.4 | 7.4 | 20/26 | 9.2 | 1.5 | -2.5 | 3.0 (10/10) | 10/13 | 53.1 | 0.0429 |
+| Claude Fable 5.1 | P1 | 13/13 | 22.9 | 34.8 | 0/26 | 23.4 | 34.9 | 1/26 | 27.0 | 19.8 | -22.9 | 21.2 (10/10) | 10/13 | 9.6 | 0.0412 |
+| Claude Fable 5.1 | P2 | 13/13 | 18.2 | 25.6 | 3/26 | 18.3 | 25.6 | 4/26 | 20.2 | 16.4 | -16.4 | 18.5 (10/10) | 10/13 | 11.0 | 0.0518 |
+| Claude Fable 5.1 | P3 | 13/13 | 13.0 | 18.1 | 9/26 | 14.9 | 20.0 | 9/26 | 20.8 | 9.0 | -7.5 | 13.0 (10/10) | 10/13 | 7.9 | 0.0398 |
+| Gemini 3.1 Pro (preview) | P1 | 13/13 | 23.1 | 40.5 | 7/26 | 23.1 | 40.8 | 8/26 | 28.9 | 17.3 | 13.6 | 23.6 (10/10) | 9/13 | 9.0 | 0.0141 |
+| Gemini 3.1 Pro (preview) | P2 | 13/13 | 15.2 | 25.0 | 7/26 | 16.0 | 26.6 | 6/26 | 15.5 | 16.5 | 4.0 | 16.2 (10/10) | 9/13 | 11.3 | 0.0172 |
+| Gemini 3.1 Pro (preview) | P3 | 13/13 | 18.1 | 31.8 | 8/26 | 18.5 | 32.9 | 8/26 | 17.6 | 19.3 | 15.8 | 18.3 (10/10) | 9/13 | 7.8 | 0.0123 |
+| Gemini 3.8 Flash | P1 | 13/13 | 12.8 | 17.1 | 10/26 | 14.0 | 19.1 | 6/26 | 15.7 | 12.3 | -10.1 | 12.3 (10/10) | 9/13 | 10.8 | 0.0052 |
+| Gemini 3.8 Flash | P2 | 9/13 | 12.3 | 17.9 | 6/18 | 13.4 | 20.6 | 5/18 | 17.1 | 9.7 | -4.5 | 12.4 (7/10) | 9/13 | 18.4 | 0.0076 |
+| Gemini 3.8 Flash | P3 | 13/13 | 8.0 | 12.4 | 16/26 | 8.1 | 12.5 | 16/26 | 9.8 | 6.4 | 0.9 | 9.0 (10/10) | 8/13 | 10.0 | 0.0046 |
+| Gemini 3.8 Flash | P3s | 13/13 | 10.9 | 15.8 | 10/26 | 11.8 | 17.3 | 10/26 | 13.8 | 9.8 | 4.6 | 10.8 (10/10) | 10/13 | 35.5 | 0.0171 |
+| Qwen3.8-Max-Prime | P1 | 11/13 | 11.7 | 18.1 | 8/22 | 12.9 | 20.5 | 6/22 | 14.7 | 11.1 | -0.6 | 11.9 (9/10) | 9/12 | 30.6 | 0.0230 |
+| Qwen3.8-Max-Prime | P2 | 12/13 | 19.5 | 33.2 | 5/24 | 19.9 | 33.9 | 4/24 | 20.2 | 19.6 | 6.3 | 22.1 (10/10) | 10/12 | 31.0 | 0.0233 |
+| Qwen3.8-Max-Prime | P3 | 11/13 | 14.0 | 19.8 | 8/22 | 14.0 | 19.8 | 8/22 | 17.5 | 10.5 | 1.6 | 11.8 (9/10) | 11/13 | 25.4 | 0.0222 |
+| Qwen3.8-27B (open) | P1 | 13/13 | 43.8 | 61.1 | 0/26 | 43.8 | 61.1 | 0/26 | 46.2 | 41.5 | -43.8 | 42.6 (10/10) | 10/13 | 2.6 | 0.0004 |
+| Qwen3.8-27B (open) | P2 | 6/13 | 21.0 | 31.9 | 2/12 | 21.7 | 32.7 | 2/12 | 22.5 | 20.8 | -8.2 | 20.2 (5/10) | 7/13 | 26.5 | 0.0029 |
+| Qwen3.8-27B (open) | P3 | 13/13 | 17.3 | 21.9 | 9/26 | 17.3 | 21.9 | 9/26 | 21.2 | 13.5 | -14.0 | 14.2 (10/10) | 10/13 | 2.0 | 0.0004 |
+| Gemma-4-26B-A4B (open) | P1 | 13/13 | 37.2 | 54.5 | 0/26 | 37.2 | 54.2 | 0/26 | 39.0 | 35.5 | -37.2 | 36.2 (10/10) | 9/13 | 4.4 | 0.0000 |
+| Gemma-4-26B-A4B (open) | P2 | 13/13 | 21.0 | 33.6 | 5/26 | 22.2 | 35.8 | 3/26 | 25.8 | 18.6 | -0.2 | 17.7 (10/10) | 9/13 | 6.8 | 0.0001 |
+| Gemma-4-26B-A4B (open) | P3 | 13/13 | 20.9 | 29.8 | 0/26 | 20.9 | 29.7 | 1/26 | 22.8 | 19.0 | -20.9 | 19.5 (10/10) | 11/13 | 2.0 | 0.0000 |
+| Molmo2-8B 4-bit (local) | P1 | 13/13 | 55.7 | 83.1 | 0/26 | 55.7 | 83.1 | 0/26 | 58.4 | 53.0 | -55.7 | 54.3 (10/10) | 10/13 | 62.3 | 0.0000 |
+| Molmo2-8B 4-bit (local) | P2 | 4/4 (run on 4 of 13) | 46.9 | 80.1 | 0/8 | 47.4 | 81.2 | 0/8 | 46.5 | 48.2 | -21.1 | 42.5 (3/10) | 3/4 | 76.7 | 0.0000 |
+| Molmo2-8B 4-bit (local) | P3 | 4/4 (run on 4 of 13) | 24.9 | 32.5 | 0/8 | 24.9 | 32.5 | 0/8 | 31.5 | 18.2 | -24.9 | 23.2 (3/10) | 3/4 | 59.0 | 0.0000 |
+| Molmo2-8B 4-bit (local) | P4 | 4/4 (run on 4 of 13) | 19.0 | 28.7 | 2/8 | 19.0 | 28.5 | 2/8 | 25.5 | 12.5 | -13.8 | 11.2 (3/10) | 0/0 | 517.8 | 0.0000 |
+| Molmo2-8B 4-bit (local) | P4q | 3/3 (run on 3 of 13) | 60.2 | 80.2 | 1/6 | 64.2 | 97.5 | 1/6 | 18.3 | 110.0 | 43.5 | 12.2 (2/10) | 0/0 | 153.1 | 0.0000 |
+| LOO mean predictor | – | 13/13 | 19.7 | 31.4 | 2/26 | 20.3 | 32.5 | 5/26 | 27.0 | 13.7 | – | – | – | – | – |
+
+## Stability (P1, 20 legacy images x 3 repeats)
+
+{'model': 'gpt-6.1-sol', 'repeats': 3, 'n_images_all_parsed': 20, 'mean_sd_tpi': 2.616146009609944, 'mean_range_tpi': 4.875, 'max_range_tpi': 28.0, 'identical_all3': 1, 'mae_best_per_repeat': [6.730769230769231, 4.730769230769231, 4.923076923076923]}
+{'model': 'gemini-3.8-flash', 'repeats': 3, 'n_images_all_parsed': 19, 'mean_sd_tpi': 8.044266964909708, 'mean_range_tpi': 14.868421052631579, 'max_range_tpi': 50.0, 'identical_all3': 0, 'mae_best_per_repeat': [12.76923076923077, 18.807692307692307, 10.884615384615385]}
+
+## Resolution ablation (P1 crop vs crop downscaled x4)
+
+{'model': 'gpt-6.1-sol', 'factor': 4, 'n_gt_paired': 13, 'mae_best_full': 6.73, 'mae_best_down': 5.96, 'mape_best_full': 8.98, 'mape_best_down': 7.91, 'within10_full': 18, 'within10_down': 20, 'bias_full': -6.27, 'bias_down': -3.27, 'n_pairs_all20': 20, 'mean_abs_change_tpi': 4.85, 'mean_pred_full': 63.38, 'mean_pred_down': 65.88, 'parse_fail_down': 0, 'n_run_down': 20}
+{'model': 'gpt-6.1-sol', 'factor': 8, 'n_gt_paired': 13, 'mae_best_full': 6.73, 'mae_best_down': 9.08, 'mape_best_full': 8.98, 'mape_best_down': 12.37, 'within10_full': 18, 'within10_down': 15, 'bias_full': -6.27, 'bias_down': -7.0, 'n_pairs_all20': 20, 'mean_abs_change_tpi': 9.18, 'mean_pred_full': 63.38, 'mean_pred_down': 65.8, 'parse_fail_down': 0, 'n_run_down': 20}
+{'model': 'gpt-6.1-sol', 'factor': 16, 'n_gt_paired': 13, 'mae_best_full': 6.73, 'mae_best_down': 18.81, 'mape_best_full': 8.98, 'mape_best_down': 26.57, 'within10_full': 18, 'within10_down': 7, 'bias_full': -6.27, 'bias_down': -18.5, 'n_pairs_all20': 20, 'mean_abs_change_tpi': 18.95, 'mean_pred_full': 63.38, 'mean_pred_down': 46.77, 'parse_fail_down': 0, 'n_run_down': 20}
+{'model': 'claude-fable-5.1', 'factor': 4, 'n_gt_paired': 13, 'mae_best_full': 22.88, 'mae_best_down': 17.0, 'mape_best_full': 34.76, 'mape_best_down': 25.27, 'within10_full': 0, 'within10_down': 4, 'bias_full': -22.88, 'bias_down': -16.54, 'n_pairs_all20': 20, 'mean_abs_change_tpi': 8.68, 'mean_pred_full': 43.83, 'mean_pred_down': 47.9, 'parse_fail_down': 0, 'n_run_down': 20}
+{'model': 'gemini-3.1-pro', 'factor': 4, 'n_gt_paired': 13, 'mae_best_full': 23.12, 'mae_best_down': 19.69, 'mape_best_full': 40.51, 'mape_best_down': 32.89, 'within10_full': 7, 'within10_down': 6, 'bias_full': 13.58, 'bias_down': 5.08, 'n_pairs_all20': 20, 'mean_abs_change_tpi': 15.12, 'mean_pred_full': 78.3, 'mean_pred_down': 72.33, 'parse_fail_down': 0, 'n_run_down': 20}
+{'model': 'gemini-3.8-flash', 'factor': 4, 'n_gt_paired': 13, 'mae_best_full': 12.77, 'mae_best_down': 10.46, 'mape_best_full': 17.15, 'mape_best_down': 14.36, 'within10_full': 10, 'within10_down': 13, 'bias_full': -10.08, 'bias_down': -5.54, 'n_pairs_all20': 19, 'mean_abs_change_tpi': 12.87, 'mean_pred_full': 55.87, 'mean_pred_down': 60.47, 'parse_fail_down': 0, 'n_run_down': 20}
+{'model': 'gemini-3.8-flash', 'factor': 8, 'n_gt_paired': 13, 'mae_best_full': 12.77, 'mae_best_down': 13.92, 'mape_best_full': 17.15, 'mape_best_down': 18.14, 'within10_full': 10, 'within10_down': 7, 'bias_full': -10.08, 'bias_down': -12.23, 'n_pairs_all20': 19, 'mean_abs_change_tpi': 10.63, 'mean_pred_full': 55.87, 'mean_pred_down': 52.55, 'parse_fail_down': 0, 'n_run_down': 20}
+{'model': 'gemini-3.8-flash', 'factor': 16, 'n_gt_paired': 13, 'mae_best_full': 12.77, 'mae_best_down': 15.73, 'mape_best_full': 17.15, 'mape_best_down': 21.3, 'within10_full': 10, 'within10_down': 8, 'bias_full': -10.08, 'bias_down': -15.35, 'n_pairs_all20': 19, 'mean_abs_change_tpi': 12.63, 'mean_pred_full': 55.87, 'mean_pred_down': 47.97, 'parse_fail_down': 0, 'n_run_down': 20}
+{'model': 'qwen3.8-max-prime', 'factor': 4, 'n_gt_paired': 9, 'mae_best_full': 12.67, 'mae_best_down': 14.72, 'mape_best_full': 18.64, 'mape_best_down': 19.65, 'within10_full': 7, 'within10_down': 6, 'bias_full': -1.44, 'bias_down': -9.83, 'n_pairs_all20': 14, 'mean_abs_change_tpi': 14.21, 'mean_pred_full': 60.43, 'mean_pred_down': 59.36, 'parse_fail_down': 5, 'n_run_down': 20}
+{'model': 'qwen3.8-27b', 'factor': 4, 'n_gt_paired': 13, 'mae_best_full': 43.85, 'mae_best_down': 45.31, 'mape_best_full': 61.08, 'mape_best_down': 64.05, 'within10_full': 0, 'within10_down': 0, 'bias_full': -43.85, 'bias_down': -45.31, 'n_pairs_all20': 20, 'mean_abs_change_tpi': 2.85, 'mean_pred_full': 20.25, 'mean_pred_down': 19.45, 'parse_fail_down': 0, 'n_run_down': 20}
+{'model': 'gemma-4-26b-a4b', 'factor': 4, 'n_gt_paired': 13, 'mae_best_full': 37.23, 'mae_best_down': 38.35, 'mape_best_full': 54.5, 'mape_best_down': 56.24, 'within10_full': 0, 'within10_down': 0, 'bias_full': -37.23, 'bias_down': -38.35, 'n_pairs_all20': 20, 'mean_abs_change_tpi': 2.73, 'mean_pred_full': 28.1, 'mean_pred_down': 27.12, 'parse_fail_down': 0, 'n_run_down': 20}
+
+## Molmo2 pointing diagnostics
+
+{'n_outputs': 14, 'n_with_3plus_points': 14, 'frac_uniform_grid_cv_lt_0p05': 0.7857142857142857, 'median_spacing_cv': 0.006505201914067428, 'median_n_points_full': 42.5, 'median_n_points_quarter': 17.0}
+
+## Stage B: 150 rectified crops (P1)
+
+{'model': 'gpt-6.1-sol', 'n_run': 150, 'n_parsed': 150, 'median_v': 56.0, 'median_h': 60.0, 'p05': 34.95, 'p95': 96.0, 'mean_tpi_small_crops': 59.459, 'n_small': 85, 'mean_tpi_large_crops': 61.969, 'n_large': 65, 'sec_per_img': 20.308, 'usd_total': 1.84, 'usd_per_img': 0.012}
+{'model': 'claude-fable-5.1', 'n_run': 150, 'n_parsed': 150, 'median_v': 50.0, 'median_h': 45.5, 'p05': 25.0, 'p95': 80.0, 'mean_tpi_small_crops': 50.047, 'n_small': 85, 'mean_tpi_large_crops': 49.015, 'n_large': 65, 'sec_per_img': 10.946, 'usd_total': 6.222, 'usd_per_img': 0.041}
+{'model': 'gemini-3.1-pro', 'n_run': 150, 'n_parsed': 150, 'median_v': 76.0, 'median_h': 72.0, 'p05': 48.0, 'p95': 120.1, 'mean_tpi_small_crops': 80.559, 'n_small': 85, 'mean_tpi_large_crops': 75.015, 'n_large': 65, 'sec_per_img': 9.676, 'usd_total': 2.151, 'usd_per_img': 0.014}
+{'model': 'gemini-3.8-flash', 'n_run': 150, 'n_parsed': 150, 'median_v': 65.0, 'median_h': 53.5, 'p05': 38.0, 'p95': 84.0, 'mean_tpi_small_crops': 60.682, 'n_small': 85, 'mean_tpi_large_crops': 55.892, 'n_large': 65, 'sec_per_img': 12.492, 'usd_total': 0.819, 'usd_per_img': 0.005}
+{'model': 'qwen3.8-max-prime', 'n_run': 150, 'n_parsed': 139, 'median_v': 50.0, 'median_h': 48.0, 'p05': 30.0, 'p95': 80.0, 'mean_tpi_small_crops': 53.974, 'n_small': 78, 'mean_tpi_large_crops': 51.426, 'n_large': 61, 'sec_per_img': 29.852, 'usd_total': 3.369, 'usd_per_img': 0.022}
+{'model': 'qwen3.8-27b', 'n_run': 150, 'n_parsed': 150, 'median_v': 12.0, 'median_h': 12.0, 'p05': 10.0, 'p95': 38.1, 'mean_tpi_small_crops': 19.388, 'n_small': 85, 'mean_tpi_large_crops': 17.462, 'n_large': 65, 'sec_per_img': 2.947, 'usd_total': 0.067, 'usd_per_img': 0.0}
+{'model': 'gemma-4-26b-a4b', 'n_run': 150, 'n_parsed': 149, 'median_v': 24.0, 'median_h': 26.0, 'p05': 16.0, 'p95': 45.0, 'mean_tpi_small_crops': 28.714, 'n_small': 84, 'mean_tpi_large_crops': 27.731, 'n_large': 65, 'sec_per_img': 7.719, 'usd_total': 0.006, 'usd_per_img': 0.0}
+
+API calls logged: 1836, total cost $23.94

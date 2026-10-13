@@ -1,0 +1,80 @@
+== R-HR, scene-cluster bootstrap
+       restorer   cond  n_images  n_scenes  mape_ug   ug_lo   ug_hi  mape_g   g_lo   g_hi       d    d_lo    d_hi  scene_weighted_mape_ug  scene_weighted_mape_g  fire_pct  n_fired
+0        clean  clean        53        40     0.00    0.00    0.00    0.00   0.00   0.00    0.00    0.00    0.00                    0.00                   0.00      0.00        0
+1         none     D4        53        40     2.52    0.31    5.94    2.52   0.31   5.94    0.00    0.00    0.00                    1.73                   1.73      0.00        0
+2         none     D8        53        40    15.78    9.09   23.28   15.78   9.09  23.28    0.00    0.00    0.00                   14.24                  14.24      0.00        0
+3         none    D4J        53        40     7.43    1.81   14.99    7.43   1.81  14.99    0.00    0.00    0.00                    5.86                   5.86      0.00        0
+4      bicubic     D4        53        40    13.06    4.47   23.65   12.15   3.63  22.77   -0.91   -2.84    0.00                   13.42                  12.82      1.89        1
+5      bicubic     D8        53        40   239.96  187.56  292.75   14.47   8.21  21.83 -225.50 -278.70 -172.55                  243.87                  14.48     90.57       48
+6      bicubic    D4J        53        40    19.43    7.80   33.52   13.14   4.68  24.26   -6.28  -17.07    0.00                   18.89                  14.73      7.55        4
+7       swinir     D4        53        40     3.34    0.15    9.51    3.34   0.15   9.51    0.00    0.00    0.00                    2.30                   2.30      0.00        0
+8       swinir     D8        53        40    11.73    3.25   24.42   11.73   3.25  24.42    0.00    0.00    0.00                    9.60                   9.60      0.00        0
+9       swinir    D4J        53        40    24.17    7.03   44.89   17.49   3.83  34.66   -6.68  -20.84    0.00                   21.51                  17.08      1.89        1
+10  realesrgan     D4        53        40     5.07    0.86   11.60    5.07   0.86  11.60    0.00    0.00    0.00                    3.96                   3.96      0.00        0
+11  realesrgan     D8        53        40    29.06   15.59   45.99   29.06  15.59  45.99    0.00    0.00    0.00                   28.91                  28.91      0.00        0
+12  realesrgan    D4J        53        40    10.89    3.06   21.29   10.89   3.06  21.29    0.00    0.00    0.00                   11.51                  11.51      0.00        0
+13     seedvr2     D4        53        40     4.79    0.85   11.45    4.79   0.85  11.45    0.00    0.00    0.00                    3.91                   3.91      0.00        0
+14     seedvr2     D8        53        40     3.85    1.21    7.37    3.85   1.21   7.37    0.00    0.00    0.00                    3.02                   3.02      0.00        0
+15     seedvr2    D4J        53        40     8.07    1.55   16.86    8.07   1.55  16.86    0.00    0.00    0.00                    7.71                   7.71      0.00        0
+16       invsr     D4        53        40    10.93    4.26   18.98   10.93   4.26  18.98    0.00    0.00    0.00                    9.70                   9.70      0.00        0
+17       invsr     D8        53        40    19.43    9.55   31.09   19.43   9.55  31.09    0.00    0.00    0.00                   18.93                  18.93      0.00        0
+18       invsr    D4J        53        40    10.95    3.08   21.29   10.95   3.08  21.29    0.00    0.00    0.00                   11.19                  11.19      0.00        0
+19  flux2klein     D4        53        40     4.46    1.24    8.49    4.46   1.24   8.49    0.00    0.00    0.00                    3.46                   3.46      0.00        0
+20  flux2klein     D8        53        40     9.89    4.92   16.03    9.89   4.92  16.03    0.00    0.00    0.00                    9.44                   9.44      0.00        0
+21  flux2klein    D4J        53        40     6.03    1.67   12.83    6.03   1.67  12.83    0.00    0.00    0.00                    5.36                   5.36      0.00        0
+== clean 150 by scene
+                                              unit    n  fired  chg1  chg5  eligible  flag_upsampled  flag_insufficient
+0              scenes (76; any file of the scene)   76      0     0     0         2               6                 28
+1  scene representatives (scenes_to_annotate.txt)   76      0     0     0         1               6                 12
+2                                     files (150)  150      0     0     0         2               9                 34 
+       id  scene     S  eligible  fired  upsampled  frac_nyq  depth  ug_conf
+330   39     10  2032     False  False       True     0.647  1.290    0.981
+340   48     36  1888     False  False       True     0.458  1.557    0.957
+378   82     10   507      True  False       True     0.635  1.500    0.969
+380   84     48  1942     False  False       True     0.561  1.226    0.706
+395   98     43  1871     False  False       True     0.559  1.668    0.733
+255  105     70   485      True  False       True     0.633  1.345    0.395
+276  124     45  1926     False  False       True     0.561  1.449    0.460
+297  143     10  2023     False  False       True     0.641  1.328    0.980
+298  144     48  1886     False  False       True     0.501  1.179    0.810
+== defocus detail
+      cond   n  n_fired  mape_ug  median_ape_ug  within10_ug  over10_ug  under10_ug  counts  mape_g  median_ape_g  within10_g  over10_g  under10_g  fired_gconf_median  fired_gconf_below_tc  fired_ugconf_below_tc   t_c
+0   clean  13        0    11.61           2.15           21          3           2      26   11.61          2.15          21         3          2                 NaN                     0                      0  0.57
+1  gblur1  13        1    50.49           3.27           20          4           2      26    9.44          2.11          22         2          2                0.22                     1                      1  0.57
+2  gblur2  13        8   246.16         230.99            8         17           1      26   15.36          2.22          20         4          2                0.85                     1                      1  0.57
+3  gblur3  13       11   212.26          65.51           11         13           2      26   13.87          3.13          18         1          7                0.86                     5                      2  0.57
+4  gblur4  13       12   185.95          18.33           13         11           2      26   19.32          3.24          15         2          9                0.74                     5                      1  0.57
+5  gblur6  13       12    51.89           3.36           17          6           3      26   46.97         49.35           3         0         23                0.01                    12                      4  0.57
+6   down4  13        0     9.56           2.45           22          2           2      26    9.56          2.45          22         2          2                 NaN                     0                      0  0.57
+7   down8  13        0     7.55           2.79           20          2           4      26    7.55          2.79          20         2          4                 NaN                     0                      0  0.57
+== cascade policies
+                                                                                                policy   MAPE     lo     hi  d_vs_guarded  dg_lo  dg_hi  d_vs_cascade  dc_lo  dc_hi  escalated_pct  usd_per_1k worst_cond  worst_MAPE  MAPE_clean  MAPE_gblur3  MAPE_gblur6  MAPE_down4  MAPE_down8  MAPE_jpeg20  MAPE_glare0.05  MAPE_glare0.3  MAPE_corners0.05  stored_inputs_match_this_run
+0                                                                                      ours unguarded  37.71  20.70  55.51         22.59   4.99  41.50         24.13   7.32  42.33           0.00        0.00     gblur3      212.26       11.61       212.26        51.89        9.56        7.55        11.60           11.49          11.86             11.54                          True
+1                                                                               ours guarded (no VLM)  15.12   9.63  22.32          0.00   0.00   0.00          1.55  -0.63   3.62           0.00        0.00     gblur6       46.97       11.61        13.87        46.97        9.56        7.55        11.60           11.49          11.86             11.54                          True
+2                                 cascade (paper): unguarded ours -> VLM if conf < t_c or rho < r_min  13.57   7.87  21.41         -1.55  -3.62   0.63          0.00   0.00   0.00          23.93        2.77     gblur6       32.85       11.79        16.55        32.85        9.66        8.41        11.79            9.09           9.82             12.20                          True
+3                                                                    VLM only (stored GPT-6.1-sol P1)  13.55   9.25  18.11         -1.57  -7.68   3.77         -0.02  -6.33   4.61         100.00       11.51     gblur6       36.36        8.79        15.91        36.36        9.02       12.62         9.43            7.96          10.76             11.08                          True
+4                                  EXPLORATORY guarded -> VLM if guarded conf < t_c(conf-only, 0.574)  13.86   8.43  20.95         -1.26  -3.12   0.61          0.28  -0.98   1.49          30.77        3.50     gblur6       36.36       11.79        13.78        36.36       10.29        8.67        11.79            9.33          10.29             12.42                          True
+5  EXPLORATORY guarded -> VLM if guarded conf < t_c(gate) or rho < r_min (paper gate on guarded conf)  13.82   8.60  20.69         -1.30  -3.11   0.52          0.25  -0.97   1.30          28.21        3.23     gblur6       36.36       11.79        15.25        36.36        9.66        8.41        11.79            9.09           9.82             12.20                          True
+== flags vs failure
+                                               set          flag     n  n_fail  flagged_pct   tpr   fpr  precision
+0   cascade legacy-13 (19 conditions incl. clean)  insufficient   247      99         24.7  35.4  17.6       57.4
+1   cascade legacy-13 (19 conditions incl. clean)     upsampled   247      99         44.9  53.5  39.2       47.7
+2   cascade legacy-13 (19 conditions incl. clean)   unsupported   247      99         17.8  29.3  10.1       65.9
+3   cascade legacy-13 (19 conditions incl. clean)         fired   247      99         17.8  29.3  10.1       65.9
+4                                genai clean refs  insufficient    66       4          0.0   0.0   0.0        0.0
+5                                genai clean refs     upsampled    66       4         13.6  25.0  12.9       11.1
+6                                genai clean refs   unsupported    66       4          0.0   0.0   0.0        0.0
+7                                genai clean refs         fired    66       4          0.0   0.0   0.0        0.0
+8                        genai native LR ('none')  insufficient   198      49         47.5  55.1  45.0       28.7
+9                        genai native LR ('none')     upsampled   198      49          0.0   0.0   0.0        0.0
+10                       genai native LR ('none')   unsupported   198      49          0.0   0.0   0.0        0.0
+11                       genai native LR ('none')         fired   198      49          0.0   0.0   0.0        0.0
+12                    genai up-sampled / restored  insufficient  1223     308          6.1  10.4   4.7       42.7
+13                    genai up-sampled / restored     upsampled  1223     308         46.5  48.7  45.8       26.4
+14                    genai up-sampled / restored   unsupported  1223     308          5.6   8.4   4.7       37.7
+15                    genai up-sampled / restored         fired  1223     308          5.6   8.4   4.7       37.7
+16                            ALL genai + cascade  insufficient  1734     460         13.3  20.4  10.7       40.9
+17                            ALL genai + cascade     upsampled  1734     460         39.7  44.3  38.1       29.6
+18                            ALL genai + cascade   unsupported  1734     460          6.5  12.0   4.6       48.7
+19                            ALL genai + cascade         fired  1734     460          6.5  12.0   4.6       48.7
+== post hoc ungated summary re-derivation: {'rows_old': 22, 'rows_new': 22, 'rows_matched': 22, 'max_abs_diff': {'n_extra_fires': 0.0, 'mape_unguarded': 2.842170943040401e-14, 'mape_frozen_gated': 1.7763568394002505e-15, 'mape_posthoc_ungated': 1.7763568394002505e-15, 'd_ungated_minus_gated': 7.0915495697931874e-15, 'd_lo': 8.881784197001252e-15, 'd_hi': 8.493206138382448e-15}}

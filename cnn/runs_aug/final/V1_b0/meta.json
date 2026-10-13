@@ -1,0 +1,8 @@
+{
+ "name": "V1_b0",
+ "ckpt": "runs_aug/V1_b0/model.pt",
+ "tta": false,
+ "synth_val_v2_tta": false,
+ "seconds": 261.182017326355,
+ "gpu": "NVIDIA GeForce RTX 4090"
+}

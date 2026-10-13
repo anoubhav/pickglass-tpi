@@ -1,0 +1,77 @@
+\begin{tabular}{llrrrrlrrl}
+\toprule
+family & transform & \multicolumn{4}{c}{ours, real-150: $|$drift$|$ (\%)} & & \multicolumn{2}{c}{CNN, real-150} & \\
+ & & median & p90 & $>$10\% & bias & synth & median & p90 & verdict \\
+\midrule
+null (noise floor) & null jpeg95 & 0.01 & 0.0 & 1.3 & -0.00 & pass & 0.45 & 1.2 & floor \\
+ & null subpix & 0.02 & 0.2 & 2.7 & -0.01 & fail & 0.81 & 2.7 & floor \\
+(a) flips & hflip & 0.01 & 0.3 & 0.3 & +0.00 & pass & 1.66 & 4.6 & A (verified) \\
+ & vflip & 0.01 & 0.3 & 0.7 & +0.00 & pass & 1.55 & 4.1 & A (verified) \\
+(b) rot90 & rot90 & 0.01 & 0.4 & 2.0 & +0.00 & pass & 5.75 & 13.6 & A (verified) \\
+ & rot270 & 0.01 & 0.3 & 2.4 & +0.00 & pass & 5.49 & 14.4 & A (verified) \\
+(c) small rotation & rot inner -15 & 24.50 & 122.5 & 61.4 & +0.36 & fail & 7.27 & 29.7 & B (exact, unbiased) \\
+ & rot inner -10 & 0.92 & 70.7 & 33.8 & +0.16 & fail & 4.69 & 17.6 & B (exact, unbiased) \\
+ & rot inner -5 & 0.42 & 33.7 & 16.4 & +0.03 & fail & 2.62 & 8.9 & B (exact, unbiased) \\
+ & rot inner -2 & 0.26 & 10.7 & 10.5 & -0.06 & fail & 1.28 & 4.0 & B (exact, unbiased) \\
+ & rot inner +2 & 0.29 & 11.4 & 10.2 & -0.04 & fail & 1.52 & 4.1 & B (exact, unbiased) \\
+ & rot inner +5 & 0.33 & 36.9 & 18.4 & +0.02 & fail & 2.78 & 7.9 & B (exact, unbiased) \\
+ & rot inner +10 & 0.92 & 62.6 & 33.4 & +0.13 & fail & 5.69 & 14.6 & B (exact, unbiased) \\
+ & rot inner +15 & 27.97 & 130.0 & 60.8 & +1.06 & fail & 8.58 & 26.3 & C \\
+ & rot reflect +5 & 0.23 & 36.0 & 15.8 & +0.00 & fail & 2.90 & 8.3 & C \\
+ & rot reflect +15 & 28.16 & 129.3 & 60.7 & +0.74 & fail & 8.71 & 26.0 & C \\
+(d) photometric & bright 0.6 & 0.00 & 0.0 & 0.0 & +0.00 & pass & 3.02 & 8.1 & A (verified) \\
+ & bright 1.4 & 0.08 & 2.1 & 5.7 & -0.00 & fail & 3.05 & 11.4 & B (exact, unbiased) \\
+ & contrast 0.6 & 0.00 & 0.0 & 0.0 & +0.00 & pass & 4.62 & 15.2 & A (verified) \\
+ & contrast 1.5 & 0.05 & 0.4 & 3.7 & -0.00 & fail & 3.16 & 8.1 & C \\
+ & gamma 0.6 & 0.07 & 0.3 & 2.4 & +0.01 & fail & 3.39 & 9.9 & B (exact, unbiased) \\
+ & gamma 1.7 & 0.10 & 0.6 & 5.4 & -0.03 & fail & 2.83 & 8.9 & B (exact, unbiased) \\
+ & hue +60 & 0.04 & 0.3 & 3.7 & +0.01 & fail & 1.87 & 6.8 & B (exact, unbiased) \\
+ & sat 0.25 & 0.01 & 0.0 & 0.7 & -0.00 & fail & 1.51 & 5.3 & B (exact, unbiased) \\
+ & sat 1.75 & 0.02 & 0.2 & 2.0 & +0.01 & fail & 1.27 & 5.0 & B (exact, unbiased) \\
+ & greyscale & 0.03 & 0.1 & 1.3 & +0.00 & fail & 1.86 & 7.1 & B (exact, unbiased) \\
+ & clahe 2 & 0.11 & 0.9 & 4.4 & -0.05 & fail & 4.59 & 12.8 & C \\
+ & clahe 4 & 0.19 & 2.2 & 7.7 & -0.06 & fail & 6.33 & 17.4 & C \\
+ & wb warm & 0.05 & 0.3 & 2.7 & +0.02 & fail & 3.18 & 13.2 & B (exact, unbiased) \\
+ & wb cool & 0.05 & 0.4 & 3.7 & -0.02 & fail & 3.03 & 8.9 & B (exact, unbiased) \\
+(e) sensor / compression & noise 0.01 & 0.01 & 0.1 & 1.3 & +0.00 & pass & 0.57 & 2.1 & A (verified) \\
+ & noise 0.03 & 0.04 & 0.6 & 6.7 & +0.00 & fail & 2.71 & 8.7 & B (exact, unbiased) \\
+ & noise 0.06 & 0.09 & 3.6 & 9.4 & -0.01 & fail & 6.20 & 20.7 & C \\
+ & jpeg 70 & 0.03 & 0.5 & 6.1 & -0.01 & fail & 1.26 & 3.9 & B (exact, unbiased) \\
+ & jpeg 40 & 0.05 & 2.9 & 9.4 & -0.00 & fail & 2.20 & 7.2 & B (exact, unbiased) \\
+ & jpeg 20 & 0.10 & 50.0 & 14.8 & -0.00 & fail & 3.51 & 13.4 & B (exact, unbiased) \\
+ & blur 0.5px & 0.01 & 0.2 & 1.3 & +0.00 & pass & 1.21 & 3.6 & A (verified) \\
+ & blur 1px & 0.05 & 0.7 & 2.4 & +0.01 & fail & 4.33 & 15.5 & C \\
+ & blur 1.5px & 0.18 & 24.7 & 10.8 & +0.02 & fail & 7.73 & 23.5 & C \\
+ & blur 0.1pitch & 0.03 & 0.9 & 6.4 & +0.01 & pass & 2.34 & 12.4 & B (exact, unbiased) \\
+ & blur 0.2pitch & 0.22 & 3.1 & 8.4 & +0.06 & fail & 7.29 & 23.1 & C \\
+ & motion 3px & 0.11 & 48.6 & 19.2 & -0.01 & fail & 3.02 & 9.2 & B (exact, unbiased) \\
+ & motion 7px & 1.31 & 83.6 & 42.1 & -0.18 & fail & 11.81 & 38.0 & B (exact, unbiased) \\
+ & sharpen 1 & 0.04 & 0.4 & 1.7 & -0.01 & pass & 2.52 & 7.5 & A (verified) \\
+ & sharpen 2.5 & 0.10 & 1.0 & 4.0 & -0.04 & fail & 4.79 & 14.2 & B (exact, unbiased) \\
+(f) illumination & glare mild & 0.02 & 0.1 & 1.3 & +0.00 & pass & 0.88 & 2.8 & A (verified) \\
+ & glare strong & 0.25 & 1.2 & 5.4 & +0.14 & fail & 3.54 & 11.0 & C \\
+ & shadow soft & 0.04 & 0.2 & 1.0 & +0.00 & pass & 1.84 & 5.7 & A (verified) \\
+ & shadow deep & 0.12 & 0.5 & 2.7 & -0.01 & fail & 3.29 & 13.3 & C \\
+ & vignette 0.3 & 0.01 & 0.1 & 0.0 & +0.00 & pass & 0.55 & 1.7 & A (verified) \\
+ & vignette 0.6 & 0.02 & 0.1 & 0.3 & +0.01 & pass & 0.99 & 2.9 & A (verified) \\
+(g) zoom (physical) & zoom 0.5 & 0.25 & 2.6 & 8.4 & +0.05 & fail & 2.80 & 14.4 & B (exact, unbiased) \\
+ & zoom 0.7 & 0.09 & 2.3 & 8.0 & +0.01 & pass & 1.54 & 7.4 & B (exact, unbiased) \\
+ & zoom 1.25 & 0.47 & 5.0 & 8.9 & +0.25 & fail & 1.32 & 3.9 & B (exact, unbiased) \\
+ & zoom 1.6 & 0.96 & 157.7 & 29.6 & +0.69 & fail & 2.84 & 8.9 & C \\
+ & zoom 2 & 1.59 & 592.2 & 35.7 & +1.45 & fail & 3.68 & 11.6 & C \\
+ & zoomxy 1.25x1 & 0.43 & 43.6 & 18.9 & +0.11 & fail & 1.25 & 3.6 & B (exact, unbiased) \\
+ & zoomxy 1x0.8 & 0.08 & 49.4 & 15.5 & -0.00 & fail & 3.03 & 7.7 & B (exact, unbiased) \\
+(h) tiles (physical) & tile 0.5in & 1.97 & 35.9 & 17.7 & -1.46 & fail & 4.59 & 14.3 & C \\
+ & tile 0.25in & 3.55 & 40.6 & 26.7 & -2.37 & fail & 7.90 & 23.6 & C \\
+(i) perspective & persp 0.01 & 0.17 & 0.9 & 5.1 & -0.01 & fail & 0.68 & 2.2 & B (exact, unbiased) \\
+ & persp 0.02 & 0.28 & 3.4 & 8.4 & -0.06 & fail & 0.84 & 2.3 & B (exact, unbiased) \\
+ & persp 0.03 & 0.38 & 10.1 & 10.1 & -0.07 & fail & 1.06 & 3.2 & B (exact, unbiased) \\
+excluded (negative controls) & elastic 0.01 & 0.58 & 38.7 & 16.8 & +0.04 & fail & 1.04 & 6.6 & excluded \\
+ & elastic 0.03 & 4.00 & 72.0 & 31.6 & +0.75 & fail & 3.01 & 23.5 & excluded \\
+ & mixup 0.5 & 8.98 & 100.9 & 49.2 & +0.24 & fail & 13.94 & 54.6 & excluded \\
+ & cutmix 0.5 & 42.20 & 165.9 & 80.8 & +8.83 & fail & 23.02 & 60.6 & excluded \\
+ & blur 0.4pitch & 0.62 & 12.4 & 10.8 & +0.12 & fail & 18.09 & 49.7 & excluded \\
+ & naiveRRC 1.4 & 28.46 & 56.1 & 99.0 & -33.22 & fail & 27.12 & 35.5 & excluded \\
+ & rot inner +30 & 39.68 & 119.2 & 92.5 & +19.60 & fail & 18.64 & 52.9 & excluded \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,115 @@
+{
+ "made": "2026-10-09T00:49:49",
+ "method": "annotation_tool/make_tool_examples.py SameSpot: SIFT on the central 70% of each crop at 500 px, ratio 0.75, RANSAC similarity 3 px, scale 0.8-1.25",
+ "min_inliers": 12,
+ "n_reps": 17,
+ "note": "these non-IAA reps keep their machine proposals in the kit (spec); the freelancer must finish the IAA twin first -- check_freelancer_export.py checks the order",
+ "pairs": {
+  "8": [
+   {
+    "iaa_rep": 99,
+    "inliers": 227
+   }
+  ],
+  "15": [
+   {
+    "iaa_rep": 38,
+    "inliers": 16
+   }
+  ],
+  "30": [
+   {
+    "iaa_rep": 33,
+    "inliers": 16
+   }
+  ],
+  "32": [
+   {
+    "iaa_rep": 89,
+    "inliers": 392
+   }
+  ],
+  "52": [
+   {
+    "iaa_rep": 39,
+    "inliers": 113
+   },
+   {
+    "iaa_rep": 49,
+    "inliers": 17
+   }
+  ],
+  "54": [
+   {
+    "iaa_rep": 3,
+    "inliers": 22
+   }
+  ],
+  "59": [
+   {
+    "iaa_rep": 97,
+    "inliers": 1042
+   }
+  ],
+  "60": [
+   {
+    "iaa_rep": 38,
+    "inliers": 1685
+   }
+  ],
+  "61": [
+   {
+    "iaa_rep": 38,
+    "inliers": 239
+   }
+  ],
+  "86": [
+   {
+    "iaa_rep": 89,
+    "inliers": 174
+   }
+  ],
+  "87": [
+   {
+    "iaa_rep": 14,
+    "inliers": 1292
+   }
+  ],
+  "88": [
+   {
+    "iaa_rep": 77,
+    "inliers": 1010
+   }
+  ],
+  "91": [
+   {
+    "iaa_rep": 50,
+    "inliers": 714
+   }
+  ],
+  "92": [
+   {
+    "iaa_rep": 76,
+    "inliers": 1979
+   }
+  ],
+  "98": [
+   {
+    "iaa_rep": 124,
+    "inliers": 871
+   }
+  ],
+  "108": [
+   {
+    "iaa_rep": 97,
+    "inliers": 1025
+   }
+  ],
+  "121": [
+   {
+    "iaa_rep": 35,
+    "inliers": 1621
+   }
+  ]
+ }
+}

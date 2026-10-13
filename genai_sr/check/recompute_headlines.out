@@ -1,0 +1,134 @@
+rows 1487 restorers ['bicubic', 'clean', 'flux2klein', 'invsr', 'nbpro', 'none', 'realesrgan', 'seedvr2', 'swinir']
+
+[completeness] LR inputs: 198
+  none        rows= 198  ours-NaN=0  cnn-NaN=0
+  bicubic     rows= 198  ours-NaN=0  cnn-NaN=0
+  swinir      rows= 198  ours-NaN=0  cnn-NaN=0
+  realesrgan  rows= 198  ours-NaN=0  cnn-NaN=0
+  seedvr2     rows= 198  ours-NaN=0  cnn-NaN=0
+  invsr       rows= 198  ours-NaN=0  cnn-NaN=0
+  flux2klein  rows= 198  ours-NaN=0  cnn-NaN=0
+  nbpro       rows=  35  ours-NaN=0  cnn-NaN=0
+
+[R-HR selection] recomputed n=53, used n=53, identical=True; S>=1500 total=65
+
+[H1] ours MAPE (primary ref) with 95% bootstrap CI over images
+  R-LEG clean clean       n=13 MAPE=  11.6 [   3.1,  22.5]
+  R-LEG D4    none        n=13 MAPE=   9.6 [   2.8,  20.1]
+  R-LEG D4    bicubic     n=13 MAPE=  19.3 [   6.7,  35.2]
+  R-LEG D4    swinir      n=13 MAPE=  11.7 [   3.3,  23.1]
+  R-LEG D4    seedvr2     n=13 MAPE=  11.6 [   3.0,  22.9]
+  R-LEG D4    realesrgan  n=13 MAPE=  17.0 [   4.4,  33.4]
+  R-LEG D4    nbpro       n=12 MAPE=  13.3 [   3.9,  25.7]
+  R-LEG D8    none        n=13 MAPE=   7.6 [   4.1,  11.2]
+  R-LEG D8    bicubic     n=13 MAPE= 301.7 [ 216.9, 381.2]
+  R-LEG D8    swinir      n=13 MAPE=  28.2 [   2.8,  66.1]
+  R-LEG D8    seedvr2     n=13 MAPE=  24.1 [   5.8,  45.4]
+  R-LEG D8    realesrgan  n=13 MAPE=  23.4 [   3.4,  55.0]
+  R-LEG D8    nbpro       n=12 MAPE=   5.9 [   2.6,   9.8]
+  R-HR  clean clean       n=53 MAPE=   0.0 [   0.0,   0.0]
+  R-HR  D4    none        n=53 MAPE=   2.5 [   0.3,   6.0]
+  R-HR  D4    bicubic     n=53 MAPE=  13.1 [   5.0,  23.1]
+  R-HR  D4    swinir      n=53 MAPE=   3.3 [   0.2,   7.7]
+  R-HR  D4    seedvr2     n=53 MAPE=   4.8 [   1.3,   9.3]
+  R-HR  D4    realesrgan  n=53 MAPE=   5.1 [   1.4,   9.7]
+  R-HR  D8    none        n=53 MAPE=  15.8 [  10.4,  21.9]
+  R-HR  D8    bicubic     n=53 MAPE= 239.7 [ 199.4, 280.9]
+  R-HR  D8    swinir      n=53 MAPE=  11.7 [   4.7,  21.2]
+  R-HR  D8    seedvr2     n=53 MAPE=   3.8 [   1.3,   7.5]
+  R-HR  D8    realesrgan  n=53 MAPE=  29.1 [  17.0,  43.4]
+  R-LEG clean per-crop APE (h,v): {'leg_a1': (0.5, 0.8), 'leg_a2': (0.5, 0.1), 'leg_a4': (4.6, 0.7), 'leg_a5': (3.9, 0.5), 'leg_a6': (32.1, 98.6), 'leg_a8': (24.5, 1.7), 'leg_a10': (1.3, 1.7), 'leg_r2': (0.8, 1.5), 'leg_r3': (7.9, 66.3), 'leg_r4': (1.9, 3.6), 'leg_r6': (2.6, 4.9), 'leg_r7': (2.4, 0.6), 'leg_r8': (31.4, 6.3)}
+  R-LEG D8 none per-crop APE (h,v): {'leg_a1': (1.6, 1.2), 'leg_a2': (0.5, 0.2), 'leg_a4': (27.6, 1.4), 'leg_a5': (5.0, 0.4), 'leg_a6': (31.9, 3.1), 'leg_a8': (25.0, 1.2), 'leg_a10': (1.4, 1.8), 'leg_r2': (17.0, 6.4), 'leg_r3': (9.3, 11.2), 'leg_r4': (3.0, 2.0), 'leg_r6': (0.7, 3.8), 'leg_r7': (2.5, 0.4), 'leg_r8': (31.4, 6.4)}
+
+[H2] verdict tally vs 'none' (paired bootstrap CI of dMAPE excludes 0), seed 12345
+  -- paper reference (R-LEG hand, R-HR self)
+   generative n= 81 CI-verdict {'n.s.': 42, 'worse': 32, 'better': 7}  Holm-Wilcoxon {'n.s.': 68, 'worse': 10, 'better': 3}
+   swinir     n= 18 CI-verdict {'n.s.': 14, 'better': 4}  Holm-Wilcoxon {'n.s.': 14, 'worse': 2, 'better': 2}
+   bicubic    n= 18 CI-verdict {'worse': 9, 'n.s.': 7, 'better': 2}  Holm-Wilcoxon {'n.s.': 13, 'worse': 4, 'better': 1}
+     generative/ours: {'n.s.': 21, 'better': 3, 'worse': 3}  Holm {'n.s.': 24, 'better': 2, 'worse': 1}
+     generative/gabor: {'n.s.': 16, 'worse': 7, 'better': 4}  Holm {'n.s.': 25, 'worse': 1, 'better': 1}
+     generative/cnn: {'worse': 22, 'n.s.': 5}  Holm {'n.s.': 19, 'worse': 8}
+  -- all-primary reference (R-HR = ours clean for every estimator)
+   generative n= 81 CI-verdict {'n.s.': 45, 'worse': 21, 'better': 15}  Holm-Wilcoxon {'n.s.': 65, 'worse': 8, 'better': 8}
+   swinir     n= 18 CI-verdict {'n.s.': 12, 'better': 4, 'worse': 2}  Holm-Wilcoxon {'n.s.': 14, 'worse': 2, 'better': 2}
+   bicubic    n= 18 CI-verdict {'worse': 8, 'n.s.': 5, 'better': 5}  Holm-Wilcoxon {'n.s.': 13, 'worse': 3, 'better': 2}
+     generative/ours: {'n.s.': 21, 'better': 3, 'worse': 3}  Holm {'n.s.': 24, 'better': 2, 'worse': 1}
+     generative/gabor: {'n.s.': 14, 'better': 12, 'worse': 1}  Holm {'n.s.': 21, 'better': 6}
+     generative/cnn: {'worse': 17, 'n.s.': 10}  Holm {'n.s.': 20, 'worse': 7}
+  verdict agreement with stored table_paired: 170/171; flips:
+     gabor R-HR self D4J realesrgan: mine n.s. [-0.21,+10.93] vs stored worse [+0.00,+10.97]
+  max |dMAPE - stored| = 5.684341886080802e-14
+  ours R-HR D8 seedvr2: dMAPE -11.9 [-17.4,-7.0] n=53 Holm p=1.96e-06
+  ours R-HR D8 realesrgan: dMAPE +13.3 [+0.1,+29.0] n=53 Holm p=1
+  ours R-LEG D8 seedvr2: dMAPE +16.5 [-1.4,+38.4] n=13 Holm p=1
+  ours R-LEG D8 nbpro: dMAPE -2.1 [-4.9,-0.1] n=12 Holm p=1
+  ours R-HR D8 flux2klein: dMAPE -5.9 [-10.1,-1.5] n=53 Holm p=0.0035
+  ours R-LEG D8 bicubic: dMAPE +294.1 [+206.7,+373.3] n=13 Holm p=0.00513
+
+[H3] lattice: mean hpef_novel / hpef at D8; share of crops with >=1 novel peak
+  R-HR  bicubic     n=53 novel=  5.5%  hpef= 73.6%  img_with_novel= 58.5%  median_novel= 4.0%
+  R-HR  swinir      n=53 novel=  0.5%  hpef=  0.5%  img_with_novel=  1.9%  median_novel= 0.0%
+  R-HR  realesrgan  n=53 novel= 13.4%  hpef= 19.3%  img_with_novel= 45.3%  median_novel= 0.0%
+  R-HR  seedvr2     n=53 novel=  1.3%  hpef=  4.1%  img_with_novel= 18.9%  median_novel= 0.0%
+  R-HR  invsr       n=53 novel=  4.0%  hpef=  5.0%  img_with_novel= 35.8%  median_novel= 0.0%
+  R-HR  flux2klein  n=53 novel=  0.7%  hpef=  8.3%  img_with_novel=  9.4%  median_novel= 0.0%
+  R-LEG bicubic     n=13 novel=  9.9%  hpef= 74.5%  img_with_novel= 84.6%  median_novel=10.5%
+  R-LEG swinir      n=13 novel=  0.0%  hpef=  0.0%  img_with_novel=  0.0%  median_novel= 0.0%
+  R-LEG realesrgan  n=13 novel= 13.3%  hpef= 19.3%  img_with_novel= 61.5%  median_novel= 7.3%
+  R-LEG seedvr2     n=13 novel=  2.0%  hpef=  6.8%  img_with_novel= 15.4%  median_novel= 0.0%
+  R-LEG invsr       n=13 novel=  8.9%  hpef= 10.8%  img_with_novel= 23.1%  median_novel= 0.0%
+  R-LEG flux2klein  n=13 novel=  2.3%  hpef=  9.4%  img_with_novel= 23.1%  median_novel= 0.0%
+  R-LEG nbpro       n=12 novel=  1.0%  hpef=  4.2%  img_with_novel=  8.3%  median_novel= 0.0%
+  Real-ESRGAN vs bicubic novel, R-HR D8: Wilcoxon p = 0.05486832909538626
+
+[H3b] MUSIQ / PSNR at D8 vs clean reference
+  R-HR clean MUSIQ mean 46.89
+   D4  realesrgan  MUSIQ  52.2 (vs clean  +5.3, Wilcoxon p=4.8e-07, share>clean  87%)  PSNR-Y  28.4  LPIPS 0.28
+   D4  seedvr2     MUSIQ  53.2 (vs clean  +6.3, Wilcoxon p=3.2e-10, share>clean  96%)  PSNR-Y  30.4  LPIPS 0.16
+   D4  invsr       MUSIQ  60.5 (vs clean +13.6, Wilcoxon p=2.4e-10, share>clean 100%)  PSNR-Y  23.1  LPIPS 0.31
+   D4  flux2klein  MUSIQ  62.2 (vs clean +15.3, Wilcoxon p=2.4e-10, share>clean 100%)  PSNR-Y  19.9  LPIPS 0.34
+   D8  bicubic     MUSIQ  34.5 (vs clean -12.4, Wilcoxon p=2.5e-10, share>clean   2%)  PSNR-Y  29.0  LPIPS 0.48
+   D8  swinir      MUSIQ  44.6 (vs clean  -2.3, Wilcoxon p=0.0087, share>clean  32%)  PSNR-Y  29.8  LPIPS 0.31
+   D8  realesrgan  MUSIQ  53.3 (vs clean  +6.5, Wilcoxon p=8e-06, share>clean  79%)  PSNR-Y  21.8  LPIPS 0.47
+   D8  seedvr2     MUSIQ  50.3 (vs clean  +3.4, Wilcoxon p=0.00058, share>clean  66%)  PSNR-Y  28.2  LPIPS 0.27
+   D8  invsr       MUSIQ  56.9 (vs clean +10.0, Wilcoxon p=3.6e-09, share>clean  91%)  PSNR-Y  21.5  LPIPS 0.39
+   D8  flux2klein  MUSIQ  61.0 (vs clean +14.1, Wilcoxon p=2.4e-10, share>clean 100%)  PSNR-Y  19.4  LPIPS 0.40
+   D4J realesrgan  MUSIQ  53.2 (vs clean  +6.3, Wilcoxon p=1.1e-06, share>clean  85%)  PSNR-Y  24.7  LPIPS 0.40
+   D4J seedvr2     MUSIQ  52.4 (vs clean  +5.5, Wilcoxon p=2.2e-08, share>clean  87%)  PSNR-Y  28.6  LPIPS 0.22
+   D4J invsr       MUSIQ  57.0 (vs clean +10.1, Wilcoxon p=2.4e-10, share>clean 100%)  PSNR-Y  23.5  LPIPS 0.34
+   D4J flux2klein  MUSIQ  60.9 (vs clean +14.0, Wilcoxon p=2.4e-10, share>clean 100%)  PSNR-Y  19.7  LPIPS 0.39
+  R-LEG clean MUSIQ mean 51.50
+   D4  realesrgan  MUSIQ  55.7 (vs clean  +4.2, Wilcoxon p=0.08, share>clean  77%)  PSNR-Y  27.4  LPIPS 0.25
+   D4  seedvr2     MUSIQ  56.9 (vs clean  +5.4, Wilcoxon p=0.00049, share>clean  92%)  PSNR-Y  28.6  LPIPS 0.17
+   D4  invsr       MUSIQ  62.7 (vs clean +11.2, Wilcoxon p=0.00024, share>clean 100%)  PSNR-Y  22.1  LPIPS 0.33
+   D4  flux2klein  MUSIQ  63.3 (vs clean +11.8, Wilcoxon p=0.00024, share>clean 100%)  PSNR-Y  20.5  LPIPS 0.35
+   D4  nbpro       MUSIQ  58.5 (vs clean  +7.0, Wilcoxon p=0.00098, share>clean  92%)  PSNR-Y  23.2  LPIPS 0.23
+   D8  bicubic     MUSIQ  34.4 (vs clean -17.1, Wilcoxon p=0.00024, share>clean   0%)  PSNR-Y  27.6  LPIPS 0.44
+   D8  swinir      MUSIQ  49.5 (vs clean  -2.0, Wilcoxon p=0.24, share>clean  31%)  PSNR-Y  28.8  LPIPS 0.22
+   D8  realesrgan  MUSIQ  56.1 (vs clean  +4.6, Wilcoxon p=0.04, share>clean  69%)  PSNR-Y  20.5  LPIPS 0.44
+   D8  seedvr2     MUSIQ  52.3 (vs clean  +0.8, Wilcoxon p=0.79, share>clean  38%)  PSNR-Y  26.5  LPIPS 0.23
+   D8  invsr       MUSIQ  59.7 (vs clean  +8.2, Wilcoxon p=0.00024, share>clean 100%)  PSNR-Y  20.6  LPIPS 0.43
+   D8  flux2klein  MUSIQ  62.8 (vs clean +11.3, Wilcoxon p=0.00024, share>clean 100%)  PSNR-Y  19.9  LPIPS 0.41
+   D8  nbpro       MUSIQ  60.1 (vs clean  +8.1, Wilcoxon p=0.00049, share>clean 100%)  PSNR-Y  23.4  LPIPS 0.28
+   D4J realesrgan  MUSIQ  57.7 (vs clean  +6.2, Wilcoxon p=0.017, share>clean  85%)  PSNR-Y  24.1  LPIPS 0.40
+   D4J seedvr2     MUSIQ  55.1 (vs clean  +3.6, Wilcoxon p=0.0017, share>clean  85%)  PSNR-Y  27.3  LPIPS 0.21
+   D4J invsr       MUSIQ  61.4 (vs clean  +9.9, Wilcoxon p=0.00024, share>clean 100%)  PSNR-Y  21.9  LPIPS 0.38
+   D4J flux2klein  MUSIQ  62.4 (vs clean +10.9, Wilcoxon p=0.00024, share>clean 100%)  PSNR-Y  20.3  LPIPS 0.41
+   D4J nbpro       MUSIQ  62.7 (vs clean +10.9, Wilcoxon p=0.00098, share>clean 100%)  PSNR-Y  20.7  LPIPS 0.34
+
+[H4] silent failures (ours APE>10% on either axis, conf>=t_c)
+  generative: 109/211 = 51.7%   none: 23/49 = 46.9%
+  Fisher exact (generative vs none): SignificanceResult(statistic=1.2080136402387043, pvalue=0.6347705944232978)
+
+[H5] GPT-6.1-sol P1, R-LEG D8, axis assignment (vertical<->warp, horizontal<->weft as in analyze.py)
+                                      n   MAPE
+source                                        
+LR x8 -> 1536 bicubic (paper run)  13.0  12.20
+bicubic (this job)                 13.0  11.73
+clean crop (paper run)             13.0   8.79
+nbpro (this job)                   12.0   7.88
+seedvr2 (this job)                 13.0   8.62
+  LR x8 -> 1536 bicubic (paper run)        - bicubic: d=+0.47 [-4.08,+5.88] n=13 Wilcoxon p=0.73
+  clean crop (paper run)                   - bicubic: d=-2.94 [-7.02,+0.50] n=13 Wilcoxon p=0.24
+  nbpro (this job)                         - bicubic: d=-4.75 [-9.48,-0.82] n=12 Wilcoxon p=0.05
+  seedvr2 (this job)                       - bicubic: d=-3.11 [-8.69,+1.75] n=13 Wilcoxon p=0.28

@@ -1,0 +1,48 @@
+aug_id,source_id,reason
+1_aug1,1,non-convex polygon; deleted in notebook cells 62-67
+10_aug0,10,window < 21 % of the frame; deleted in notebook cells 82-88
+14_aug3,14,non-convex polygon; deleted in notebook cells 62-67
+18_aug0,18,non-convex polygon; deleted in notebook cells 62-67
+18_aug3,18,non-convex polygon; deleted in notebook cells 62-67
+21_aug3,21,non-convex polygon; deleted in notebook cells 62-67
+26_aug1,26,non-convex polygon; deleted in notebook cells 62-67
+27_aug5,27,window < 21 % of the frame; deleted in notebook cells 82-88
+31_aug2,31,window < 21 % of the frame; deleted in notebook cells 82-88
+33_aug0,33,window < 21 % of the frame; deleted in notebook cells 82-88
+42_aug1,42,window < 21 % of the frame; deleted in notebook cells 82-88
+43_aug4,43,non-convex polygon; deleted in notebook cells 62-67
+44_aug0,44,non-convex polygon; deleted in notebook cells 62-67
+47_aug0,47,non-convex polygon; deleted in notebook cells 62-67
+48_aug0,48,non-convex polygon; deleted in notebook cells 62-67
+48_aug1,48,non-convex polygon; deleted in notebook cells 62-67
+48_aug3,48,window < 21 % of the frame; deleted in notebook cells 82-88
+54_aug1,54,window < 21 % of the frame; deleted in notebook cells 82-88
+54_aug2,54,non-convex polygon; deleted in notebook cells 62-67
+57_aug4,57,non-convex polygon; deleted in notebook cells 62-67
+73_aug1,73,non-convex polygon; deleted in notebook cells 62-67
+75_aug5,75,non-convex polygon; deleted in notebook cells 62-67
+80_aug1,80,non-convex polygon; deleted in notebook cells 62-67
+80_aug3,80,non-convex polygon; deleted in notebook cells 62-67
+82_aug5,82,window < 21 % of the frame; deleted in notebook cells 82-88
+85_aug1,85,non-convex polygon; deleted in notebook cells 62-67
+85_aug3,85,non-convex polygon; deleted in notebook cells 62-67
+89_aug1,89,window < 21 % of the frame; deleted in notebook cells 82-88
+89_aug4,89,non-convex polygon; deleted in notebook cells 62-67
+102_aug5,102,non-convex polygon; deleted in notebook cells 62-67
+105_aug0,105,window < 21 % of the frame; deleted in notebook cells 82-88
+105_aug1,105,window < 21 % of the frame; deleted in notebook cells 82-88
+105_aug4,105,non-convex polygon; deleted in notebook cells 62-67
+108_aug2,108,non-convex polygon; deleted in notebook cells 62-67
+112_aug3,112,non-convex polygon; deleted in notebook cells 62-67
+113_aug5,113,non-convex polygon; deleted in notebook cells 62-67
+114_aug4,114,window < 21 % of the frame; deleted in notebook cells 82-88
+114_aug5,114,non-convex polygon; deleted in notebook cells 62-67
+119_aug5,119,non-convex polygon; deleted in notebook cells 62-67
+128_aug3,128,non-convex polygon; deleted in notebook cells 62-67
+137_aug5,137,window < 21 % of the frame; deleted in notebook cells 82-88
+138_aug4,138,non-convex polygon; deleted in notebook cells 62-67
+140_aug5,140,non-convex polygon; deleted in notebook cells 62-67
+141_aug3,141,non-convex polygon; deleted in notebook cells 62-67
+142_aug3,142,non-convex polygon; deleted in notebook cells 62-67
+144_aug1,144,non-convex polygon; deleted in notebook cells 62-67
+148_aug5,148,non-convex polygon; deleted in notebook cells 62-67

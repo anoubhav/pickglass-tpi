@@ -1,0 +1,92 @@
+{
+ "params": {
+  "n_bands_per_decade": 30,
+  "floor_pct": 30.0,
+  "f_lo": 8.0,
+  "dead_delta": 0.8,
+  "live_eps": 0.5,
+  "ref_win": [
+   0.3,
+   0.5
+  ],
+  "mid_frac": 0.3,
+  "depth_min": 1.2,
+  "kappa": 0.9,
+  "fire_tol": 0.3,
+  "n_min": 64,
+  "ppy_min": 5.0,
+  "max_work": 1024
+ },
+ "chosen_at": "2026-10-07T22:32:27",
+ "data": "synthetic only: methods/guard/synth_dev.py (cnn/synth.py v2, seeds 960000-960119 hr, 965000-965059 lr)",
+ "locator": {
+  "choice": {
+   "dead_delta": 0.8,
+   "live_eps": 0.5,
+   "ref_win": [
+    0.3,
+    0.5
+   ],
+   "mid_frac": 0.3
+  },
+  "score": 0.3789426134896626,
+  "ratio_median": 1.2330307803068532,
+  "detected": 0.9991666666666666,
+  "note": "locator scored on up-sampled x4/x8 synthetic only (score = mean |log(n_eff/n_true) - median| + 0.5 range of per-condition medians + 0.5 missed detections; depth_min not applied); tie-break within 3 % of the best score: smallest dead_delta"
+ },
+ "choose_best": {
+  "kappa": 0.9,
+  "depth_min": 1.2,
+  "fire_tol": 0.3,
+  "macro_mape_need": 28.656642594053185,
+  "macro_mape_need_ug": 93.26929145606671,
+  "fire_need": 0.9577777777777777,
+  "fire_clean": 0.0,
+  "n_fire_clean": 0.0,
+  "chg1_clean": 0.0,
+  "mape_clean": 17.332197213707285,
+  "mape_clean_ug": 17.332197213707285,
+  "mape_up": 25.08237706662842,
+  "mape_defocus": 35.80517364890271,
+  "mape_x2": 13.577850305349834,
+  "mape_x2_ug": 13.687048488377508,
+  "missing": 0.0
+ },
+ "ppy_youden": [
+  {
+   "ppy_min": 4.0,
+   "tpr": 0.3354487760652765,
+   "fpr": 0.176702307259426,
+   "J": 0.1587464688058505,
+   "flagged": 0.2375
+  },
+  {
+   "ppy_min": 4.25,
+   "tpr": 0.3680870353581142,
+   "fpr": 0.21384355655599324,
+   "J": 0.15424347880212097,
+   "flagged": 0.27291666666666664
+  },
+  {
+   "ppy_min": 4.5,
+   "tpr": 0.4070716228467815,
+   "fpr": 0.2442318514350028,
+   "J": 0.1628397714117787,
+   "flagged": 0.30659722222222224
+  },
+  {
+   "ppy_min": 4.75,
+   "tpr": 0.443336355394379,
+   "fpr": 0.2706809229037704,
+   "J": 0.1726554324906086,
+   "flagged": 0.3368055555555556
+  },
+  {
+   "ppy_min": 5.0,
+   "tpr": 0.4732547597461469,
+   "fpr": 0.2960045019696117,
+   "J": 0.1772502577765352,
+   "flagged": 0.3638888888888889
+  }
+ ]
+}

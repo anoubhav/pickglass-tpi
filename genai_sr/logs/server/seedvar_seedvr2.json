@@ -1,0 +1,9 @@
+{
+ "model": "seedvr2",
+ "seeds": "1,2",
+ "conds": "D4,D8",
+ "n": 264,
+ "wall_s": 1882.9,
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "cuda_visible": "0"
+}

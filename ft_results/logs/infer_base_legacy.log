@@ -1,0 +1,33 @@
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 3938.91it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.12s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.13s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.16s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  2.18s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  2.17s/it]
+loaded in 13s adapter=none
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 1357.05it/s]
+[legacy] 260 jobs (0 cached) -> $HOME/pickglass/ft/code/../raw/molmo2_4b_base__legacy.jsonl
+  legacy P1 10/20 batch 2.9s maxgen 33
+  legacy P1 20/20 batch 2.4s maxgen 32
+  legacy P4h 10/120 batch 20.3s maxgen 471
+  legacy P4h 20/120 batch 22.7s maxgen 559
+  legacy P4h 30/120 batch 23.9s maxgen 592
+  legacy P4h 40/120 batch 15.4s maxgen 372
+  legacy P4h 50/120 batch 15.3s maxgen 372
+  legacy P4h 60/120 batch 26.2s maxgen 658
+  legacy P4h 70/120 batch 10.1s maxgen 251
+  legacy P4h 80/120 batch 17.4s maxgen 427
+  legacy P4h 90/120 batch 27.6s maxgen 669
+  legacy P4h 100/120 batch 11.3s maxgen 284
+  legacy P4h 110/120 batch 18.7s maxgen 449
+  legacy P4h 120/120 batch 26.2s maxgen 669
+  legacy P4v 10/120 batch 22.3s maxgen 548
+  legacy P4v 20/120 batch 13.6s maxgen 361
+  legacy P4v 30/120 batch 23.0s maxgen 581
+  legacy P4v 40/120 batch 13.5s maxgen 328
+  legacy P4v 50/120 batch 22.9s maxgen 581
+  legacy P4v 60/120 batch 14.0s maxgen 339
+  legacy P4v 70/120 batch 9.6s maxgen 240
+  legacy P4v 80/120 batch 10.3s maxgen 251
+  legacy P4v 90/120 batch 9.6s maxgen 240
+  legacy P4v 100/120 batch 12.5s maxgen 284
+  legacy P4v 110/120 batch 9.9s maxgen 284
+  legacy P4v 120/120 batch 7.8s maxgen 284
+ALL DONE

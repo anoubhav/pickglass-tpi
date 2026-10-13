@@ -1,0 +1,13 @@
+{
+ "ckpt_md5": "dad61b74874196b49bc4e32fab498438",
+ "torch": "2.6.0+cu118",
+ "device": "cuda",
+ "Ps": [
+  672,
+  768,
+  864
+ ],
+ "flips": true,
+ "cap_side": 1024,
+ "cuda_visible": "0"
+}

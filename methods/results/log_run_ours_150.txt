@@ -1,0 +1,17 @@
+wrote predictions_ours_150.csv + proposals.json (150 images, 511s)
+       h_count  v_count  confidence  runtime_s
+count   150.00   150.00      150.00     150.00
+mean     66.96    71.22        0.75      15.54
+std      30.20    38.48        0.25       8.27
+min      20.14    18.72        0.01       5.52
+25%      44.07    40.80        0.61      10.88
+50%      59.06    58.46        0.83      14.47
+75%      83.81    91.30        0.96      17.92
+max     161.58   193.80        0.99      83.11
+weave
+plain        61
+twill_2_1    43
+unknown      24
+twill_3_1    13
+satin         5
+twill_2_2     4

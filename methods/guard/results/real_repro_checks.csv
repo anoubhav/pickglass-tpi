@@ -1,0 +1,12 @@
+source,n,md5_equal,identical,max_rel_diff
+genai_sr counts_classical_clean,66,66.0,1,1.5471852967685606e-06
+genai_sr counts_classical_none,198,198.0,17,4.4845516633529314e-08
+genai_sr counts_classical_bicubic,198,198.0,1,8.787142318122376
+genai_sr counts_classical_swinir,198,198.0,1,0.013776004897565142
+genai_sr counts_classical_realesrgan,198,198.0,3,0.0002315501057029712
+genai_sr counts_classical_seedvr2,198,198.0,4,2.2497886358330277e-06
+genai_sr counts_classical_invsr,198,198.0,4,8.817517778147987e-06
+genai_sr counts_classical_flux2klein,198,198.0,3,1.5961887969151434e-06
+genai_sr counts_classical_nbpro,35,35.0,2,1.0633580203034398e-06
+methods/results/legacy13_vlmcrops_degrade.csv (ours),247,,247,0.0
+methods/predictions_ours_150.csv,150,,0,2.9975231274195773

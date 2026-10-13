@@ -1,0 +1,11 @@
+aug_id,source_id,k_geo_deg,k_photo_deg,ncc_best,ncc_margin,flags,suggested,reason,decision,k_deg_override,reviewer_note
+35_aug4,35,270,270,0.4694,0.3058,ncc_low,accept-if-noise-ok,"k certain (geometric residual 0.0 deg, NCC peak at the same k); low NCC explained by GaussNoise (sigma x47). Label valid, but the crop is very degraded",,,
+35_aug5,35,270,270,0.477,0.3194,ncc_low,accept-if-noise-ok,"k certain (geometric residual 2.0 deg, NCC peak at the same k); low NCC explained by GaussNoise (sigma x49). Label valid, but the crop is very degraded",,,
+44_aug5,44,0,90,0.5959,0.5994,stale_keypoints;k_disagree,reject,polygon corrupt: stored point(s) 4 are the source's untransformed coordinates (albumentations dropped an off-frame key point),,,
+58_aug5,58,90,90,0.327,0.3331,ncc_low,accept-if-noise-ok,"k certain (geometric residual 1.5 deg, NCC peak at the same k); low NCC explained by GaussNoise (sigma x87). Label valid, but the crop is very degraded",,,
+59_aug5,59,0,90,0.4105,0.2121,stale_keypoints;k_disagree;ncc_low,reject,polygon corrupt: stored point(s) 4 are the source's untransformed coordinates (albumentations dropped an off-frame key point),,,
+72_aug4,72,0,0,0.5856,0.6299,stale_keypoints,reject,polygon corrupt: stored point(s) 4 are the source's untransformed coordinates (albumentations dropped an off-frame key point),,,
+94_aug4,94,0,0,0.4709,0.4633,ncc_low,accept-if-noise-ok,"k certain (geometric residual 1.9 deg, NCC peak at the same k); low NCC explained by GaussNoise (sigma x142). Label valid, but the crop is very degraded",,,
+107_aug4,107,0,90,0.3862,0.1654,stale_keypoints;k_disagree;ncc_low,reject,polygon corrupt: stored point(s) 4 are the source's untransformed coordinates (albumentations dropped an off-frame key point),,,
+132_aug3,132,0,0,0.3053,0.2188,stale_keypoints;ncc_low,reject,polygon corrupt: stored point(s) 3 4 are the source's untransformed coordinates (albumentations dropped an off-frame key point),,,
+144_aug4,144,0,180,0.0493,0.0287,stale_keypoints;k_disagree;ncc_low;margin_low,reject,polygon corrupt: stored point(s) 3 4 are the source's untransformed coordinates (albumentations dropped an off-frame key point),,,

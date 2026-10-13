@@ -1,0 +1,105 @@
+group,method,crop,assign,axis,n,MAE,MAPE,n_w5,n_w10,medAE,n_images
+2019,2019 doc3+count (faithful),2019 crop,axis,warp(h),13,114.92,188.78,0,1,113.18,
+2019,2019 doc3+count (faithful),2019 crop,axis,weft(v),13,95.04,153.98,0,1,90.25,
+2019,2019 doc3+count (faithful),2019 crop,axis,both,26,104.98,171.38,0,2,112.3,
+2019,2019 doc3+count (faithful),2019 crop,sorted,both,26,98.75,161.04,0,2,91.26,
+2019,2019 test.py RGB irregularity (weft only),2019 crop,axis,weft(v),13,19.0,36.88,3,5,13.0,
+2019,2019 test.py RGB irregularity (weft only),2019 crop,nearest,either,13,15.46,29.67,4,6,10.0,
+spectral,fft,P1 whole crop,axis,both,26,10.64,19.53,14,19,3.36,
+spectral,fft,P1 whole crop,sorted,both,26,10.4,18.82,15,19,3.28,
+spectral,fft_harm,P1 whole crop,axis,both,26,10.62,16.56,13,18,3.46,
+spectral,fft_harm,P1 whole crop,sorted,both,26,10.36,16.12,13,17,3.82,
+spectral,fusion3,P1 whole crop,axis,both,26,10.93,19.82,11,19,3.68,
+spectral,fusion3,P1 whole crop,sorted,both,26,10.69,19.11,12,19,3.68,
+spectral,gabor,P1 whole crop,axis,both,26,7.38,10.79,15,20,2.63,
+spectral,gabor,P1 whole crop,sorted,both,26,7.09,10.63,14,19,3.23,
+spectral,lattice,P1 whole crop,axis,both,26,9.58,14.92,11,18,3.97,
+spectral,lattice,P1 whole crop,sorted,both,26,9.32,14.17,12,18,3.97,
+spectral,ours,P1 whole crop,axis,both,26,8.07,13.33,11,20,3.72,
+spectral,ours,P1 whole crop,sorted,both,26,7.82,12.6,12,20,3.72,
+spectral,peaks,P1 whole crop,axis,both,26,9.81,16.84,11,15,5.0,
+spectral,peaks,P1 whole crop,sorted,both,26,9.58,16.24,10,13,5.0,
+spectral,profile,P1 whole crop,axis,both,26,15.37,20.38,9,18,5.34,
+spectral,profile,P1 whole crop,sorted,both,26,15.12,20.95,9,17,5.5,
+spectral,tiles,P1 whole crop,axis,both,26,9.92,17.9,12,20,3.37,
+spectral,tiles,P1 whole crop,sorted,both,26,9.69,17.21,12,21,3.28,
+spectral,fft,P2 detected window,axis,both,26,9.8,18.11,17,20,1.37,
+spectral,fft,P2 detected window,sorted,both,26,9.56,17.41,18,20,1.37,
+spectral,fft_harm,P2 detected window,axis,both,26,9.71,15.1,17,19,1.37,
+spectral,fft_harm,P2 detected window,sorted,both,26,9.47,14.74,17,18,1.53,
+spectral,fusion3,P2 detected window,axis,both,26,9.93,18.19,18,20,1.91,
+spectral,fusion3,P2 detected window,sorted,both,26,9.69,17.49,18,20,1.73,
+spectral,gabor,P2 detected window,axis,both,26,6.8,9.86,18,20,1.17,
+spectral,gabor,P2 detected window,sorted,both,26,6.56,9.79,17,19,1.35,
+spectral,lattice,P2 detected window,axis,both,26,8.27,13.1,18,19,1.51,
+spectral,lattice,P2 detected window,sorted,both,26,8.03,12.4,18,19,1.47,
+spectral,ours,P2 detected window,axis,both,26,7.06,11.71,20,21,1.66,
+spectral,ours,P2 detected window,sorted,both,26,6.82,11.01,20,21,1.6,
+spectral,peaks,P2 detected window,axis,both,26,9.93,16.54,10,16,4.47,
+spectral,peaks,P2 detected window,sorted,both,26,9.7,15.94,10,15,4.47,
+spectral,profile,P2 detected window,axis,both,26,14.31,18.87,14,18,2.83,
+spectral,profile,P2 detected window,sorted,both,26,14.08,19.49,13,17,3.15,
+spectral,tiles,P2 detected window,axis,both,26,9.07,16.54,18,21,1.62,
+spectral,tiles,P2 detected window,sorted,both,26,8.84,15.85,19,21,1.87,
+vlm,claude-fable-5.1 P1,"VLM trimmed window, 1536 px",axis,both,26,23.42,34.89,0,1,18.0,13.0
+vlm,claude-fable-5.1 P1,"VLM trimmed window, 1536 px",sorted,both,26,22.88,34.76,0,0,17.0,13.0
+vlm,claude-fable-5.1 P2,"VLM trimmed window, 1536 px",axis,both,26,18.31,25.58,3,4,14.5,13.0
+vlm,claude-fable-5.1 P2,"VLM trimmed window, 1536 px",sorted,both,26,18.15,25.63,2,3,14.0,13.0
+vlm,claude-fable-5.1 P3,"VLM trimmed window, 1536 px",axis,both,26,14.92,20.02,5,9,10.0,13.0
+vlm,claude-fable-5.1 P3,"VLM trimmed window, 1536 px",sorted,both,26,13.0,18.08,7,9,10.5,13.0
+vlm,gemini-3.1-pro P1,"VLM trimmed window, 1536 px",axis,both,26,23.12,40.83,5,8,24.0,13.0
+vlm,gemini-3.1-pro P1,"VLM trimmed window, 1536 px",sorted,both,26,23.12,40.51,4,7,21.5,13.0
+vlm,gemini-3.1-pro P2,"VLM trimmed window, 1536 px",axis,both,26,15.96,26.62,3,6,15.0,13.0
+vlm,gemini-3.1-pro P2,"VLM trimmed window, 1536 px",sorted,both,26,15.19,25.02,3,7,14.0,13.0
+vlm,gemini-3.1-pro P3,"VLM trimmed window, 1536 px",axis,both,26,18.46,32.92,4,8,13.0,13.0
+vlm,gemini-3.1-pro P3,"VLM trimmed window, 1536 px",sorted,both,26,18.08,31.81,5,8,15.5,13.0
+vlm,gemini-3.8-flash P1,"VLM trimmed window, 1536 px",axis,both,26,14.0,19.08,5,6,8.0,13.0
+vlm,gemini-3.8-flash P1,"VLM trimmed window, 1536 px",sorted,both,26,12.77,17.15,4,10,7.5,13.0
+vlm,gemini-3.8-flash P2,"VLM trimmed window, 1536 px",axis,both,18,13.39,20.56,4,5,8.5,9.0
+vlm,gemini-3.8-flash P2,"VLM trimmed window, 1536 px",sorted,both,18,12.28,17.87,3,6,8.0,9.0
+vlm,gemini-3.8-flash P3,"VLM trimmed window, 1536 px",axis,both,26,8.08,12.48,9,16,5.0,13.0
+vlm,gemini-3.8-flash P3,"VLM trimmed window, 1536 px",sorted,both,26,8.0,12.37,9,16,5.0,13.0
+vlm,gemini-3.8-flash P3s,"VLM trimmed window, 1536 px",axis,both,26,11.85,17.35,8,10,11.0,13.0
+vlm,gemini-3.8-flash P3s,"VLM trimmed window, 1536 px",sorted,both,26,10.92,15.83,9,10,12.5,13.0
+vlm,gemma-4-26b-a4b P1,"VLM trimmed window, 1536 px",axis,both,26,37.23,54.23,0,0,26.5,13.0
+vlm,gemma-4-26b-a4b P1,"VLM trimmed window, 1536 px",sorted,both,26,37.23,54.5,0,0,30.0,13.0
+vlm,gemma-4-26b-a4b P2,"VLM trimmed window, 1536 px",axis,both,26,22.23,35.82,2,3,16.0,13.0
+vlm,gemma-4-26b-a4b P2,"VLM trimmed window, 1536 px",sorted,both,26,21.0,33.6,3,5,16.0,13.0
+vlm,gemma-4-26b-a4b P3,"VLM trimmed window, 1536 px",axis,both,26,20.92,29.73,0,1,18.5,13.0
+vlm,gemma-4-26b-a4b P3,"VLM trimmed window, 1536 px",sorted,both,26,20.92,29.77,0,0,18.5,13.0
+vlm,gpt-6.1-sol P1,"VLM trimmed window, 1536 px",axis,both,26,6.88,8.79,16,21,2.0,13.0
+vlm,gpt-6.1-sol P1,"VLM trimmed window, 1536 px",sorted,both,26,6.73,8.98,13,18,4.0,13.0
+vlm,gpt-6.1-sol P2,"VLM trimmed window, 1536 px",axis,both,26,6.73,8.73,17,21,2.0,13.0
+vlm,gpt-6.1-sol P2,"VLM trimmed window, 1536 px",sorted,both,26,6.73,9.41,13,18,3.0,13.0
+vlm,gpt-6.1-sol P3,"VLM trimmed window, 1536 px",axis,both,26,5.54,8.19,15,19,3.0,13.0
+vlm,gpt-6.1-sol P3,"VLM trimmed window, 1536 px",sorted,both,26,5.46,8.17,14,18,3.0,13.0
+vlm,gpt-6.1-sol P3s,"VLM trimmed window, 1536 px",axis,both,26,5.38,7.44,16,20,2.0,13.0
+vlm,gpt-6.1-sol P3s,"VLM trimmed window, 1536 px",sorted,both,26,5.38,7.6,15,19,2.5,13.0
+vlm,gpt-6.1-sol@reasoning-high P1,"VLM trimmed window, 1536 px",axis,both,26,9.27,14.06,17,19,2.0,13.0
+vlm,gpt-6.1-sol@reasoning-high P1,"VLM trimmed window, 1536 px",sorted,both,26,8.96,13.2,13,16,3.5,13.0
+vlm,molmo2_8b P1,"VLM trimmed window, 644 px (local MLX)",axis,both,26,55.69,83.14,0,0,52.5,13.0
+vlm,molmo2_8b P1,"VLM trimmed window, 644 px (local MLX)",sorted,both,26,55.69,83.14,0,0,52.5,13.0
+vlm,molmo2_8b P2,"VLM trimmed window, 644 px (local MLX)",axis,both,8,47.38,81.25,0,0,52.5,4.0
+vlm,molmo2_8b P2,"VLM trimmed window, 644 px (local MLX)",sorted,both,8,46.88,80.05,0,0,51.5,4.0
+vlm,molmo2_8b P3,"VLM trimmed window, 644 px (local MLX)",axis,both,8,24.88,32.51,0,0,16.5,4.0
+vlm,molmo2_8b P3,"VLM trimmed window, 644 px (local MLX)",sorted,both,8,24.88,32.51,0,0,16.5,4.0
+vlm,molmo2_8b P4,"VLM trimmed window, 644 px (local MLX)",axis,both,8,19.0,28.51,1,2,15.5,4.0
+vlm,molmo2_8b P4,"VLM trimmed window, 644 px (local MLX)",sorted,both,8,19.0,28.69,0,2,15.5,4.0
+vlm,molmo2_8b P4q,"VLM trimmed window, 644 px (local MLX)",axis,both,6,64.17,97.48,0,1,17.0,3.0
+vlm,molmo2_8b P4q,"VLM trimmed window, 644 px (local MLX)",sorted,both,6,60.17,80.21,0,1,13.5,3.0
+vlm,qwen3.8-27b P1,"VLM trimmed window, 1536 px",axis,both,26,43.85,61.05,0,0,39.0,13.0
+vlm,qwen3.8-27b P1,"VLM trimmed window, 1536 px",sorted,both,26,43.85,61.08,0,0,39.0,13.0
+vlm,qwen3.8-27b P2,"VLM trimmed window, 1536 px",axis,both,12,21.67,32.65,0,2,22.5,6.0
+vlm,qwen3.8-27b P2,"VLM trimmed window, 1536 px",sorted,both,12,21.0,31.9,0,2,22.5,6.0
+vlm,qwen3.8-27b P3,"VLM trimmed window, 1536 px",axis,both,26,17.31,21.94,6,9,12.5,13.0
+vlm,qwen3.8-27b P3,"VLM trimmed window, 1536 px",sorted,both,26,17.31,21.94,6,9,12.5,13.0
+vlm,qwen3.8-max-prime P1,"VLM trimmed window, 1536 px",axis,both,22,12.91,20.49,1,6,9.5,11.0
+vlm,qwen3.8-max-prime P1,"VLM trimmed window, 1536 px",sorted,both,22,11.73,18.15,2,8,7.0,11.0
+vlm,qwen3.8-max-prime P2,"VLM trimmed window, 1536 px",axis,both,24,19.88,33.9,1,4,16.5,12.0
+vlm,qwen3.8-max-prime P2,"VLM trimmed window, 1536 px",sorted,both,24,19.54,33.24,2,5,16.5,12.0
+vlm,qwen3.8-max-prime P3,"VLM trimmed window, 1536 px",axis,both,22,14.05,19.79,5,8,9.0,11.0
+vlm,qwen3.8-max-prime P3,"VLM trimmed window, 1536 px",sorted,both,22,14.05,19.79,5,8,9.0,11.0
+cnn,CNN synthetic zero-shot,detected window,axis,both,26,10.41,16.05,5,10,7.73,13.0
+cnn,CNN synthetic zero-shot,detected window,sorted,both,26,9.56,14.61,6,12,6.97,13.0
+reference,leave-one-out mean,-,axis,both,26,20.34,32.54,3,5,22.08,13.0
+reference,leave-one-out mean,-,sorted,both,26,19.72,31.25,2,4,19.33,13.0

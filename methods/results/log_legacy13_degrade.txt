@@ -1,0 +1,14 @@
+  1/13 images  391s
+  2/13 images  393s
+  3/13 images  399s
+  4/13 images  407s
+  5/13 images  421s
+  6/13 images  425s
+  7/13 images  457s
+  8/13 images  713s
+  9/13 images  715s
+  10/13 images  722s
+  11/13 images  722s
+  12/13 images  722s
+  13/13 images  729s
+wrote results/legacy13_degrade.csv: 2262 rows, 13 images, 729s

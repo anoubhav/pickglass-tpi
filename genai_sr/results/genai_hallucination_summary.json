@@ -1,0 +1,40 @@
+{
+ "generative": {
+  "n.s.": 41,
+  "worse": 33,
+  "better": 7
+ },
+ "swinir": {
+  "n.s.": 14,
+  "better": 4
+ },
+ "bicubic": {
+  "worse": 9,
+  "n.s.": 7,
+  "better": 2
+ },
+ "generative_by_estimator": {
+  "ours": {
+   "n.s.": 21,
+   "better": 3,
+   "worse": 3
+  },
+  "gabor": {
+   "n.s.": 15,
+   "worse": 8,
+   "better": 4
+  },
+  "cnn": {
+   "worse": 22,
+   "n.s.": 5
+  }
+ },
+ "ours_wrong_but_confident_generative": {
+  "n_wrong": 211,
+  "n_confident": 109
+ },
+ "ours_wrong_but_confident_none": {
+  "n_wrong": 49,
+  "n_confident": 23
+ }
+}

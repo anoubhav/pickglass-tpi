@@ -1,0 +1,19 @@
+$HOME/pickglass/genai_sr/venv_gen/lib/python3.10/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]The config attributes {'force_upcast': True} were passed to AutoencoderKLFlux2, but are not expected and will be ignored. Please verify your config.json configuration file.
+Loading pipeline components...:  80%|████████  | 4/5 [00:00<00:00,  7.77it/s]
+Loading weights:   0%|          | 0/398 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 398/398 [00:00<00:00, 7885.78it/s]
+Loading pipeline components...: 100%|██████████| 5/5 [00:00<00:00,  7.31it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:00<00:00,  7.41it/s]
+flux2klein_s1 20 65s
+flux2klein_s1 40 130s
+flux2klein_s1 60 195s
+flux2klein_s1 80 259s
+flux2klein_s1 100 323s
+flux2klein_s1 120 387s
+flux2klein_s2 140 452s
+flux2klein_s2 160 517s
+flux2klein_s2 180 581s
+flux2klein_s2 200 646s
+flux2klein_s2 220 711s
+flux2klein_s2 240 775s
+flux2klein_s2 260 839s

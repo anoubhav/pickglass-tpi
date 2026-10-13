@@ -1,0 +1,125 @@
+{
+ "params": {
+  "n_bands_per_decade": 30,
+  "floor_pct": 30.0,
+  "f_lo": 8.0,
+  "dead_delta": 0.8,
+  "live_eps": 0.5,
+  "ref_win": [
+   0.3,
+   0.5
+  ],
+  "mid_frac": 0.3,
+  "depth_min": 1.1,
+  "kappa": 0.9,
+  "fire_tol": 0.3,
+  "n_min": 64,
+  "ppy_min": 5.0,
+  "max_work": 1024
+ },
+ "chosen_at": "2026-10-07T22:50:07",
+ "data": "synthetic only: methods/guard/synth_dev.py (cnn/synth.py v2, seeds 960000-960119 hr, 965000-965059 lr)",
+ "locator": {
+  "choice": {
+   "dead_delta": 0.8,
+   "live_eps": 0.5,
+   "ref_win": [
+    0.3,
+    0.5
+   ],
+   "mid_frac": 0.3
+  },
+  "score": 0.3789426134896626,
+  "ratio_median": 1.2330307803068532,
+  "detected": 0.9991666666666666,
+  "note": "locator scored on up-sampled x4/x8 synthetic only (score = mean |log(n_eff/n_true) - median| + 0.5 range of per-condition medians + 0.5 missed detections; depth_min not applied); tie-break within 3 % of the best score: smallest dead_delta"
+ },
+ "choose_best": {
+  "gate": true,
+  "kappa": 0.9,
+  "depth_min": 1.1,
+  "fire_tol": 0.3,
+  "macro_mape_need": 28.651315753642667,
+  "macro_median_need": 13.624618101063062,
+  "worse5_need": 0.19777777777777777,
+  "better5_need": 0.29333333333333333,
+  "macro_mape_need_ug": 93.26929145606671,
+  "fire_need": 0.5077777777777778,
+  "fire_clean": 0.0,
+  "n_fire_clean": 0,
+  "chg1_clean": 0.0,
+  "mape_clean": 17.332197213707285,
+  "mape_clean_ug": 17.332197213707285,
+  "mape_up": 24.814631788412907,
+  "mape_defocus": 36.3246836841022,
+  "mape_x2": 13.687048488377508,
+  "mape_x2_ug": 13.687048488377508,
+  "missing": 0
+ },
+ "ppy_youden": [
+  {
+   "ppy_min": 4.0,
+   "tpr": 0.35656836461126007,
+   "fpr": 0.18285065303804657,
+   "J": 0.1737177115732135,
+   "flagged": 0.2503472222222222
+  },
+  {
+   "ppy_min": 4.25,
+   "tpr": 0.3923145665773012,
+   "fpr": 0.21919363997728564,
+   "J": 0.17312092660001555,
+   "flagged": 0.2864583333333333
+  },
+  {
+   "ppy_min": 4.5,
+   "tpr": 0.4289544235924933,
+   "fpr": 0.24872231686541738,
+   "J": 0.18023210672707593,
+   "flagged": 0.31875
+  },
+  {
+   "ppy_min": 4.75,
+   "tpr": 0.46559428060768543,
+   "fpr": 0.27597955706984667,
+   "J": 0.18961472353783876,
+   "flagged": 0.34965277777777776
+  },
+  {
+   "ppy_min": 5.0,
+   "tpr": 0.49865951742627346,
+   "fpr": 0.30210107893242477,
+   "J": 0.1965584384938487,
+   "flagged": 0.3784722222222222
+  }
+ ],
+ "design_log": [
+  "all steps on synthetic data only; no real crop read before guard_params.json was frozen",
+  "v1 locator (cut-off at the first empty band, depth window [0.55,0.9] f_c): missed ~50 % of bicubic x4 (replica bumps above L_dead) -> v2 locator: bump-tolerant empty region f_d + half-height crossing f_c",
+  "locator grid scored against the known native side n_true of x4/x8 up-sampled crops; tie-break within 3 % of the best score: smallest dead_delta (fewer empty floors on clean crops)",
+  "first choice (ungated: re-count whenever eligible): kappa 0.9, depth_min 1.2, fire_tol 0.3, macro MAPE 93.3 -> 28.7; but defocus MEDIAN APE rose (2.5 -> 18.5 at 2u, 9.2 -> 58.2 at 6u): under blur the yarn line survives beyond the background floor's cut-off (f0 > guarded band top for 43-81 % of defocused crops)",
+  "-> consistency gate added (parameter-free): re-count only if the unguarded count lies outside the band searched at the native side; same objective re-run (macro MAPE, zero clean firing, ties -> conservative)"
+ ],
+ "ungated_best": {
+  "gate": false,
+  "kappa": 0.9,
+  "depth_min": 1.2,
+  "fire_tol": 0.25,
+  "macro_mape_need": 28.62120454637541,
+  "macro_median_need": 14.226972087464674,
+  "worse5_need": 0.23222222222222222,
+  "better5_need": 0.3288888888888889,
+  "macro_mape_need_ug": 93.26929145606671,
+  "fire_need": 0.9627777777777777,
+  "fire_clean": 0.0,
+  "n_fire_clean": 0,
+  "chg1_clean": 0.0,
+  "mape_clean": 17.332197213707285,
+  "mape_clean_ug": 17.332197213707285,
+  "mape_up": 25.029219995111767,
+  "mape_defocus": 35.80517364890271,
+  "mape_x2": 13.57589474961609,
+  "mape_x2_ug": 13.687048488377508,
+  "missing": 0
+ }
+}

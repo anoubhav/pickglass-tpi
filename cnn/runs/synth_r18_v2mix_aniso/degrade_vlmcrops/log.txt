@@ -1,0 +1,14 @@
+  19/247  69s
+  38/247  149s
+  57/247  198s
+  76/247  231s
+  95/247  283s
+  114/247  321s
+  133/247  355s
+  152/247  376s
+  171/247  396s
+  190/247  414s
+  209/247  435s
+  228/247  458s
+  247/247  487s
+wrote cnn/runs/synth_r18_v2mix_aniso/degrade_vlmcrops/predictions.csv: 247 rows, 487s

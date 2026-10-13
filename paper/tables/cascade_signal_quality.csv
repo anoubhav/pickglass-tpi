@@ -1,0 +1,13 @@
+set,signal,n,n_images,spearman_vs_err,spearman_lo,spearman_hi,auc_success,auc_lo,auc_hi,fail_rate
+legacy13 x 9 conditions,conf,117,13,-0.3782,-0.6219,0.0111,0.7243,0.5112,0.8843,0.4017
+legacy13 x 9 conditions,rho (resolvability),117,13,-0.468,-0.6613,-0.1823,0.6812,0.5083,0.8623,0.4017
+legacy13 x 9 conditions,-d_ext (ours vs log-Gabor),117,13,-0.5947,-0.7774,-0.3087,0.7976,0.6287,0.9354,0.4017
+legacy13 x 9 conditions,lattice confirmed (agree-int),117,13,-0.1254,-0.3297,0.0898,0.5486,0.4383,0.6539,0.4017
+synthetic S-cal x 9 conditions,conf,1800,200,-0.5751,-0.6301,-0.5123,0.8861,0.8522,0.9173,0.2722
+synthetic S-cal x 9 conditions,rho (resolvability),1800,200,-0.222,-0.2825,-0.1585,0.6845,0.6419,0.7271,0.2722
+synthetic S-cal x 9 conditions,-d_ext (ours vs log-Gabor),1800,200,-0.398,-0.4682,-0.3211,0.7715,0.7329,0.808,0.2722
+synthetic S-cal x 9 conditions,lattice confirmed (agree-int),1800,200,-0.4965,-0.5588,-0.4325,0.8102,0.7782,0.8423,0.2722
+synthetic S-cal x 19 conditions,conf,3800,200,-0.5466,-0.6043,-0.4802,0.8608,0.822,0.8941,0.2655
+synthetic S-cal x 19 conditions,rho (resolvability),3800,200,-0.1803,-0.2487,-0.1095,0.6572,0.6114,0.7027,0.2655
+synthetic S-cal x 19 conditions,-d_ext (ours vs log-Gabor),3800,200,-0.383,-0.4572,-0.3033,0.7676,0.7283,0.8052,0.2655
+synthetic S-cal x 19 conditions,lattice confirmed (agree-int),3800,200,-0.4795,-0.5413,-0.4133,0.7943,0.762,0.8245,0.2655

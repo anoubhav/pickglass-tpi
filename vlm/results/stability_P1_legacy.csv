@@ -1,0 +1,3 @@
+model,repeats,n_images_all_parsed,mean_sd_tpi,mean_range_tpi,max_range_tpi,identical_all3,mae_best_per_repeat
+gpt-6.1-sol,3,20,2.616,4.875,28,1,"[6.730769230769231, 4.730769230769231, 4.923076923076923]"
+gemini-3.8-flash,3,19,8.044,14.87,50,0,"[12.76923076923077, 18.807692307692307, 10.884615384615385]"

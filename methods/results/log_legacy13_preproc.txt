@@ -1,0 +1,14 @@
+  1/13 images  84s
+  2/13 images  84s
+  3/13 images  89s
+  4/13 images  94s
+  5/13 images  169s
+  6/13 images  169s
+  7/13 images  180s
+  8/13 images  193s
+  9/13 images  250s
+  10/13 images  253s
+  11/13 images  264s
+  12/13 images  279s
+  13/13 images  352s
+wrote results/legacy13_preproc.csv: 468 rows, 13 images, 353s

@@ -1,0 +1,184 @@
+{
+ "frozen_at": "2026-10-07T15:02:10-0400",
+ "scaffold_set_version": "sc1-2026-10-07",
+ "scaffolds_py_md5_at_freeze": "994fe2162bf8727eb8d66cc995f7197a",
+ "scaffolds_py_md5_during_api_pilot": [
+  "dd71726830c80ad4869d9842e7b33493"
+ ],
+ "note_md5": "scaffolds.py changed after the API pilot only by appending the Molmo2 644-px export helpers (molmo_input/export_molmo; the Molmo2 pilot already used the frozen file); re-rendering the 18 synthetic pilot inputs reproduces them byte-for-byte: True; prompt texts unchanged.",
+ "prompts": {
+  "S1": {
+   "version": "v1",
+   "md5": "932039e5074ca1ca78d246fd6229cdff"
+  },
+  "S1t": {
+   "version": "v1",
+   "md5": "e9da45ed3c2db9516edfcb5a4dac64ab"
+  },
+  "S2": {
+   "version": "v1",
+   "md5": "5dffc061ce3a1dba8070d5b61fdcd20a"
+  },
+  "S3": {
+   "version": "v1",
+   "md5": "ed0699cf6f501684cc5d3254b201047c"
+  },
+  "S4": {
+   "version": "v1",
+   "md5": "c1f74deb281f7c411e983ff461df0ccf"
+  }
+ },
+ "design_decided_on": "3 synthetic images (cnn/synth.py v2: syn1 plain 52x46, syn2 twill21 82x64, syn3 plain 108x90) + common sense; no legacy label was looked at.",
+ "design_choices": {
+  "S1": "margin rulers (top/left), tick every 0.1 inch extending 18 px into the fabric as two-tone marks; crop 1440 px",
+  "S1t": "text-only control: S1 instruction without ruler, image byte-identical to the P1 input",
+  "S2": "two-tone (black core, white edge) guide lines through the centre, ticks every 0.1 inch, segments labelled H1..H10 / V1..V10 (plain 1..10 labels collided near the crossing on the synthetic preview)",
+  "S3": "four 0.1x0.1-inch insets centred at the quadrant centres, INTER_CUBIC to 727 px tiles, 2x2 with labels",
+  "S4": "band 0.05 inch, detrend/normalise over 0.1 inch, Gaussian sigma = S/1500; oracle prominence 0.5 (band widths 0.03-0.2 and prominences 0.2-1.5 checked on synthetic: 0.05/0.5 exact on the vertical-yarn axis for all 3; the horizontal-yarn profile of syn1 shows a 2x harmonic at every setting -> reported, not tuned away)"
+ },
+ "synthetic_pilot_mape_pct_and_parse_failures": {
+  "gpt-6.1-sol": {
+   "S1t": [
+    2.5,
+    0
+   ],
+   "P1": [
+    0.7,
+    0
+   ],
+   "S1": [
+    2.7,
+    0
+   ],
+   "S2": [
+    2.1,
+    0
+   ],
+   "S4": [
+    17.1,
+    0
+   ],
+   "S3": [
+    2.2,
+    0
+   ]
+  },
+  "gemini-3.8-flash": {
+   "S1": [
+    16.8,
+    0
+   ],
+   "S2": [
+    21.5,
+    0
+   ],
+   "S3": [
+    10.0,
+    0
+   ],
+   "S4": [
+    16.6,
+    0
+   ],
+   "P1": [
+    16.7,
+    0
+   ],
+   "S1t": [
+    21.9,
+    0
+   ]
+  },
+  "qwen3.8-27b": {
+   "P1": [
+    50.7,
+    0
+   ],
+   "S1t": [
+    51.1,
+    0
+   ],
+   "S3": [
+    9.7,
+    0
+   ],
+   "S1": [
+    35.4,
+    0
+   ],
+   "S2": [
+    52.0,
+    0
+   ],
+   "S4": [
+    55.7,
+    0
+   ]
+  },
+  "molmo2_8b_bf16": {
+   "P1": [
+    91.6,
+    0
+   ],
+   "S1": [
+    70.2,
+    0
+   ],
+   "S1t": [
+    89.0,
+    0
+   ],
+   "S2": [
+    51.1,
+    0
+   ],
+   "S3": [
+    23.8,
+    0
+   ],
+   "S4": [
+    42.6,
+    0
+   ]
+  }
+ },
+ "synthetic_pilot_mean_mape_3_api_models": {
+  "S1": 18.3,
+  "S1t": 25.2,
+  "S2": 25.2,
+  "S3": 7.3,
+  "S4": 29.8
+ },
+ "synthetic_pilot_mean_mape_4_models": {
+  "S1": 31.3,
+  "S1t": 41.1,
+  "S2": 31.7,
+  "S3": 11.4,
+  "S4": 33.0
+ },
+ "primary_scaffold": "S3",
+ "primary_rationale": "lowest mean synthetic-pilot MAPE over the API models (7.3 %) and over all 4 models; the only scaffold that clearly beat P1 for the two weak API models on synthetic. Confirmatory test per model: S3 vs own P1 on legacy-13 (axis-matched, Wilcoxon on per-count abs % error, Holm over 4 models); everything else exploratory.",
+ "models": {
+  "api": [
+   "gpt-6.1-sol",
+   "gemini-3.8-flash",
+   "qwen3.8-27b"
+  ],
+  "reasoning": "min (as P1: GPT minimal, Flash minimal, Qwen off)",
+  "max_tokens": {
+   "gpt-6.1-sol": 2500,
+   "gemini-3.8-flash": 3000,
+   "qwen3.8-27b": 2000
+  },
+  "molmo2": "bf16 HF, greedy, 644 px, max_new_tokens 1200"
+ },
+ "legacy_plan": "r0: 5 conditions x 20 legacy images (13 labelled + 7 unlabelled) x 3 API models + Molmo2; r1: same for the 3 API models (stability, mean-of-2); Qwen3.8-27B P1 r1/r2 (its P1 had no repeats). Budget sub-cap US$8, stop at 7.5.",
+ "gemini_max_tokens_note": "kept at 3000 (= its P2 budget); max on the synthetic pilot 2982, no truncation; Gemini 3.x thinking grows with max_tokens so raising it would change behaviour vs P1/P2.",
+ "post_freeze_additions": [
+  {
+   "when": "after legacy r0/r1 were run and scored",
+   "what": "load_crop('rect150') data source (annotation_tool/data/crops/{i}.jpg) so the PRE-DECLARED primary scaffold S3 can be run on the 150 photos before their human counts exist (held-out confirmatory test once labels arrive). Rendering and prompts unchanged.",
+   "models": "qwen3.8-27b, gemini-3.8-flash, gpt-6.1-sol (in that order, budget stop 7.4), Molmo2 bf16 on gpu-server"
+  }
+ ]
+}

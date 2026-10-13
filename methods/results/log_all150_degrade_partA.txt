@@ -1,0 +1,27 @@
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  5/50 images  279s
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  10/50 images  358s
+  15/50 images  532s
+  20/50 images  631s
+  25/50 images  687s
+  30/50 images  763s
+  35/50 images  889s
+  40/50 images  930s
+  45/50 images  1070s
+  50/50 images  1254s
+wrote results/all150_degrade_partA.csv: 7250 rows, 50 images, 1255s

@@ -1,0 +1,49 @@
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 5448.56it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.16it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.17it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.16it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.14it/s]
+loaded in 6s adapter=../ckpt/run1/step01000
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 5377.31it/s]
+[rect150] 494 jobs (0 cached) -> $HOME/pickglass/ft/code/../raw/molmo2_4b_synthft__rect150__shard0of2.jsonl
+  rect150 P1 12/38 batch 2.2s maxgen 30
+  rect150 P1 24/38 batch 2.1s maxgen 30
+  rect150 P1 36/38 batch 2.1s maxgen 30
+  rect150 P1 38/38 batch 0.9s maxgen 28
+  rect150 P4h 12/228 batch 20.0s maxgen 784
+  rect150 P4h 24/228 batch 21.8s maxgen 850
+  rect150 P4h 36/228 batch 15.7s maxgen 608
+  rect150 P4h 48/228 batch 37.0s maxgen 1392
+  rect150 P4h 60/228 batch 18.6s maxgen 729
+  rect150 P4h 72/228 batch 31.9s maxgen 1224
+  rect150 P4h 84/228 batch 16.5s maxgen 641
+  rect150 P4h 96/228 batch 23.3s maxgen 905
+  rect150 P4h 108/228 batch 21.5s maxgen 839
+  rect150 P4h 120/228 batch 23.6s maxgen 916
+  rect150 P4h 132/228 batch 13.1s maxgen 498
+  rect150 P4h 144/228 batch 18.9s maxgen 729
+  rect150 P4h 156/228 batch 20.2s maxgen 784
+  rect150 P4h 168/228 batch 17.7s maxgen 685
+  rect150 P4h 180/228 batch 53.0s maxgen 1884
+  rect150 P4h 192/228 batch 25.6s maxgen 993
+  rect150 P4h 204/228 batch 14.2s maxgen 553
+  rect150 P4h 216/228 batch 32.2s maxgen 1224
+  rect150 P4h 228/228 batch 17.4s maxgen 652
+  rect150 P4v 12/228 batch 24.7s maxgen 916
+  rect150 P4v 24/228 batch 24.6s maxgen 916
+  rect150 P4v 36/228 batch 17.1s maxgen 641
+  rect150 P4v 48/228 batch 37.4s maxgen 1380
+  rect150 P4v 60/228 batch 26.7s maxgen 993
+  rect150 P4v 72/228 batch 27.9s maxgen 1081
+  rect150 P4v 84/228 batch 18.6s maxgen 729
+  rect150 P4v 96/228 batch 28.2s maxgen 1092
+  rect150 P4v 108/228 batch 23.6s maxgen 905
+  rect150 P4v 120/228 batch 24.7s maxgen 916
+  rect150 P4v 132/228 batch 15.6s maxgen 575
+  rect150 P4v 144/228 batch 26.7s maxgen 993
+  rect150 P4v 156/228 batch 23.4s maxgen 773
+  rect150 P4v 168/228 batch 28.9s maxgen 1004
+  rect150 P4v 180/228 batch 40.7s maxgen 1404
+  rect150 P4v 192/228 batch 23.4s maxgen 850
+  rect150 P4v 204/228 batch 19.5s maxgen 729
+  rect150 P4v 216/228 batch 39.0s maxgen 1380
+  rect150 P4v 228/228 batch 18.6s maxgen 685
+ALL DONE

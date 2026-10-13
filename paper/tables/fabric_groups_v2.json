@@ -1,0 +1,1494 @@
+{
+ "made": "2026-10-11T22:28:35",
+ "script": "paper/tools/fabric_groups_v2.py",
+ "script_md5": "632c2e4f873c71d2dfa3c88571097795",
+ "inputs": {
+  "annotation_tool/data/manifest.json": "07bb77d44d60b36112b09cf8899b6fc5",
+  "annotation_tool/make_tool_examples.py": "23ab13fd8796f07968941cb0e1fbfe96",
+  "cnn/runs_aug/report/selfcheck.json": "86c2019768f80ddb7b929dc14023b80c",
+  "cnn/runs_aug/pseudo_labels.csv": "e3f542b512097656fc383e2672920f9e",
+  "methods/predictions_ours_150.csv": "8db28cbf06b932b706a46b73319410f6",
+  "paper/tables/fabric_groups_candidate.csv": "5d54c5bbe58347f8ef041e0d7f8592bf",
+  "freelancer/same_patch_pairs.json": "f61d60c92c4131dafee0ecde38b8e838"
+ },
+ "opencv": "4.11.0",
+ "numpy": "1.26.4",
+ "matcher": "annotation_tool/make_tool_examples.py SameSpot (imported, unchanged): SIFT 4000 on the central 70% of each crop at 500 px with CLAHE, ratio 0.75, RANSAC similarity 3 px, scale 0.8-1.25; pair score = max of both directions",
+ "human_counts_read": false,
+ "n_reps": 76,
+ "n_pairs": 2850,
+ "kit_reproduction": {
+  "ok": true,
+  "n": 18,
+  "rows": [
+   {
+    "query": 8,
+    "iaa_rep": 99,
+    "kit": 227,
+    "now": 227
+   },
+   {
+    "query": 15,
+    "iaa_rep": 38,
+    "kit": 16,
+    "now": 16
+   },
+   {
+    "query": 30,
+    "iaa_rep": 33,
+    "kit": 16,
+    "now": 16
+   },
+   {
+    "query": 32,
+    "iaa_rep": 89,
+    "kit": 392,
+    "now": 392
+   },
+   {
+    "query": 52,
+    "iaa_rep": 39,
+    "kit": 113,
+    "now": 113
+   },
+   {
+    "query": 52,
+    "iaa_rep": 49,
+    "kit": 17,
+    "now": 17
+   },
+   {
+    "query": 54,
+    "iaa_rep": 3,
+    "kit": 22,
+    "now": 22
+   },
+   {
+    "query": 59,
+    "iaa_rep": 97,
+    "kit": 1042,
+    "now": 1042
+   },
+   {
+    "query": 60,
+    "iaa_rep": 38,
+    "kit": 1685,
+    "now": 1685
+   },
+   {
+    "query": 61,
+    "iaa_rep": 38,
+    "kit": 239,
+    "now": 239
+   },
+   {
+    "query": 86,
+    "iaa_rep": 89,
+    "kit": 174,
+    "now": 174
+   },
+   {
+    "query": 87,
+    "iaa_rep": 14,
+    "kit": 1292,
+    "now": 1292
+   },
+   {
+    "query": 88,
+    "iaa_rep": 77,
+    "kit": 1010,
+    "now": 1010
+   },
+   {
+    "query": 91,
+    "iaa_rep": 50,
+    "kit": 714,
+    "now": 714
+   },
+   {
+    "query": 92,
+    "iaa_rep": 76,
+    "kit": 1979,
+    "now": 1979
+   },
+   {
+    "query": 98,
+    "iaa_rep": 124,
+    "kit": 871,
+    "now": 871
+   },
+   {
+    "query": 108,
+    "iaa_rep": 97,
+    "kit": 1025,
+    "now": 1025
+   },
+   {
+    "query": 121,
+    "iaa_rep": 35,
+    "kit": 1621,
+    "now": 1621
+   }
+  ]
+ },
+ "threshold": 12,
+ "threshold_source": "make_tool_examples.SAME_SPOT_MIN (pre-declared before this all-pairs run)",
+ "score_histogram": {
+  "0": 2799,
+  "2": 5,
+  "3": 2,
+  "4": 2,
+  "5": 1,
+  "16": 1,
+  "17": 1,
+  "19": 2,
+  "26": 1,
+  "47": 1,
+  "49": 1,
+  "57": 1,
+  "67": 1,
+  "110": 1,
+  "131": 1,
+  "172": 1,
+  "174": 2,
+  "249": 1,
+  "259": 1,
+  "262": 1,
+  "267": 1,
+  "274": 1,
+  "392": 1,
+  "533": 1,
+  "749": 1,
+  "871": 1,
+  "984": 1,
+  "1033": 1,
+  "1038": 1,
+  "1077": 1,
+  "1206": 1,
+  "1231": 1,
+  "1267": 1,
+  "1315": 1,
+  "1385": 1,
+  "1494": 1,
+  "1520": 1,
+  "1531": 1,
+  "1634": 1,
+  "1691": 1,
+  "1753": 1,
+  "1831": 1,
+  "1979": 1,
+  "2504": 1
+ },
+ "largest_below": 5,
+ "smallest_at_or_above": 16,
+ "empty_gap": [
+  6,
+  15
+ ],
+ "n_accepted_pairs": 41,
+ "accepted_pairs": [
+  {
+   "scene_a": 1,
+   "scene_b": 48,
+   "inliers_ab": 41,
+   "inliers_ba": 47,
+   "angle_ab_deg": 0.18,
+   "aligned_hp_ncc": 0.467,
+   "counter_max_reldiff": 0.013
+  },
+  {
+   "scene_a": 3,
+   "scene_b": 54,
+   "inliers_ab": 26,
+   "inliers_ba": 22,
+   "angle_ab_deg": -0.28,
+   "aligned_hp_ncc": 0.665,
+   "counter_max_reldiff": 0.44
+  },
+  {
+   "scene_a": 4,
+   "scene_b": 6,
+   "inliers_ab": 2488,
+   "inliers_ba": 2504,
+   "angle_ab_deg": -0.12,
+   "aligned_hp_ncc": 0.854,
+   "counter_max_reldiff": 0.002
+  },
+  {
+   "scene_a": 5,
+   "scene_b": 45,
+   "inliers_ab": 1231,
+   "inliers_ba": 1213,
+   "angle_ab_deg": 28.86,
+   "aligned_hp_ncc": 0.861,
+   "counter_max_reldiff": 0.892
+  },
+  {
+   "scene_a": 5,
+   "scene_b": 70,
+   "inliers_ab": 274,
+   "inliers_ba": 265,
+   "angle_ab_deg": -0.03,
+   "aligned_hp_ncc": 0.877,
+   "counter_max_reldiff": 0.018
+  },
+  {
+   "scene_a": 5,
+   "scene_b": 118,
+   "inliers_ab": 1753,
+   "inliers_ba": 1753,
+   "angle_ab_deg": -0.4,
+   "aligned_hp_ncc": 0.961,
+   "counter_max_reldiff": 0.001
+  },
+  {
+   "scene_a": 8,
+   "scene_b": 99,
+   "inliers_ab": 227,
+   "inliers_ba": 262,
+   "angle_ab_deg": -0.49,
+   "aligned_hp_ncc": 0.788,
+   "counter_max_reldiff": 0.006
+  },
+  {
+   "scene_a": 9,
+   "scene_b": 27,
+   "inliers_ab": 57,
+   "inliers_ba": 55,
+   "angle_ab_deg": 0.24,
+   "aligned_hp_ncc": 0.675,
+   "counter_max_reldiff": 0.007
+  },
+  {
+   "scene_a": 9,
+   "scene_b": 103,
+   "inliers_ab": 49,
+   "inliers_ba": 47,
+   "angle_ab_deg": 0.2,
+   "aligned_hp_ncc": 0.633,
+   "counter_max_reldiff": 0.4
+  },
+  {
+   "scene_a": 14,
+   "scene_b": 87,
+   "inliers_ab": 1315,
+   "inliers_ba": 1292,
+   "angle_ab_deg": -0.43,
+   "aligned_hp_ncc": 0.895,
+   "counter_max_reldiff": 0.01
+  },
+  {
+   "scene_a": 15,
+   "scene_b": 38,
+   "inliers_ab": 16,
+   "inliers_ba": 12,
+   "angle_ab_deg": -0.06,
+   "aligned_hp_ncc": 0.735,
+   "counter_max_reldiff": 0.665
+  },
+  {
+   "scene_a": 15,
+   "scene_b": 60,
+   "inliers_ab": 15,
+   "inliers_ba": 19,
+   "angle_ab_deg": -0.22,
+   "aligned_hp_ncc": 0.758,
+   "counter_max_reldiff": 0.668
+  },
+  {
+   "scene_a": 15,
+   "scene_b": 61,
+   "inliers_ab": 67,
+   "inliers_ba": 52,
+   "angle_ab_deg": -0.05,
+   "aligned_hp_ncc": 0.73,
+   "counter_max_reldiff": 0.007
+  },
+  {
+   "scene_a": 24,
+   "scene_b": 126,
+   "inliers_ab": 1412,
+   "inliers_ba": 1494,
+   "angle_ab_deg": -0.14,
+   "aligned_hp_ncc": 0.856,
+   "counter_max_reldiff": 0.001
+  },
+  {
+   "scene_a": 25,
+   "scene_b": 47,
+   "inliers_ab": 1385,
+   "inliers_ba": 1381,
+   "angle_ab_deg": -0.05,
+   "aligned_hp_ncc": 0.962,
+   "counter_max_reldiff": 0.007
+  },
+  {
+   "scene_a": 27,
+   "scene_b": 103,
+   "inliers_ab": 1267,
+   "inliers_ba": 1253,
+   "angle_ab_deg": -0.26,
+   "aligned_hp_ncc": 0.916,
+   "counter_max_reldiff": 0.398
+  },
+  {
+   "scene_a": 28,
+   "scene_b": 95,
+   "inliers_ab": 1520,
+   "inliers_ba": 1517,
+   "angle_ab_deg": -0.01,
+   "aligned_hp_ncc": 0.943,
+   "counter_max_reldiff": 0.004
+  },
+  {
+   "scene_a": 29,
+   "scene_b": 51,
+   "inliers_ab": 1809,
+   "inliers_ba": 1831,
+   "angle_ab_deg": -0.04,
+   "aligned_hp_ncc": 0.854,
+   "counter_max_reldiff": 0.001
+  },
+  {
+   "scene_a": 30,
+   "scene_b": 33,
+   "inliers_ab": 16,
+   "inliers_ba": 19,
+   "angle_ab_deg": -0.15,
+   "aligned_hp_ncc": 0.823,
+   "counter_max_reldiff": 0.497
+  },
+  {
+   "scene_a": 32,
+   "scene_b": 86,
+   "inliers_ab": 169,
+   "inliers_ba": 172,
+   "angle_ab_deg": -94.06,
+   "aligned_hp_ncc": 0.46,
+   "counter_max_reldiff": 0.07
+  },
+  {
+   "scene_a": 32,
+   "scene_b": 89,
+   "inliers_ab": 392,
+   "inliers_ba": 347,
+   "angle_ab_deg": -90.46,
+   "aligned_hp_ncc": 0.447,
+   "counter_max_reldiff": 0.013
+  },
+  {
+   "scene_a": 35,
+   "scene_b": 121,
+   "inliers_ab": 1634,
+   "inliers_ba": 1621,
+   "angle_ab_deg": -0.02,
+   "aligned_hp_ncc": 0.92,
+   "counter_max_reldiff": 0.003
+  },
+  {
+   "scene_a": 38,
+   "scene_b": 60,
+   "inliers_ab": 1691,
+   "inliers_ba": 1685,
+   "angle_ab_deg": -0.15,
+   "aligned_hp_ncc": 0.908,
+   "counter_max_reldiff": 0.007
+  },
+  {
+   "scene_a": 38,
+   "scene_b": 61,
+   "inliers_ab": 259,
+   "inliers_ba": 239,
+   "angle_ab_deg": -0.08,
+   "aligned_hp_ncc": 0.794,
+   "counter_max_reldiff": 1.968
+  },
+  {
+   "scene_a": 39,
+   "scene_b": 52,
+   "inliers_ab": 131,
+   "inliers_ba": 113,
+   "angle_ab_deg": 0.56,
+   "aligned_hp_ncc": 0.622,
+   "counter_max_reldiff": 0.015
+  },
+  {
+   "scene_a": 45,
+   "scene_b": 70,
+   "inliers_ab": 174,
+   "inliers_ba": 168,
+   "angle_ab_deg": -28.9,
+   "aligned_hp_ncc": 0.769,
+   "counter_max_reldiff": 0.468
+  },
+  {
+   "scene_a": 45,
+   "scene_b": 118,
+   "inliers_ab": 1206,
+   "inliers_ba": 1198,
+   "angle_ab_deg": -29.23,
+   "aligned_hp_ncc": 0.891,
+   "counter_max_reldiff": 0.472
+  },
+  {
+   "scene_a": 49,
+   "scene_b": 52,
+   "inliers_ab": 17,
+   "inliers_ba": 17,
+   "angle_ab_deg": -68.73,
+   "aligned_hp_ncc": 0.431,
+   "counter_max_reldiff": 0.029
+  },
+  {
+   "scene_a": 50,
+   "scene_b": 91,
+   "inliers_ab": 749,
+   "inliers_ba": 714,
+   "angle_ab_deg": 0.2,
+   "aligned_hp_ncc": 0.756,
+   "counter_max_reldiff": 0.011
+  },
+  {
+   "scene_a": 56,
+   "scene_b": 102,
+   "inliers_ab": 483,
+   "inliers_ba": 533,
+   "angle_ab_deg": -89.69,
+   "aligned_hp_ncc": 0.781,
+   "counter_max_reldiff": 0.024
+  },
+  {
+   "scene_a": 59,
+   "scene_b": 97,
+   "inliers_ab": 1042,
+   "inliers_ba": 1077,
+   "angle_ab_deg": 0.22,
+   "aligned_hp_ncc": 0.917,
+   "counter_max_reldiff": 0.319
+  },
+  {
+   "scene_a": 59,
+   "scene_b": 108,
+   "inliers_ab": 1353,
+   "inliers_ba": 1531,
+   "angle_ab_deg": -0.08,
+   "aligned_hp_ncc": 0.817,
+   "counter_max_reldiff": 1.072
+  },
+  {
+   "scene_a": 60,
+   "scene_b": 61,
+   "inliers_ab": 249,
+   "inliers_ba": 248,
+   "angle_ab_deg": 0.1,
+   "aligned_hp_ncc": 0.812,
+   "counter_max_reldiff": 1.99
+  },
+  {
+   "scene_a": 64,
+   "scene_b": 123,
+   "inliers_ab": 984,
+   "inliers_ba": 809,
+   "angle_ab_deg": -0.02,
+   "aligned_hp_ncc": 0.662,
+   "counter_max_reldiff": 0.255
+  },
+  {
+   "scene_a": 70,
+   "scene_b": 118,
+   "inliers_ab": 267,
+   "inliers_ba": 261,
+   "angle_ab_deg": -0.37,
+   "aligned_hp_ncc": 0.88,
+   "counter_max_reldiff": 0.016
+  },
+  {
+   "scene_a": 76,
+   "scene_b": 92,
+   "inliers_ab": 1973,
+   "inliers_ba": 1979,
+   "angle_ab_deg": 0.23,
+   "aligned_hp_ncc": 0.84,
+   "counter_max_reldiff": 0.007
+  },
+  {
+   "scene_a": 77,
+   "scene_b": 88,
+   "inliers_ab": 1033,
+   "inliers_ba": 1010,
+   "angle_ab_deg": 0.23,
+   "aligned_hp_ncc": 0.827,
+   "counter_max_reldiff": 0.025
+  },
+  {
+   "scene_a": 80,
+   "scene_b": 110,
+   "inliers_ab": 98,
+   "inliers_ba": 110,
+   "angle_ab_deg": 0.18,
+   "aligned_hp_ncc": 0.84,
+   "counter_max_reldiff": 0.009
+  },
+  {
+   "scene_a": 86,
+   "scene_b": 89,
+   "inliers_ab": 174,
+   "inliers_ba": 152,
+   "angle_ab_deg": 4.08,
+   "aligned_hp_ncc": 0.16,
+   "counter_max_reldiff": 0.062
+  },
+  {
+   "scene_a": 97,
+   "scene_b": 108,
+   "inliers_ab": 1038,
+   "inliers_ba": 1025,
+   "angle_ab_deg": -0.29,
+   "aligned_hp_ncc": 0.787,
+   "counter_max_reldiff": 0.571
+  },
+  {
+   "scene_a": 98,
+   "scene_b": 124,
+   "inliers_ab": 871,
+   "inliers_ba": 867,
+   "angle_ab_deg": 0.08,
+   "aligned_hp_ncc": 0.883,
+   "counter_max_reldiff": 0.008
+  }
+ ],
+ "e1_pairs": [
+  [
+   4,
+   6
+  ],
+  [
+   5,
+   118
+  ],
+  [
+   24,
+   126
+  ],
+  [
+   25,
+   47
+  ],
+  [
+   28,
+   95
+  ],
+  [
+   35,
+   121
+  ],
+  [
+   38,
+   60
+  ],
+  [
+   38,
+   61
+  ],
+  [
+   50,
+   91
+  ],
+  [
+   59,
+   97
+  ],
+  [
+   60,
+   61
+  ],
+  [
+   76,
+   92
+  ],
+  [
+   77,
+   88
+  ]
+ ],
+ "e1_all_accepted": true,
+ "new_pairs_vs_candidate": [
+  [
+   1,
+   48
+  ],
+  [
+   3,
+   54
+  ],
+  [
+   5,
+   45
+  ],
+  [
+   5,
+   70
+  ],
+  [
+   8,
+   99
+  ],
+  [
+   9,
+   27
+  ],
+  [
+   9,
+   103
+  ],
+  [
+   14,
+   87
+  ],
+  [
+   15,
+   38
+  ],
+  [
+   15,
+   60
+  ],
+  [
+   15,
+   61
+  ],
+  [
+   27,
+   103
+  ],
+  [
+   29,
+   51
+  ],
+  [
+   30,
+   33
+  ],
+  [
+   32,
+   86
+  ],
+  [
+   32,
+   89
+  ],
+  [
+   39,
+   52
+  ],
+  [
+   45,
+   70
+  ],
+  [
+   45,
+   118
+  ],
+  [
+   49,
+   52
+  ],
+  [
+   56,
+   102
+  ],
+  [
+   59,
+   108
+  ],
+  [
+   64,
+   123
+  ],
+  [
+   70,
+   118
+  ],
+  [
+   80,
+   110
+  ],
+  [
+   86,
+   89
+  ],
+  [
+   97,
+   108
+  ],
+  [
+   98,
+   124
+  ]
+ ],
+ "n_groups": 44,
+ "n_groups_candidate": 64,
+ "multi_scene_groups": [
+  [
+   1,
+   48
+  ],
+  [
+   3,
+   54
+  ],
+  [
+   4,
+   6
+  ],
+  [
+   5,
+   45,
+   70,
+   118
+  ],
+  [
+   8,
+   99
+  ],
+  [
+   9,
+   27,
+   103
+  ],
+  [
+   14,
+   87
+  ],
+  [
+   15,
+   38,
+   60,
+   61
+  ],
+  [
+   24,
+   126
+  ],
+  [
+   25,
+   47
+  ],
+  [
+   28,
+   95
+  ],
+  [
+   29,
+   51
+  ],
+  [
+   30,
+   33
+  ],
+  [
+   32,
+   86,
+   89
+  ],
+  [
+   35,
+   121
+  ],
+  [
+   39,
+   49,
+   52
+  ],
+  [
+   50,
+   91
+  ],
+  [
+   56,
+   102
+  ],
+  [
+   59,
+   97,
+   108
+  ],
+  [
+   64,
+   123
+  ],
+  [
+   76,
+   92
+  ],
+  [
+   77,
+   88
+  ],
+  [
+   80,
+   110
+  ],
+  [
+   98,
+   124
+  ]
+ ],
+ "n_scenes_in_multi": 56,
+ "candidate_nested_in_v2": true,
+ "diagnostics": {
+  "scale_range_accepted": [
+   0.9779,
+   1.0255
+  ],
+  "aligned_hp_ncc_range_accepted": [
+   0.16,
+   0.962
+  ],
+  "triangle_rotation_closure": [
+   {
+    "triangle": [
+     5,
+     45,
+     70
+    ],
+    "closure_deg": -0.01
+   },
+   {
+    "triangle": [
+     5,
+     45,
+     118
+    ],
+    "closure_deg": 0.03
+   },
+   {
+    "triangle": [
+     5,
+     70,
+     118
+    ],
+    "closure_deg": 0.0
+   },
+   {
+    "triangle": [
+     9,
+     27,
+     103
+    ],
+    "closure_deg": -0.22
+   },
+   {
+    "triangle": [
+     15,
+     38,
+     60
+    ],
+    "closure_deg": 0.06
+   },
+   {
+    "triangle": [
+     15,
+     38,
+     61
+    ],
+    "closure_deg": -0.09
+   },
+   {
+    "triangle": [
+     15,
+     60,
+     61
+    ],
+    "closure_deg": -0.12
+   },
+   {
+    "triangle": [
+     32,
+     86,
+     89
+    ],
+    "closure_deg": 0.85
+   },
+   {
+    "triangle": [
+     38,
+     60,
+     61
+    ],
+    "closure_deg": 0.03
+   },
+   {
+    "triangle": [
+     45,
+     70,
+     118
+    ],
+    "closure_deg": -0.04
+   },
+   {
+    "triangle": [
+     59,
+     97,
+     108
+    ],
+    "closure_deg": 0.03
+   }
+  ],
+  "counter_both_axes_within_3pct": 24,
+  "counter_pairs_off_by_more_than_10pct": 15,
+  "sub_threshold_nonzero": [
+   {
+    "scene_a": 39,
+    "scene_b": 49,
+    "inliers_ab": 5,
+    "inliers_ba": 2,
+    "scale_ab": 0.9982,
+    "angle_ab_deg": 68.83,
+    "aligned_hp_ncc": 0.469
+   },
+   {
+    "scene_a": 8,
+    "scene_b": 126,
+    "inliers_ab": 4,
+    "inliers_ba": 0,
+    "scale_ab": 0.8588,
+    "angle_ab_deg": -169.77,
+    "aligned_hp_ncc": 0.006
+   },
+   {
+    "scene_a": 17,
+    "scene_b": 95,
+    "inliers_ab": 4,
+    "inliers_ba": 0,
+    "scale_ab": 1.0025,
+    "angle_ab_deg": 0.26,
+    "aligned_hp_ncc": 0.673
+   },
+   {
+    "scene_a": 14,
+    "scene_b": 126,
+    "inliers_ab": 0,
+    "inliers_ba": 3,
+    "scale_ab": 0.0,
+    "angle_ab_deg": -0.0,
+    "aligned_hp_ncc": 0.004
+   },
+   {
+    "scene_a": 43,
+    "scene_b": 64,
+    "inliers_ab": 0,
+    "inliers_ba": 3,
+    "scale_ab": NaN,
+    "angle_ab_deg": NaN,
+    "aligned_hp_ncc": 0.526
+   },
+   {
+    "scene_a": 9,
+    "scene_b": 86,
+    "inliers_ab": 0,
+    "inliers_ba": 2,
+    "scale_ab": NaN,
+    "angle_ab_deg": NaN,
+    "aligned_hp_ncc": 0.01
+   },
+   {
+    "scene_a": 17,
+    "scene_b": 28,
+    "inliers_ab": 0,
+    "inliers_ba": 2,
+    "scale_ab": 0.0,
+    "angle_ab_deg": 0.0,
+    "aligned_hp_ncc": 0.001
+   },
+   {
+    "scene_a": 32,
+    "scene_b": 87,
+    "inliers_ab": 2,
+    "inliers_ba": 0,
+    "scale_ab": 0.9398,
+    "angle_ab_deg": -56.3,
+    "aligned_hp_ncc": 0.002
+   },
+   {
+    "scene_a": 49,
+    "scene_b": 118,
+    "inliers_ab": 0,
+    "inliers_ba": 2,
+    "scale_ab": 0.0,
+    "angle_ab_deg": 0.0,
+    "aligned_hp_ncc": -0.015
+   },
+   {
+    "scene_a": 86,
+    "scene_b": 118,
+    "inliers_ab": 0,
+    "inliers_ba": 2,
+    "scale_ab": 0.0,
+    "angle_ab_deg": -0.0,
+    "aligned_hp_ncc": -0.008
+   }
+  ]
+ },
+ "cnn_split": {
+  "source": "cnn/runs_aug/pseudo_labels.csv (split per scene; train = pseudo-label training scenes; val + lowconf = the 48 held-out scenes of real150_aug_wide_heldout.csv)",
+  "n": {
+   "lowconf": 38,
+   "train": 28,
+   "val": 10
+  },
+  "cross_pairs": [
+   {
+    "pair": [
+     5,
+     45
+    ],
+    "score": 1231,
+    "splits": [
+     "train",
+     "val"
+    ],
+    "held_out": 45
+   },
+   {
+    "pair": [
+     8,
+     99
+    ],
+    "score": 262,
+    "splits": [
+     "lowconf",
+     "train"
+    ],
+    "held_out": 8
+   },
+   {
+    "pair": [
+     9,
+     27
+    ],
+    "score": 57,
+    "splits": [
+     "lowconf",
+     "train"
+    ],
+    "held_out": 9
+   },
+   {
+    "pair": [
+     15,
+     60
+    ],
+    "score": 19,
+    "splits": [
+     "lowconf",
+     "train"
+    ],
+    "held_out": 15
+   },
+   {
+    "pair": [
+     27,
+     103
+    ],
+    "score": 1267,
+    "splits": [
+     "train",
+     "lowconf"
+    ],
+    "held_out": 103
+   },
+   {
+    "pair": [
+     38,
+     60
+    ],
+    "score": 1691,
+    "splits": [
+     "lowconf",
+     "train"
+    ],
+    "held_out": 38
+   },
+   {
+    "pair": [
+     39,
+     52
+    ],
+    "score": 131,
+    "splits": [
+     "train",
+     "val"
+    ],
+    "held_out": 52
+   },
+   {
+    "pair": [
+     45,
+     70
+    ],
+    "score": 174,
+    "splits": [
+     "val",
+     "train"
+    ],
+    "held_out": 45
+   },
+   {
+    "pair": [
+     45,
+     118
+    ],
+    "score": 1206,
+    "splits": [
+     "val",
+     "train"
+    ],
+    "held_out": 45
+   },
+   {
+    "pair": [
+     49,
+     52
+    ],
+    "score": 17,
+    "splits": [
+     "train",
+     "val"
+    ],
+    "held_out": 52
+   },
+   {
+    "pair": [
+     60,
+     61
+    ],
+    "score": 249,
+    "splits": [
+     "train",
+     "lowconf"
+    ],
+    "held_out": 61
+   },
+   {
+    "pair": [
+     80,
+     110
+    ],
+    "score": 110,
+    "splits": [
+     "train",
+     "val"
+    ],
+    "held_out": 110
+   }
+  ],
+  "affected_heldout": [
+   {
+    "scene": 8,
+    "split": "lowconf",
+    "fabric_group": 8,
+    "train_scenes_in_group": [
+     99
+    ]
+   },
+   {
+    "scene": 9,
+    "split": "lowconf",
+    "fabric_group": 9,
+    "train_scenes_in_group": [
+     27
+    ]
+   },
+   {
+    "scene": 15,
+    "split": "lowconf",
+    "fabric_group": 15,
+    "train_scenes_in_group": [
+     60
+    ]
+   },
+   {
+    "scene": 38,
+    "split": "lowconf",
+    "fabric_group": 15,
+    "train_scenes_in_group": [
+     60
+    ]
+   },
+   {
+    "scene": 45,
+    "split": "val",
+    "fabric_group": 5,
+    "train_scenes_in_group": [
+     5,
+     70,
+     118
+    ]
+   },
+   {
+    "scene": 52,
+    "split": "val",
+    "fabric_group": 39,
+    "train_scenes_in_group": [
+     39,
+     49
+    ]
+   },
+   {
+    "scene": 61,
+    "split": "lowconf",
+    "fabric_group": 15,
+    "train_scenes_in_group": [
+     60
+    ]
+   },
+   {
+    "scene": 103,
+    "split": "lowconf",
+    "fabric_group": 9,
+    "train_scenes_in_group": [
+     27
+    ]
+   },
+   {
+    "scene": 110,
+    "split": "val",
+    "fabric_group": 80,
+    "train_scenes_in_group": [
+     80
+    ]
+   }
+  ],
+  "n_heldout": 48,
+  "n_heldout_clean": 39,
+  "val_sharing_train": [
+   45,
+   52,
+   110
+  ]
+ },
+ "sensitivity": {
+  "score>=100": {
+   "n_pairs": 32,
+   "n_groups": 50,
+   "dropped_pairs": [
+    [
+     1,
+     48
+    ],
+    [
+     3,
+     54
+    ],
+    [
+     9,
+     27
+    ],
+    [
+     9,
+     103
+    ],
+    [
+     15,
+     38
+    ],
+    [
+     15,
+     60
+    ],
+    [
+     15,
+     61
+    ],
+    [
+     30,
+     33
+    ],
+    [
+     49,
+     52
+    ]
+   ],
+   "cnn": {
+    "cross_pairs": [
+     {
+      "pair": [
+       5,
+       45
+      ],
+      "score": 1231,
+      "splits": [
+       "train",
+       "val"
+      ],
+      "held_out": 45
+     },
+     {
+      "pair": [
+       8,
+       99
+      ],
+      "score": 262,
+      "splits": [
+       "lowconf",
+       "train"
+      ],
+      "held_out": 8
+     },
+     {
+      "pair": [
+       27,
+       103
+      ],
+      "score": 1267,
+      "splits": [
+       "train",
+       "lowconf"
+      ],
+      "held_out": 103
+     },
+     {
+      "pair": [
+       38,
+       60
+      ],
+      "score": 1691,
+      "splits": [
+       "lowconf",
+       "train"
+      ],
+      "held_out": 38
+     },
+     {
+      "pair": [
+       39,
+       52
+      ],
+      "score": 131,
+      "splits": [
+       "train",
+       "val"
+      ],
+      "held_out": 52
+     },
+     {
+      "pair": [
+       45,
+       70
+      ],
+      "score": 174,
+      "splits": [
+       "val",
+       "train"
+      ],
+      "held_out": 45
+     },
+     {
+      "pair": [
+       45,
+       118
+      ],
+      "score": 1206,
+      "splits": [
+       "val",
+       "train"
+      ],
+      "held_out": 45
+     },
+     {
+      "pair": [
+       60,
+       61
+      ],
+      "score": 249,
+      "splits": [
+       "train",
+       "lowconf"
+      ],
+      "held_out": 61
+     },
+     {
+      "pair": [
+       80,
+       110
+      ],
+      "score": 110,
+      "splits": [
+       "train",
+       "val"
+      ],
+      "held_out": 110
+     }
+    ],
+    "affected_heldout": [
+     {
+      "scene": 8,
+      "split": "lowconf",
+      "fabric_group": 8,
+      "train_scenes_in_group": [
+       99
+      ]
+     },
+     {
+      "scene": 38,
+      "split": "lowconf",
+      "fabric_group": 38,
+      "train_scenes_in_group": [
+       60
+      ]
+     },
+     {
+      "scene": 45,
+      "split": "val",
+      "fabric_group": 5,
+      "train_scenes_in_group": [
+       5,
+       70,
+       118
+      ]
+     },
+     {
+      "scene": 52,
+      "split": "val",
+      "fabric_group": 39,
+      "train_scenes_in_group": [
+       39
+      ]
+     },
+     {
+      "scene": 61,
+      "split": "lowconf",
+      "fabric_group": 38,
+      "train_scenes_in_group": [
+       60
+      ]
+     },
+     {
+      "scene": 103,
+      "split": "lowconf",
+      "fabric_group": 27,
+      "train_scenes_in_group": [
+       27
+      ]
+     },
+     {
+      "scene": 110,
+      "split": "val",
+      "fabric_group": 80,
+      "train_scenes_in_group": [
+       80
+      ]
+     }
+    ],
+    "n_heldout": 48,
+    "n_heldout_clean": 41,
+    "val_sharing_train": [
+     45,
+     52,
+     110
+    ]
+   }
+  }
+ }
+}

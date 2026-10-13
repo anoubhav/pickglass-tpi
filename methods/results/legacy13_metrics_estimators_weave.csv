@@ -1,0 +1,7 @@
+estimator,crop,preproc,glare,kind,level,n,acc,n_unknown,confusion
+lattice,centre,lcn,mask,clean,0,13,0.7692307692307693,0,"{'plain': {'plain': 8, 'twill': 1}, 'satin': {'plain': 2, 'twill': 0}, 'twill': {'plain': 0, 'twill': 2}}"
+ours,centre,lcn,mask,clean,0,13,0.7692307692307693,0,"{'plain': {'plain': 8, 'twill': 1}, 'satin': {'plain': 2, 'twill': 0}, 'twill': {'plain': 0, 'twill': 2}}"
+lattice,gt,lcn,mask,clean,0,13,0.6923076923076923,1,"{'plain': {'plain': 8, 'twill': 1}, 'satin': {'plain': 1, 'twill': 0}, 'twill': {'plain': 1, 'twill': 1}, 'unknown': {'plain': 0, 'twill': 1}}"
+ours,gt,lcn,mask,clean,0,13,0.6923076923076923,1,"{'plain': {'plain': 8, 'twill': 1}, 'satin': {'plain': 1, 'twill': 0}, 'twill': {'plain': 1, 'twill': 1}, 'unknown': {'plain': 0, 'twill': 1}}"
+lattice,seg_final,lcn,mask,clean,0,13,0.7692307692307693,0,"{'plain': {'plain': 8, 'twill': 1}, 'satin': {'plain': 2, 'twill': 0}, 'twill': {'plain': 0, 'twill': 2}}"
+ours,seg_final,lcn,mask,clean,0,13,0.7692307692307693,0,"{'plain': {'plain': 8, 'twill': 1}, 'satin': {'plain': 2, 'twill': 0}, 'twill': {'plain': 0, 'twill': 2}}"

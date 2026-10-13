@@ -1,0 +1,3 @@
+83f41d3437af6339d78da7214e44b502  $HOME/pickglass/genai_sr/models/001_classicalSR_DF2K_s64w8_SwinIR-M_x4.pth
+99ec365d4afad750833258a1a24f44ca  $HOME/pickglass/genai_sr/models/RealESRGAN_x4plus.pth
+687ed97b28e180f03e6259e75676489c  $HOME/pickglass/genai_sr/models/invsr/noise_predictor_sd_turbo_v5.pth

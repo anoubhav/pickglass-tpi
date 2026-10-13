@@ -1,0 +1,14 @@
+{
+ "counting_py_md5": "2bf64a3ab76458d1e852248fb0a4047f",
+ "conf_model_md5": "3aea9b50e4b75e191cac08cb5161ca59",
+ "note": "counting.py differs from results/counting_frozen_final.py only in guide_positions() (display helper); estimators and conf model are the frozen ones.",
+ "preproc": "lcn",
+ "glare": "mask",
+ "max_work": 1024,
+ "estimators": [
+  "ours",
+  "gabor",
+  "fft"
+ ],
+ "wall_s": 546.4
+}

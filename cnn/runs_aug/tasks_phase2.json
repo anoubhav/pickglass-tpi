@@ -1,0 +1,432 @@
+[
+ {
+  "id": "V4_r18_rho1",
+  "deps": [],
+  "cmd": [
+   "train",
+   "--name",
+   "V4_r18_rho1",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "1.0",
+   "--steps",
+   "2000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250"
+  ]
+ },
+ {
+  "id": "V4_r18_rho05",
+  "deps": [],
+  "cmd": [
+   "train",
+   "--name",
+   "V4_r18_rho05",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "0.5",
+   "--steps",
+   "2000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250"
+  ]
+ },
+ {
+  "id": "V4_b0_rho1",
+  "deps": [],
+  "cmd": [
+   "train",
+   "--name",
+   "V4_b0_rho1",
+   "--backbone",
+   "efficientnet_b0",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2E_b0/model.pt",
+   "--policy",
+   "whitelist_ext",
+   "--real-frac",
+   "1.0",
+   "--steps",
+   "2000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250"
+  ]
+ },
+ {
+  "id": "V4_b0_rho05",
+  "deps": [],
+  "cmd": [
+   "train",
+   "--name",
+   "V4_b0_rho05",
+   "--backbone",
+   "efficientnet_b0",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2E_b0/model.pt",
+   "--policy",
+   "whitelist_ext",
+   "--real-frac",
+   "0.5",
+   "--steps",
+   "2000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250"
+  ]
+ },
+ {
+  "id": "ABLFT_seed0_r18",
+  "deps": [
+   "V4_r18_rho1",
+   "V4_r18_rho05"
+  ],
+  "cmd": [
+   "train",
+   "--name",
+   "ABLFT_seed0_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "{rho_r18}",
+   "--steps",
+   "1000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250",
+   "--seed",
+   "0"
+  ]
+ },
+ {
+  "id": "ABLFT_seed1_r18",
+  "deps": [
+   "V4_r18_rho1",
+   "V4_r18_rho05"
+  ],
+  "cmd": [
+   "train",
+   "--name",
+   "ABLFT_seed1_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "{rho_r18}",
+   "--steps",
+   "1000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250",
+   "--seed",
+   "1"
+  ]
+ },
+ {
+  "id": "ABLFT_seed2_r18",
+  "deps": [
+   "V4_r18_rho1",
+   "V4_r18_rho05"
+  ],
+  "cmd": [
+   "train",
+   "--name",
+   "ABLFT_seed2_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "{rho_r18}",
+   "--steps",
+   "1000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250",
+   "--seed",
+   "2"
+  ]
+ },
+ {
+  "id": "ABLFT_geometry_r18",
+  "deps": [
+   "V4_r18_rho1",
+   "V4_r18_rho05"
+  ],
+  "cmd": [
+   "train",
+   "--name",
+   "ABLFT_geometry_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "{rho_r18}",
+   "--steps",
+   "1000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250",
+   "--drop",
+   "geometry"
+  ]
+ },
+ {
+  "id": "ABLFT_photometric_r18",
+  "deps": [
+   "V4_r18_rho1",
+   "V4_r18_rho05"
+  ],
+  "cmd": [
+   "train",
+   "--name",
+   "ABLFT_photometric_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "{rho_r18}",
+   "--steps",
+   "1000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250",
+   "--drop",
+   "photometric"
+  ]
+ },
+ {
+  "id": "ABLFT_compression_blur_r18",
+  "deps": [
+   "V4_r18_rho1",
+   "V4_r18_rho05"
+  ],
+  "cmd": [
+   "train",
+   "--name",
+   "ABLFT_compression_blur_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "{rho_r18}",
+   "--steps",
+   "1000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250",
+   "--drop",
+   "compression_blur"
+  ]
+ },
+ {
+  "id": "ABLFT_illumination_r18",
+  "deps": [
+   "V4_r18_rho1",
+   "V4_r18_rho05"
+  ],
+  "cmd": [
+   "train",
+   "--name",
+   "ABLFT_illumination_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "{rho_r18}",
+   "--steps",
+   "1000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250",
+   "--drop",
+   "illumination"
+  ]
+ },
+ {
+  "id": "ABLFT_zoom_r18",
+  "deps": [
+   "V4_r18_rho1",
+   "V4_r18_rho05"
+  ],
+  "cmd": [
+   "train",
+   "--name",
+   "ABLFT_zoom_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "{rho_r18}",
+   "--steps",
+   "1000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250",
+   "--drop",
+   "zoom"
+  ]
+ },
+ {
+  "id": "ABLFT_tiling_r18",
+  "deps": [
+   "V4_r18_rho1",
+   "V4_r18_rho05"
+  ],
+  "cmd": [
+   "train",
+   "--name",
+   "ABLFT_tiling_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "{rho_r18}",
+   "--steps",
+   "1000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250",
+   "--drop",
+   "tiling"
+  ]
+ },
+ {
+  "id": "ABLFT_optics_r18",
+  "deps": [
+   "V4_r18_rho1",
+   "V4_r18_rho05"
+  ],
+  "cmd": [
+   "train",
+   "--name",
+   "ABLFT_optics_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "{rho_r18}",
+   "--steps",
+   "1000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250",
+   "--drop",
+   "optics"
+  ]
+ },
+ {
+  "id": "ABLFT_phone_r18",
+  "deps": [
+   "V4_r18_rho1",
+   "V4_r18_rho05"
+  ],
+  "cmd": [
+   "train",
+   "--name",
+   "ABLFT_phone_r18",
+   "--backbone",
+   "resnet18",
+   "--workers",
+   "24",
+   "--init",
+   "runs_aug/V2O_r18/model.pt",
+   "--policy",
+   "whitelist_optics",
+   "--real-frac",
+   "{rho_r18}",
+   "--steps",
+   "1000",
+   "--lr",
+   "1e-4",
+   "--eval-every",
+   "250",
+   "--drop",
+   "phone"
+  ]
+ }
+]

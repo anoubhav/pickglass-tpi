@@ -1,0 +1,202 @@
+{
+ "source": "paper/tools/scenes76_labelfree.py",
+ "n_files": 150,
+ "n_scenes": 76,
+ "kinds": {
+  "rep": 76,
+  "quarter_res_copy": 47,
+  "notebook_synthetic": 11,
+  "png_copy": 10,
+  "byte_identical": 6
+ },
+ "reps_full": 50,
+ "reps_quarter_only": 26,
+ "S_full": {
+  "min": 1837.6530151693291,
+  "median": 1891.5179775037332,
+  "max": 2031.80590578236
+ },
+ "S_quarter": {
+  "min": 485.04232706133087,
+  "median": 504.61355505683673,
+  "max": 520.7357524474382
+ },
+ "side_ratio_max_reps": 1.1143909330101172,
+ "side_ratio_gt105_reps": 13,
+ "sat240_gt1pct_reps": 5,
+ "sat240_max_reps": 0.0478820176390352,
+ "real_files": 139,
+ "real_file_sizes": {
+  "864x1152": 48,
+  "1152x864": 31,
+  "4352x3264": 2,
+  "4608x3456": 58
+ },
+ "scene_size_hist": {
+  "1": 22,
+  "2": 39,
+  "3": 12,
+  "4": 1,
+  "5": 2
+ },
+ "scenes_with_quarter_copy": 47,
+ "swap_hv_real_copies": 36,
+ "swap_hv_notebook": 9,
+ "iaa_v2": [
+  3,
+  7,
+  14,
+  18,
+  33,
+  34,
+  35,
+  38,
+  39,
+  49,
+  50,
+  55,
+  67,
+  76,
+  77,
+  89,
+  97,
+  99,
+  107,
+  124
+ ],
+ "iaa_v2_full": 13,
+ "iaa_v2_quarter_only": 7,
+ "tab3_max_abs_shift_files_vs_scenes_pp": 17.754385964912274,
+ "conf_spearman_pooled_scenes": -0.5498706764288,
+ "conf_spearman_pooled_files": -0.565932226101069,
+ "conf_spearman_within_condition_median_scenes": -0.4762972957219752,
+ "conf_spearman_within_condition_range_scenes": [
+  -0.8052470264038467,
+  0.14775523601520066
+ ],
+ "conf_quintile_within5_pct_scenes": [
+  23.239436619718308,
+  60.705882352941174,
+  81.92488262910797,
+  90.8235294117647,
+  96.94835680751174
+ ],
+ "n_degraded_crops_scenes": 2128,
+ "ruler_scenes": {
+  "n": 76,
+  "calibrated": 75,
+  "corner_err_median_mm": 0.1881600921714659,
+  "corner_err_ci": [
+   0.1749427260457073,
+   0.2215703169408916
+  ],
+  "within5_pct": 92.10526315789474,
+  "within5_ci": [
+   83.8270648063688,
+   96.33164944785457
+  ],
+  "seg_within5_pct": 42.10526315789473,
+  "seg_within5_ci": [
+   31.64844262757472,
+   53.3217984497584
+  ],
+  "mcnemar_ruler_vs_seg": {
+   "a_only": 39,
+   "b_only": 1,
+   "p": 7.457856554538012e-11
+  },
+  "pitch_ratio_median": 2.505667906982607,
+  "pitch_ratio_ci": [
+   2.499780243534506,
+   2.510306914752877
+  ],
+  "W_div_median": 25.983967061177704,
+  "W_div_ci": [
+   25.95924702906204,
+   26.025646668347708
+  ]
+ },
+ "cascade_clean_escalated_scenes": [
+  15,
+  76
+ ],
+ "cascade_clean_escalated_files": [
+  25,
+  150
+ ],
+ "pairs": {
+  "n_pairs": 62,
+  "n_scenes": 47,
+  "n_counts": 124,
+  "median_absdrift_pct": 0.571155315025345,
+  "median_absdrift_scene_ci": [
+   0.40731529414846,
+   0.66987590753033
+  ],
+  "gt10_counts": 9,
+  "gt10_pct": 7.258064516129033,
+  "gt10_scene_ci": [
+   2.306818181818183,
+   13.333333333333334
+  ],
+  "median_signed_pct": 0.11626837307337501,
+  "ppt_quarter_median": 8.350648523271438,
+  "S_quarter_median": 475.0,
+  "S_full_median": 1895.0
+ },
+ "fabric_pairs": [
+  [
+   4,
+   6
+  ],
+  [
+   5,
+   118
+  ],
+  [
+   24,
+   126
+  ],
+  [
+   25,
+   47
+  ],
+  [
+   28,
+   95
+  ],
+  [
+   35,
+   121
+  ],
+  [
+   38,
+   60
+  ],
+  [
+   38,
+   61
+  ],
+  [
+   50,
+   91
+  ],
+  [
+   59,
+   97
+  ],
+  [
+   60,
+   61
+  ],
+  [
+   76,
+   92
+  ],
+  [
+   77,
+   88
+  ]
+ ],
+ "fabric_groups": 64
+}

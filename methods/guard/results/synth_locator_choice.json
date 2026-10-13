@@ -1,0 +1,15 @@
+{
+ "choice": {
+  "dead_delta": 0.8,
+  "live_eps": 0.5,
+  "ref_win": [
+   0.3,
+   0.5
+  ],
+  "mid_frac": 0.3
+ },
+ "score": 0.3789426134896626,
+ "ratio_median": 1.2330307803068532,
+ "detected": 0.9991666666666666,
+ "note": "locator scored on up-sampled x4/x8 synthetic only (score = mean |log(n_eff/n_true) - median| + 0.5 range of per-condition medians + 0.5 missed detections; depth_min not applied); tie-break within 3 % of the best score: smallest dead_delta"
+}

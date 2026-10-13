@@ -1,0 +1,13 @@
+{
+ "n": 150,
+ "fired": 0,
+ "eligible": 1,
+ "chg1": 0,
+ "chg5": 0,
+ "scenes_fired": 0,
+ "flag_upsampled": 9,
+ "flag_insufficient": 34,
+ "repro_identical_1e6": 150,
+ "repro_max_rel": 2.220446049250313e-16,
+ "wall_s": 33
+}

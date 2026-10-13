@@ -1,0 +1,657 @@
+#!/usr/bin/env python
+"""Procedural synthetic woven-fabric generator for pick-glass photos.
+
+Renders a 1-inch pick-glass window (plus the surrounding dark frame with tick
+marks) over a procedurally woven fabric, then degrades it with a phone-camera
+model, and finally rectifies the window back to a square crop exactly as the
+real pipeline does (using slightly *noisy* corners, to mimic imperfect
+segmentation).  Every sample comes with exact labels.
+
+Weaves (fine name -> coarse class)
+    plain      1/1                         -> plain
+    basket22   2/2 matt                    -> other
+    twill21 / twill12, twill31 / twill13,
+    twill22, herringbone                   -> twill
+    satin5 (warp-faced) / sateen5 (weft-faced) -> satin
+
+Labels (per sample)
+    epi      : warp ends per inch  = vertical yarns per inch   (= h_count)
+    ppi      : weft picks per inch = horizontal yarns per inch (= v_count)
+    h_count, v_count : same numbers under the CNN axis convention
+    weave, weave_coarse, rotation_deg, skew_deg, r_eff (effective px/inch of
+    the simulated camera), blur_sigma_px, jpeg_q, glare, shadow, corners
+    (window corners in the full scene image), ...
+
+Pipeline per sample
+    1. fabric reflectance + height map, rendered analytically with
+       super-sampling (weave matrix, yarn cross-section, float diving,
+       slubs, fibre twist striations, per-yarn colour, yarn-dyed stripes /
+       checks, holes, waviness, rotation, skew, density drift)
+    2. illumination: exposure, gradient, vignetting, hard cast shadow with a
+       soft (often curved) edge, LED specular glare on yarn crowns, frame
+       shadow band, white-balance cast
+    3. pick-glass frame (dark, slightly glossy) with white tick marks
+    4. random perspective homography
+    5. optics: defocus blur, optional motion blur, sensor resampling to the
+       camera's px/inch, Poisson-Gaussian noise, gamma, JPEG
+    6. rectification of the window with jittered corners -> square crop
+
+Usage
+    python synth.py --out data/synth_train --n 4000 --seed 0 --workers 10
+    python synth.py --sheet figs/synth_examples.jpg      # 4x4 contact sheet
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import os
+import time
+from dataclasses import dataclass, asdict, field
+from multiprocessing import Pool
+
+import cv2
+import numpy as np
+
+COARSE = {"plain": "plain", "basket22": "other", "twill21": "twill", "twill12": "twill",
+          "twill31": "twill", "twill13": "twill", "twill22": "twill",
+          "herringbone": "twill", "satin5": "satin", "sateen5": "satin"}
+COARSE_CLASSES = ["plain", "twill", "satin", "other"]
+# Generator profiles.  v1 = the first version (data/synth_train, data/synth_val).
+# v2 = realism fixes from the quantitative real-vs-synthetic check
+# (realism_stats.py on the 150 real crops): real photos have deep hand/phone
+# shadows (p90 dark-area fraction 0.18 vs 0.00 in v1), almost no clipped glare
+# (p90 clipped fraction 0.1% vs 8% in v1) and lower colour saturation
+# (median HSV-S 45 vs 93 in v1).
+PROFILE = os.environ.get("SYNTH_PROFILE", "v2")
+WEAVE_PROBS = {"plain": 0.36, "twill21": 0.10, "twill12": 0.04, "twill31": 0.08,
+               "twill13": 0.03, "twill22": 0.12, "herringbone": 0.07, "satin5": 0.08,
+               "sateen5": 0.04, "basket22": 0.08}
+
+
+# ---------------------------------------------------------------------------
+# weave matrices: W[i, j] = 1 if warp j (vertical yarn) is OVER weft i
+# ---------------------------------------------------------------------------
+def weave_matrix(name: str, rng: np.random.Generator) -> np.ndarray:
+    s = int(rng.choice([-1, 1]))  # S / Z diagonal direction
+    if name == "plain":
+        i, j = np.mgrid[0:2, 0:2]
+        return ((i + j) % 2 == 0).astype(np.uint8)
+    if name == "basket22":
+        i, j = np.mgrid[0:4, 0:4]
+        return (((i // 2) + (j // 2)) % 2 == 0).astype(np.uint8)
+    if name.startswith("twill"):
+        a, b = int(name[5]), int(name[6])
+        n = a + b
+        i, j = np.mgrid[0:n, 0:n]
+        return (((j + s * i) % n) < a).astype(np.uint8)
+    if name == "herringbone":
+        a, b = (2, 2) if rng.random() < 0.6 else (2, 1)
+        n = a + b
+        k = int(rng.integers(2, 5)) * n          # block width in ends (multiple of n)
+        rw = 2 * k
+        i, j = np.mgrid[0:n, 0:rw]
+        sj = np.where((j // k) % 2 == 0, 1, -1)  # diagonal reverses every k ends
+        return (((j + sj * i) % n) < a).astype(np.uint8)
+    if name in ("satin5", "sateen5"):
+        move = int(rng.choice([2, 3]))
+        i, j = np.mgrid[0:5, 0:5]
+        down = ((j - move * i) % 5) == 0          # one interlacing per row
+        W = (~down).astype(np.uint8)              # warp-faced satin
+        return W if name == "satin5" else 1 - W   # weft-faced sateen
+    raise ValueError(name)
+
+
+# ---------------------------------------------------------------------------
+# small procedural-noise helpers (all vectorised)
+# ---------------------------------------------------------------------------
+def smooth_field(shape, rng, scale_px, amp=1.0):
+    """Band-limited random field: upsampled white noise (zero mean, ~unit std)."""
+    h, w = shape
+    gh, gw = max(2, int(h / scale_px) + 3), max(2, int(w / scale_px) + 3)
+    g = rng.standard_normal((gh, gw)).astype(np.float32)
+    f = cv2.resize(g, (w, h), interpolation=cv2.INTER_CUBIC)
+    return amp * f / (f.std() + 1e-6)
+
+
+def value_noise_2d(a, b, table):
+    """Bilinear value noise indexed by continuous coords a (rows) b (cols)."""
+    th, tw = table.shape
+    a0 = np.floor(a).astype(np.int64)
+    b0 = np.floor(b).astype(np.int64)
+    fa = (a - a0).astype(np.float32)
+    fb = (b - b0).astype(np.float32)
+    fa = fa * fa * (3 - 2 * fa)
+    fb = fb * fb * (3 - 2 * fb)
+    a0m, a1m = a0 % th, (a0 + 1) % th
+    b0m, b1m = b0 % tw, (b0 + 1) % tw
+    v00, v01 = table[a0m, b0m], table[a0m, b1m]
+    v10, v11 = table[a1m, b0m], table[a1m, b1m]
+    return (v00 * (1 - fb) + v01 * fb) * (1 - fa) + (v10 * (1 - fb) + v11 * fb) * fa
+
+
+def smoothstep(e0, e1, x):
+    t = np.clip((x - e0) / (e1 - e0), 0.0, 1.0)
+    return t * t * (3 - 2 * t)
+
+
+# ---------------------------------------------------------------------------
+# colours
+# ---------------------------------------------------------------------------
+def random_textile_colour(rng) -> np.ndarray:
+    """Linear-RGB colour with a bias toward the blues/greys/navies seen in the
+    real data, plus whites, blacks, browns, purples and reds."""
+    kind = rng.choice(["blue", "grey", "navy", "white", "black", "brown", "purple",
+                       "red", "green", "any"],
+                      p=[0.22, 0.14, 0.12, 0.10, 0.08, 0.08, 0.07, 0.06, 0.04, 0.09])
+    hsv = {"blue": (rng.uniform(200, 230), rng.uniform(0.35, 0.8), rng.uniform(0.45, 0.9)),
+           "navy": (rng.uniform(210, 235), rng.uniform(0.4, 0.8), rng.uniform(0.15, 0.4)),
+           "grey": (rng.uniform(0, 360), rng.uniform(0.0, 0.12), rng.uniform(0.3, 0.8)),
+           "white": (rng.uniform(30, 60), rng.uniform(0.0, 0.1), rng.uniform(0.8, 0.97)),
+           "black": (rng.uniform(0, 360), rng.uniform(0.0, 0.2), rng.uniform(0.06, 0.18)),
+           "brown": (rng.uniform(15, 40), rng.uniform(0.3, 0.7), rng.uniform(0.3, 0.7)),
+           "purple": (rng.uniform(255, 290), rng.uniform(0.35, 0.75), rng.uniform(0.35, 0.8)),
+           "red": (rng.uniform(345, 375) % 360, rng.uniform(0.4, 0.85), rng.uniform(0.35, 0.85)),
+           "green": (rng.uniform(80, 160), rng.uniform(0.3, 0.7), rng.uniform(0.3, 0.75)),
+           "any": (rng.uniform(0, 360), rng.uniform(0.1, 0.9), rng.uniform(0.15, 0.95))}[kind]
+    h, s, v = hsv
+    if PROFILE != "v1":           # real factory fabrics are mostly muted
+        s *= float(rng.uniform(0.35, 1.0))
+    c = cv2.cvtColor(np.array([[[h / 2, s * 255, v * 255]]], np.uint8), cv2.COLOR_HSV2RGB)
+    srgb = c[0, 0].astype(np.float32) / 255.0
+    return srgb ** 2.2  # to linear
+
+
+def yarn_colour_sequence(rng, base: np.ndarray, n_yarns: int, style: str) -> np.ndarray:
+    """Per-yarn colours (n_yarns x 3, linear RGB)."""
+    cols = np.repeat(base[None], n_yarns, 0).copy()
+    if style in ("stripe", "check"):
+        # repeating sequence of colour groups (yarn-dyed pattern)
+        n_groups = int(rng.integers(2, 4))
+        palette = [base] + [random_textile_colour(rng) for _ in range(n_groups - 1)]
+        widths = [int(rng.integers(2, 40))] + [int(rng.integers(1, 14)) for _ in range(n_groups - 1)]
+        seq = np.concatenate([np.full(w, k) for k, w in enumerate(widths)])
+        idx = seq[np.arange(n_yarns) % len(seq)]
+        cols = np.stack([palette[k] for k in idx])
+    if style == "melange":
+        cols = cols * rng.uniform(0.6, 1.4, (n_yarns, 1)).astype(np.float32)
+    # small per-yarn variation always
+    cols = cols * (1 + 0.06 * rng.standard_normal((n_yarns, 1))).astype(np.float32)
+    return np.clip(cols, 0, 1).astype(np.float32)
+
+
+# ---------------------------------------------------------------------------
+# parameters
+# ---------------------------------------------------------------------------
+@dataclass
+class SynthParams:
+    weave: str = "plain"
+    epi: float = 80.0          # warp ends / inch  (vertical yarns)
+    ppi: float = 70.0          # weft picks / inch (horizontal yarns)
+    rotation_deg: float = 0.0  # fabric rotation relative to the window
+    skew_deg: float = 0.0      # weft bow / skew (non-orthogonality)
+    warp_width: float = 0.8    # yarn diameter as a fraction of spacing
+    weft_width: float = 0.8
+    density_drift: float = 0.02
+    waviness: float = 0.3      # in yarn spacings
+    colour_style: str = "solid"
+    r_eff: float = 600.0       # camera px / inch of the window after optics
+    r_sensor: float = 600.0    # px / inch at which noise/JPEG are applied
+    blur_sigma_px: float = 0.8
+    motion_px: float = 0.0
+    noise: float = 0.01
+    jpeg_q: int = 85
+    exposure: float = 1.0
+    glare: float = 0.0
+    shadow: float = 0.0
+    frame_margin: float = 0.18  # inches of frame rendered around the window
+    persp: float = 0.03         # corner jitter (fraction of side) of the homography
+    seg_jitter: float = 0.008   # corner noise used when rectifying (fraction)
+    tick_pitch: float = 20.0    # ticks per inch on the frame
+    seed: int = 0
+    extra: dict = field(default_factory=dict)
+
+
+def _glare(rng):
+    if PROFILE == "v1":
+        return float(rng.uniform(0.3, 2.0) if rng.random() < 0.45 else 0.0)
+    return float(rng.uniform(0.08, 0.6) if rng.random() < 0.35 else 0.0)
+
+
+def _shadow(rng):
+    if PROFILE == "v1":
+        return float(rng.uniform(0.25, 0.75) if rng.random() < 0.5 else 0.0)
+    if rng.random() >= 0.6:
+        return 0.0
+    # most shadows are deep, hard hand / phone shadows as in the real set
+    return float(rng.uniform(0.25, 0.75) if rng.random() < 0.35 else rng.uniform(0.75, 0.95))
+
+
+def sample_params(rng: np.random.Generator, seed: int = 0, density_range=(30, 200)) -> SynthParams:
+    names = list(WEAVE_PROBS)
+    weave = str(rng.choice(names, p=np.array(list(WEAVE_PROBS.values())) / sum(WEAVE_PROBS.values())))
+    lo, hi = density_range
+    # log-uniform densities, with ppi correlated to epi (typical ppi/epi 0.5-1.2)
+    epi = float(np.exp(rng.uniform(np.log(lo), np.log(hi))))
+    ratio = float(np.exp(rng.normal(np.log(0.85), 0.22)))
+    ppi = float(np.clip(epi * ratio, lo, hi))
+    if rng.random() < 0.5:  # randomise which axis is denser
+        epi, ppi = ppi, epi
+    # camera: effective resolution must resolve >= ~2.6 px per thread
+    need = 2.6 * max(epi, ppi)
+    r_eff = float(max(need, np.exp(rng.uniform(np.log(380), np.log(1100)))))
+    r_sensor = float(r_eff if rng.random() < 0.55 else rng.uniform(r_eff, max(r_eff, 1900)))
+    return SynthParams(
+        weave=weave, epi=epi, ppi=ppi,
+        rotation_deg=float(rng.normal(0, 3.0) if rng.random() < 0.85 else rng.uniform(-12, 12)),
+        skew_deg=float(rng.normal(0, 1.2)),
+        warp_width=float(rng.uniform(0.7, 1.05)), weft_width=float(rng.uniform(0.7, 1.05)),
+        density_drift=float(rng.uniform(0.0, 0.04)),
+        waviness=float(rng.uniform(0.05, 0.6)),
+        colour_style=str(rng.choice(["solid", "two_tone", "stripe", "check", "melange"],
+                                    p=[0.33, 0.22, 0.17, 0.15, 0.13])),
+        r_eff=r_eff, r_sensor=r_sensor,
+        blur_sigma_px=float(rng.uniform(0.3, 1.6)),
+        motion_px=float(rng.uniform(1.5, 6.0) if rng.random() < 0.15 else 0.0),
+        noise=float(np.exp(rng.uniform(np.log(0.004), np.log(0.05)))),
+        jpeg_q=int(rng.integers(35, 97)),
+        exposure=float(np.exp(rng.normal(np.log(1.0), 0.45))),
+        glare=_glare(rng), shadow=_shadow(rng),
+        frame_margin=0.18,
+        persp=float(rng.uniform(0.0, 0.06)),
+        seg_jitter=float(rng.uniform(0.002, 0.015)),
+        tick_pitch=float(rng.choice([16.0, 20.0, 25.4])),
+        seed=seed,
+    )
+
+
+# ---------------------------------------------------------------------------
+# rendering
+# ---------------------------------------------------------------------------
+def render_fabric(p: SynthParams, rng, ppi_r: float, side_px: int, x0_in: float):
+    """Render reflectance (linear RGB) and height map of the fabric.
+
+    Pixel (r, c) covers the inch coordinate x = x0_in + (c + .5)/ppi_r,
+    y = x0_in + (r + .5)/ppi_r ; the window is [0,1]^2.
+    """
+    H = W_ = side_px
+    yy, xx = np.mgrid[0:H, 0:W_].astype(np.float32)
+    x = x0_in + (xx + 0.5) / ppi_r - 0.5   # centred at the window centre
+    y = x0_in + (yy + 0.5) / ppi_r - 0.5
+    th = math.radians(p.rotation_deg)
+    sk = math.radians(p.skew_deg)
+    # fabric coordinates (inches): u across warp yarns, v across weft yarns
+    u = math.cos(th) * x + math.sin(th) * y
+    v = -math.sin(th + sk) * x + math.cos(th + sk) * y
+    # waviness + density drift (smooth displacement, in inches)
+    scale = side_px / 3.0
+    du = smooth_field((H, W_), rng, scale, p.waviness / p.epi)
+    dv = smooth_field((H, W_), rng, scale, p.waviness / p.ppi)
+    drift_u = smooth_field((H, W_), rng, side_px / 1.5, p.density_drift)
+    drift_v = smooth_field((H, W_), rng, side_px / 1.5, p.density_drift)
+    U = (u + du) * p.epi * (1 + drift_u) + rng.uniform(0, 100)
+    V = (v + dv) * p.ppi * (1 + drift_v) + rng.uniform(0, 100)
+    j = np.floor(U).astype(np.int32)
+    i = np.floor(V).astype(np.int32)
+    fu = (U - j).astype(np.float32)
+    fv = (V - i).astype(np.float32)
+
+    Wm = weave_matrix(p.weave, rng)
+    rh, rw = Wm.shape
+    up = Wm[i % rh, j % rw].astype(bool)              # warp over weft here
+    up_prev = Wm[(i - 1) % rh, j % rw].astype(bool)
+    up_next = Wm[(i + 1) % rh, j % rw].astype(bool)
+    upL = Wm[i % rh, (j - 1) % rw].astype(bool)
+    upR = Wm[i % rh, (j + 1) % rw].astype(bool)
+
+    # slubs: per-yarn width modulation along the yarn
+    # (cheap per-yarn sinusoid: random slub frequency / phase for every yarn)
+    tab = rng.standard_normal((997, 256)).astype(np.float32)
+    n_t = 1024
+    fr = rng.uniform(0.02, 0.15, (2, n_t)).astype(np.float32)
+    ph = rng.uniform(0, 1, (2, n_t)).astype(np.float32)
+    amp_s = rng.uniform(0.0, 0.15)
+    slub_w = 1 + amp_s * np.sin(2 * np.pi * (V * fr[0][j % n_t] + ph[0][j % n_t]))
+    slub_f = 1 + amp_s * np.sin(2 * np.pi * (U * fr[1][i % n_t] + ph[1][i % n_t]))
+    ww = p.warp_width * slub_w
+    wf = p.weft_width * slub_f
+    # cross-section profiles (0 outside the yarn, 1 at the crown)
+    pw = 1 - ((fu - 0.5) / (ww / 2)) ** 2
+    pf = 1 - ((fv - 0.5) / (wf / 2)) ** 2
+    in_w = pw > 0
+    in_f = pf > 0
+    hw = np.sqrt(np.clip(pw, 0, 1))
+    hf = np.sqrt(np.clip(pf, 0, 1))
+    # float diving: yarn dips where it passes under at the neighbouring cell
+    dive = 0.42
+    lo_d = rng.uniform(0.2, 0.55)   # how deep the yarn dives at the end of a float
+    a_w = np.minimum(np.where(up_prev, 1.0, lo_d + (1 - lo_d) * smoothstep(0, dive, fv)),
+                     np.where(up_next, 1.0, lo_d + (1 - lo_d) * smoothstep(0, dive, 1 - fv)))
+    a_f = np.minimum(np.where(~upL, 1.0, lo_d + (1 - lo_d) * smoothstep(0, dive, fu)),
+                     np.where(~upR, 1.0, lo_d + (1 - lo_d) * smoothstep(0, dive, 1 - fu)))
+    warp_vis = (up & in_w) | (~up & in_w & ~in_f)
+    weft_vis = (~up & in_f) | (up & in_f & ~in_w)
+    hole = ~(warp_vis | weft_vis)
+    # depth: a yarn visible beneath the other (in a gap) is lower / darker
+    depth_w = np.where(up, 1.0, 0.55)
+    depth_f = np.where(~up, 1.0, 0.55)
+    height = np.where(warp_vis, hw * a_w * depth_w, 0) + np.where(weft_vis, hf * a_f * depth_f, 0)
+
+    # colours
+    base_w = random_textile_colour(rng)
+    style = p.colour_style
+    if style in ("solid", "stripe", "melange"):
+        base_f = base_w * rng.uniform(0.8, 1.2) if rng.random() < 0.7 else random_textile_colour(rng)
+    else:  # two_tone (denim / chambray) or check
+        base_f = random_textile_colour(rng)
+    n_y = 4096
+    cw = yarn_colour_sequence(rng, base_w, n_y, "stripe" if style in ("stripe", "check") else style)
+    cf = yarn_colour_sequence(rng, base_f.astype(np.float32), n_y,
+                              "stripe" if style == "check" else ("melange" if style == "melange" else "solid"))
+    col_w = cw[j % n_y]
+    col_f = cf[i % n_y]
+    # fibre twist striations along the yarn (diagonal streaks) + hairiness
+    tw = rng.uniform(0.3, 1.2) * rng.choice([-1, 1])
+    tex_amp = rng.uniform(0.12, 0.3)
+    # one value-noise evaluation, using the coordinates of whichever yarn is visible
+    ta = np.where(warp_vis, V * 6.0 + fu * 3 * tw, U * 6.0 + fv * 3 * tw)
+    tb = np.where(warp_vis, fu * 4 + j * 7.3, fv * 4 + i * 5.1 + 300)
+    tex_w = tex_f = 1 + tex_amp * value_noise_2d(ta, tb, tab)
+    amb = rng.uniform(0.15, 0.4)    # ambient level in yarn crevices
+    shade_w = (amb + (1 - amb) * hw * a_w * depth_w) * tex_w
+    shade_f = (amb + (1 - amb) * hf * a_f * depth_f) * tex_f
+    hole_col = np.array(random_textile_colour(rng) * rng.uniform(0.05, 0.35), np.float32)
+    img = np.where(warp_vis[..., None], col_w * shade_w[..., None], 0) \
+        + np.where(weft_vis[..., None], col_f * shade_f[..., None], 0) \
+        + np.where(hole[..., None], hole_col[None, None, :], 0)
+    # directional (Lambertian) shading from the yarn height map: gives the
+    # rice-grain 3-D look of real floats under a side-lit LED
+    spacing_px = 0.5 * ppi_r * (1 / p.epi + 1 / p.ppi)
+    hs = cv2.GaussianBlur(height, (0, 0), max(0.6, 0.06 * spacing_px)) * (0.45 * spacing_px)
+    gy_, gx_ = np.gradient(hs)
+    elev = math.radians(rng.uniform(25, 70))
+    azim = rng.uniform(0, 2 * np.pi)
+    lx, ly, lz = math.cos(elev) * math.cos(azim), math.cos(elev) * math.sin(azim), math.sin(elev)
+    lam = np.clip((-gx_ * lx - gy_ * ly + lz) / np.sqrt(gx_ ** 2 + gy_ ** 2 + 1), 0, 1)
+    k_dir = rng.uniform(0.3, 0.8)
+    img = img * ((1 - k_dir) + k_dir * lam / max(lz, 1e-3) * 0.8)[..., None]
+    # low-frequency fabric non-uniformity (dye, wrinkles)
+    img = img * (1 + 0.06 * smooth_field((H, W_), rng, side_px / 4))[..., None]
+    return img.astype(np.float32), height.astype(np.float32)
+
+
+def soft_mask_shadow(shape, rng, ppi_r, x0_in):
+    """Hard cast shadow with a softened, straight or curved edge (0..1 mask, 1=shadow)."""
+    H, W_ = shape
+    yy, xx = np.mgrid[0:H, 0:W_].astype(np.float32)
+    x = x0_in + (xx + .5) / ppi_r
+    y = x0_in + (yy + .5) / ppi_r
+    if rng.random() < 0.5:   # straight edge (half-plane)
+        ang = rng.uniform(0, 2 * np.pi)
+        off = rng.uniform(-0.35, 0.35)
+        d = (x - 0.5) * math.cos(ang) + (y - 0.5) * math.sin(ang) - off
+    else:                    # curved edge: big disc (lens rim / phone body)
+        cx, cy = rng.uniform(-0.6, 1.6, 2)
+        r = rng.uniform(0.5, 1.3)
+        d = r - np.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+    soft = rng.uniform(0.004, 0.04)  # inches
+    return smoothstep(-soft, soft, d).astype(np.float32)
+
+
+def draw_frame(img, rng, p: SynthParams, ppi_r: float, x0_in: float):
+    """Overlay the dark pick-glass frame with tick marks around the window."""
+    H, W_ = img.shape[:2]
+    yy, xx = np.mgrid[0:H, 0:W_].astype(np.float32)
+    x = x0_in + (xx + .5) / ppi_r
+    y = x0_in + (yy + .5) / ppi_r
+    inside = (x >= 0) & (x <= 1) & (y >= 0) & (y <= 1)
+    frame_val = rng.uniform(0.002, 0.012)
+    frame = frame_val * (1 + 0.6 * smooth_field((H, W_), rng, H / 3)) \
+        + 0.025 * smoothstep(0.8, 1.6, smooth_field((H, W_), rng, H / 2))  # glossy patches
+    frame = np.clip(frame, 0.002, 0.3)[..., None] * np.array([1.0, 1.0, 1.05], np.float32)
+    out = np.where(inside[..., None], img, frame)
+    # tick marks: thin bright lines perpendicular to each edge, in the frame
+    pitch = 1.0 / p.tick_pitch
+    tw = rng.uniform(0.004, 0.008)            # tick width (inch)
+    l_short, l_long = rng.uniform(0.03, 0.06), rng.uniform(0.07, 0.12)
+    tick_b = rng.uniform(0.35, 0.8)
+    k_long = int(rng.choice([4, 5, 10]))
+    ticks = np.zeros((H, W_), np.float32)
+    for side in range(4):
+        if side == 0:   # top edge: x along edge, distance = -y
+            along, dist = x, -y
+        elif side == 1:  # bottom
+            along, dist = x, y - 1
+        elif side == 2:  # left
+            along, dist = y, -x
+        else:            # right
+            along, dist = y, x - 1
+        n = np.round(along / pitch)
+        off = np.abs(along - n * pitch)
+        length = np.where((n.astype(int) % k_long) == 0, l_long, l_short)
+        on = (off < tw / 2) & (dist > 0.004) & (dist < length) & (along > 0.01) & (along < 0.99)
+        ticks = np.maximum(ticks, on.astype(np.float32))
+    ticks = cv2.GaussianBlur(ticks, (0, 0), max(0.5, 0.25 * tw * ppi_r))
+    out = out * (1 - ticks[..., None]) + tick_b * ticks[..., None]
+    # frame casts a shadow band onto the fabric along 1-2 inner edges
+    band = np.zeros((H, W_), np.float32)
+    for side in rng.choice(4, size=int(rng.integers(0, 3)), replace=False):
+        wdt = rng.uniform(0.01, 0.06)
+        d = [y, 1 - y, x, 1 - x][side]
+        band = np.maximum(band, 1 - smoothstep(0, wdt, d))
+    out = np.where(inside[..., None], out * (1 - 0.6 * band[..., None]), out)
+    return out
+
+
+def camera(p: SynthParams, rng, refl, height, ppi_r, x0_in):
+    """Lighting -> perspective -> optics -> sensor. Returns (uint8 BGR scene, corners)."""
+    H, W_ = refl.shape[:2]
+    yy, xx = np.mgrid[0:H, 0:W_].astype(np.float32)
+    x = x0_in + (xx + .5) / ppi_r
+    y = x0_in + (yy + .5) / ppi_r
+    # illumination field
+    g_ang = rng.uniform(0, 2 * np.pi)
+    grad = 1 + rng.uniform(0, 0.35) * ((x - .5) * math.cos(g_ang) + (y - .5) * math.sin(g_ang))
+    cx, cy = 0.5 + rng.normal(0, 0.15, 2)
+    r2 = (x - cx) ** 2 + (y - cy) ** 2
+    vign = 1 / (1 + rng.uniform(0.2, 2.0) * r2)
+    illum = p.exposure * grad * vign
+    sm = soft_mask_shadow((H, W_), rng, ppi_r, x0_in) if p.shadow > 0 else None
+    win_mask = (x >= 0) & (x <= 1) & (y >= 0) & (y <= 1)
+    if PROFILE == "v1":
+        if sm is not None:
+            illum = illum * (1 - p.shadow * sm)
+        img = refl * illum[..., None]
+        # phone auto-exposure: bring the window's median luminance to a target
+        # level (p.exposure perturbs the target) so dark fabrics stay visible
+        med = float(np.median(img[win_mask].mean(-1))) + 1e-4
+        target = float(np.clip(0.16 * p.exposure, 0.03, 0.6))
+        img = img * (target / med)
+    else:
+        # v2: auto-exposure metered on the lit fabric (phones meter the bright
+        # part / users re-tap), gain capped so the 90th-percentile luminance
+        # stays < 0.75 (real crops have ~no clipped pixels); the hand / phone
+        # shadow is applied afterwards so it stays genuinely dark
+        img = refl * illum[..., None]
+        lum = img[win_mask].mean(-1)
+        med = float(np.median(lum)) + 1e-4
+        p90 = float(np.percentile(lum, 90)) + 1e-4
+        target = float(np.clip(0.2 * p.exposure, 0.04, 0.4))
+        img = img * min(target / med, 0.75 / p90)
+        if sm is not None:
+            img = img * (1 - p.shadow * sm)[..., None]
+    # specular LED glare on yarn crowns + broad sheen
+    if p.glare > 0:
+        gx, gy = rng.uniform(0.0, 1.0, 2)
+        gs = rng.uniform(0.08, 0.45)
+        blob = np.exp(-((x - gx) ** 2 + (y - gy) ** 2) / (2 * gs ** 2))
+        spec = p.glare * blob * (0.25 + height ** rng.uniform(2, 6))
+        tint = np.array([1.0, 1.0, 1.0], np.float32) * rng.uniform(0.9, 1.1, 3).astype(np.float32)
+        img = img + spec[..., None] * tint
+    img = draw_frame(img, rng, p, ppi_r, x0_in)
+    # white balance cast
+    img = img * rng.uniform(0.85, 1.15, 3).astype(np.float32)
+
+    # perspective homography (in render pixels)
+    side_in = H / ppi_r
+    def to_px(pt):
+        return ((pt[0] - x0_in) * ppi_r, (pt[1] - x0_in) * ppi_r)
+    win = np.array([to_px(q) for q in [(0, 0), (1, 0), (1, 1), (0, 1)]], np.float32)
+    src_c = np.array([[0, 0], [W_, 0], [W_, H], [0, H]], np.float32)
+    jit = rng.uniform(-p.persp, p.persp, (4, 2)).astype(np.float32) * W_
+    dst_c = src_c + jit
+    Hm = cv2.getPerspectiveTransform(src_c, dst_c)
+    img = cv2.warpPerspective(img, Hm, (W_, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+    win_t = cv2.perspectiveTransform(win[None], Hm)[0]
+
+    # optics at render resolution: defocus + optional motion blur (sigma given in
+    # *camera* pixels -> convert to render pixels)
+    to_r = ppi_r / p.r_eff
+    sig = p.blur_sigma_px * to_r
+    if sig > 0.3:
+        img = cv2.GaussianBlur(img, (0, 0), sig)
+    if p.motion_px > 0:
+        L = max(3, int(p.motion_px * to_r))
+        k = np.zeros((L, L), np.float32)
+        k[L // 2, :] = 1
+        M = cv2.getRotationMatrix2D((L / 2 - .5, L / 2 - .5), rng.uniform(0, 180), 1)
+        k = cv2.warpAffine(k, M, (L, L))
+        img = cv2.filter2D(img, -1, k / max(k.sum(), 1e-6))
+    # effective resolution: downsample to r_eff (anti-aliased), then to sensor grid
+    s_eff = p.r_eff / ppi_r
+    he = max(16, int(round(H * s_eff)))
+    img = cv2.resize(img, (he, he), interpolation=cv2.INTER_AREA)
+    hs = max(16, int(round(H * p.r_sensor / ppi_r)))
+    if hs != he:
+        img = cv2.resize(img, (hs, hs), interpolation=cv2.INTER_CUBIC)
+    win_t = win_t * (hs / H)
+    # sensor noise (Poisson-Gaussian in linear space), gamma, JPEG
+    img = np.clip(img, 0, None)
+    shot = np.sqrt(np.clip(img, 0, 1) * p.noise * 0.5)
+    img = img + rng.standard_normal(img.shape).astype(np.float32) * (shot + p.noise * 0.5)
+    # tone curve: random gamma / local-contrast boost of the phone ISP
+    img = np.clip(img, 0, 1) ** (rng.uniform(0.85, 1.5) / 2.2)
+    out = (img * 255 + 0.5).astype(np.uint8)
+    out = cv2.cvtColor(out, cv2.COLOR_RGB2BGR)
+    ok, enc = cv2.imencode(".jpg", out, [cv2.IMWRITE_JPEG_QUALITY, int(p.jpeg_q)])
+    out = cv2.imdecode(enc, cv2.IMREAD_COLOR)
+    return out, win_t
+
+
+def rectify_window(scene, corners, rng, jitter, out_side=None):
+    side = out_side or int(round(np.mean([np.linalg.norm(corners[k] - corners[(k + 1) % 4])
+                                          for k in range(4)])))
+    noisy = corners + rng.normal(0, jitter * side, corners.shape).astype(np.float32)
+    dst = np.array([[0, 0], [side - 1, 0], [side - 1, side - 1], [0, side - 1]], np.float32)
+    Hm = cv2.getPerspectiveTransform(noisy.astype(np.float32), dst)
+    return cv2.warpPerspective(scene, Hm, (side, side), flags=cv2.INTER_AREA,
+                               borderMode=cv2.BORDER_REFLECT)
+
+
+def generate(seed: int, params: SynthParams | None = None, max_crop_side: int = 1024,
+             density_range=(30, 200), frame_margin: float | None = None):
+    """Return (scene_bgr, crop_bgr, label_dict) for one random sample.
+
+    frame_margin: inches of frame rendered around the window (default 0.18,
+    good for figures).  Dataset mode uses 0.1, which is ~35% cheaper and is
+    still enough for the perspective / segmentation jitter."""
+    rng = np.random.default_rng(seed)
+    p = params or sample_params(rng, seed, density_range)
+    if frame_margin is not None:
+        p.frame_margin = frame_margin
+        p.persp = min(p.persp, 0.6 * frame_margin / (1 + 2 * frame_margin))
+    # render resolution: >= 6 px per thread, >= 1.5x the camera resolution, capped
+    ppi_r = float(np.clip(max(5.0 * max(p.epi, p.ppi), 1.35 * p.r_eff), 450, 1200))
+    side_in = 1 + 2 * p.frame_margin
+    side_px = int(round(side_in * ppi_r))
+    x0_in = -p.frame_margin
+    refl, height = render_fabric(p, rng, ppi_r, side_px, x0_in)
+    scene, win = camera(p, rng, refl, height, ppi_r, x0_in)
+    crop = rectify_window(scene, win, rng, p.seg_jitter)
+    if crop.shape[0] > max_crop_side:
+        crop = cv2.resize(crop, (max_crop_side, max_crop_side), interpolation=cv2.INTER_AREA)
+    lab = asdict(p)
+    lab.update(h_count=p.epi, v_count=p.ppi, weave_coarse=COARSE[p.weave],
+               corners=win.round(2).tolist(), crop_native_side=int(round(np.mean(
+                   [np.linalg.norm(win[k] - win[(k + 1) % 4]) for k in range(4)]))),
+               ppi_render=ppi_r)
+    lab.pop("extra", None)
+    lab["gen_profile"] = PROFILE
+    return scene, crop, lab
+
+
+# ---------------------------------------------------------------------------
+# dataset writer / contact sheet
+# ---------------------------------------------------------------------------
+def _init_worker():
+    cv2.setNumThreads(1)  # avoid thread oversubscription inside the pool
+
+
+def _work(args):
+    seed, out_dir, max_side, dr = args
+    _, crop, lab = generate(seed, max_crop_side=max_side, density_range=dr, frame_margin=0.1)
+    fn = f"s{seed:07d}.jpg"
+    cv2.imwrite(os.path.join(out_dir, fn), crop, [cv2.IMWRITE_JPEG_QUALITY, 95])
+    lab["file"] = fn
+    return lab
+
+
+def write_dataset(out_dir, n, seed0=0, workers=8, max_side=1024, density_range=(30, 200)):
+    os.makedirs(out_dir, exist_ok=True)
+    jobs = [(seed0 + k, out_dir, max_side, density_range) for k in range(n)]
+    t0 = time.time()
+    labs = []
+    with Pool(workers, initializer=_init_worker) as pool:
+        for k, lab in enumerate(pool.imap_unordered(_work, jobs, chunksize=4)):
+            labs.append(lab)
+            if (k + 1) % 200 == 0:
+                print(f"  {k + 1}/{n}  {time.time() - t0:.0f}s", flush=True)
+    labs.sort(key=lambda d: d["seed"])
+    import pandas as pd
+    df = pd.DataFrame(labs)
+    df.to_csv(os.path.join(out_dir, "labels.csv"), index=False)
+    print(f"wrote {n} samples to {out_dir} in {time.time() - t0:.0f}s")
+    return df
+
+
+def contact_sheet(path, seeds, tile=320, show="both"):
+    rows = []
+    for r in range(4):
+        row = []
+        for c in range(4):
+            seed = seeds[r * 4 + c]
+            scene, crop, lab = generate(seed)
+            im = scene if (show == "scene" or (show == "both" and (r + c) % 2 == 0)) else crop
+            im = cv2.resize(im, (tile, tile), interpolation=cv2.INTER_AREA)
+            txt = f"{lab['weave']} {lab['epi']:.0f}x{lab['ppi']:.0f}"
+            cv2.rectangle(im, (0, 0), (tile, 22), (0, 0, 0), -1)
+            cv2.putText(im, txt, (4, 16), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+            row.append(cv2.copyMakeBorder(im, 2, 2, 2, 2, cv2.BORDER_CONSTANT, value=(255, 255, 255)))
+        rows.append(np.hstack(row))
+    sheet = np.vstack(rows)
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    cv2.imwrite(path, sheet, [cv2.IMWRITE_JPEG_QUALITY, 92])
+    return sheet
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--out", help="output folder for a dataset (images + labels.csv)")
+    ap.add_argument("--n", type=int, default=1000)
+    ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 2) - 2))
+    ap.add_argument("--max-side", type=int, default=1024)
+    ap.add_argument("--dmin", type=float, default=30)
+    ap.add_argument("--dmax", type=float, default=200)
+    ap.add_argument("--sheet", help="write a 4x4 contact sheet to this path")
+    ap.add_argument("--sheet-mode", default="both", choices=["both", "scene", "crop"])
+    a = ap.parse_args()
+    if a.sheet:
+        contact_sheet(a.sheet, list(range(a.seed, a.seed + 16)), show=a.sheet_mode)
+        print("wrote", a.sheet)
+    if a.out:
+        write_dataset(a.out, a.n, a.seed, a.workers, a.max_side, (a.dmin, a.dmax))
+
+
+if __name__ == "__main__":
+    main()

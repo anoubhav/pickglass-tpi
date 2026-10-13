@@ -1,0 +1,6 @@
+flux2klein_s1: 132 images, 62s on cuda
+flux2klein_s2: 132 images, 60s on cuda
+invsr_s1: 132 images, 66s on cuda
+invsr_s2: 132 images, 66s on cuda
+seedvr2_s1: 132 images, 64s on cuda
+seedvr2_s2: 132 images, 64s on cuda

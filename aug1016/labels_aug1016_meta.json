@@ -1,0 +1,12 @@
+{
+ "written": "2026-10-07T18:55:51",
+ "inputs": {
+  "annotation_tool/data/saved/annotations_anonymous.json": 1791411953.6868575
+ },
+ "n_label_rows_used": 0,
+ "n_sources_labelled": 0,
+ "n_aug_rows": 0,
+ "n_manifest_usable": 843,
+ "include_not_done": false,
+ "include_flagged": false
+}

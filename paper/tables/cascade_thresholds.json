@@ -1,0 +1,207 @@
+{
+ "protocol": {
+  "fitted_at": "2026-10-07T15:45:30",
+  "synthetic_csv": "methods/results/cascade_synth_cal_legacygrid.csv",
+  "n_images": 200,
+  "n_rows_vlm_conds": 1800,
+  "n_rows_all_conds": 3800,
+  "alpha_primary": 0.1,
+  "objective": "max coverage s.t. share of accepted synthetic crops without both counts within 10 % <= alpha",
+  "legacy_labels_used": false,
+  "synthetic_default_csv": "methods/results/cascade_synth_cal_default.csv",
+  "log": [
+   "2026-10-07 15:45 thresholds fitted on S-cal (legacy-grid synthetic) only; default-generator set fitted as a sensitivity check",
+   "before the first legacy evaluation: the blur-only router, infeasible alone at alpha=0.10 on synthetic, was redefined as the blur component of the fitted gate",
+   "the real-150 label-free blur thresholds (p02/p05/p10 of rho on the 150 clean crops) were declared after seeing that the default-generator synthetic set does not reproduce the defocus over-count, and before any legacy cascade number",
+   "2026-10-07 15:47 legacy evaluation run once (policy table archived); re-run 15:55 only to fix the oracle-order sweep (it escalated worst-first) and to add CIs / failure-catch diagnostics: the policy table was byte-identical",
+   "no OpenRouter calls were made for this job (US$0 spent): all VLM predictions are the stored legacy degradation runs"
+  ]
+ },
+ "fits": {
+  "vlm9_a10": {
+   "gate": {
+    "t_c": 0.4690269879326703,
+    "r_min": 0.0021773737931126604,
+    "coverage": 0.7033333333333334,
+    "risk": 0.09794628751974724
+   },
+   "conf": {
+    "t_c": 0.5740764461064712,
+    "coverage": 0.695,
+    "risk": 0.09992006394884093
+   },
+   "blur": {
+    "r_min": Infinity,
+    "coverage": 0.0,
+    "risk": 0.0
+   },
+   "agree_ext": {
+    "delta": 0.22759315187899087,
+    "coverage": 0.5777777777777777,
+    "risk": 0.1
+   }
+  },
+  "vlm9_a05": {
+   "gate": {
+    "t_c": 0.8152851470287967,
+    "r_min": 0.0021773737931126604,
+    "coverage": 0.4777777777777778,
+    "risk": 0.04883720930232558
+   },
+   "conf": {
+    "t_c": 0.8295898438252854,
+    "coverage": 0.47888888888888886,
+    "risk": 0.04988399071925754
+   },
+   "blur": {
+    "r_min": Infinity,
+    "coverage": 0.0,
+    "risk": 0.0
+   },
+   "agree_ext": {
+    "delta": 0.08225695017138235,
+    "coverage": 0.5127777777777778,
+    "risk": 0.04983748645720477
+   }
+  },
+  "vlm9_a20": {
+   "gate": {
+    "t_c": 0.23686567645155468,
+    "r_min": 0.0,
+    "coverage": 0.8905555555555555,
+    "risk": 0.198378041172801
+   },
+   "conf": {
+    "t_c": 0.2322758861485411,
+    "coverage": 0.8927777777777778,
+    "risk": 0.1997510889856876
+   },
+   "blur": {
+    "r_min": 0.015255159567255804,
+    "coverage": 0.7261111111111112,
+    "risk": 0.19969395562356543
+   },
+   "agree_ext": {
+    "delta": 1.0693813944389738,
+    "coverage": 0.6822222222222222,
+    "risk": 0.1995114006514658
+   }
+  },
+  "all19_a10": {
+   "gate": {
+    "t_c": 0.6053262480422855,
+    "r_min": 0.0012868288781876763,
+    "coverage": 0.6760526315789473,
+    "risk": 0.09926041261191125
+   },
+   "conf": {
+    "t_c": 0.6607556420652478,
+    "coverage": 0.6686842105263158,
+    "risk": 0.09996064541519087
+   },
+   "blur": {
+    "r_min": Infinity,
+    "coverage": 0.0,
+    "risk": 0.0
+   },
+   "agree_ext": {
+    "delta": 0.19447736136853266,
+    "coverage": 0.5842105263157895,
+    "risk": 0.1
+   }
+  },
+  "all19_a05": {
+   "gate": {
+    "t_c": 0.8696269047095521,
+    "r_min": 0.002493574198317471,
+    "coverage": 0.43973684210526315,
+    "risk": 0.04967085577498504
+   },
+   "conf": {
+    "t_c": 0.8810389834919421,
+    "coverage": 0.43605263157894736,
+    "risk": 0.049487024743512374
+   },
+   "blur": {
+    "r_min": Infinity,
+    "coverage": 0.0,
+    "risk": 0.0
+   },
+   "agree_ext": {
+    "delta": 0.060292779314685685,
+    "coverage": 0.4842105263157895,
+    "risk": 0.05
+   }
+  },
+  "all19_a20": {
+   "gate": {
+    "t_c": 0.23925912559832146,
+    "r_min": 0.00019721851904990184,
+    "coverage": 0.8942105263157895,
+    "risk": 0.19894055326662743
+   },
+   "conf": {
+    "t_c": 0.2575424164262135,
+    "coverage": 0.8981578947368422,
+    "risk": 0.19982420158218575
+   },
+   "blur": {
+    "r_min": 0.020643100014346535,
+    "coverage": 0.7228947368421053,
+    "risk": 0.19985438660356752
+   },
+   "agree_ext": {
+    "delta": 1.1496491182062614,
+    "coverage": 0.6960526315789474,
+    "risk": 0.2
+   }
+  },
+  "default_vlm9_a10": {
+   "gate": {
+    "t_c": 0.46427782148566266,
+    "r_min": 0.0,
+    "coverage": 0.6616666666666666,
+    "risk": 0.09991603694374475
+   },
+   "conf": {
+    "t_c": 0.4644658274435089,
+    "coverage": 0.6616666666666666,
+    "risk": 0.09991603694374475
+   }
+  },
+  "default_vlm9_ours_only": {
+   "coverage": 1.0,
+   "risk": 0.335
+  },
+  "real150_clean_rho_pct": {
+   "p02": 0.006636016393795078,
+   "p05": 0.008749285143493667,
+   "p10": 0.012219571128889137,
+   "n": 150
+  },
+  "vlm9_agree_int": {
+   "coverage": 0.6188888888888889,
+   "risk": 0.07360861759425494
+  },
+  "vlm9_conf090": {
+   "coverage": 0.3638888888888889,
+   "risk": 0.030534351145038167
+  },
+  "vlm9_ours_only": {
+   "coverage": 1.0,
+   "risk": 0.2722222222222222
+  },
+  "all19_agree_int": {
+   "coverage": 0.6255263157894737,
+   "risk": 0.08203618005889778
+  },
+  "all19_conf090": {
+   "coverage": 0.39789473684210525,
+   "risk": 0.04563492063492063
+  },
+  "all19_ours_only": {
+   "coverage": 1.0,
+   "risk": 0.26552631578947367
+  }
+ }
+}

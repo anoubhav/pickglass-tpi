@@ -1,0 +1,22 @@
+Wed Oct  7 19:08:46 UTC 2026 start GPUs=0 nproc=1 out=../ckpt/smoke args=--data ../data/val --max-steps 40 --grad-accum 4 --save-every 20 --eval-every 20 --n-val 8 --warmup 5 --workers 2
+index, memory.used [MiB], utilization.gpu [%]
+0, 4 MiB, 0 %
+1, 20561 MiB, 63 %
+2, 13143 MiB, 0 %
+3, 13810 MiB, 53 %
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 1289.82it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.66s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.68s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.76s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.73s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.73s/it]
+19:09:04 LoRA r=32 alpha=64: trainable 74.8 M of 4.93 B; dtypes ['torch.float32']
+19:09:04 ViT blocks checkpointed: 25
+19:09:05 world=1 grad_accum=4 -> 4 examples/step; steps 0->40; lr=0.00015 warmup=5 cosine->0.1; train crops=400
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+19:09:49 step 10 lr 1.46e-04 gn 0.75 P1=0.4756(n5) P4full=0.1304(n9) P4zoom=0.3007(n26) | 4.4s/step 1075 tok/s mem 13.2GB
+19:10:31 step 20 lr 1.03e-04 gn 0.62 P1=0.4154(n8) P4full=0.0965(n15) P4zoom=0.2100(n17) | 4.2s/step 1189 tok/s mem 13.2GB
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+19:10:36 VAL step 20 loss_P1 0.0000 loss_P4 0.1630
+19:11:19 step 30 lr 4.53e-05 gn 0.38 P1=0.3883(n11) P4full=0.0954(n10) P4zoom=0.1528(n19) | 4.7s/step 1016 tok/s mem 13.3GB
+19:12:02 step 40 lr 1.53e-05 gn 0.21 P1=0.3812(n12) P4full=0.0694(n11) P4zoom=0.1695(n17) | 4.3s/step 1170 tok/s mem 13.3GB
+19:12:04 VAL step 40 loss_P1 0.0000 loss_P4 0.1568
+19:12:06 finished at step 40 (max steps) after 0.05 h
+Wed Oct  7 19:12:11 UTC 2026 exit 0

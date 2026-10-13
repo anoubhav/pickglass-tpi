@@ -1,0 +1,19 @@
+2026-10-07T23:27:47Z
+total 592
+drwxr-xr-x@  8 user  staff     256 Oct  7 19:26 .
+drwxr-xr-x@ 11 user  staff     352 Oct  7 19:27 ..
+-rw-r--r--@  1 user  staff  103751 Oct  7 19:26 counts_classical_bicubic.csv
+-rw-r--r--@  1 user  staff   34752 Oct  7 19:26 counts_classical_clean.csv
+-rw-r--r--@  1 user  staff  101619 Oct  7 19:26 counts_classical_none.csv
+-rw-r--r--@  1 user  staff   26565 Oct  7 19:26 lattice_bicubic.csv
+-rw-r--r--@  1 user  staff   19174 Oct  7 19:26 lattice_none.csv
+-rw-r--r--@  1 user  staff    6129 Oct  7 19:26 lattice_refs.csv
+bicubic
+realesrgan
+swinir
+counts_classical_bicubic.csv
+counts_classical_clean.csv
+counts_classical_none.csv
+lattice_bicubic.csv
+lattice_none.csv
+lattice_refs.csv

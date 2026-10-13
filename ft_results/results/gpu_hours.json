@@ -1,0 +1,74 @@
+[
+ {
+  "item": "smoke (40 steps, 1 GPU)",
+  "wall_h": 0.051,
+  "gpus": 1,
+  "gpu_h": 0.051
+ },
+ {
+  "item": "run1 (main, 2 GPUs DDP)",
+  "wall_h": 2.954,
+  "gpus": 2,
+  "gpu_h": 5.909
+ },
+ {
+  "item": "inference molmo2_4b_base__legacy.jsonl",
+  "wall_h": 0.114,
+  "gpus": 1,
+  "gpu_h": 0.114
+ },
+ {
+  "item": "inference molmo2_4b_base__rect150.jsonl",
+  "wall_h": 0.829,
+  "gpus": 1,
+  "gpu_h": 0.829
+ },
+ {
+  "item": "inference molmo2_4b_base__synval.jsonl",
+  "wall_h": 0.514,
+  "gpus": 1,
+  "gpu_h": 0.514
+ },
+ {
+  "item": "inference molmo2_4b_synthft__legacy.jsonl",
+  "wall_h": 0.149,
+  "gpus": 1,
+  "gpu_h": 0.149
+ },
+ {
+  "item": "inference molmo2_4b_synthft__rect150__shard0of2.jsonl",
+  "wall_h": 0.261,
+  "gpus": 1,
+  "gpu_h": 0.261
+ },
+ {
+  "item": "inference molmo2_4b_synthft__rect150__shard1of2.jsonl",
+  "wall_h": 0.795,
+  "gpus": 1,
+  "gpu_h": 0.795
+ },
+ {
+  "item": "inference molmo2_4b_synthft__synval.jsonl",
+  "wall_h": 0.978,
+  "gpus": 1,
+  "gpu_h": 0.978
+ },
+ {
+  "item": "inference diag_step300__synval.jsonl",
+  "wall_h": 0.058,
+  "gpus": 1,
+  "gpu_h": 0.058
+ },
+ {
+  "item": "inference diag_step500__synval.jsonl",
+  "wall_h": 0.084,
+  "gpus": 1,
+  "gpu_h": 0.084
+ },
+ {
+  "item": "inference smoke40__synval.jsonl",
+  "wall_h": 0.029,
+  "gpus": 1,
+  "gpu_h": 0.029
+ }
+]

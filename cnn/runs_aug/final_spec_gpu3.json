@@ -1,0 +1,27 @@
+[
+ {
+  "name": "V1_b0",
+  "ckpt": "runs_aug/V1_b0/model.pt",
+  "tta": false
+ },
+ {
+  "name": "V2_b0",
+  "ckpt": "runs_aug/V2E_b0/model.pt",
+  "tta": false
+ },
+ {
+  "name": "V3_b0",
+  "ckpt": "runs_aug/V3O_b0/best.pt",
+  "tta": false
+ },
+ {
+  "name": "V4_b0",
+  "ckpt": "runs_aug/V4_b0_rho05/best.pt",
+  "tta": false
+ },
+ {
+  "name": "V5_b0",
+  "ckpt": "runs_aug/V4_b0_rho05/best.pt",
+  "tta": true
+ }
+]

@@ -1,0 +1,40 @@
+{
+ "r18": {
+  "run": "V2O_r18",
+  "policy": "whitelist_optics",
+  "score": 35.46321427720526,
+  "candidates": {
+   "V2A_r18": 39.522,
+   "V2E_r18": 38.087,
+   "V2O_r18": 35.463
+  }
+ },
+ "b0": {
+  "run": "V2E_b0",
+  "policy": "whitelist_ext",
+  "score": 31.463739831776664,
+  "candidates": {
+   "V2A_b0": 36.349,
+   "V2E_b0": 31.464,
+   "V2O_b0": 40.102
+  }
+ },
+ "ablation_stage2": {
+  "steps": 1000,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "families": [
+   "geometry",
+   "photometric",
+   "compression_blur",
+   "illumination",
+   "zoom",
+   "tiling",
+   "optics",
+   "phone"
+  ]
+ }
+}

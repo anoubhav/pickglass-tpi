@@ -1,0 +1,6 @@
+       cerr_pert_mean  cerr_ruler_mean  ruler_ok
+level                                           
+0.02            0.508         0.193828       1.0
+0.05            1.270         0.193828       1.0
+0.10            2.540         0.193828       1.0
+done in 318s

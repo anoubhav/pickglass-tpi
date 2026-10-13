@@ -1,0 +1,22 @@
+{
+ "swinir": {
+  "weights": "$HOME/pickglass/genai_sr/models/001_classicalSR_DF2K_s64w8_SwinIR-M_x4.pth",
+  "weights_md5": "83f41d3437af6339d78da7214e44b502",
+  "url": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/001_classicalSR_DF2K_s64w8_SwinIR-M_x4.pth",
+  "device": "cuda",
+  "n": 198,
+  "s_per_img": 0.9606876373291016,
+  "wall_s": 199.2,
+  "cuda_visible": "3"
+ },
+ "realesrgan": {
+  "weights": "$HOME/pickglass/genai_sr/models/RealESRGAN_x4plus.pth",
+  "weights_md5": "99ec365d4afad750833258a1a24f44ca",
+  "url": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth",
+  "device": "cuda",
+  "n": 198,
+  "s_per_img": 0.4059438705444336,
+  "wall_s": 110.5,
+  "cuda_visible": "3"
+ }
+}

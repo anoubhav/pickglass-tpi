@@ -1,0 +1,115 @@
+Wed Oct  7 19:03:18 UTC 2026 using GPU 1
+index, memory.used [MiB], utilization.gpu [%]
+0, 10451 MiB, 6 %
+1, 4 MiB, 0 %
+2, 13143 MiB, 0 %
+3, 4 MiB, 0 %
+### Wed Oct  7 19:03:18 UTC 2026 set legacy
+100 jobs (0 cached) -> $HOME/pickglass/raw/molmo2_8b_bf16__scaffold_legacy.jsonl
+Fetching 29 files:   0%|          | 0/29 [00:00<?, ?it/s]Fetching 29 files: 100%|██████████| 29/29 [00:00<00:00, 615.55it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:02<00:17,  2.46s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:04<00:13,  2.24s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:06<00:10,  2.17s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:08<00:08,  2.09s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:10<00:06,  2.09s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:12<00:03,  1.99s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:14<00:02,  2.08s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:16<00:00,  1.84s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:16<00:00,  2.01s/it]
+loaded allenai/Molmo2-8B@e28fa28 in 20.7s :: {'backend': 'transformers', 'dtype': 'bfloat16', 'torch': '2.6.0+cu118', 'transformers': '4.57.1', 'cuda': '11.8', 'gpu': 'NVIDIA GeForce RTX 4090', 'cuda_visible_devices': '1', 'attn_implementation': 'sdpa', 'max_crops': 8, 'variant': 'bf16'}
+  [1/100] a10/S1 3.6s in=1012 gen=65 stop :: '{"vertical_per_tenth": [12, 11, 13], "horizontal_per_tenth": [11, 12, 11], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "plain"}'
+  [2/100] a10/S1t 3.1s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [14, 13, 15], "vertical_yarns": 125, "horizontal_yarns": 140, "weave": "plain"}'
+  [3/100] a10/S2 5.6s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [4/100] a10/S3 3.0s in=968 gen=62 stop :: '{"vertical_per_patch": [5, 6, 5, 7], "horizontal_per_patch": [6, 5, 7, 6], "vertical_yarns": 60, "horizontal_yarns": 60, "weave": "twill"}'
+  [5/100] a10/S4 3.6s in=1017 gen=79 stop :: '_cell": [1,1,1,1,1,1,1,1,1,1], "horizontal_per_cell": [1,1,1,1,1,1,1,1,1,1], "vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}'
+  [6/100] a1/S1 3.2s in=1012 gen=66 stop :: '{"vertical_per_tenth": [12, 11, 13], "horizontal_per_tenth": [11, 12, 11], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "twill"}'
+  [7/100] a1/S1t 3.3s in=1013 gen=66 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [11, 12, 10], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "twill"}'
+  [8/100] a1/S2 5.0s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [9/100] a1/S3 2.7s in=968 gen=61 stop :: '{"vertical_per_patch": [5, 6, 4, 5], "horizontal_per_patch": [6, 5, 5, 4], "vertical_yarns": 50, "horizontal_yarns": 50, "weave": "plain"}'
+  [10/100] a1/S4 3.5s in=1017 gen=79 stop :: '_cell": [1,1,1,1,1,1,1,1,1,1], "horizontal_per_cell": [1,1,1,1,1,1,1,1,1,1], "vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}'
+  [11/100] a2/S1 3.1s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 10, 10], "horizontal_per_tenth": [10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [12/100] a2/S1t 2.7s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [12, 13, 12], "vertical_yarns": 120, "horizontal_yarns": 120, "weave": "plain"}'
+  [13/100] a2/S2 5.0s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [14/100] a2/S3 3.3s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [15/100] a2/S4 5.0s in=1017 gen=119 stop :: ' 10, 10], "horizontal_per_cell": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [16/100] a3/S1 2.7s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 10, 10], "horizontal_per_tenth": [10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [17/100] a3/S1t 2.8s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [12, 13, 12], "vertical_yarns": 120, "horizontal_yarns": 130, "weave": "plain"}'
+  [18/100] a3/S2 5.1s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [19/100] a3/S3 3.1s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [20/100] a3/S4 3.3s in=1017 gen=79 stop :: '_cell": [1,1,1,1,1,1,1,1,1,1], "horizontal_per_cell": [1,1,1,1,1,1,1,1,1,1], "vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}'
+  [21/100] a4/S1 2.5s in=1012 gen=65 stop :: '{"vertical_per_tenth": [12, 11, 13], "horizontal_per_tenth": [11, 12, 11], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "plain"}'
+  [22/100] a4/S1t 2.6s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [12, 13, 12], "vertical_yarns": 120, "horizontal_yarns": 120, "weave": "plain"}'
+  [23/100] a4/S2 4.7s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [24/100] a4/S3 3.1s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [25/100] a4/S4 4.9s in=1017 gen=119 stop :: ' 10, 10], "horizontal_per_cell": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [26/100] a5/S1 2.9s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 11, 10], "horizontal_per_tenth": [10, 10, 11], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [27/100] a5/S1t 2.8s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [12, 13, 12], "vertical_yarns": 120, "horizontal_yarns": 120, "weave": "plain"}'
+  [28/100] a5/S2 4.7s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [29/100] a5/S3 3.0s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [30/100] a5/S4 3.9s in=1017 gen=79 stop :: '_cell": [1,1,1,1,1,1,1,1,1,1], "horizontal_per_cell": [1,1,1,1,1,1,1,1,1,1], "vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}'
+  [31/100] a6/S1 3.0s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 10, 10], "horizontal_per_tenth": [10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [32/100] a6/S1t 2.8s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [12, 13, 12], "vertical_yarns": 120, "horizontal_yarns": 130, "weave": "plain"}'
+  [33/100] a6/S2 4.9s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [34/100] a6/S3 3.1s in=968 gen=61 stop :: '{"vertical_per_patch": [5, 6, 4, 5], "horizontal_per_patch": [6, 5, 5, 4], "vertical_yarns": 50, "horizontal_yarns": 50, "weave": "plain"}'
+  [35/100] a6/S4 3.5s in=1017 gen=79 stop :: '_cell": [1,1,1,1,1,1,1,1,1,1], "horizontal_per_cell": [1,1,1,1,1,1,1,1,1,1], "vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}'
+  [36/100] a7/S1 2.6s in=1012 gen=65 stop :: '{"vertical_per_tenth": [12, 11, 13], "horizontal_per_tenth": [11, 12, 11], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "plain"}'
+  [37/100] a7/S1t 2.8s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [11, 12, 10], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "plain"}'
+  [38/100] a7/S2 4.9s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [39/100] a7/S3 3.3s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [40/100] a7/S4 3.3s in=1017 gen=79 stop :: '_cell": [1,1,1,1,1,1,1,1,1,1], "horizontal_per_cell": [1,1,1,1,1,1,1,1,1,1], "vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}'
+  [41/100] a8/S1 2.9s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 11, 10], "horizontal_per_tenth": [10, 10, 11], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [42/100] a8/S1t 2.8s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [12, 13, 12], "vertical_yarns": 120, "horizontal_yarns": 130, "weave": "plain"}'
+  [43/100] a8/S2 4.8s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [44/100] a8/S3 2.4s in=968 gen=61 stop :: '{"vertical_per_patch": [5, 5, 6, 5], "horizontal_per_patch": [5, 5, 5, 6], "vertical_yarns": 50, "horizontal_yarns": 50, "weave": "plain"}'
+  [45/100] a8/S4 3.5s in=1017 gen=79 stop :: '_cell": [1,1,1,1,1,1,1,1,1,1], "horizontal_per_cell": [1,1,1,1,1,1,1,1,1,1], "vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}'
+  [46/100] a9/S1 2.7s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 10, 10], "horizontal_per_tenth": [10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [47/100] a9/S1t 2.7s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [12, 13, 12], "vertical_yarns": 120, "horizontal_yarns": 120, "weave": "plain"}'
+  [48/100] a9/S2 5.0s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [49/100] a9/S3 3.0s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [50/100] a9/S4 5.0s in=1017 gen=119 stop :: ' 10, 10], "horizontal_per_cell": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [51/100] r10/S1 2.8s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 10, 10], "horizontal_per_tenth": [10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [52/100] r10/S1t 2.8s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [14, 12, 13], "vertical_yarns": 125, "horizontal_yarns": 135, "weave": "plain"}'
+  [53/100] r10/S2 4.7s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [54/100] r10/S3 2.8s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [55/100] r10/S4 3.5s in=1017 gen=79 stop :: '_cell": [2,2,2,2,2,2,2,2,2,2], "horizontal_per_cell": [2,2,2,2,2,2,2,2,2,2], "vertical_yarns": 20, "horizontal_yarns": 20, "weave": "plain"}'
+  [56/100] r1/S1 2.8s in=1012 gen=65 stop :: '{"vertical_per_tenth": [12, 11, 13], "horizontal_per_tenth": [11, 12, 11], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "plain"}'
+  [57/100] r1/S1t 2.8s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [14, 13, 15], "vertical_yarns": 125, "horizontal_yarns": 140, "weave": "plain"}'
+  [58/100] r1/S2 4.9s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [59/100] r1/S3 2.7s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [60/100] r1/S4 3.1s in=1017 gen=79 stop :: '_cell": [1,1,1,1,1,1,1,1,1,1], "horizontal_per_cell": [1,1,1,1,1,1,1,1,1,1], "vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}'
+  [61/100] r2/S1 2.6s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 11, 10], "horizontal_per_tenth": [10, 10, 11], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [62/100] r2/S1t 2.5s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [14, 13, 15], "vertical_yarns": 125, "horizontal_yarns": 140, "weave": "plain"}'
+  [63/100] r2/S2 4.8s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [64/100] r2/S3 2.9s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [65/100] r2/S4 4.6s in=1017 gen=119 stop :: ' 10, 10], "horizontal_per_cell": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [66/100] r3/S1 2.6s in=1012 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [14, 13, 15], "vertical_yarns": 125, "horizontal_yarns": 140, "weave": "plain"}'
+  [67/100] r3/S1t 2.8s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [14, 12, 13], "vertical_yarns": 125, "horizontal_yarns": 135, "weave": "plain"}'
+  [68/100] r3/S2 4.8s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [69/100] r3/S3 2.5s in=968 gen=61 stop :: '{"vertical_per_patch": [5, 6, 5, 6], "horizontal_per_patch": [5, 6, 5, 6], "vertical_yarns": 50, "horizontal_yarns": 50, "weave": "plain"}'
+  [70/100] r3/S4 4.5s in=1017 gen=119 stop :: ' 10, 10], "horizontal_per_cell": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [71/100] r4/S1 2.8s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 10, 10], "horizontal_per_tenth": [10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [72/100] r4/S1t 2.8s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [12, 11, 13], "vertical_yarns": 120, "horizontal_yarns": 120, "weave": "plain"}'
+  [73/100] r4/S2 4.6s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [74/100] r4/S3 3.1s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [75/100] r4/S4 4.9s in=1017 gen=119 stop :: ' 10, 10], "horizontal_per_cell": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [76/100] r5/S1 2.8s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 10, 10], "horizontal_per_tenth": [10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [77/100] r5/S1t 2.7s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [11, 12, 10], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "plain"}'
+  [78/100] r5/S2 4.9s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [79/100] r5/S3 2.8s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [80/100] r5/S4 4.8s in=1017 gen=119 stop :: ' 10, 10], "horizontal_per_cell": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [81/100] r6/S1 2.7s in=1012 gen=65 stop :: '{"vertical_per_tenth": [12, 11, 13], "horizontal_per_tenth": [11, 12, 11], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "plain"}'
+  [82/100] r6/S1t 2.6s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 12], "horizontal_per_tenth": [12, 13, 12], "vertical_yarns": 120, "horizontal_yarns": 120, "weave": "plain"}'
+  [83/100] r6/S2 4.5s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [84/100] r6/S3 3.1s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [85/100] r6/S4 3.3s in=1017 gen=79 stop :: '_cell": [1,1,1,1,1,1,1,1,1,1], "horizontal_per_cell": [1,1,1,1,1,1,1,1,1,1], "vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}'
+  [86/100] r7/S1 2.5s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 11, 10], "horizontal_per_tenth": [10, 10, 11], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [87/100] r7/S1t 2.7s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [12, 13, 12], "vertical_yarns": 120, "horizontal_yarns": 130, "weave": "plain"}'
+  [88/100] r7/S2 5.1s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [89/100] r7/S3 2.7s in=968 gen=61 stop :: '{"vertical_per_patch": [5, 6, 4, 7], "horizontal_per_patch": [6, 5, 5, 6], "vertical_yarns": 55, "horizontal_yarns": 55, "weave": "plain"}'
+  [90/100] r7/S4 4.4s in=1017 gen=119 stop :: ' 10, 10], "horizontal_per_cell": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [91/100] r8/S1 2.7s in=1012 gen=65 stop :: '{"vertical_per_tenth": [12, 11, 13], "horizontal_per_tenth": [14, 13, 15], "vertical_yarns": 125, "horizontal_yarns": 140, "weave": "plain"}'
+  [92/100] r8/S1t 2.6s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [14, 13, 15], "vertical_yarns": 125, "horizontal_yarns": 140, "weave": "plain"}'
+  [93/100] r8/S2 4.6s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [94/100] r8/S3 3.0s in=968 gen=71 stop :: 'al_per_patch": [10, 11, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [95/100] r8/S4 5.0s in=1017 gen=119 stop :: ' 10, 10], "horizontal_per_cell": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [96/100] r9/S1 2.8s in=1012 gen=65 stop :: '{"vertical_per_tenth": [10, 10, 10], "horizontal_per_tenth": [10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [97/100] r9/S1t 2.8s in=1013 gen=65 stop :: '{"vertical_per_tenth": [10, 10, 10], "horizontal_per_tenth": [10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [98/100] r9/S2 5.0s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [99/100] r9/S3 2.7s in=968 gen=61 stop :: '{"vertical_per_patch": [5, 6, 4, 5], "horizontal_per_patch": [6, 5, 5, 4], "vertical_yarns": 50, "horizontal_yarns": 50, "weave": "plain"}'
+  [100/100] r9/S4 3.0s in=1017 gen=79 stop :: '_cell": [1,1,1,1,1,1,1,1,1,1], "horizontal_per_cell": [1,1,1,1,1,1,1,1,1,1], "vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}'
+ALL DONE
+### Wed Oct  7 19:10:04 UTC 2026 set legacy exit 0
+### Wed Oct  7 19:10:04 UTC 2026 queue finished

@@ -1,0 +1,74 @@
+kappa runs: 16266
+  500/16266  141s
+  1000/16266  259s
+  1500/16266  362s
+  2000/16266  454s
+  2500/16266  536s
+  3000/16266  594s
+  3500/16266  642s
+  4000/16266  686s
+  4500/16266  735s
+  5000/16266  785s
+  5500/16266  830s
+  6000/16266  871s
+  6500/16266  909s
+  7000/16266  946s
+  7500/16266  980s
+  8000/16266  1010s
+  8500/16266  1032s
+  9000/16266  1073s
+  9500/16266  1119s
+  10000/16266  1163s
+  10500/16266  1204s
+  11000/16266  1243s
+  11500/16266  1278s
+  12000/16266  1311s
+  12500/16266  1341s
+  13000/16266  1371s
+  13500/16266  1398s
+  14000/16266  1427s
+  14500/16266  1455s
+  15000/16266  1482s
+  15500/16266  1510s
+  16000/16266  1540s
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$PICKGLASS_SCRATCH/venv2/lib/python3.11/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+wrote methods/guard/results/synth_counts_kappa.csv: 16266 rows, 1556s

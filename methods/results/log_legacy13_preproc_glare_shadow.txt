@@ -1,0 +1,14 @@
+  1/13 images  321s
+  2/13 images  323s
+  3/13 images  337s
+  4/13 images  690s
+  5/13 images  695s
+  6/13 images  706s
+  7/13 images  1052s
+  8/13 images  1068s
+  9/13 images  1076s
+  10/13 images  1403s
+  11/13 images  1419s
+  12/13 images  1429s
+  13/13 images  1784s
+wrote results/legacy13_preproc_glare_shadow.csv: 2457 rows, 13 images, 1784s

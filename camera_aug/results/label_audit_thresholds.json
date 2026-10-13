@@ -1,0 +1,28 @@
+{
+ "floor": {
+  "med_abs": 0.020085414930459677,
+  "p90_abs": 0.1854102342630769,
+  "gt10": 3.6363636363636362
+ },
+ "thresholds": {
+  "strict_PASS": {
+   "area": null,
+   "messaging": null,
+   "phone": null,
+   "sensor": null
+  },
+  "collapse_median_abs_le_3pct": {
+   "area": "2.5",
+   "messaging": "2.5",
+   "phone": "3.5",
+   "sensor": "3.0"
+  },
+  "gross_le_plateau_plus_5pp": {
+   "area": "4.0",
+   "messaging": null,
+   "phone": ">7",
+   "sensor": null
+  },
+  "resampling_plateau_gt10_pct": 4.926108374384237
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "name": "REF_mps_r18",
+ "ckpt": "runs/synth_r18_v2mix_aniso/model.pt",
+ "tta": false,
+ "note": "existing MPS checkpoint re-predicted on the GPU: parity check on real150 only",
+ "synth_val_v2_tta": false,
+ "seconds": 180.22241282463074,
+ "gpu": "NVIDIA GeForce RTX 4090"
+}

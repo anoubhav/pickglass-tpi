@@ -1,0 +1,33 @@
+{
+ "model": "CountGD (Swin-B GroundingDINO, FSC-147 checkpoint)",
+ "repo": "nikigoli/CountGD",
+ "revision": "6b989ad11db9413e44863ea5c57735cae6cacff8",
+ "code": "github.com/niki-amini-naieni/CountGD @ b6f362b3f5cd20db4a171faa410dfed8f2f466d8 (models_inference)",
+ "gpus_physical_index": [
+  "1",
+  "3"
+ ],
+ "gpu_names": [
+  "NVIDIA GeForce RTX 4090"
+ ],
+ "box_threshold": 0.23,
+ "primary": "CG-B-yarn-ex3",
+ "per_image_seconds": {
+  "legacy": {
+   "n_images": 20,
+   "mean_total_sec_all_methods": 17.010511529445647
+  },
+  "rect150": {
+   "n_images": 150,
+   "mean_total_sec_all_methods": 15.17484946568807
+  }
+ },
+ "n_records": {
+  "legacy": 380,
+  "rect150": 2850
+ },
+ "n_errors": {
+  "legacy": 24,
+  "rect150": 196
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "name": "V5_r18",
+ "ckpt": "runs_aug/V4_r18_rho1/best.pt",
+ "tta": true,
+ "synth_val_v2_tta": false,
+ "seconds": 395.68133878707886,
+ "gpu": "NVIDIA GeForce RTX 4090"
+}

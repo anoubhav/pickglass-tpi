@@ -1,0 +1,33 @@
+Wed Oct  7 18:58:12 UTC 2026 using GPU 1
+index, memory.used [MiB], utilization.gpu [%]
+0, 11215 MiB, 48 %
+1, 4 MiB, 0 %
+2, 13143 MiB, 0 %
+3, 4 MiB, 0 %
+### Wed Oct  7 18:58:12 UTC 2026 set synth
+18 jobs (0 cached) -> $HOME/pickglass/raw/molmo2_8b_bf16__scaffold_synth.jsonl
+Fetching 29 files:   0%|          | 0/29 [00:00<?, ?it/s]Fetching 29 files: 100%|██████████| 29/29 [00:00<00:00, 4697.78it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:08<00:57,  8.20s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:14<00:42,  7.04s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:21<00:35,  7.04s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:27<00:27,  6.82s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:33<00:19,  6.54s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:40<00:13,  6.56s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:47<00:06,  6.64s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:51<00:00,  5.77s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:51<00:00,  6.41s/it]
+loaded allenai/Molmo2-8B@e28fa28 in 54.9s :: {'backend': 'transformers', 'dtype': 'bfloat16', 'torch': '2.6.0+cu118', 'transformers': '4.57.1', 'cuda': '11.8', 'gpu': 'NVIDIA GeForce RTX 4090', 'cuda_visible_devices': '1', 'attn_implementation': 'sdpa', 'max_crops': 8, 'variant': 'bf16'}
+  [1/18] syn1/P1 2.3s in=834 gen=34 stop :: '{\n  "vertical_yarns": 100,\n  "horizontal_yarns": 100,\n  "weave": "plain"\n}'
+  [2/18] syn1/S1 2.8s in=1012 gen=65 stop :: '{"vertical_per_tenth": [12, 11, 13], "horizontal_per_tenth": [11, 12, 11], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "plain"}'
+  [3/18] syn1/S1t 2.9s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [12, 13, 12], "vertical_yarns": 120, "horizontal_yarns": 130, "weave": "plain"}'
+  [4/18] syn1/S2 4.9s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [5/18] syn1/S3 2.6s in=968 gen=61 stop :: '{"vertical_per_patch": [5, 6, 4, 7], "horizontal_per_patch": [6, 5, 5, 6], "vertical_yarns": 60, "horizontal_yarns": 60, "weave": "plain"}'
+  [6/18] syn1/S4 2.9s in=1017 gen=79 stop :: '_cell": [1,1,1,1,1,1,1,1,1,1], "horizontal_per_cell": [1,1,1,1,1,1,1,1,1,1], "vertical_yarns": 10, "horizontal_yarns": 10, "weave": "plain"}'
+  [7/18] syn2/P1 1.5s in=834 gen=33 stop :: '{\n  "vertical_yarns": 12,\n  "horizontal_yarns": 12,\n  "weave": "twill"\n}'
+  [8/18] syn2/S1 2.8s in=1012 gen=65 stop :: '{"vertical_per_tenth": [12, 11, 13], "horizontal_per_tenth": [11, 12, 11], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "plain"}'
+  [9/18] syn2/S1t 2.9s in=1013 gen=66 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [12, 13, 12], "vertical_yarns": 120, "horizontal_yarns": 130, "weave": "twill"}'
+  [10/18] syn2/S2 5.5s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [11/18] syn2/S3 3.4s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [12/18] syn2/S4 5.2s in=1017 gen=119 stop :: ' 10, 10], "horizontal_per_cell": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [13/18] syn3/P1 1.7s in=834 gen=32 stop :: '{\n  "vertical_yarns": 13,\n  "horizontal_yarns": 13,\n  "weave": "plain"\n}'
+  [14/18] syn3/S1 3.3s in=1012 gen=65 stop :: '{"vertical_per_tenth": [12, 11, 13], "horizontal_per_tenth": [11, 12, 11], "vertical_yarns": 120, "horizontal_yarns": 110, "weave": "plain"}'
+  [15/18] syn3/S1t 3.1s in=1013 gen=65 stop :: '{"vertical_per_tenth": [12, 13, 11], "horizontal_per_tenth": [14, 13, 15], "vertical_yarns": 125, "horizontal_yarns": 140, "weave": "plain"}'
+  [16/18] syn3/S2 5.2s in=995 gen=119 stop :: ', 10], "horizontal_per_segment": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [17/18] syn3/S3 3.5s in=968 gen=71 stop :: 'al_per_patch": [10, 10, 10, 10], "horizontal_per_patch": [10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+  [18/18] syn3/S4 5.4s in=1017 gen=119 stop :: ' 10, 10], "horizontal_per_cell": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "vertical_yarns": 100, "horizontal_yarns": 100, "weave": "plain"}'
+ALL DONE
+### Wed Oct  7 19:00:26 UTC 2026 set synth exit 0
+### Wed Oct  7 19:00:26 UTC 2026 queue finished

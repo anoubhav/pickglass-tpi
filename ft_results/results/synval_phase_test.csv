@@ -1,0 +1,9 @@
+model,scale,n,med_offset,med_offset_antiphase,gap_cv,gt_gap_cv,frac_regular_within_1unit,p_wilcoxon_actual_vs_antiphase
+diag_step300,full,48,0.2469,0.244,0.0,0.0422,1.0,0.5117
+diag_step300,quarter,48,0.218,0.2619,0.0,0.019,0.9792,0.0042
+diag_step500,full,48,0.231,0.234,0.0,0.0422,1.0,0.8429
+diag_step500,quarter,48,0.214,0.2556,0.0,0.019,0.8958,0.0041
+molmo2_4b_base,full,134,0.2323,0.2466,0.01,0.0394,0.5299,0.0105
+molmo2_4b_base,quarter,809,0.1905,0.2127,0.0187,0.0193,0.2583,0.0
+molmo2_4b_synthft,full,200,0.2314,0.2308,0.0,0.0427,1.0,0.4284
+molmo2_4b_synthft,quarter,1000,0.192,0.2687,0.0,0.0181,0.902,0.0

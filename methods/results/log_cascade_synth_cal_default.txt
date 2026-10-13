@@ -1,0 +1,92 @@
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$HOME/pickglass/code/cascade/methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+  200/3800  59s
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  400/3800  113s
+  600/3800  174s
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  800/3800  228s
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  1000/3800  282s
+$HOME/pickglass/code/cascade/methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+  1200/3800  330s
+$HOME/pickglass/code/cascade/methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  1400/3800  376s
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+$HOME/pickglass/code/cascade/methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  1600/3800  422s
+  1800/3800  461s
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  2000/3800  496s
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+$HOME/pickglass/venv/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  2200/3800  527s
+  2400/3800  567s
+$HOME/pickglass/code/cascade/methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+  2600/3800  604s
+$HOME/pickglass/code/cascade/methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+  2800/3800  638s
+$HOME/pickglass/code/cascade/methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+$HOME/pickglass/code/cascade/methods/counting.py:970: RuntimeWarning: divide by zero encountered in divide
+  dj = np.where(np.abs(den) > 1e-9, np.clip(0.5 * (hm - hp) / den, -0.5, 0.5), 0)
+  3000/3800  672s
+  3200/3800  709s
+  3400/3800  743s
+  3600/3800  782s
+  3800/3800  812s
+wrote $HOME/pickglass/results/cascade/cascade_synth_cal_default.csv: 3800 rows, 812s

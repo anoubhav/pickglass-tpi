@@ -1,0 +1,11 @@
+model_a,model_b,method,mode,n_images,mae_a_minus_b,ci_lo,ci_hi,frac_boot_a_better,B,images
+molmo2_8b_bf16,molmo2_8b,P1,best,13,-1.846,-2.308,-1.385,1,10000,"a1,a2,a4,a5,a6,a8,a10,r2,r3,r4,r6,r7,r8"
+molmo2_8b_bf16,molmo2_8b,P1,axis,13,-1.846,-2.308,-1.385,1,10000,"a1,a2,a4,a5,a6,a8,a10,r2,r3,r4,r6,r7,r8"
+molmo2_8b_bf16,molmo2_8b,P2,best,4,-9,-31.5,5.5,0.7441,10000,"a1,a2,a4,a5"
+molmo2_8b_bf16,molmo2_8b,P2,axis,4,-9.5,-33,5.5,0.7444,10000,"a1,a2,a4,a5"
+molmo2_8b_bf16,molmo2_8b,P3,best,4,-12,-24,0,0.9381,10000,"a1,a2,a4,a5"
+molmo2_8b_bf16,molmo2_8b,P3,axis,4,-12,-24,0,0.9402,10000,"a1,a2,a4,a5"
+molmo2_8b_bf16,molmo2_8b,P4,best,4,2.75,-13.5,21.75,0.3884,10000,"a1,a2,a4,a5"
+molmo2_8b_bf16,molmo2_8b,P4,axis,4,2.75,-13.5,21.75,0.3791,10000,"a1,a2,a4,a5"
+molmo2_8b_bf16,molmo2_8b,P4q,best,3,-45,-148,15,0.7399,10000,"a1,a2,a4"
+molmo2_8b_bf16,molmo2_8b,P4q,axis,3,-45,-160,15,0.7039,10000,"a1,a2,a4"

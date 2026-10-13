@@ -1,0 +1,166 @@
+{
+ "name": "octsel-v1",
+ "written_utc": "2026-10-12T18:31:39Z",
+ "status": "frozen before the second annotator's (FL_NG) counts were delivered or opened (at freeze time no FL_NG count/label file exists in the project; only the planning documents handover/results/PREREG_labelday_FLNG*.md)",
+ "what": "learned octave selector for the frozen training-free spectral counter (methods/results/counting_frozen_final.py, predictions methods/predictions_ours_150.csv): per file and axis predict k in {-1, 0, +1} from label-free features and output count = counter count * 2^k",
+ "features_label_free": {
+  "per_axis": [
+   "lr_lattice, lr_fft, lr_profile, lr_tiles, lr_gabor = log2(stage estimate / final count)",
+   "lr_alt = log2(alt_ax / count)",
+   "g_c, g_2c, g_half = whitened spectral evidence (frozen Spectrum.lookup) at the counted frequency, 2x and 0.5x, along the counter's lattice direction",
+   "conf = counter confidence",
+   "lpx = log2(rect_size / count)",
+   "lr_gpt = log2(GPT-6.1-sol P1 / count), h = gpt-6.1-sol__v, v = gpt-6.1-sol__h"
+  ],
+  "code": "methods/octave_learned/octsel_features.py (imports the frozen counter read-only; md5 3d0520d6bec8a016543ce7e5b353d784)"
+ },
+ "training": "target k* = clip(round(log2(FL_SA h_tpi|v_tpi / counter h_count|v_count)), -1, 1) on the 76 scene representatives x 2 axes (k* = -1/0/+1 on 32/64/56 axes); multinomial logistic regression on standardised features, L2 (0.5||W||^2 + C sum w_i CE_i), class-balanced weights; C from {0.001 ... 100} by NESTED grouped CV inside the training folds (criterion class-balanced log-loss; C = 0.03 in every outer fold and for the all-data model); 5 folds = handover/results/labelday_diag_FLSA_20261012/cnn_cv_FLSA/fabric_grouped/folds.csv (each of the 44 fabric groups of paper/tables/fabric_groups_v2.csv in one fold; same folds as the fabric-grouped CNN and ens-v1)",
+ "decision_rule": {
+  "primary": "undo class balancing with the training class frequencies (p_j ~ p_bal_j * prior_j), choose k minimising expected APE with COST[k, j] = 100 |2^(k-j) - 1|",
+  "secondary": "argmax of the class-balanced probabilities (the design as first specified)"
+ },
+ "out_of_fold": "predictions_octsel_oof_FLSA_150.csv: all 150 files, each predicted by the model of its scene's fold (trained without that scene's fabric group); columns id, h_count, v_count, k_h, k_v, fold, prior-corrected probabilities",
+ "all_data_model": "model_octsel_v1.json (fitted on all 76 FL_SA scenes; for new label-free files: octsel_features.py --ours <counter preds> --gpt <VLM wide preds>, then octsel_v1.py --predict <features.csv> --out <preds.csv>); its predictions on the 150 files: predictions_octsel_full_150.csv (in-sample for FL_SA)",
+ "honesty": "POST HOC. The features were chosen after FL_SA's counts had been diagnosed (octave errors of the counter; analysis A2's label-free spectral evidence at c, 2c, c/2; GPT agreeing with the counter on halving axes). The model is TRAINED on FL_SA's counts (out of fold by fabric group). The decision rule was changed once after seeing FL_SA out-of-fold results: the design as first specified (class-balanced, argmax) scored 48.3% MAPE (raw counter 41.7%); four decision variants (class-balanced or unweighted x argmax or minimum expected APE) were then compared out of fold on FL_SA and the class-balanced + minimum-expected-APE rule (37.5%) was adopted, so its FL_SA out-of-fold number is optimistically selected. Features, C grid and folds were not changed after any result. A no-training reference computed in the same evaluation, the counter snapped to GPT-6.1-sol's octave, scored 31.3% on FL_SA, i.e. better than octsel-v1. Every FL_SA number is post hoc. FL_NG's counts have never been seen; they are the blind test.",
+ "cv_results_FLSA_post_hoc": {
+  "k_accuracy_oof": 0.4276,
+  "k_always0_accuracy": 0.4211,
+  "k_confusion_rows_kstar_cols_pred": {
+   "-1": {
+    "-1": 11,
+    "0": 22,
+    "1": 1
+   },
+   "0": {
+    "-1": 21,
+    "0": 40,
+    "1": 41
+   },
+   "1": {
+    "-1": 0,
+    "0": 2,
+    "1": 14
+   }
+  },
+  "MAPE": {
+   "octsel-v1 OOF": 37.47,
+   "spectral counter (frozen)": 41.75,
+   "GPT-6.1-sol P1": 28.77,
+   "ens-v1": 25.53,
+   "geo(octsel OOF, GPT)": 31.87,
+   "geo(octsel OOF, ens-v1)": 30.19,
+   "octsel-v1 all-data model (in-sample)": 32.07,
+   "octsel argmax-balanced OOF (as first specified)": 48.35,
+   "counter snapped to GPT octave (no training)": 31.27,
+   "oracle octave (labels; bound)": 13.73
+  },
+  "MAPE_ci95_scene": {
+   "octsel-v1 OOF": [
+    32.9,
+    42.3
+   ],
+   "spectral counter (frozen)": [
+    36.3,
+    47.8
+   ],
+   "GPT-6.1-sol P1": [
+    24.4,
+    33.3
+   ],
+   "ens-v1": [
+    21.5,
+    30.0
+   ],
+   "geo(octsel OOF, GPT)": [
+    28.1,
+    35.8
+   ],
+   "geo(octsel OOF, ens-v1)": [
+    26.3,
+    34.2
+   ],
+   "octsel-v1 all-data model (in-sample)": [
+    27.6,
+    36.6
+   ],
+   "octsel argmax-balanced OOF (as first specified)": [
+    38.8,
+    58.8
+   ],
+   "counter snapped to GPT octave (no training)": [
+    26.3,
+    37.0
+   ],
+   "oracle octave (labels; bound)": [
+    11.8,
+    15.7
+   ]
+  },
+  "both5_n_of_76": {
+   "octsel-v1 OOF": 5,
+   "spectral counter (frozen)": 0,
+   "GPT-6.1-sol P1": 7,
+   "ens-v1": 4,
+   "geo(octsel OOF, GPT)": 5,
+   "geo(octsel OOF, ens-v1)": 1,
+   "octsel-v1 all-data model (in-sample)": 8,
+   "octsel argmax-balanced OOF (as first specified)": 7,
+   "counter snapped to GPT octave (no training)": 8,
+   "oracle octave (labels; bound)": 11
+  },
+  "paired_dMAPE_octsel_oof_minus": {
+   "spectral counter (frozen)": "-4.3 [-10.0, +1.3]",
+   "GPT-6.1-sol P1": "+8.7 [+4.0, +13.4]",
+   "ens-v1": "+11.9 [+7.6, +16.3]"
+  }
+ },
+ "primary_test": {
+  "reference": "FL_NG ALONE (per-scene labels of the second annotator, labels_per_scene format; never seen when this file was written)",
+  "command": "<repo>/.tools/venv/bin/python -I -B methods/octave/eval_octave_v1.py --labels <FL_NG labels_per_scene.csv> --names FL_NG --reference each --pred methods/octave_learned/predictions_octsel_oof_FLSA_150.csv (the --pred method is printed under the label 'octave-v1'; 'ours-frozen' = the raw spectral counter)",
+  "primary_endpoint": "MAPE over the 76 scene representatives (mean of the per-scene mean of |pred-ref|/ref over h and v)",
+  "paired_comparisons": [
+   "octsel-v1 minus GPT-6.1-sol P1",
+   "octsel-v1 minus the raw spectral counter (ours-frozen)"
+  ],
+  "statistics": "as printed by eval_octave_v1.py: scene bootstrap 10,000, seed 20261012, 95% percentile CI of dMAPE; Wilcoxon signed-rank; both-axes-within-5% share with exact McNemar",
+  "decision": "octsel-v1 improves on the counter if the dMAPE CI vs ours-frozen lies entirely below 0; it beats GPT-6.1-sol only if the CI vs GPT lies entirely below 0",
+  "expectation_from_FLSA_cv": "vs counter -4.3 [-10.0, +1.3] (not significant); vs GPT +8.7 [+4.0, +13.4] (worse); we do not expect it to beat GPT-6.1-sol or ens-v1"
+ },
+ "secondary": [
+  "vs ens-v1: the same command with --frozen methods/ensemble/predictions_ens_v1_150.csv (the 'ours-frozen' slot then holds ens-v1)",
+  "the first-specified argmax rule: --pred methods/octave_learned/predictions_octsel_argmax_oof_FLSA_150.csv",
+  "the all-data model: --pred methods/octave_learned/predictions_octsel_full_150.csv (trained on FL_SA's counts of the same scenes)",
+  "mean of both annotators: --labels <FL_NG> <FL_SA> --names FL_NG FL_SA --reference mean",
+  "exploratory (reported, not tuned): geometric means --pred predictions_octsel_geo_gpt_oof_FLSA_150.csv and predictions_octsel_geo_ens_v1_oof_FLSA_150.csv",
+  "k accuracy against k* recomputed from FL_NG (same definition)"
+ ],
+ "files_sha256": {
+  "octsel_features.py": "0c1339dd63be45253e1f61a3bfed74d63b4c76a3be24ba5139b67124916489ec",
+  "octsel_v1.py": "437aa30bf80008b88fe31d2e5e711ef1320dcc66e6be41260f8207e0ead0e709",
+  "features_octsel_150.csv": "ca0e4fcb228a67d307b66104fd79b68126d3a82f4e3ab253f2946fc4d5070bb2",
+  "training_table_FLSA.csv": "b5465b901d9a0ec90292e3f9df2d32e64a10d460278809587f75fcd750b31739",
+  "model_octsel_v1.json": "bb0c083361d43d3094f999fe587e8a1530a56c07ef1d039a0dc07d604b16d762",
+  "predictions_octsel_oof_FLSA_150.csv": "c84b06c0efc1c82e6760ed95288bcceeb5fa520840143d7e8e3f65537586b032",
+  "predictions_octsel_full_150.csv": "5704df2439e3288e96ef7c6f0660cf6a76cd1fab1389fc2e8083ab9a55145660",
+  "predictions_octsel_argmax_oof_FLSA_150.csv": "89a24a3f5153f6651168d885941a60c410a1640877bb457ecff22ce8c3a5ea66",
+  "predictions_octsel_argmax_full_150.csv": "4fc397e0ab08f9d3678f1c58e6ecbfeb2037d14762073fb40572578299c1aaa3",
+  "predictions_octsel_geo_gpt_oof_FLSA_150.csv": "d0d8342d8dbdb26c3d172f47ebe8c1b7692c292c5d836fbe3c5dee70b87813e5",
+  "predictions_octsel_geo_ens_v1_oof_FLSA_150.csv": "5466488840b1282d7c9ffa7898322397a541ae4a9f9d1cd9a898e3de4b39c55f",
+  "cv_results_FLSA.json": "46be0645fc3ad1b383b9b939adab335004f0df98c7e4400fb14fc34f2a09d8ae",
+  "cv_results_FLSA.txt": "e025fa0446d2391822395cbcc7a676642483191de595bbd3fb732561e40b8b99",
+  "eval_FLSA_per_scene.csv": "1399d8c3b9eba8421a3585dd07d47fa6eeac6ff7f13274c6425324cb2b465683",
+  "eval_FLSA_oof_with_eval_octave_v1.json": "d56e6a26ebe8751f0b77c2f60150da2f8e7b7dd3813d1daec028a717d9b908f2",
+  "eval_FLSA_oof_with_eval_octave_v1.txt": "d9b88a62e3ff03a7fb4ed1e3d8b9a0196dc8709c3281a5519c7fabaf7abb9f9b"
+ },
+ "inputs_sha256": {
+  "methods/predictions_ours_150.csv": "ad48068f96be8e97be742e667939aa3ccc2070e6b92f2a9cc0f2842841f014d6",
+  "vlm/results/rect150_P1_predictions_wide.csv": "7cb5a2c83df5b729c1380f4ec7e6d3431924ecabe7bd456d67b5e5b79c987d33",
+  "methods/ensemble/predictions_ens_v1_150.csv": "1120f845a78f284dcca47200d74e3583ceb6308f76a623d8273fc14caf0a1898",
+  "methods/octave/eval_octave_v1.py": "8d5b71c6e5fd1dcf88dda890c204ad8cd57e81c69a6d26d05758f343ac891d35",
+  "handover/results/labelday_diag_FLSA_20261012/cnn_cv_FLSA/fabric_grouped/folds.csv": "29048b1a83d58e8f4014c82584828ed54baca90b59f74182231c455b386957a6",
+  "handover/results/labelday_diag_FLSA_20261012/payment_audit/labels_per_scene_FL_SA.csv": "708973fc6ea077eaca01054c0eeec862559b2c64e57b9e6de3327af5adbb583f",
+  "paper/tables/fabric_groups_v2.csv": "6b78d6038511622af12473b5233f4a507cf25eb3aeb512931bb6aa081ddae458",
+  "methods/results/counting_frozen_final.py": "fd97f9efe7f5e0ef91116d70c71df577bfa768d4a8fd74524a4d30eeafa6117a",
+  "common/rectify.py": "a729283352a6ffaa725ba5c10d19acfd78da523bec8ee55c55343c4e83feaf87"
+ }
+}

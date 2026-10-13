@@ -1,0 +1,27 @@
+{
+ "model": "molmo2_4b_synthft",
+ "primary": "P1",
+ "rule": "lowest synthetic-val MAPE among P1,P4,P4q,P4s",
+ "synval": [
+  {
+   "method": "P1",
+   "MAPE": 7.188,
+   "n_ok": 100
+  },
+  {
+   "method": "P4s",
+   "MAPE": 8.59,
+   "n_ok": 100
+  },
+  {
+   "method": "P4",
+   "MAPE": 9.826,
+   "n_ok": 100
+  },
+  {
+   "method": "P4q",
+   "MAPE": 10.436,
+   "n_ok": 100
+  }
+ ]
+}

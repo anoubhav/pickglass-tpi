@@ -1,0 +1,65 @@
+source,image,vertical,horizontal,usd,warp,weft
+bicubic (this job),a1,50.0,64.0,0.0114035,76.0,64.0
+bicubic (this job),a2,46.0,46.0,0.0117035,48.0,47.0
+bicubic (this job),a4,55.0,66.0,0.0120135,115.0,73.0
+bicubic (this job),a5,48.0,48.0,0.0111635,47.0,49.0
+bicubic (this job),a6,30.0,44.0,0.0106035,46.0,43.0
+bicubic (this job),a8,28.0,40.0,0.0117235,45.0,42.0
+bicubic (this job),a10,46.0,52.0,0.0124435,46.0,53.0
+bicubic (this job),r2,64.0,67.0,0.0125535,99.0,69.0
+bicubic (this job),r3,48.0,72.0,0.0123835,48.0,62.0
+bicubic (this job),r4,60.0,84.0,0.0120835,63.0,91.0
+bicubic (this job),r6,88.0,88.0,0.0118035,92.0,90.0
+bicubic (this job),r7,42.0,65.0,0.0105835,42.0,65.0
+bicubic (this job),r8,74.0,68.0,0.0124335,122.0,71.0
+seedvr2 (this job),a1,104.0,63.0,0.0153235,76.0,64.0
+seedvr2 (this job),a2,48.0,47.0,0.0118535,48.0,47.0
+seedvr2 (this job),a4,110.0,74.0,0.0121635,115.0,73.0
+seedvr2 (this job),a5,48.0,49.0,0.0132135,47.0,49.0
+seedvr2 (this job),a6,30.0,43.0,0.0100935,46.0,43.0
+seedvr2 (this job),a8,28.0,40.0,0.0118435,45.0,42.0
+seedvr2 (this job),a10,46.0,51.0,0.0139935,46.0,53.0
+seedvr2 (this job),r2,96.0,70.0,0.0102135,99.0,69.0
+seedvr2 (this job),r3,48.0,64.0,0.0134435,48.0,62.0
+seedvr2 (this job),r4,64.0,90.0,0.0120835,63.0,91.0
+seedvr2 (this job),r6,88.0,88.0,0.0108435,92.0,90.0
+seedvr2 (this job),r7,44.0,62.0,0.0113635,42.0,65.0
+seedvr2 (this job),r8,48.0,64.0,0.0111635,122.0,71.0
+nbpro (this job),a1,50.0,64.0,0.0112035,76.0,64.0
+nbpro (this job),a2,45.0,45.0,0.0125035,48.0,47.0
+nbpro (this job),a4,104.0,72.0,0.0102235,115.0,73.0
+nbpro (this job),a5,47.0,48.0,0.0104135,47.0,49.0
+nbpro (this job),a6,30.0,42.0,0.0108535,46.0,43.0
+nbpro (this job),a8,55.0,42.0,0.0103035,45.0,42.0
+nbpro (this job),r2,92.0,72.0,0.0106335,99.0,69.0
+nbpro (this job),r3,50.0,60.0,0.0110035,48.0,62.0
+nbpro (this job),r4,62.0,90.0,0.0121335,63.0,91.0
+nbpro (this job),r6,90.0,90.0,0.0105335,92.0,90.0
+nbpro (this job),r7,42.0,60.0,0.0113035,42.0,65.0
+nbpro (this job),r8,74.0,72.0,0.0116735,122.0,71.0
+clean crop (paper run),a1,51.0,64.0,0.00534,76.0,64.0
+clean crop (paper run),a10,46.0,49.0,0.0125,46.0,53.0
+clean crop (paper run),a2,47.0,48.0,0.01138,48.0,47.0
+clean crop (paper run),a4,96.0,78.0,0.01179,115.0,73.0
+clean crop (paper run),a5,48.0,49.0,0.0111,47.0,49.0
+clean crop (paper run),a6,30.0,44.0,0.0113,46.0,43.0
+clean crop (paper run),a8,32.0,40.0,0.01309,45.0,42.0
+clean crop (paper run),r2,94.0,68.0,0.0043,99.0,69.0
+clean crop (paper run),r3,48.0,58.0,0.01218,48.0,62.0
+clean crop (paper run),r4,59.0,90.0,0.01383,63.0,91.0
+clean crop (paper run),r6,88.0,88.0,0.01017,92.0,90.0
+clean crop (paper run),r7,41.0,65.0,0.0125,42.0,65.0
+clean crop (paper run),r8,56.0,68.0,0.01147,122.0,71.0
+LR x8 -> 1536 bicubic (paper run),a1,52.0,58.0,0.01137,76.0,64.0
+LR x8 -> 1536 bicubic (paper run),a10,46.0,47.0,0.0112,46.0,53.0
+LR x8 -> 1536 bicubic (paper run),a2,46.0,47.0,0.01035,48.0,47.0
+LR x8 -> 1536 bicubic (paper run),a4,56.0,64.0,0.01139,115.0,73.0
+LR x8 -> 1536 bicubic (paper run),a5,48.0,49.0,0.0115,47.0,49.0
+LR x8 -> 1536 bicubic (paper run),a6,30.0,44.0,0.01164,46.0,43.0
+LR x8 -> 1536 bicubic (paper run),a8,32.0,40.0,0.01099,45.0,42.0
+LR x8 -> 1536 bicubic (paper run),r2,96.0,70.0,0.01207,99.0,69.0
+LR x8 -> 1536 bicubic (paper run),r3,48.0,66.0,0.01197,48.0,62.0
+LR x8 -> 1536 bicubic (paper run),r4,63.0,88.0,0.01094,63.0,91.0
+LR x8 -> 1536 bicubic (paper run),r6,80.0,88.0,0.01144,92.0,90.0
+LR x8 -> 1536 bicubic (paper run),r7,62.0,62.0,0.01205,42.0,65.0
+LR x8 -> 1536 bicubic (paper run),r8,72.0,72.0,0.0121,122.0,71.0

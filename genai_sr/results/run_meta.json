@@ -1,0 +1,389 @@
+{
+ "protocol_md5": [
+  "0257e8e01f354e90675c4a1d233c9cf4  README.md (protocol sections 1-8) frozen at 2026-10-07T23:13:41Z, before any restoration model download/run",
+  "746b8ea15ab5834776ec7aff93d13985  README.md after deviation D1 at 2026-10-07T23:27:48Z",
+  "55bd6f90558e822f9ca66d4a0ab02798  README.md D1 timestamp corrected to 23:28 UTC (actual) at 2026-10-07T23:27:51Z"
+ ],
+ "seed": 20261008,
+ "reference_sets": {
+  "R_HR": [
+   1,
+   5,
+   9,
+   15,
+   17,
+   18,
+   25,
+   27,
+   28,
+   30,
+   33,
+   38,
+   39,
+   45,
+   47,
+   48,
+   49,
+   50,
+   52,
+   53,
+   54,
+   60,
+   62,
+   64,
+   65,
+   67,
+   70,
+   73,
+   77,
+   80,
+   84,
+   86,
+   88,
+   90,
+   91,
+   95,
+   98,
+   99,
+   110,
+   118,
+   123,
+   129,
+   130,
+   131,
+   133,
+   137,
+   138,
+   140,
+   141,
+   143,
+   144,
+   145,
+   146
+  ],
+  "R_LEG": [
+   "a1",
+   "a2",
+   "a4",
+   "a5",
+   "a6",
+   "a8",
+   "a10",
+   "r2",
+   "r3",
+   "r4",
+   "r6",
+   "r7",
+   "r8"
+  ],
+  "t_c": 0.5740764461064712
+ },
+ "conditions": [
+  "D4",
+  "D8",
+  "D4J"
+ ],
+ "models": [
+  {
+   "key": "bicubic",
+   "family": "interpolation (control)",
+   "impl": "cv2.resize INTER_CUBIC (OpenCV 4.11.0)",
+   "licence": "Apache-2.0"
+  },
+  {
+   "key": "swinir",
+   "family": "regression SR (non-generative)",
+   "model": "SwinIR-M classical x4 (DF2K, L1)",
+   "weights": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/001_classicalSR_DF2K_s64w8_SwinIR-M_x4.pth",
+   "weights_md5": "83f41d3437af6339d78da7214e44b502",
+   "loader": "spandrel 0.4.2",
+   "licence": "Apache-2.0",
+   "paper": "Liang et al., ICCVW 2021"
+  },
+  {
+   "key": "realesrgan",
+   "family": "GAN blind SR",
+   "model": "Real-ESRGAN x4plus (RRDBNet)",
+   "weights": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth",
+   "weights_md5": "99ec365d4afad750833258a1a24f44ca",
+   "loader": "spandrel 0.4.2",
+   "licence": "BSD-3-Clause",
+   "paper": "Wang et al., ICCVW 2021"
+  },
+  {
+   "key": "seedvr2",
+   "family": "one-step diffusion transformer (restoration)",
+   "model": "SeedVR2-3B fp16",
+   "weights_repo": "numz/SeedVR2_comfyUI (Apache-2.0; ByteDance-Seed/SeedVR2-3B)",
+   "dit_md5": "925e3251bc0ddded9c9de34bbc43375e",
+   "vae_md5": "86259c91257ced5b35fc43ac7aba674f",
+   "runner": "numz/ComfyUI-SeedVR2_VideoUpscaler @ 4490bd1f482e026674543386bb2a4d176da245b9 (standalone CLI, in-process)",
+   "settings": {
+    "seed": 20261008,
+    "batch_size": 1,
+    "color_correction": "lab (default)",
+    "resolution": "reference side S",
+    "vae_tiling": "encode+decode 1024/128"
+   },
+   "licence": "Apache-2.0",
+   "paper": "Wang et al., SeedVR2 (ByteDance Seed, 2025)",
+   "s_per_img": 7.006573557853699
+  },
+  {
+   "key": "invsr",
+   "family": "diffusion inversion SR (SD-Turbo)",
+   "model": "InvSR noise_predictor_sd_turbo_v5, 1 step",
+   "base": "stabilityai/sd-turbo @ b261bac6fd2cf515557d5d0707481eafa0485ec2",
+   "repo": "zsyOAOA/InvSR @ 609788cd076f1990e38d3912092ca67286e1e0bc",
+   "weights_md5": "687ed97b28e180f03e6259e75676489c",
+   "settings": {
+    "seed": 20261008,
+    "num_steps": 1,
+    "timesteps": [
+     200
+    ],
+    "chopping_size": 128,
+    "color_fix": "none (default)"
+   },
+   "licence": "NTU S-Lab License 1.0 (non-commercial); SD-Turbo: Stability AI non-commercial research licence",
+   "paper": "Yue et al., CVPR 2025"
+  },
+  {
+   "key": "flux2klein",
+   "family": "rectified-flow instruction editor (open 'AI enhance')",
+   "model": "black-forest-labs/FLUX.2-klein-4B",
+   "revision": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
+   "settings": {
+    "prompt": "Enhance and upscale this fabric photo, keep it realistic",
+    "steps": 4,
+    "guidance_scale": 1.0,
+    "seed": 20261008,
+    "dtype": "bfloat16",
+    "input": "LR bicubic-upsampled to 1024^2",
+    "output": "1024^2"
+   },
+   "diffusers": "0.41.0",
+   "licence": "Apache-2.0",
+   "peak_mem_gb": 17.33,
+   "s_per_img": 2.934123992919922
+  },
+  {
+   "key": "nbpro",
+   "family": "commercial AI image editor",
+   "model": "google/gemini-3-pro-image (Nano Banana Pro) via OpenRouter",
+   "served": "Google (OpenRouter provider field)",
+   "settings": {
+    "prompt": "Enhance and upscale this fabric photo, keep it realistic",
+    "seed": 20261008,
+    "image_config": {
+     "aspect_ratio": "1:1",
+     "image_size": "2K"
+    }
+   },
+   "date": "2026-10-07",
+   "licence": "proprietary API (Google / OpenRouter terms)",
+   "n_ok": 35,
+   "n_refused": 4
+  },
+  {
+   "key": "gpt-6.1-sol",
+   "family": "VLM counter",
+   "model": "openai/gpt-6.1-sol via OpenRouter, prompt P1 v1, reasoning 'minimal', T=0",
+   "date": "2026-10-07"
+  }
+ ],
+ "gpu_hours": {
+  "total": 2.258,
+  "restoration_preregistered": 0.864,
+  "scoring_cnn_iq": 0.441,
+  "seed_sensitivity_exploratory": 0.953,
+  "hardware": "1x NVIDIA RTX 4090 24 GB per step (gpu-server, idle GPUs only: 0 and 3)",
+  "per_step": [
+   {
+    "step": "simple",
+    "gpu": 3,
+    "pid": 3702857,
+    "start_utc": "2026-10-07T23:24:23Z",
+    "end_utc": "2026-10-07T23:29:34Z",
+    "seconds": 311,
+    "exit": 0
+   },
+   {
+    "step": "flux2klein",
+    "gpu": 0,
+    "pid": 3710844,
+    "start_utc": "2026-10-07T23:29:34Z",
+    "end_utc": "2026-10-07T23:40:13Z",
+    "seconds": 639,
+    "exit": 0
+   },
+   {
+    "step": "invsr",
+    "gpu": 3,
+    "pid": 3714621,
+    "start_utc": "2026-10-07T23:32:15Z",
+    "end_utc": "2026-10-07T23:42:30Z",
+    "seconds": 615,
+    "exit": 0
+   },
+   {
+    "step": "cnn",
+    "gpu": 3,
+    "pid": 3735566,
+    "start_utc": "2026-10-07T23:48:14Z",
+    "end_utc": "2026-10-07T23:57:01Z",
+    "seconds": 527,
+    "exit": 0
+   },
+   {
+    "step": "seedvr2",
+    "gpu": 0,
+    "pid": 3723195,
+    "start_utc": "2026-10-07T23:40:13Z",
+    "end_utc": "2026-10-08T00:04:58Z",
+    "seconds": 1485,
+    "exit": 0
+   },
+   {
+    "step": "invsr",
+    "gpu": 0,
+    "pid": 3758977,
+    "start_utc": "2026-10-08T00:04:58Z",
+    "end_utc": "2026-10-08T00:05:58Z",
+    "seconds": 60,
+    "exit": 0
+   },
+   {
+    "step": "cnn",
+    "gpu": 0,
+    "pid": 3759211,
+    "start_utc": "2026-10-08T00:05:01Z",
+    "end_utc": "2026-10-08T00:06:43Z",
+    "seconds": 102,
+    "exit": 0
+   },
+   {
+    "step": "iq",
+    "gpu": 0,
+    "pid": 3761066,
+    "start_utc": "2026-10-08T00:06:43Z",
+    "end_utc": "2026-10-08T00:06:52Z",
+    "seconds": 9,
+    "exit": 1
+   },
+   {
+    "step": "seedvar_flux",
+    "gpu": 3,
+    "pid": 3751215,
+    "start_utc": "2026-10-07T23:58:01Z",
+    "end_utc": "2026-10-08T00:12:21Z",
+    "seconds": 860,
+    "exit": 0
+   },
+   {
+    "step": "iq",
+    "gpu": 3,
+    "pid": 3768914,
+    "start_utc": "2026-10-08T00:13:12Z",
+    "end_utc": "2026-10-08T00:22:36Z",
+    "seconds": 564,
+    "exit": 0
+   },
+   {
+    "step": "seedvar_invsr",
+    "gpu": 3,
+    "pid": 3786524,
+    "start_utc": "2026-10-08T00:23:23Z",
+    "end_utc": "2026-10-08T00:34:46Z",
+    "seconds": 683,
+    "exit": 0
+   },
+   {
+    "step": "seedvar_seedvr2",
+    "gpu": 0,
+    "pid": 3761319,
+    "start_utc": "2026-10-08T00:06:52Z",
+    "end_utc": "2026-10-08T00:38:19Z",
+    "seconds": 1887,
+    "exit": 0
+   },
+   {
+    "step": "cnn",
+    "gpu": 0,
+    "pid": 3834343,
+    "start_utc": "2026-10-08T00:45:41Z",
+    "end_utc": "2026-10-08T00:52:06Z",
+    "seconds": 385,
+    "exit": 0
+   }
+  ]
+ },
+ "openrouter": {
+  "total_usd": 5.2825,
+  "cap_usd": 6.0,
+  "by_purpose": [
+   {
+    "purpose": "gpt_p1_bicubic",
+    "count": 13,
+    "sum": 0.1529
+   },
+   {
+    "purpose": "gpt_p1_nbpro",
+    "count": 12,
+    "sum": 0.1328
+   },
+   {
+    "purpose": "gpt_p1_seedvr2",
+    "count": 13,
+    "sum": 0.1576
+   },
+   {
+    "purpose": "nbpro",
+    "count": 43,
+    "sum": 4.8392
+   }
+  ],
+  "note": "own ledger; the paper's global VLM ledger (vlm/logs/openrouter_costs.csv) was not modified",
+  "nbpro_refused_calls": 8,
+  "nbpro_refused_note": "4 images refused (content_filter), each tried twice with the same seed = 8 refused calls at US$0"
+ },
+ "counters": {
+  "score_counts": {
+   "counting_md5": "2bf64a3ab76458d1e852248fb0a4047f",
+   "conf_model_md5": "3aea9b50e4b75e191cac08cb5161ca59",
+   "cv2": "4.11.0",
+   "numpy": "1.26.4",
+   "estimators": [
+    "ours",
+    "gabor",
+    "lattice",
+    "fft"
+   ],
+   "preproc": "lcn",
+   "glare": "mask",
+   "max_work": 1024
+  },
+  "cnn": {
+   "ckpt_md5": "dad61b74874196b49bc4e32fab498438",
+   "torch": "2.6.0+cu118",
+   "device": "cuda",
+   "Ps": [
+    672,
+    768,
+    864
+   ],
+   "flips": true,
+   "cap_side": 1024,
+   "cuda_visible": "0"
+  },
+  "iq": {
+   "pyiqa": "0.1.16",
+   "lpips": "alex v0.1",
+   "torch": "2.6.0+cu118",
+   "side_nr": 1024,
+   "device": "cuda",
+   "cuda_visible": "3"
+  }
+ },
+ "storage": "full-resolution restored PNGs (16 GB) stay on gpu-server ~/pickglass/genai_sr/outputs (md5 in results/outputs_manifest.csv); 768-px JPEG viewing copies in genai_sr/viewing/"
+}

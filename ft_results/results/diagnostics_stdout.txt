@@ -1,0 +1,41 @@
+            model   scale    n  med_offset  med_offset_antiphase  gap_cv  gt_gap_cv  frac_regular_within_1unit  p_wilcoxon_actual_vs_antiphase
+     diag_step300    full   48       0.247                 0.244   0.000      0.042                      1.000                           0.512
+     diag_step300 quarter   48       0.218                 0.262   0.000      0.019                      0.979                           0.004
+     diag_step500    full   48       0.231                 0.234   0.000      0.042                      1.000                           0.843
+     diag_step500 quarter   48       0.214                 0.256   0.000      0.019                      0.896                           0.004
+   molmo2_4b_base    full  134       0.232                 0.247   0.010      0.039                      0.530                           0.010
+   molmo2_4b_base quarter  809       0.190                 0.213   0.019      0.019                      0.258                           0.000
+molmo2_4b_synthft    full  200       0.231                 0.231   0.000      0.043                      1.000                           0.428
+molmo2_4b_synthft quarter 1000       0.192                 0.269   0.000      0.018                      0.902                           0.000
+            model   scale   n  gap_cv_median  frac_regular_within_1unit
+   molmo2_4b_base    full  18          0.009                      0.500
+   molmo2_4b_base quarter 183          0.018                      0.257
+molmo2_4b_synthft    full  40          0.000                      1.000
+molmo2_4b_synthft quarter 200          0.000                      0.985
+                        key    n  spearman
+              cnn:synth_r18 26.0     0.837
+                  est:gabor 26.0     0.895
+                   est:ours 26.0     0.785
+       ft:molmo2_4b_base|P1 26.0    -0.029
+       ft:molmo2_4b_base|P4 26.0    -0.316
+      ft:molmo2_4b_base|P4q 26.0     0.344
+   ft:molmo2_4b_base|P4q_sp 24.0     0.430
+      ft:molmo2_4b_base|P4s 26.0     0.253
+   ft:molmo2_4b_base|P4s_sp 26.0     0.469
+    ft:molmo2_4b_synthft|P1 26.0     0.660
+    ft:molmo2_4b_synthft|P4 26.0     0.684
+   ft:molmo2_4b_synthft|P4q 26.0     0.687
+ft:molmo2_4b_synthft|P4q_sp 26.0     0.689
+   ft:molmo2_4b_synthft|P4s 26.0     0.673
+ft:molmo2_4b_synthft|P4s_sp 26.0     0.674
+               ref:loo_mean 26.0    -0.571
+      vlm:gpt-6.1-sol|P1|r0 26.0     0.905
+   vlm:molmo2_8b_bf16|P1|r0 26.0    -0.217
+   vlm:molmo2_8b_bf16|P3|r0 26.0     0.263
+  vlm:molmo2_8b_bf16|P4q|r0 26.0     0.678
+   vlm:molmo2_8b_bf16|P4|r0 26.0    -0.257
+ step    P4   P4q  n_counts
+    0 62.52 54.37        48
+  300 21.89 17.08        48
+  500 11.07 10.32        48
+ 1000  9.72  9.10        48
