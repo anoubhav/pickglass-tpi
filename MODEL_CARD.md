@@ -1,6 +1,6 @@
 # Model card: PG-Lattice thread counter (and the quality-aware cascade)
 
-Following *Model Cards for Model Reporting* (Mitchell et al., FAT* 2019). Numbers marked **TBD** need the PickGlass human counts (two annotators, label day Oct 12 2026) and will be filled from `paper/tables/main150.csv` and `strat150.csv`.
+Following *Model Cards for Model Reporting* (Mitchell et al., FAT* 2019). Numbers marked **TBD** need the PickGlass human counts (two annotators, label day Oct 12 2026); the paper under review reports them (Tab. 1, Tab. 2 and Sec. 5), and this card will be filled from `paper/tables/main150.csv` and `strat150.csv` when the counts are released.
 
 ## Model details
 

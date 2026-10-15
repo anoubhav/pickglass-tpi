@@ -1,6 +1,6 @@
 # PickGlass: counting threads per inch through a pick glass
 
-Code, predictions and the annotation tool for **Image Quality and Fabric-Density Measurement: Counting Threads with a Smartphone Through a Pick Glass** (under review at the WACV 2027 workshop WVAQ, Image/Video/Audio Quality Assessment in Computer Vision, VLM and Diffusion Model).
+Code, predictions and the annotation tool for **Image Quality and the Reliability of Fabric-Density Measurement: Counting Threads from Smartphone Photos Through a Pick Glass** (under review at the WACV 2027 workshop WVAQ, Image/Video/Audio Quality Assessment in Computer Vision, VLM and Diffusion Model).
 
 A textile inspector checks thread density, the warp ends and weft picks per inch, by counting yarns through a 10x pick glass. We keep that tool and photograph the fabric **through** it with a phone: the glass's opening and engraved scales make every photo metric, and the problem becomes one of capture quality. This repository holds the task definition, a training-free reciprocal-lattice counter (PG-Lattice), a pre-registered combined counter (PG-Lattice + log-Gabor), the glass-ruler window detector, the capture-quality studies (degradations, phone-camera stress, generative enhancement, generic no-reference IQA), the VLM / CNN / CountGD baselines, a quality-aware cascade, a scene-aware annotation tool, and every prediction on PickGlass (150 files = 76 scenes) and on 13 hand-counted legacy crops.
 
@@ -10,8 +10,8 @@ A textile inspector checks thread density, the warp ends and weft picks per inch
 
 **Status (Oct 2026).**
 - The counter, the scorer, the cascade decisions, the combined counter, the 76-scene generic-IQA test and the label-day analysis were frozen before any human count was looked at ([CHECKSUMS.md](CHECKSUMS.md)).
-- The human counts of the 76 PickGlass scenes are made by two annotators, each counting every scene from scratch (label day Oct 12 2026); the reference is their mean. The scored tables are added after label day.
-- This release has the code, the frozen methods and protocols, and every machine prediction. The photos, crops, renders and both annotators' counts (with dot positions) will be added once the second annotator's counts are scored ([DATASHEET.md](DATASHEET.md)). The author took the photos with the mill's agreement.
+- The human counts of the 76 PickGlass scenes are made by two annotators, each counting every scene from scratch (label day Oct 12 2026); the reference is their mean. Both annotators counted all 76 scenes; the scored results are in the paper (under review).
+- This release has the code, the frozen methods and protocols, and every machine prediction. The photos, crops, renders and both annotators' counts (with dot positions) will be added after the review period ([DATASHEET.md](DATASHEET.md)). The author took the photos with the mill's agreement.
 
 ## Contents
 
@@ -117,7 +117,7 @@ Without the photos: `node annotation_tool/tests/test_core.js` (38 of 39 pass; th
 
 `data/` holds everything that has no pixels: `manifest.json` (150 files, window polygons, scene fields, machine proposals), `scene_map.csv`, `window_polygons.csv`, `photo_provenance.json` (sizes and MD5 of the photos), `legacy13_hand_counts.csv` and `predictions/` (every method on PickGlass and legacy-13, with `INDEX.csv`). See [data/README.md](data/README.md).
 
-**The photos, rectified crops, the 13 legacy crops, degraded copies, PickGlass-Stress renders, generative-enhancement outputs and the human counts with dot positions will be added once the second annotator's counts are scored**, on an archive with a DOI ([DATASHEET.md](DATASHEET.md), [DATA_LICENSE](DATA_LICENSE)). The code expects them where `common/paths.py` says (environment variables with repo-relative defaults): `PICKGLASS_NOTEBOOKS` (photos and polygons), `PICKGLASS_LEGACY_ROOT` (2019 material), `PICKGLASS_SCRATCH`, `PICKGLASS_GPU_HOST`, `PICKGLASS_REMOTE_ROOT`, `OPENROUTER_API_KEY`. Run `python3 common/paths.py` to see what is found.
+**The photos, rectified crops, the 13 legacy crops, degraded copies, PickGlass-Stress renders, generative-enhancement outputs and the human counts with dot positions will be added after the review period**, on an archive with a DOI ([DATASHEET.md](DATASHEET.md), [DATA_LICENSE](DATA_LICENSE)). The code expects them where `common/paths.py` says (environment variables with repo-relative defaults): `PICKGLASS_NOTEBOOKS` (photos and polygons), `PICKGLASS_LEGACY_ROOT` (2019 material), `PICKGLASS_SCRATCH`, `PICKGLASS_GPU_HOST`, `PICKGLASS_REMOTE_ROOT`, `OPENROUTER_API_KEY`. Run `python3 common/paths.py` to see what is found.
 
 ## Freeze and checksums
 
@@ -136,7 +136,7 @@ Without the photos: `node annotation_tool/tests/test_core.js` (38 of 39 pass; th
 
 ```bibtex
 @inproceedings{pickglass2027,
-  title     = {Image Quality and Fabric-Density Measurement: Counting Threads with a Smartphone Through a Pick Glass},
+  title     = {Image Quality and the Reliability of Fabric-Density Measurement: Counting Threads from Smartphone Photos Through a Pick Glass},
   author    = {Agarwaal, Anoubhav},
   booktitle = {WACV 2027 Workshop on Image/Video/Audio Quality Assessment in Computer Vision, VLM and Diffusion Model (WVAQ)},
   year      = {2027},
