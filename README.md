@@ -152,4 +152,4 @@ Code and documentation: MIT ([LICENSE](LICENSE)). Data: to be announced ([DATA_L
 
 ## Acknowledgements
 
-The 2019 baseline, the 13 legacy crops and their hand counts come from the 2019 Textile Quality Analysis project of the Computer Vision and Intelligence club, IIT Madras; `methods/legacy_2019/` is a line-by-line re-implementation of its counting step. TODO (author): names of the 2019 team members who agree to be credited.
+The 2019 baseline, the 13 legacy crops and their hand counts come from the 2019 Textile Quality Analysis project of the Computer Vision and Intelligence club, IIT Madras; `methods/legacy_2019/` is a line-by-line re-implementation of its counting step.
