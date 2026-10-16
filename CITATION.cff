@@ -1,12 +1,12 @@
 cff-version: 1.2.0
 message: "If you use this code or data, please cite the paper below (final title; venue details after review)."
-title: "PickGlass: counting threads per inch from smartphone photos through a pick glass"
+title: "PickGlass-TPI: counting threads per inch from smartphone photos through a pick glass"
 type: software
 authors:
   - family-names: "Agarwaal"
     given-names: "Anoubhav"
     affiliation: "Indian Institute of Technology Madras"
-repository-code: "https://github.com/anoubhav/pickglass-thread-count"
+repository-code: "https://github.com/anoubhav/pickglass-tpi"
 license: MIT
 version: "0.1.0"
 date-released: "2026-10-14"

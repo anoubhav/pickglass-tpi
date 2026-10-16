@@ -1,4 +1,6 @@
-# PickGlass: counting threads per inch through a pick glass
+# PickGlass-TPI: counting threads per inch through a pick glass
+
+*Formerly `pickglass-thread-count`; the dataset was called PickGlass in earlier drafts. Old links redirect here.*
 
 Code, predictions and the annotation tool for **Image Quality and the Reliability of Fabric-Density Measurement: Counting Threads from Smartphone Photos Through a Pick Glass** (under review at the WACV 2027 workshop WVAQ, Image/Video/Audio Quality Assessment in Computer Vision, VLM and Diffusion Model).
 
@@ -35,7 +37,7 @@ A textile inspector checks thread density, the warp ends and weft picks per inch
 ## Quickstart
 
 ```bash
-git clone https://github.com/anoubhav/pickglass-thread-count && cd pickglass-thread-count
+git clone https://github.com/anoubhav/pickglass-tpi && cd pickglass-tpi
 python3.11 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
 
 python3 tools/verify_checksums.py               # the frozen files are the published ones

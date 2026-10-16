@@ -1,4 +1,4 @@
-# Datasheet: PickGlass
+# Datasheet: PickGlass-TPI
 
 Following *Datasheets for Datasets* (Gebru et al., CACM 2021). Items marked **TBD** are completed when the data are added; the data licence is a prerequisite for releasing any photo-derived file.
 
