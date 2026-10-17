@@ -1,7 +1,7 @@
-"""fabric_groups_v2.py -- label-free re-shoot audit of the 76 scene representatives (Job X "reshoot", 2026-10-11).
+"""fabric_groups_v2.py -- label-free re-shoot audit of the 76 scene representatives.
 
 Why: tables/fabric_groups_candidate.csv (64 groups) merges only the 13 cross-scene pairs of cnn/selfcheck_aug.py
-check E1 (band-pass NCC > 0.9). The freelancer kit's same-patch matcher (freelancer/same_patch_pairs.json) compared
+check E1 (band-pass NCC > 0.9). The annotator kit's same-patch matcher (freelancer/same_patch_pairs.json) compared
 only non-IAA x IAA representatives and already found 11 more pairs that the candidate groups do not merge. Here the
 SAME matcher is run over ALL 76 x 75 / 2 = 2,850 representative pairs, in both directions.
 
@@ -12,7 +12,7 @@ Pair score = max(inliers(a->b), inliers(b->a)). A pair is "the same fabric patch
 the matcher's own pre-declared threshold. The all-pairs distribution decides whether that is defensible: it is
 written to the provenance JSON (histogram, the largest score below the threshold, the smallest above it). On the
 v2 data every score lies in {0, 2..5} or >= 16 (no pair in 6..15), so any threshold in 6..16 gives the same groups;
-the >= 100 alternative suggested in the Job W audit is reported as a sensitivity row.
+a stricter >= 100 alternative is reported as a sensitivity row.
 Diagnostics (not used for the decision): aligned high-pass NCC of the crop pair under the RANSAC similarity,
 rotation closure on every triangle of accepted pairs, and the frozen counter's own counts
 (methods/predictions_ours_150.csv; machine output, no human count) on both scenes of each pair.
@@ -38,6 +38,10 @@ Outputs: paper/tables/fabric_groups_v2.csv, paper/tables/fabric_groups_v2.json (
 Usage (any venv with numpy, pandas, opencv-python(-headless) >= 4.4):
   <venv>/bin/python tools/fabric_groups_v2.py            # from paper/; ~3 min on a laptop
 Deterministic (OpenCV's RANSAC uses a fixed RNG state per call).
+
+Provenance: the committed paper/tables/fabric_groups_v2.json records script_md5 632c2e4f873c71d2dfa3c88571097795,
+the MD5 of the script that wrote it. This released copy differs from that script only in docstring and comment
+wording (the code is unchanged), so its MD5, and the script_md5 a re-run writes, differ.
 """
 from __future__ import annotations
 
@@ -66,7 +70,7 @@ P_KIT = os.path.join(ROOT, "freelancer", "same_patch_pairs.json")
 OUT_CSV = os.path.join(PAPER, "tables", "fabric_groups_v2.csv")
 OUT_JSON = os.path.join(PAPER, "tables", "fabric_groups_v2.json")
 OUT_PAIRS = os.path.join(PAPER, "tables", "src", "same_patch_allpairs.csv")
-ALT_THRESHOLDS = (100,)       # sensitivity rows (Job W audit suggested >= 100)
+ALT_THRESHOLDS = (100,)       # sensitivity rows (stricter alternative threshold)
 AGREE = 0.03                  # counter-consistency diagnostic: both axes within 3% (h/v swap allowed)
 
 

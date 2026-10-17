@@ -1,14 +1,13 @@
-"""make_fig_overlay.py -- Fig. 3 (Job W4, Oct 12): human dots vs the counter's crossings on a zoomed strip.
+"""make_fig_overlay.py -- overlay figure: human dots vs the counter's crossings on a zoomed strip.
 
     <python with numpy, matplotlib, pillow> tools/make_fig_overlay.py <labels.csv> [--ids 39,29] [--outdir figs]
 
-Same strip as handover/results/labelday_diag_FLSA_20261012/overlay.py (the middle 18% of the horizontal guide line
-of the contrast-enhanced crop), drawn with matplotlib so that the ticks are thick and every panel carries a
-px-per-yarn scale bar.  <labels.csv> is a label_day merged export with the columns id, rect_size, h_line_y, h_dots
+The strip is the middle 18% of the horizontal guide line of the contrast-enhanced crop, drawn with matplotlib so that the ticks are thick and every panel carries a
+px-per-yarn scale bar.  <labels.csv> is a merged export of tools/label_day.py with the columns id, rect_size, h_line_y, h_dots
 (e.g. <run>/work/merged/scoring_headline/annotations_<annotator>.csv); the counter's crossings come from the
 annotation tool's manifest (annotation_tool/data/manifest.json, proposal.h_positions; never shown to the annotators).
 
-PROVISIONAL until label day: the Oct 12 version uses the first annotator's dots only.
+The human dots are those of the annotator whose merged export is passed as <labels.csv>.
 Writes <outdir>/fig_overlay.pdf/.png (3.25 in wide). Deterministic. Reads only.
 """
 from __future__ import annotations
@@ -78,7 +77,7 @@ def main():
             ax.plot([x, x], [-pad, 0], color=C_HUM, lw=1.3, solid_capstyle="butt", clip_on=False)
         for x in ours:
             ax.plot([x, x], [h, h + pad], color=C_OURS, lw=1.3, solid_capstyle="butt", clip_on=False)
-        # scale bar: 5 yarns at the human count's px per yarn (Job W7: label with one decimal, as the caption)
+        # scale bar: 5 yarns at the human count's px per yarn (label with one decimal, as in the caption)
         L = 5 * ppy
         xb, yb = w - L - 0.04 * w, h - 0.09 * h
         ax.plot([xb, xb + L], [yb, yb], color="white", lw=2.2, solid_capstyle="butt")

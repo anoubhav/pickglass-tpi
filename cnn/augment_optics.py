@@ -1,5 +1,5 @@
 """augment_optics.py -- pick-glass optics, phone-resolution and label-TRANSFORMING geometric
-augmentations with exact labels for 1-inch pick-glass crops (WVAQ 2027, Job B).
+augmentations with exact labels for 1-inch pick-glass crops (WVAQ 2027).
 
 Companion to augment.py (NOT a replacement; augment.py is untouched).  Same call signature:
 
@@ -15,7 +15,7 @@ yarns.  Yarn-tilt angles use ours' convention (angle_x: k_h ~ (cos ax, sin ax); 
 k_v ~ (sin ay, cos ay); image y down).
 
 Label engine (same principle as augment.LabelTransform, re-implemented here so that this file does
-not depend on a module another job is editing).  Every transform stores the exact inverse pixel map
+not depend on augment.py's internals).  Every transform stores the exact inverse pixel map
 ``inv`` (output px -> input px, pixel centres at integers).  Straight uniformly spaced yarns are the
 level sets of a phase phi(p) = k.p, so the number of yarns crossing ANY monotone curve equals
 |phi(end) - phi(start)|: the crossing count of an output row / column follows exactly from the

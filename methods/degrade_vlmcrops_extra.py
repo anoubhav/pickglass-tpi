@@ -1,9 +1,9 @@
 """degrade_vlmcrops_extra.py -- the three Table-6 degradation families that degrade_vlmcrops.py
-(Job C) did not run on the canonical legacy crops: motion blur, noise and hard shadow.
+did not run on the canonical legacy crops: motion blur, noise and hard shadow.
 
 Same code path as degrade_vlmcrops.py (imported unchanged: same canonical crops, degrade.apply,
 per-image seed rule, estimate_many(lcn, glare mask) for ours / log-Gabor / FFT); only the
-families differ, and the outputs go to separate files so Job C's CSV is untouched.
+families differ, and the outputs go to separate files so degrade_vlmcrops.py's CSV is untouched.
 
     <venv2>/bin/python methods/degrade_vlmcrops_extra.py      # make + score, ~2-5 min CPU
 Out: methods/results/legacy13_vlmcrops_degrade_extra.csv (+ _summary.csv: ours/gabor/fft

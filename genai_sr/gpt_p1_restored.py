@@ -4,7 +4,7 @@ bicubic control (README section 5).  Same call path as the paper's VLM rows: vlm
 
     <venv_vlm>/bin/python gpt_p1_restored.py --restorers seedvr2,bicubic [--cond D8]
 
-Costs go to this job's ledger (logs/openrouter_costs.csv; hard stop US$5.9 for the whole job); raw records to
+Costs go to this study's ledger (logs/openrouter_costs.csv; hard stop US$5.9 for the whole study); raw records to
 raw/gpt-6.1-sol__<restorer>_<cond>.jsonl.  The key is never printed.
 """
 from __future__ import annotations

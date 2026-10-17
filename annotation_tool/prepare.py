@@ -83,7 +83,7 @@ from PIL import Image
 from scipy.signal import find_peaks
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)  # .../wvaq2027
+ROOT = os.path.dirname(HERE)  # <repo root>
 sys.path.insert(0, os.path.join(ROOT, "common"))
 import rectify as R  # noqa: E402
 

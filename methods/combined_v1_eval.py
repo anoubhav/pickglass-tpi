@@ -1,5 +1,5 @@
 """combined_v1_eval.py -- evaluation of the PRE-REGISTERED combined counter combined-v1 (written AFTER the freeze:
-methods/results/PREREG_combined_v1.json, 2026-10-11T22:26 -0400).  Reads only frozen predictions / frozen-counter
+methods/results/PREREG_combined_v1.json).  Reads only frozen predictions / frozen-counter
 outputs; never changes a threshold.
 
   --synth    the pre-declared held-out synthetic test (PREREG 'heldout_test'): fresh seeds 970000+ / 975000+

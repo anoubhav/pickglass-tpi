@@ -3,8 +3,8 @@
  "title": "Pre-registered offline combined counter combined-v1 (PG-Lattice + log-Gabor bank), WVAQ @ WACV 2027",
  "created": "2026-10-11T22:26:09-0400",
  "created_utc": "2026-10-12T02:26:09Z",
- "statement_no_labels": "When this record and every prediction file listed below were written, no human count of the 76 PickGlass scene representatives (or of any of the 150 files) existed: the single external annotator's (FL_SA) exports are due Mon 2026-10-12 18:00 IST (08:30 US Eastern). This job did not look for, open or use any annotation export (annotation_tool/data/saved, freelancer exports) or any propagated label. The only labels used were exact synthetic-generator labels (fit) and, AFTER this freeze and reported as post hoc, the 13 legacy (2019) hand counts, which had already been used during the development of the counters.",
- "motivation": "Known pattern on the legacy-13 degradation study (post hoc): ours (PG-Lattice) is better clean-ish and under x8 down-scaling, strong glare and phone-camera profiles, but over-counts catastrophically under Gaussian defocus 1-4u (MAPE 50-246 %) where the log-Gabor bank degrades gracefully (10-40 %). The rule family therefore contains a defocus fallback to log-Gabor driven by the resolvability ratio rho of the cascade (supp. S14), plus an agreement term; thresholds were left to the synthetic fit.",
+ "statement_no_labels": "When this record and every prediction file listed below were written, no human count of the 76 PickGlass scene representatives (or of any of the 150 files) existed: the external annotator's (A1) exports had not yet been delivered. This work did not look for, open or use any annotation export (annotation_tool/data/saved, annotator exports) or any propagated label. The only labels used were exact synthetic-generator labels (fit) and, AFTER this freeze and reported as post hoc, the 13 legacy hand counts, which had already been used during the development of the counters.",
+ "motivation": "Known pattern on the legacy-13 degradation study (post hoc): ours (PG-Lattice) is better clean-ish and under x8 down-scaling, strong glare and phone-camera profiles, but over-counts catastrophically under Gaussian defocus 1-4u (MAPE 50-246 %) where the log-Gabor bank degrades gracefully (10-40 %). The rule family therefore contains a defocus fallback to log-Gabor driven by the resolvability ratio rho of the cascade (supplement Sec. S11), plus an agreement term; thresholds were left to the synthetic fit.",
  "rule": {
   "file": {
    "path": "methods/results/combined_frozen_v1.py",
@@ -35,7 +35,7 @@
    "d_agree": "0.00..0.60 step 0.01 (61 values)"
   },
   "declared_before_fitting": true,
-  "source": "objective fixed by the task brief ('maximise share of counts within 5 % (P5), tie-break MAPE')"
+  "source": "objective fixed in advance ('maximise share of counts within 5 % (P5), tie-break MAPE')"
  },
  "fit": {
   "script": {
@@ -57,14 +57,14 @@
     "sha256": "a96ab72b4ad93bf573bdb2329196789e13c92e7b0644ae40751155763a3d16e9",
     "seeds": "930000..930199",
     "generator": "cnn/synth.py v2, r_sensor ~ U[1630, 1940] px/inch, crop not capped",
-    "scored_on": "M2 Max (numpy 1.x), methods/cascade_synth.py, Oct 7"
+    "scored_on": "M2 Max (numpy 1.x), methods/cascade_synth.py"
    },
    "S-cal-default": {
     "path": "methods/results/cascade_synth_cal_default.csv",
     "sha256": "42fba01cece100993addaf511f3b2f5f70bf6d4fd0940a7d4ef2adda35344bfe",
     "seeds": "930000..930199",
     "generator": "cnn/synth.py v2 defaults, crop <= 1024 px",
-    "scored_on": "gpu-server (numpy 2.2.6, cv2 5.0.0), methods/cascade_synth.py, Oct 7"
+    "scored_on": "gpu-server (numpy 2.2.6, cv2 5.0.0), methods/cascade_synth.py"
    },
    "conditions": [
     "clean:0",
@@ -90,7 +90,7 @@
    "n_crops": 400,
    "n_counts": 15200,
    "labels": "exact generator labels (h_count, v_count)",
-   "note": "S-cal was produced on Oct 7 for the cascade (paper/tools/cascade_tradeoff.py); it had never been used to choose anything about ours vs log-Gabor. Same seeds in both variants (different sensor grids), so the two variants are not independent fabrics."
+   "note": "S-cal was produced earlier for the cascade (paper/tools/cascade_tradeoff.py); it had never been used to choose anything about ours vs log-Gabor. Same seeds in both variants (different sensor grids), so the two variants are not independent fabrics."
   },
   "result_primary": {
    "r_min": 0.0,

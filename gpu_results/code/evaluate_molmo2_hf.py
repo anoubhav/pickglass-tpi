@@ -2,7 +2,7 @@
 
 All scoring code is the Mac harness' own (code/mac_vlm/evaluate_vlm.py: estimates, metrics,
 errors, loo_mean_baseline, weave_acc, write_csv), imported verbatim, so the numbers are
-directly comparable with wvaq2027/vlm/results/*.csv.  GT = 2019 spreadsheet via the 2019
+directly comparable with <repo root>/vlm/results/*.csv.  GT = legacy spreadsheet via the legacy
 harness' load_gt (13 usable images).
 
 Inputs
@@ -172,7 +172,7 @@ def rect150(est):
         wide[int(img)][f"{m}__h"] = e["h"]
         wide[int(img)][f"{m}__weave"] = e["weave"]
     wrows = [dict(image_id=i, native_crop_px=side.get(str(i)), **wide[i]) for i in sorted(wide)]
-    # summary per method (no GT for the 150 yet)
+    # summary per method (label-free on the 150)
     summ = []
     for m in (BF16, W4, MLX):
         for meth in ("P1", "P3", "P3s", "P4"):
@@ -436,7 +436,7 @@ def main():
     s = dict(gt_images=sorted(gt), n_gt=len(gt),
              n_records={m: sum(1 for r in recs if r["short"] == m) for m in (BF16, W4, MLX)})
     # Mac-schema files hold ONLY the GPU models (molmo2_8b_bf16, molmo2_8b_bf16_w4mlx), so their rows can
-    # be appended to wvaq2027/vlm/results/*.csv without duplicating the Mac's own molmo2_8b rows.
+    # be appended to <repo root>/vlm/results/*.csv without duplicating the Mac's own molmo2_8b rows.
     GPU = (BF16, W4)
     A = stageA(est, gt, GPU)
     EV.write_csv(os.path.join(OUT, "stageA_legacy_metrics.csv"), A)

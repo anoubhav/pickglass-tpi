@@ -1,13 +1,16 @@
 # genai_sr: does generative enhancement hallucinate or erase threads?
 
-Job A of the WVAQ 2027 paper (workshop topics: "hallucination effects in image super-resolution and
-restoration using diffusion models" and "impact of image quality on CV tasks").
+The generative-enhancement study of the paper for the WACV 2027 workshop WVAQ (workshop topics:
+"hallucination effects in image super-resolution and restoration using diffusion models" and "impact
+of image quality on CV tasks").
 
-**Status of this file.** Sections 1 to 8 are the protocol. They were written and frozen on
-2026-10-07 23:15 UTC, before any restoration model was downloaded or run and before any count was
-computed on a restored image. The md5 of the frozen text is in `logs/prereg_md5.txt`, and a copy is
-at `logs/README_prereg_frozen.md`. Deviations go in section 9 with a reason, and results go in
-section 10. The protocol text above section 9 is never edited.
+**Status of this file.** Sections 1 to 8 are the protocol. They were written and frozen before any
+restoration model was downloaded or run and before any count was computed on a restored image. The
+md5 of the original frozen text is in `logs/prereg_md5.txt`, and a copy, redacted for the public
+release, is at `logs/README_prereg_frozen.md`. Deviations go in section 9 with a reason, and results
+go in section 10. The protocol text above section 9 was not changed after freezing except for the
+redactions of the public release (paths, keys, names, internal dates and process notes); no analysis
+choice was changed.
 
 ---
 
@@ -35,7 +38,7 @@ The tests are two-sided. The direction of any effect is the finding.
 | Set | Images | Reference image | Reference counts |
 |---|---|---|---|
 | **R-HR** | the 53 of the 150 crops with side S ≥ 1500 px (≈1890 px/inch) **and** ours confidence ≥ t_c = 0.5741 in `methods/predictions_ours_150.csv`. t_c is the cascade's confidence-only gate (`paper/tables/cascade_thresholds.json`, fits.vlm9_a10.conf.t_c), which was fitted on synthetic data only. Ids: 1 5 9 15 17 18 25 27 28 30 33 38 39 45 47 48 49 50 52 53 54 60 62 64 65 67 70 73 77 80 84 86 88 90 91 95 98 99 110 118 123 129 130 131 133 137 138 140 141 143 144 145 146 | `annotation_tool/data/crops/{i}.jpg` (used as is) | **Primary:** ours on the clean reference image, computed in this run in the same environment as every degraded and restored image (a pseudo ground truth). **Secondary:** each estimator against its own clean prediction (self-consistency). |
-| **R-LEG** | legacy-13: a1 a2 a4 a5 a6 a8 a10 r2 r3 r4 r6 r7 r8 | the canonical crops `vlm/crops/legacy/{name}.png` (1736–1941 px) | Human hand counts, parsed by the 2019 harness exactly as in `paper/tools/legacy_unified.py` (`load_gt`). Axis assignment is "axis", as in the paper: h_count ↔ warp, v_count ↔ weft. |
+| **R-LEG** | legacy-13: a1 a2 a4 a5 a6 a8 a10 r2 r3 r4 r6 r7 r8 | the canonical crops `vlm/crops/legacy/{name}.png` (1736–1941 px) | Human hand counts, parsed by the legacy harness exactly as in `paper/tools/legacy_unified.py` (`load_gt`). Axis assignment is "axis", as in the paper: h_count ↔ warp, v_count ↔ weft. |
 
 ## 3. Degradations (cheap capture emulation)
 
@@ -84,8 +87,8 @@ Scale handling, fixed in advance:
   3-scale × 3-flip TTA, exactly as `cnn/degrade_vlmcrops.py`.
 - **VLM (R-LEG, D8 only)**: GPT-6.1-sol, prompt P1, on the SeedVR2 output and on the bicubic output.
   The input is a 1536² JPEG q92, as for every VLM row in the paper. If the US$6 cap allows, the same
-  is run on the Nano Banana Pro output. The SeedVR2 choice is fixed now: it is the most-adopted open
-  diffusion restorer.
+  is run on the Nano Banana Pro output. The SeedVR2 choice is fixed in advance: it is the most-adopted
+  open diffusion restorer.
 
 ## 6. Metrics
 
@@ -139,21 +142,21 @@ Per count, a crop gives two counts (h and v). APE = |pred − ref| / ref × 100.
 
 ## 8. Budget and safety rules
 
-- OpenRouter: at most **US$6** in total for this job, tracked in its own ledger
+- OpenRouter: at most **US$6** in total for this study, tracked in its own ledger
   `logs/openrouter_costs.csv`. The code stops at US$5.9. Nano Banana Pro runs a 1-image pilot (counted
   in the 39) and stops if the projected total exceeds US$5.3.
 - GPU server gpu-server: work only in `~/pickglass/genai_sr/`, with all caches under
   `env.sh`. Only **idle** GPUs are used (the `pick_gpu.sh` rule: < 500 MiB used, < 5 % utilisation, no
-  compute process). GPU 2 is never used. PIDs are tracked. Nothing is deleted.
+  compute process).
 - Full-resolution restored PNGs stay on the server (md5 manifest). The Mac copy under `genai_sr/`
   holds code, CSVs, logs, the figure, the full-resolution figure examples, and 768-px JPEG viewing
-  copies of every output, because the Mac disk has little space left.
+  copies of every output.
 
 ---
 
 ## 9. Deviations from the protocol
 
-**D1 (2026-10-07 23:28 UTC). Additions made after scoring only `clean`, `none` and `bicubic`.** At this
+**D1. Additions made after scoring only `clean`, `none` and `bicubic`.** At this
 point no generative or SR output had been counted, and only SwinIR / Real-ESRGAN images existed on disk.
 
 **What was found.** Bicubic ×8 up-sampling makes ours lock onto the interpolation *imaging replica*
@@ -200,7 +203,7 @@ show R-HR for every estimator against its *own* clean prediction, which is the p
 (self-consistency) reference; for ours, this is identical to the primary reference. Every
 primary-reference row is in `results/table_counts.csv` (`ref = primary`).
 
-## 10. Results (2026-10-08)
+## 10. Results
 
 **Files.**
 - `results/genai_hallucination_table.csv`: one row per set × condition × restoration; a copy is at
@@ -238,7 +241,9 @@ estimators × 2 reference sets × 3 conditions:
 | The five generative restorers | 81 | 33 | 41 | 7 |
 | SwinIR (non-generative) | 18 | 0 | 14 | 4 |
 
-"Worse" and "better" mean the paired-bootstrap 95 % CI excludes 0.
+"Worse" and "better" mean the paired-bootstrap 95 % CI excludes 0. These tallies use each estimator's own clean
+prediction as the R-HR reference (the secondary reference; D4 in section 9). With the primary reference, the
+generative row reads 21 worse, 45 not different and 15 better. None of these tallies was pre-registered.
 
 The CNN is hurt almost everywhere: 22 of 27 generative comparisons are worse (e.g. Real-ESRGAN R-HR D8
 +12.0 points, InvSR R-LEG D8 +11.1). For ours, the effect depends on the model and the set:
@@ -282,9 +287,10 @@ why SeedVR2 can help ours on R-HR.
 
 ### 4. "Looks better, counts worse" (H3) holds for the perceptual metric, not uniformly for counts
 
-Every generative output scores higher on no-reference MUSIQ than bicubic (+10 to +28) and higher than
-the **real high-resolution reference** itself. For example, FLUX.2-klein scores 61–63 against 47
-(R-HR) and 52 (R-LEG) for the clean crop. At the same time:
+Every generative output scores higher on no-reference MUSIQ than bicubic (+10 to +28) and at or above
+that of the **real high-resolution reference** itself (significantly in 25 of 27 set-degradation
+cells; SeedVR2 on R-LEG at ×8 scores 52, the same as the reference). For example, FLUX.2-klein scores
+61–63 against 47 (R-HR) and 52 (R-LEG) for the clean crop. At the same time:
 - PSNR drops to 19–24 dB for InvSR, FLUX.2-klein, Nano Banana Pro and Real-ESRGAN (at ×8), against
   26–35 dB for bicubic, SwinIR and SeedVR2.
 - LPIPS is worse than SwinIR for every generative model, except SeedVR2 on R-HR at ×8 and ×4+JPEG.
@@ -314,8 +320,9 @@ SeedVR2 changes by more than 10 % on 6–9 % of counts. InvSR is effectively det
 
 | Input | MAPE (%) | 95 % CI |
 |---|---|---|
-| bicubic (this job) | 11.7 | [6.6, 17.1] |
-| stored paper run, LR resized straight to 1536 px | 12.2 | |
+| bicubic (this study) | 11.7 | [6.6, 17.1] |
+| earlier stored run (not the one in the paper), LR resized straight to 1536 px | 12.2 | [6.8, 18.0] |
+| the paper's run (supplement Tab. S5; `paper/tables/degradation_legacy13.csv`), LR resized straight to 1536 px | 12.6 | [7.2, 18.8] |
 | SeedVR2 | 8.6 | [3.4, 14.8] |
 | Nano Banana Pro (12 crops) | 7.9 | [4.3, 12.0] |
 | clean crop | 8.8 | |

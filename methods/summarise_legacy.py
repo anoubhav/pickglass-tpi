@@ -1,13 +1,13 @@
 """summarise_legacy.py -- accuracy on the 13 hand-counted legacy images (held-out test set).
 
-Inputs : one or more tidy CSVs written by ``ablate.py --set legacy13`` + the 2019 baselines
+Inputs : one or more tidy CSVs written by ``ablate.py --set legacy13`` + the legacy baselines
          (legacy_2019/run1/results.csv: doc3+count faithful, precropped, seed 0; and the
-         'predicted weft by RGB irregularity' column of the 2019 xlsx = FR-final test.py).
+         'predicted weft by RGB irregularity' column of the legacy xlsx = FR-final test.py).
 Output : results/legacy13_metrics.csv (tidy) and a printed table.
 
 Assignments (GT axis vs image axis is uncertain for these photos):
   axis      h_count (vertical yarns, counted along a row) <-> GT 'warp',  v_count <-> 'weft'.
-            This is the 2019 convention: count.py counted warp along a row, test.py counted
+            This is the legacy convention: count.py counted warp along a row, test.py counted
             weft down a column.
   sorted    best assignment without looking at errors: larger prediction <-> larger GT.
   nearest   (single-axis baselines only) prediction vs the nearer of the two GT values (oracle).

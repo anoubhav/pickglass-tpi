@@ -6,25 +6,25 @@ Panels (left to right):
   (1) the phone photo taken through the pick glass (no overlay);
   (2) window localisation: tick feet of the glass's engraved scales found by the ruler method
       (methods/ruler_calib.py, run here), the window and its four corners fitted to them, the
-      human polygon (Labelbox XML via common/rectify.py) and the box of the 2019 segmentation
+      human polygon (Labelbox XML via common/rectify.py) and the box of the legacy segmentation
       (methods/legacy_2019/seg_final.py, run here with cv_seed=0 exactly as methods/ablate.py does);
   (3) the rectified window (common/rectify.py, from the human polygon as in every reported
       number) with the H and V guide lines and the zoom box;
   (4) zoom: one dot per yarn crossing each line = the counter's output
       (methods/proposals.json; machine output, never shown to the annotators, NOT human labels;
-      Job Z, Oct 12: the annotators count from scratch, so the old word "proposals" is gone);
+      the annotators count from scratch, so the figure does not call these dots "proposals");
   (5) the counter's output for this photo: h x v per window side, weave guess, confidence and
       the frozen cascade gate decision (tables/cascade_150_decisions.csv).
 Numbers quoted in the panels are read from stored results (no counter is re-run):
 methods/proposals.json (h, v, weave, confidence), methods/results/ruler/count150.csv (count
-with the ruler's corners), methods/results/all150_crops.csv (count on the 2019-segmentation
+with the ruler's corners), methods/results/all150_crops.csv (count on the legacy-segmentation
 crop), tables/cascade_150_decisions.csv (gate).
 
 Writes figs/fig_pipeline_strip.pdf/.png (full text width, 6.875 in) and/or
 figs/fig_pipeline_col.pdf/.png (one column, 3.25 in).  Figure sizes are the final printed
 sizes, so include them with width=\\textwidth / \\linewidth (font sizes are then exact).
-Deterministic: no randomness except cv2.kmeans inside the 2019 segmentation, seeded with
-cv2.setRNGSeed(0) (the seed used for every 2019-segmentation number in the paper); the PDF
+Deterministic: no randomness except cv2.kmeans inside the legacy segmentation, seeded with
+cv2.setRNGSeed(0) (the seed used for every legacy-segmentation number in the paper); the PDF
 carries no creation date, so reruns are byte-identical.  Reads only; never modifies data.
 Text sizes: 7 pt titles, >= 6 pt everywhere else; Okabe-Ito colours plus distinct markers/dashes.
 
@@ -34,10 +34,10 @@ not in the 20-scene blind IAA subset and not one of the annotation-guide example
 sharp; the ruler fit is among the best (quality 0.355, corners 0.09-0.22 mm from the human
 polygon, count with ruler corners within 0.1 %); the counter is confident (0.93, 2/1 twill,
 72.5 x 51.5, about 25 px per yarn, so the zoom dots are well separated) and the frozen gate keeps
-it offline; and the 2019 segmentation shows its typical failure (a non-fallback box that takes in
-the frame, IoU 0.58, counts 30-33 % high; the 2019 segmentation misses 5 % on 58 % of scenes).
+it offline; and the legacy segmentation shows its typical failure (a non-fallback box that takes in
+the frame, IoU 0.58, counts 30-33 % high; the legacy segmentation misses 5 % on 58 % of scenes).
 The lower-right shadow of the phone is left in on purpose (a real capture condition).
-Optional --human h,v adds the human counts to panel 5 after label day.
+Optional --human h,v adds the human counts to panel 5.
 """
 from __future__ import annotations
 
@@ -66,13 +66,13 @@ sys.path.insert(0, METHODS)
 sys.path.insert(0, os.path.join(METHODS, "legacy_2019"))
 import rectify as R  # noqa: E402
 import ruler_calib as RC  # noqa: E402
-import seg_final as SF  # noqa: E402  (verbatim 2019-segmentation harness; imported read-only)
+import seg_final as SF  # noqa: E402  (verbatim legacy-segmentation harness; imported read-only)
 
 # Okabe-Ito colours (colour-blind safe); every overlay also differs in marker or line style.
 C_TICK = "#E69F00"    # orange: tick feet of the engraved scales
 C_RULER = "#009E73"   # bluish green: window + corners fitted to the ticks
 C_HUMAN = "#FFFFFF"   # white dashed: human polygon
-C_SEG = "#CC79A7"     # reddish purple dash-dot: 2019 segmentation box
+C_SEG = "#CC79A7"     # reddish purple dash-dot: legacy segmentation box
 C_H = "#56B4E9"       # sky blue: H guide line and its dots (vertical yarns)
 C_V = "#F0E442"       # yellow: V guide line and its dots (horizontal yarns)
 C_ARROW = "#52514e"
@@ -113,7 +113,7 @@ def load_scene(i, zoom_in=0.125):
 
     side_gt = np.linalg.norm(gt - np.roll(gt, -1, 0), axis=1).mean()
     corner_mm = np.linalg.norm(cal["corners"] - gt, axis=1) * 25.4 / side_gt
-    # IoU of the 2019 box with the human polygon (raster, full resolution)
+    # IoU of the legacy box with the human polygon (raster, full resolution)
     H_, W_ = img.shape[:2]
     m1 = np.zeros((H_, W_), np.uint8)
     m2 = np.zeros((H_, W_), np.uint8)
@@ -189,7 +189,7 @@ def panel_photo(ax, d, long_px=560):
 
 def panel_window(ax, d, long_px=460, ms=1.3, lw=0.8, inset=True, corner_idx=3, zoom_mm=8.0, inset_sz=0.46,
                  zoom_out=0.25):
-    """Photo around the frame: tick feet, ruler window + corners, human polygon, 2019 box.
+    """Photo around the frame: tick feet, ruler window + corners, human polygon, legacy box.
     With inset=True a zoom on one window corner (both scales meet there) is drawn over the
     fabric on the opposite side, so that the ticks and the corner agreement are visible."""
     img, cal, gt, box = d["img"], d["cal"], d["gt"], d["box"]
@@ -345,7 +345,7 @@ def strip(d, out, name):
     panel_window(a2, d)
     _title(a2, 2, "Window", "glass ticks $\\rightarrow$ 4 corners")
     panel_rectified(a3, d)
-    _title(a3, 3, "Rectified window", "from the human corners; lines H, V")  # Job Z (Oct 12)
+    _title(a3, 3, "Rectified window", "from the human corners; lines H, V")
     nh, nv = panel_zoom(a4, d)
     _title(a4, 4, "Count crossings", f"one dot per yarn, 1/{round(1 / d['zoom_in'])} of the side")
     panel_output(a5, d)
@@ -420,7 +420,7 @@ def main():
     ap.add_argument("--variant", choices=["strip", "col", "both"], default="both")
     ap.add_argument("--name", default="PG-Lattice", help="counter name printed in panel 5 (\\ours)")
     ap.add_argument("--zoom", type=float, default=0.125, help="zoom side as a fraction of the window side")
-    ap.add_argument("--human", default=None, help="optional 'h,v' human counts of this scene (after label day); "
+    ap.add_argument("--human", default=None, help="optional 'h,v' human counts of this scene; "
                     "replaces the dot-count line of panel 5")
     ap.add_argument("--outdir", default=os.path.join(PAPER, "figs"))
     a = ap.parse_args()

@@ -2,7 +2,7 @@
 """Evaluate a thread-density CNN checkpoint.
 
   * synthetic held-out set  (exact labels; breakdown by capture factor)
-  * the 13 legacy hand-counted images (2019 spreadsheet), zero-shot
+  * the 13 legacy hand-counted images (hand-count spreadsheet), zero-shot
       - axis-matched : warp -> h_count (vertical yarns), weft -> v_count
       - axis-swapped : warp -> v_count, weft -> h_count
       - best-assign. : per image, the permutation with the smaller error
@@ -52,7 +52,7 @@ TOOL_CROPS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file
 def load_legacy_gt():
     """The 13 usable legacy hand counts.
 
-    Uses the reference parser ``load_gt`` of the 2019 reconstruction harness
+    Uses the reference parser ``load_gt`` of the legacy reconstruction harness
     (run_pipeline.py) so every method in the paper scores against the same GT;
     falls back to the equivalent fabric_data parser if the harness is absent
     (both were checked to agree on all 13 images)."""

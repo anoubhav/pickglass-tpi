@@ -1,4 +1,4 @@
-"""make_fig_dataset_pipeline.py -- Fig. 1 (Job W, Oct 11): the dataset teaser and the pipeline in ONE column figure.
+"""make_fig_dataset_pipeline.py -- the dataset teaser and the pipeline in ONE column figure.
 
     <python with numpy<2, cv2, matplotlib> tools/make_fig_dataset_pipeline.py [--ids 0,86,55,118] [--pipe 118]
         [--name PG-Lattice] [--outdir figs]
@@ -8,16 +8,16 @@ Same footprint as the old fig_dataset (which sat at 0.85 of the column width wit
                tools/make_dataset_fig.py (its old bottom row, the central quarter inch, is dropped);
   bottom row : the task on the last of them (default #118, chosen in tools/make_fig_pipeline.py):
                (a) a corner of the window: tick feet of the engraved scales (ruler method, run here),
-                   the corner fitted to them, the human polygon and the 2019 segmentation's box;
+                   the corner fitted to them, the human polygon and the legacy segmentation's box;
                (b) the rectified window with the guide lines H, V and the zoom box;
                (c) 1/8 of the window side with one dot per crossing yarn (the counter's output from
                    methods/proposals.json; never shown to the annotators, not human labels);
                (d) the counter's output: counts per window side, the number of dots on each guide line,
-                   weave, confidence and the gate decision (Job Z, Oct 12: "(high)" instead of "t_c").
+                   weave, confidence and the gate decision (spelled out as "(high)" / "(low)", not "t_c").
 Panels (b)-(d) use the crop rectified from the HUMAN corners (as every reported number); with the
 ruler's corners the counter's confidence on #118 is 0.63 (methods/results/ruler/count150.csv).
 All drawing helpers and every number come from tools/make_fig_pipeline.py (imported, not modified):
-no counter is re-run; the ruler calibration and the 2019 segmentation (cv_seed=0) are re-run read-only.
+no counter is re-run; the ruler calibration and the legacy segmentation (cv_seed=0) are re-run read-only.
 Writes <outdir>/fig_dataset_pipeline.pdf/.png at the final printed size (3.25 in wide; include it with
 width=\\linewidth). Deterministic (no creation date in the PDF). Reads only; never modifies data.
 """
@@ -93,7 +93,7 @@ def output_panel(ax, d):
     ax.add_patch(FancyBboxPatch((0.02, 0.02), 0.96, 0.96, boxstyle="round,pad=0,rounding_size=0.06",
                                 fc="#f3f2ee", ec="#9a9893", lw=0.5, transform=ax.transAxes))
     keep = "kept offline (no VLM)" if not d["gate_escalate"] else "escalated to the VLM"
-    # Job Z (Oct 12): no "t_c" here (it is defined only in Sec. 5.3); the gate's verdict is spelled out instead,
+    # no "t_c" here (it is not defined in the figure); the gate's verdict is spelled out instead,
     # and the integer dot counts of the guide lines (panel c) are printed next to the spectral counts.
     level = "high" if not d["gate_escalate"] else "low"
     lines = [
@@ -112,9 +112,9 @@ def output_panel(ax, d):
 
 
 def octave_panel(ax, scene, labels_csv, seg=(0.36, 0.66), half_frac=0.06):
-    """Panel (d), Oct 12 (author asked to drop the text box): a strip of one scene along its h guide line, with
-    the annotator's dots above (orange) and the spectral counter's crossings below (blue), as in Fig. 3
-    (tools/make_fig_overlay.py, same colours). Reads the label CSV (label_day merged format: id, h_dots,
+    """Panel (d), in place of the earlier text box: a strip of one scene along its h guide line, with
+    the annotator's dots above (orange) and the spectral counter's crossings below (blue), as in the overlay figure
+    (tools/make_fig_overlay.py, same colours). Reads the label CSV (merged format of tools/label_day.py: id, h_dots,
     rect_size, h_line_y, h_count) and the counter's line proposals from the manifest. Reads only."""
     import csv
     from PIL import Image, ImageOps
@@ -156,20 +156,19 @@ def title(ax, text, gap_pt=1.0, bold=False):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--ids", default="0,86,55,118", help="photos of the top row (old Fig. 1: 0,86,55,15)")
+    ap.add_argument("--ids", default="0,86,55,118", help="photos of the top row (tools/make_dataset_fig.py uses 0,86,55,15)")
     ap.add_argument("--pipe", type=int, default=118, help="scene of the bottom (pipeline) row")
     ap.add_argument("--name", default="PG-Lattice", help="counter name (\\ours)")
     ap.add_argument("--zoom", type=float, default=0.125, help="zoom side as a fraction of the window side")
-    ap.add_argument("--human", default=None, help="optional 'h,v' human counts of the pipeline scene (label day)")
+    ap.add_argument("--human", default=None, help="optional 'h,v' human counts of the pipeline scene")
     ap.add_argument("--row", type=float, default=0.52, help="height of each row (in)")
     ap.add_argument("--top-titles", action="store_true", help="titles above the photos (default: labels inside them)")
     ap.add_argument("--outdir", default=os.path.join(PAPER, "figs"))
     ap.add_argument("--panel-d", choices=("octave", "output"), default="octave",
-                    help="(d): 'octave' = annotator vs counter dots on --oct-scene (Oct 12 default); 'output' = old text box")
+                    help="(d): 'octave' = annotator vs counter dots on --oct-scene (default); 'output' = old text box")
     ap.add_argument("--oct-scene", type=int, default=45)
-    ap.add_argument("--oct-labels", default=os.path.join(MP.ROOT, "handover", "results", "labelday_diag_FLSA_20261012",
-                                                         "payment_audit", "merged_full_FL_SA.csv"),
-                    help="label CSV with h_dots (PROVISIONAL: first annotator; on label day pass the final merged file)")
+    ap.add_argument("--oct-labels", default=None,
+                    help="label CSV with h_dots (merged export of tools/label_day.py, e.g. A2's; required for --panel-d octave)")
     a = ap.parse_args()
     ids = [int(x) for x in a.ids.split(",")]
     man = json.load(open(os.path.join(TOOL, "data", "manifest.json")))
@@ -215,6 +214,9 @@ def main():
     nh, nv = MP.panel_zoom(a3, d, long_px=300, ms=2.2, lw=0.6)
     title(a3, f"(c) dots, 1/{round(1 / a.zoom)} side")
     if a.panel_d == "octave":
+        if a.oct_labels is None:
+            sys.exit("--panel-d octave needs --oct-labels <merged export with h_dots, e.g. A2's>; the human counts with dot "
+                     "positions are released after review")
         oh, oo = octave_panel(a4, a.oct_scene, a.oct_labels)
         title(a4, f"(d) #{a.oct_scene}: a factor of two")
         print(f"(d) #{a.oct_scene}: {oh} annotator / {oo} counter ticks in the strip")

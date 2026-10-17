@@ -1,4 +1,4 @@
-"""Dataset teaser figure for the paper (Fig. 1).
+"""Dataset teaser figure (figs/fig_dataset.pdf).
 
 Top row: raw smartphone photos taken through the pick glass with the annotated
 1-inch window polygon. Bottom row: the rectified 1-inch crop used by every counter
@@ -6,7 +6,7 @@ Top row: raw smartphone photos taken through the pick glass with the annotated
 
 Run with the shared venv2 python (numpy<2, cv2, matplotlib):
     <venv2>/bin/python tools/make_dataset_fig.py [--ids 0,86,55,15] [--rows raw,crop,quarter]
-The paper uses --rows raw,quarter (compact two-row version, Oct 7 page cut).
+The compact two-row version uses --rows raw,quarter.
 Writes figs/fig_dataset.pdf and figs/fig_dataset.png. Reads only; never modifies data.
 """
 import argparse

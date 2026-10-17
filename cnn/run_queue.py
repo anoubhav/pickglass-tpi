@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""run_queue.py -- dependency-aware GPU work queue for train_aug.py (Job 2).
+"""run_queue.py -- dependency-aware GPU work queue for train_aug.py.
 
 One worker per GPU:   CUDA_VISIBLE_DEVICES=<g> python run_queue.py --tasks runs_aug/tasks.json --gpu <g>
 Workers claim tasks atomically (runs_aug/_queue/<id>.claim), run them as subprocesses (resumable:

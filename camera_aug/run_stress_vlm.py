@@ -37,7 +37,7 @@ NAMES13 = ["a1", "a2", "a4", "a5", "a6", "a8", "a10", "r2", "r3", "r4", "r6", "r
 MAN = os.path.join(HERE, "stress", "legacy13", "manifest.csv")
 HARSH = os.path.join(HERE, "results", "stress_harshest.json")
 OUT_CSV = os.path.join(HERE, "results", "stress_legacy13_vlm.csv")
-JOB_BUDGET_CAP = 5.0          # this job's API budget (user: <= US$5)
+JOB_BUDGET_CAP = 5.0          # API spend cap for this stress set (US$)
 _CONDS: list[str] = []
 BENCH_VERSION = "v2"          # view suffix: v1 (capped simulator) records stay in the raw log, marked superseded
 
@@ -66,7 +66,7 @@ def build_jobs_stress(set_name, prompt_ids, limit=None, ids=None, p3_views=("c",
 
 
 def stress_spend():
-    """US$ logged for this set (the job's own budget)."""
+    """US$ logged for this set (counted against JOB_BUDGET_CAP)."""
     if not os.path.exists(OC.COST_CSV):
         return 0.0
     c = pd.read_csv(OC.COST_CSV)

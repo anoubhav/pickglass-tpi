@@ -14,7 +14,7 @@ jpeg 90,50,20 | glare 5,10,20,30 % | corners 2,5,10 %), same seed rule as degrad
 (crc32(name) % 100003), corners via corners_on_crop as for the legacy crops.  Each degraded crop is
 scored with the FROZEN counter (counting.py, preproc lcn, glare mask) for ours, log-Gabor and FFT.
 
-    <venv2>/bin/python cascade_synth.py --make --n 200          # crops -> scratchpad
+    <venv2>/bin/python cascade_synth.py --make --n 200          # crops -> $PICKGLASS_SCRATCH/cascade
     <venv2>/bin/python cascade_synth.py --score --workers 7     # -> results/cascade_synth_cal.csv
 """
 from __future__ import annotations

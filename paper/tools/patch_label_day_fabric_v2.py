@@ -1,5 +1,6 @@
 """Point paper/tools/label_day.py at tables/fabric_groups_v2.csv and widen the pseudo-label re-shoot drop
-(Job X 'reshoot', Oct 11). NOT applied by the reshoot job (label_day.py was being edited concurrently).
+(re-shoot groups of tools/fabric_groups_v2.py). The released paper/tools/label_day.py already contains these
+changes, so on it the script reports 'already applied'.
 
 Usage:  python apply_label_day_v2groups.py <path/to/label_day.py> [--write]
 Without --write it only checks that every anchor is found and prints the planned changes. With --write it
@@ -17,7 +18,7 @@ import tempfile
 NEW_RESHOOT = "(8, 9, 15, 38, 45, 52, 61, 103, 110)"
 EXACT = [  # (old, new, expected count) -- exact substrings
     ('P_GROUPS = os.path.join(PAPER, "tables", "fabric_groups_candidate.csv")',
-     'P_GROUPS = os.path.join(PAPER, "tables", "fabric_groups_v2.csv")   # Job X: 44 groups, tools/fabric_groups_v2.py',
+     'P_GROUPS = os.path.join(PAPER, "tables", "fabric_groups_v2.csv")   # 44 groups, tools/fabric_groups_v2.py',
      1),
     ("RESHOOT_SCENES = (38, 61)   # REVIEW G-P0-3: probable re-shoots of training scene 60 -> the 46-scene check",
      f"RESHOOT_SCENES = {NEW_RESHOOT}   # held-out scenes that re-shoot a training scene's fabric patch "

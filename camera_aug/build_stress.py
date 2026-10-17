@@ -31,7 +31,7 @@ legacy_quarter.
 LABELS: identity for threads per inch (the crop is always the same 1-inch window) times the exact
 radial-distortion factor of the render (camera_sim docstring):  h_label = h_src x label_factor_h,
 v_label = v_src x label_factor_v (area-mean; *_centre columns give the guide-line factors).
-legacy13 labels are written now (2019 harness parser, axis convention h <-> warp, v <-> weft);
+legacy13 labels are written now (legacy harness parser, axis convention h <-> warp, v <-> weft);
 real150 labels with --labels (annotation-tool CSV exports, read with paper/tools/score150.py's
 load_labels / gt_table: mean over annotators, h_tpi / v_tpi).
 

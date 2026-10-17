@@ -1,5 +1,5 @@
 """check/test_distortion_estimator_label.py -- which label does the frozen counter follow under radial
-distortion?  (independent check of the 'Hann-weighted local scale' claim of the optics job)
+distortion?  (independent check of the 'Hann-weighted local scale' claim of the optics study)
 
 A synthetic two-family grating (h = 41, v = 33 TPI, untilted, 1024 px = 1 inch, mild yarn-like nonlinearity) is
 distorted with cnn/augment_optics.radial_distortion (read-only import) at several k1. The frozen counter

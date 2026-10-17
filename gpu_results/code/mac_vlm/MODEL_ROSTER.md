@@ -1,6 +1,6 @@
 # VLM / counting-model roster (fixed for the paper)
 
-Checked 2026-10-06 against the OpenRouter models API and the Hugging Face Hub API.
+Checked against the OpenRouter models API and the Hugging Face Hub API when the roster was fixed.
 **Use only these models in reported results.** Anything else run during development counts as a harness smoke test and is not reported.
 
 ## Selection rule
@@ -21,24 +21,25 @@ Checked 2026-10-06 against the OpenRouter models API and the Hugging Face Hub AP
 ## Open-weight models
 | Role | Model | How to run | Released |
 |---|---|---|---|
-| Newest top open VLM (17k likes) | `Qwen/Qwen3.8-27B` | local MLX `mlx-community/Qwen3.8-27B-4bit` (~16 GB) | 2026-08-05 |
-| Google open VLM | `google/gemma-4-26B-A4B-it` | OpenRouter `google/gemma-4-26b-a4b-it` (saves disk) or local `mlx-community/gemma-4-26b-a4b-it-4bit` | 2026-03 |
-| Pointing / counting specialist | `allenai/Molmo2-8B` | local MLX `mlx-community/Molmo2-8B-4bit` (~5 GB); point at each yarn on the guide line, then count the points | 2025-12-14 |
+| Newest top open VLM (17k likes) | `Qwen/Qwen3.8-27B` | local MLX `mlx-community/Qwen3.8-27B-4bit` (~16 GB); the paper's runs used OpenRouter `qwen/qwen3.8-27b` ([THIRD_PARTY.md](../../../THIRD_PARTY.md)) | 2026-08-05 |
+| Google open VLM | `google/gemma-4-26B-A4B-it` | OpenRouter `google/gemma-4-26b-a4b-it` (saves disk) or local `mlx-community/gemma-4-26b-a4b-it-4bit`; the paper's runs used OpenRouter ([THIRD_PARTY.md](../../../THIRD_PARTY.md)) | 2026-03 |
+| Pointing / counting specialist | `allenai/Molmo2-8B` | local MLX `mlx-community/Molmo2-8B-4bit` (~5 GB); point at each yarn on the guide line, then count the points; the paper's runs used bf16 on an RTX 4090 (`gpu_results/`) | 2025-12-14 |
 
 ## Non-VLM counting baselines
 | Model | Notes |
 |---|---|
-| CountGD (`nikigoli/CountGD`, NeurIPS 2024) | Open-world counting from a text prompt plus visual exemplars (a few clicked yarn crossings). Run if it installs on macOS (GroundingDINO ops); otherwise document why it was skipped. |
-| Exemplar counters (GeCo / DAVE) | Optional; pending the literature agent's feasibility check. |
+| CountGD (`nikigoli/CountGD`, NeurIPS 2024) | Open-world counting from a text prompt plus visual exemplars (a few clicked yarn crossings). Needs the GroundingDINO ops; run on a GPU server (`gpu_results/countgd/code/`) and, for the legacy crops, also locally on Apple MPS (`cnn/countgd/run_countgd.py`). |
+| Exemplar counters (GeCo / DAVE) | Considered; not run. |
 
-## Our methods
-- **2019 pipeline (faithful rebuild):** segmentation, then the dot-map counter.
-- **ours-2026:** spectral/lattice estimator with a capture-quality score.
-- **CNN:** ImageNet-pretrained, synthetic pretraining, then 5-fold fine-tuning on the 150 images.
+## Methods built or rebuilt for the paper (ours: PG-Lattice and Molmo2-4B + synthetic LoRA)
+- **Legacy pipeline (faithful rebuild):** segmentation, then the dot-map counter (a baseline, `methods/legacy_2019/`).
+- **PG-Lattice (ours):** spectral/lattice estimator with a capture-quality score.
+- **Molmo2-4B + synthetic LoRA (ours):** `allenai/Molmo2-4B` LoRA-tuned on synthetic crops only, with exact crossing labels from our generator (`ft_results/code/`). Added after this roster was fixed; its checkpoint and P1 readout were fixed on synthetic validation before any human count was scored.
+- **CNN (a baseline):** ImageNet-pretrained, synthetic pretraining, then 5-fold fine-tuning on the 150 images.
 
 ## Protocol notes
 - Same rectified 1-inch crop as input for every model; one prompt-ablation run on the full photo.
-- Prompts: P1 direct JSON, P2 step-by-step, P3 quarter-strip ×4, P4 pointing (Molmo2 and any model that supports points).
+- Prompts: P1 direct JSON, P2 step-by-step, P3 central quarter-inch patch ×4 (P3s: the sum over four diagonal quarter-inch patches), P4 pointing (Molmo2 and any model that supports points).
 - Temperature 0. Log raw outputs. 3 repeats on a 20-image subset to measure answer stability.
 - Record model id, provider, date and cost per image.
-- Azure OpenAI is not needed: OpenRouter covers OpenAI models with one consistent client.
+- OpenAI models are also called through OpenRouter, so every closed model uses one consistent client.

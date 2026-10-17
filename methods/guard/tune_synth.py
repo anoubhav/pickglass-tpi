@@ -1,7 +1,7 @@
 """tune_synth.py -- choose every native_res_guard parameter on SYNTHETIC data only (synth_dev.py).
 
 No real crop (legacy-13, R-HR, the 150) is read here.  Stages (outputs in methods/guard/results/,
-curves in the scratchpad):
+curves in the scratch folder synth_dev.SCRATCH):
 
   --features  per (crop, condition): per-axis floor curves of the power spectrum   -> synth_curves.pkl
   --count     frozen counter, unguarded (max_work 1024), every (crop, condition)  -> synth_counts_unguarded.csv

@@ -1,4 +1,4 @@
-"""Job C (WVAQ core): capture-quality experiment on the 13 hand-counted legacy crops, all methods
+"""Capture-quality experiment on the 13 hand-counted legacy crops, all methods
 on byte-identical degraded inputs -> table, figure and confidence analysis.
 
 Inputs (all built from the canonical VLM crops vlm/crops/legacy/{name}.png, degraded once by
@@ -285,7 +285,7 @@ def figure(S, loo_mape):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     import matplotlib.ticker  # noqa: F401
-    # printed at 0.64\linewidth of a figure* (about 0.63x), so 9-10 pt here prints at about 6 pt (Job Fig2, Oct 12)
+    # printed at 0.64\linewidth of a figure* (about 0.63x), so 9-10 pt here prints at about 6 pt
     plt.rcParams.update({"font.size": 8, "axes.titlesize": 8, "axes.labelsize": 8, "xtick.labelsize": 7.5,
                          "ytick.labelsize": 7.5, "legend.fontsize": 7.8, "axes.edgecolor": INK2,
                          "axes.labelcolor": INK, "xtick.color": INK2, "ytick.color": INK2, "axes.grid": True,

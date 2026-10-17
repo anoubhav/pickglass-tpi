@@ -3,7 +3,7 @@
 Nothing in here re-implements the Mac harness: the prompt set, the output parsers,
 the image-view helpers and the legacy GT parser are all imported or extracted
 VERBATIM from the Mac files copied to code/mac_vlm/ (prompts.py, parse_output.py,
-data_vlm.py, gt_legacy.py) and code/run_pipeline.py (the 2019 harness' load_gt):
+data_vlm.py, gt_legacy.py) and code/run_pipeline.py (the legacy harness' load_gt):
 
   * prompts.PROMPTS / prompts.get           -> imported as-is
   * parse_output.parse_counts/parse_points  -> imported as-is
@@ -23,7 +23,7 @@ import cv2
 import numpy as np
 
 CODE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(CODE)                     # ~/fabric_wvaq2027 (or gpu_results on the Mac)
+ROOT = os.path.dirname(CODE)                     # gpu_results (on the GPU server: the copy that holds code/)
 MAC = os.path.join(CODE, "mac_vlm")
 DATA = os.path.join(ROOT, "data")
 sys.path.insert(0, MAC)

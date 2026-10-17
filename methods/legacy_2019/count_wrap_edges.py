@@ -1,4 +1,4 @@
-"""Classify the edges counted by the 2019 TQA/count.py on the saved seed-0 dot maps.
+"""Classify the edges counted by the legacy TQA/count.py on the saved seed-0 dot maps.
 
 count.py tests `img[y,x] - img[y,x-1] == 255` on uint8 pixels re-read from the JPEG dot
 map, starting at x=0 (which compares with x=-1). In uint8 arithmetic that test is true for
@@ -8,7 +8,7 @@ counted edges are -1 steps.
 
 Input: run1/dotmaps_precropped/*.jpg (copied verbatim from the harness run, seed 0).
 Run:   <venv2>/bin/python count_wrap_edges.py
-Paper: Sec. "The 2019 counters, and why they fail" (110 of 124 counted warp edges).
+Paper: supplement Sec. S3, the legacy-counter paragraph (110 of 124 counted warp edges).
 """
 import os
 

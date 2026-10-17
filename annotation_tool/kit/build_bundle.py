@@ -13,7 +13,7 @@ the link to .../index.html. With no server behind it the tool runs browser-only:
 
 Options
   --storage-key NAME   own browser-storage keys (wvaq_fabric_<NAME>_v1::), so two bundles on one web origin
-                       (e.g. a screening test and the main job) never mix their records
+                       (e.g. a screening test and the main annotation bundle) never mix their records
   --static             replace the two help texts that mention server.py (for a static host)
   --hide-proposals     set every image's machine proposal to null and mark the manifest proposals_hidden
                        (the tool then starts every photo with no dots)

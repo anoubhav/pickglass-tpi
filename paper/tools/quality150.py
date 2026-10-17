@@ -6,7 +6,7 @@ capture-quality study that already have all their predictions on disk:
   A. confidence as a task-referenced quality score on real labels
      -> conf150.csv: per estimator, Spearman(conf, per-image error), AUC of conf for
         "both axes within 10% of the human count", accuracy/coverage at conf >= 0.5 / 0.9.
-        Fills the TODO in the "Confidence as a task-referenced quality score" paragraph.
+        Supplies the numbers of the "Confidence as a task-referenced quality score" analysis.
   B. accuracy under the eight physically scaled degradations
      -> degrade150_vs_gt.csv: per estimator x degradation x level, % of the 2n counts within
         5% / 10% of the human count and MAPE (clean row included). This is the accuracy
@@ -24,10 +24,10 @@ Run (venv2):
   <venv2>/bin/python tools/quality150.py --labels <A.csv>,<B.csv> [--blind-only] [--unit scene|image] [--out DIR]
 Use --out <scratch dir> for plumbing checks on partial or fake labels.
 
---unit scene (default since Oct 8, Job P): one row per scene, i.e. the 76 representatives, with labels
+--unit scene (default): one row per scene, i.e. the 76 representatives, with labels
 propagated by annotation_tool/propagate_scene_labels.py exactly as in score150.py (the 150 files are 76
 scenes; copies and notebook-synthetic files are not scored). --unit image: one row per labelled file
-(the pre-Oct-8 behaviour, byte-identical outputs).
+(the original per-file mode, byte-identical outputs).
 """
 import argparse
 import glob
@@ -139,7 +139,7 @@ def main():
     os.makedirs(a.out, exist_ok=True)
     rec = S.load_labels(paths, a.blind_only, a.annotator)
     gt = S.gt_table(rec)
-    if a.unit == "scene":   # Job P: same propagation as score150.py --unit scene
+    if a.unit == "scene":   # same propagation as score150.py --unit scene
         import json
         gt.index = gt.index.astype(int)
         PS = S.scene_module(a.manifest)

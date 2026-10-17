@@ -4,7 +4,7 @@ PickGlass-Stress, with exactly the input handling of the reported zero-shot row
 (cnn/degrade_vlmcrops.py, evaluate.eval_legacy): cap_side(crop, 1024), then predict_crop with the
 3-scale x 3-flip TTA (Ps = C.P_TEST).  Files are md5-checked against the stress manifest.
 
-    VC=<scratchpad>/venv_cnn/bin/python
+    VC=<venv_cnn>/bin/python
     $VC eval_stress_cnn.py --set legacy13      -> results/stress_{set}_cnn.csv
 """
 import argparse

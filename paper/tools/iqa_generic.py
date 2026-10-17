@@ -1,10 +1,10 @@
 """iqa_generic.py -- do GENERIC no-reference IQA scores predict counting error? (label-safe parts)
 
-WVAQ is an image-quality workshop, so a reviewer will ask whether an off-the-shelf no-reference IQA
+WVAQ is an image-quality workshop, so a natural question is whether an off-the-shelf no-reference IQA
 model (BRISQUE, NIQE, MUSIQ, CLIP-IQA, TOPIQ-NR; pyiqa 0.1.16) would do the job of the counter's own,
 task-specific quality signals (its confidence, the resolvability ratio eta and the frozen cascade gate).
 This script uses only data that already exist; it never reads a human count of the 76 scenes
-(tools/iqa150.py does that on label day).
+(tools/iqa150.py scores the 76 scenes against the human counts).
 
 Per-image IQA scores (written by tools/iqa_scores.py, pyiqa, CPU):
   tables/iqa_legacy13_scores.csv   247 degraded legacy crops (13 x clean + 18 levels; the byte-identical
@@ -46,14 +46,14 @@ B. generative enhancement (genai_sr): per set x condition x restorer, mean IQA a
    against bicubic and against the clean reference (scene-clustered bootstrap, B = 5000), next to the published
    count verdicts (genai_sr/results/genai_hallucination_table.csv), and the per-image rank correlation / AUROC
    of IQA and of ours' confidence with count error over the generative outputs, scene-clustered (R-LEG: 13
-   fabrics, 2019 hand counts; R-HR: 53 crops from 40 PickGlass scenes, reference = each counter's own count on
+   fabrics, legacy hand counts; R-HR: 53 crops from 40 PickGlass scenes, reference = each counter's own count on
    the clean crop), pooled and per set, for ours / CNN / log-Gabor / any of the three, plus GPT-6.1-sol P1 on
    the 25 R-LEG x8 SeedVR2 and Nano Banana Pro outputs it was run on.
 C. label-free context on the 150 real crops: IQA vs ours' confidence and vs the frozen gate.
 
 Outputs (--out, default tables/): iqa_legacy13.csv, iqa_genai.csv, iqa_summary.json, supp_iqa.tex (the supplement
-table; NOT \\input anywhere by this script).  The raw pyiqa outputs behind the three score tables are kept durably
-in handover/results/round2_tmp_copy/generic-iqa/out/ (tools/iqa_scores.py --finalize rebuilds the tables).
+table; NOT \\input anywhere by this script).  The raw pyiqa outputs behind the three score tables are not part
+of this repository (tools/iqa_scores.py --finalize rebuilds the tables from them).
 
     .tools/venv/bin/python -B tools/iqa_generic.py   # numpy, scipy, pandas only; ~1 min
 """
@@ -86,7 +86,7 @@ RESTORERS = ["bicubic", "swinir"] + GENERATIVE
 ANY3 = "any method (ours, log-Gabor, CNN)"
 ANY4 = "any method (ours, log-Gabor, CNN, GPT P1)"
 ANY2 = "any method (ours, log-Gabor)"
-# Pre-specification (handover_check.json, research critic, Oct 11): the pilot had already scored MUSIQ and CLIP-IQA
+# Pre-specification: the pilot had already scored MUSIQ and CLIP-IQA
 # on the legacy fabrics, so only BRISQUE and NIQE (protocol 'work' primary) and the 76-scene analysis
 # (tools/iqa150.py) may be called pre-specified.  Every other metric, target, scope and breakdown is exploratory.
 PRESPEC = ("brisque", "niqe")
@@ -573,7 +573,7 @@ def part_b(sc, E, srv):
     # per-image: does IQA rank the count error of the generative outputs?  (EXPLORATORY; scene-clustered)
     # targets: each counter; 'any' = none of the three counters has both counts within 5 %; GPT-6.1-sol P1 only
     # exists on the R-LEG x8 SeedVR2 / Nano Banana Pro outputs (genai_sr/results/gpt_p1_predictions.csv).
-    # References: R-LEG = the 2019 hand counts; R-HR = each counter's own count on the clean crop (self-consistency).
+    # References: R-LEG = the legacy hand counts; R-HR = each counter's own count on the clean crop (self-consistency).
     J = V.merge(E, on=["key", "set", "cond", "restorer"], how="inner")
     J = J[J.restorer.isin(GENERATIVE)].reset_index(drop=True)
     J["cluster"] = genai_clusters(J.key, J.set)

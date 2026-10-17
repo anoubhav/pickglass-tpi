@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""selfcheck_aug.py -- self-check of the augmentation / pseudo-label training job (scene-split round).
+"""selfcheck_aug.py -- self-check of the augmentation / pseudo-label training of train_aug.py (scene split).
 
 Checks (each prints PASS / FAIL / INFO; the JSON goes to runs_aug/report/selfcheck.json):
   A  scene grouping   pseudo_labels.csv covers the 150 files in the 76 provenance scenes; every file of

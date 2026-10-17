@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Full 5-fold cross-validation of the learned thread-density baselines.
 
-ONE COMMAND once the author's annotations exist:
+ONE COMMAND, given an annotation export:
 
     python train_cv.py --labels annotations.csv
 
@@ -49,7 +49,7 @@ Annotation CSV schema (one row per image; extra columns are ignored)
                          not in final_bbox_annotation_set
 Write an empty template with:   python train_cv.py --write-template annotations.csv
 
-SCENES (default since Oct 8 2026, --scene-mode members): the 150 files are 76 scenes (annotation_tool
+SCENES (default, --scene-mode members): the 150 files are 76 scenes (annotation_tool
 manifest fields scene_id / is_scene_rep / kind / scene_rot_k). Labels are propagated from each labelled
 file to every file of its scene with annotation_tool/propagate_scene_labels.py (the rep's label wins;
 h <-> v for files stored turned 90 / 270 deg). Then
@@ -62,10 +62,10 @@ h <-> v for files stored turned 90 / 270 deg). Then
              (augmentations, never test items); byte_identical and png_copy files are exact pixel
              duplicates of another member and are left out (--train-duplicates keeps them)
     aug1016  crops inherit their source file's scene (and therefore its fold)
---scene-mode reps trains and tests on the reps only; --scene-mode off is the pre-Oct-8 behaviour
+--scene-mode reps trains and tests on the reps only; --scene-mode off ignores scenes
 (labelled images as given, provided groups or auto-grouping by embeddings).
 
-Optional (default off): --extra-aug1016 adds the usable crops of the 2024 augmented set
+Optional (default off): --extra-aug1016 adds the usable crops of the notebook augmented set
 (../aug1016, see its README) to the TRAINING folds only, labels propagated from their source
 image (h/v swapped for 90/270-degree rotations); an augmentation is never in the training set
 of its source's test fold.
@@ -74,11 +74,11 @@ Augmentation (--augment, default 'existing' = the original recipe: flips, anisot
 cnn_common.photometric_aug).  '--augment whitelist' (tier A of augment_whitelist.json) or
 '--augment whitelist_ext' (tier A+B, rotate +-5 deg) switch every trained model of the run -- real
 fine-tuning AND a synthetic model trained inside this script -- to aug_pipeline.AugTileDataset, the
-count-preserving pipeline of Job 2 (runs_aug/, RESULTS_AUG.md): exact label maps for rotations /
+count-preserving pipeline of train_aug.py (runs_aug/, RESULTS_AUG.md): exact label maps for rotations /
 perspective (human guide-line counts are crossing counts; the yarn tilt is taken from ours'
 angle_x / angle_y in methods/predictions_ours_150.csv), rot90 with h <-> v swap, whitelist-only
 photometric / sensor / illumination ranges.  '--augment whitelist_optics' adds the label-exact optics /
-phone-capture / fabric-geometry tier of augment_optics_whitelist.json (cnn/RESULTS_AUG.md, Oct 8).
+phone-capture / fabric-geometry tier of augment_optics_whitelist.json (cnn/RESULTS_AUG.md).
 --augment-drop removes families (ablation).  Use the matching synthetic checkpoint, e.g.
     python train_cv.py --labels annotations.csv --augment whitelist_ext \\
         --synth-ckpt resnet18=runs_aug/V2E_r18/model.pt --synth-ckpt efficientnet_b0=runs_aug/V2E_b0/model.pt
@@ -312,7 +312,7 @@ def scene_groups(entries):
 
 
 # ---------------------------------------------------------------------------
-# optional: the 2024 augmented set (../aug1016) as extra TRAINING data
+# optional: the notebook augmented set (../aug1016) as extra TRAINING data
 # ---------------------------------------------------------------------------
 AUG1016_DIR = os.path.join(os.path.dirname(HERE), "aug1016")
 
@@ -492,7 +492,7 @@ def main():
                     help="debug: subsample the labelled set (scene mode: the first N scenes with all their files)")
     ap.add_argument("--save-ckpts", action="store_true")
     ap.add_argument("--extra-aug1016", action="store_true",
-                    help="add the usable 2024 augmented crops (../aug1016, labels propagated from their source "
+                    help="add the usable notebook augmented crops (../aug1016, labels propagated from their source "
                          "image) to the TRAINING folds only; an augmentation is never trained on in its "
                          "source's test fold (default off)")
     ap.add_argument("--aug1016-dir", default=AUG1016_DIR)
@@ -502,7 +502,7 @@ def main():
     ap.add_argument("--scene-mode", default="members", choices=("members", "reps", "off"),
                     help="members (default): labels propagated to every file of a labelled scene, folds grouped "
                          "by scene, primary metrics on the reps, secondary per file, notebook_synthetic files "
-                         "training-only; reps: reps only; off: pre-Oct-8 behaviour (labelled images as given)")
+                         "training-only; reps: reps only; off: scenes ignored (labelled images as given)")
     ap.add_argument("--manifest", default=TOOL_MANIFEST, help="annotation-tool manifest with the scene fields")
     ap.add_argument("--train-duplicates", action="store_true",
                     help="scene mode: also train on byte_identical / png_copy files (exact pixel duplicates)")

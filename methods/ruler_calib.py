@@ -1,4 +1,4 @@
-"""ruler_calib.py -- pick-glass ruler self-calibration (WVAQ 2027, Job 3; no labels, no API).
+"""ruler_calib.py -- pick-glass ruler self-calibration (WVAQ 2027; no labels, no API).
 
 The frame of the pick glass carries two engraved scales: a FINE one (26 ticks, long every 5) on
 two adjacent edges and a COARSE one (11 ticks, long every other) on the other two.  They are

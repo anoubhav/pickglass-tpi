@@ -9,8 +9,8 @@ What runs here (nothing is re-tuned; the counter is the FROZEN file):
   * ours + every estimator of the frozen counter (methods/results/counting_frozen_final.py,
     loaded by path; conf_model.json loaded from methods/), estimate_many(..., preproc='lcn',
     glare='mask') exactly as ablate.py does for the legacy13 runs.
-  * 2019 'predicted weft by RGB irregularity' (FR-final attempt/test.py, weft only), re-run on
-    the crops with the variant that reproduces the 2019 spreadsheet column (no Gaussian blur:
+  * legacy 'predicted weft by RGB irregularity' (FR-final attempt/test.py, weft only), re-run on
+    the crops with the variant that reproduces the legacy spreadsheet column (no Gaussian blur:
     14/20 exact, others within 3; see legacy_2019/repro_testpy_rgb.py).
   * latency: ours alone, sequential, default OpenCV threading, per image.
   * --check-p1: re-run ours on the ORIGINAL images (whole image = 1 inch, protocol P1) and
@@ -63,7 +63,7 @@ def load(n, source):
     return cv2.imread(os.path.join(CROPS, f"{n}.png") if source == "vlmcrop" else orig_path(n), cv2.IMREAD_COLOR)
 
 
-# ------------------------------------------------------------------ 2019 test.py (weft only)
+# ---------------------------------------------------------------- legacy test.py (weft only)
 def _crossings(ch):
     avg = sum(ch) / len(ch)
     c = 0
@@ -76,7 +76,7 @@ def _crossings(ch):
 
 
 def testpy_weft(img, blur=False):
-    """FR-final attempt/test.py L17-L120 headless; blur=False reproduces the 2019 xlsx column."""
+    """FR-final attempt/test.py L17-L120 headless; blur=False reproduces the legacy xlsx column."""
     img = cv2.resize(img, (600, 400))
     if blur:
         img = cv2.GaussianBlur(img, (5, 5), 0)

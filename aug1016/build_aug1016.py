@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""build_aug1016.py -- rectify the 2024 augmented set and recover each augmentation's
+"""build_aug1016.py -- rectify the earlier augmented set and recover each augmentation's
 unrecorded 90-degree rotation.
 
 Inputs (read-only):
@@ -131,7 +131,7 @@ def process_source(args):
 
 
 def transform_presence(df):
-    """Which of the 2024 Compose steps fired, where recoverable (NaN = not recoverable)."""
+    """Which of the notebook's Compose steps fired, where recoverable (NaN = not recoverable)."""
     diag = np.hypot(df.img_w, df.img_h)
     df["t_rot90"] = df.k_deg != 0
     df["t_persp"] = 1000 * df.persp_rms_px / diag > PERSP_PERMILLE

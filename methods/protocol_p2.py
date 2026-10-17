@@ -1,6 +1,6 @@
 """protocol_p2.py -- sensitivity of the legacy-13 numbers to the '1 inch' convention.
 
-P1 (primary): the whole hand-cropped legacy image is the 1-inch window (2019 convention).
+P1 (primary): the whole hand-cropped legacy image is the 1-inch window (legacy convention).
 P2: the window is the frame-free region found by legacy.detect_window (dark-frame slivers
     removed); counts per inch = cycles per pixel x detected window side, i.e.
     count_P2 = count_P1 * (window side / image side) per axis.

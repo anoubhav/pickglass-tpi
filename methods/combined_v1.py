@@ -1,8 +1,8 @@
 """combined_v1.py -- fit, freeze-support and evaluation of the PRE-REGISTERED combined counter "combined-v1"
 (PG-Lattice "ours" + log-Gabor bank; the rule itself lives in methods/results/combined_frozen_v1.py).
 
-Written on 2026-10-11 (US Eastern), before any human count of the 76 PickGlass scenes existed.  Nothing here
-reads a human count of the 150 photos; the only real labels used anywhere are the 13 legacy (2019) hand counts,
+Written before any human count of the 76 PickGlass scenes existed.  Nothing here
+reads a human count of the 150 photos; the only real labels used anywhere are the 13 legacy hand counts,
 and only in --eval-legacy, AFTER the freeze, and reported as POST HOC (legacy-13 was used during development).
 
 Steps (in this order; time stamps are written into every output):
@@ -443,11 +443,11 @@ def prereg(args):
         "created_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "statement_no_labels": (
             "When this record and every prediction file listed below were written, no human count of the 76 PickGlass "
-            "scene representatives (or of any of the 150 files) existed: the single external annotator's (FL_SA) "
-            "exports are due Mon 2026-10-12 18:00 IST (08:30 US Eastern). This job did not look for, open or use any "
-            "annotation export (annotation_tool/data/saved, freelancer exports) or any propagated label. The only labels "
+            "scene representatives (or of any of the 150 files) existed: the external annotator's (A1) "
+            "exports had not yet been delivered. This work did not look for, open or use any "
+            "annotation export (annotation_tool/data/saved, annotator exports) or any propagated label. The only labels "
             "used were exact synthetic-generator labels (fit) and, AFTER this freeze and reported as post hoc, the 13 "
-            "legacy (2019) hand counts, which had already been used during the development of the counters."),
+            "legacy hand counts, which had already been used during the development of the counters."),
         "motivation": (
             "Known pattern on the legacy-13 degradation study (post hoc): ours (PG-Lattice) is better clean-ish and under "
             "x8 down-scaling, strong glare and phone-camera profiles, but over-counts catastrophically under Gaussian "

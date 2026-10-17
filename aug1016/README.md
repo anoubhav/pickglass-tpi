@@ -1,13 +1,13 @@
-# aug1016: the 2024 augmented set as labelled 1-inch crops
+# aug1016: the preparation notebook's augmented set as labelled 1-inch crops
 
-This folder turns the December 2024 augmented set into crops that the thread-count pipeline can use. The set is the "150 → 1016" expansion in `fabric_notebooks/1_Segmentation_Dataset.ipynb`, cells 46–91. The work here does four things:
+This folder turns the augmented set of the preparation notebook into crops that the thread-count pipeline can use. The set is the "150 → 1016" expansion in `fabric_notebooks/1_Segmentation_Dataset.ipynb`, cells 46–91. The work here does four things:
 
 * It rectifies every augmentation exactly as `common/rectify.py` rectifies the 150 originals.
 * It recovers each augmentation's 90° rotation, which was never recorded. Two independent methods are used.
 * It propagates the human labels of the 150 originals onto the augmented crops (`propagate_labels.py`). The labels flow in automatically once an annotation export appears.
 * It runs a label-free invariance check with the frozen counter.
 
-`cnn/train_cv.py --extra-aug1016` uses the result as extra training data. The source folder `fabric_notebooks/` was only read, never written, and nothing was deleted.
+`cnn/train_cv.py --extra-aug1016` uses the result as extra training data. The source folder `fabric_notebooks/` is only read, never written.
 
 ## 1. Counts: what "1016" is
 
@@ -16,9 +16,9 @@ This folder turns the December 2024 augmented set into crops that the thread-cou
 | cells 55–56: 6 per original, `seed = 42 + i` | 900 | 1050 |
 | cells 62–67: non-convex polygons deleted | −34 → 866 | **1016** (cell 72, hence the name) |
 | cells 82–88: window < 21 % of frame deleted (13 of the 23 listed) | −13 → **853 on disk** | **1003** |
-| this folder: corrupt polygons (6) and extreme-noise crops pending review (4) | **843 usable** | **993** |
+| this folder: corrupt polygons (6) and extreme-noise crops held out (4) | **843 usable** | **993** |
 
-`missing_augmentations.csv` lists the 47 missing ids and the reason for each. The cell-86 list names 23 low-area ids, but only 13 are missing. The other 10 are still on disk (window 20.2–21 % of the frame). The execution order in that notebook is not linear: the histogram counts 853, yet the list includes deleted files. Those 10 are perfectly usable, and the manifest marks them `nb_low_area_listed`. Notebook 2 confirms 853 (`len(dataset_aug)`). **"More than 1,000 images" is true only for the on-disk total of 1003, which is 150 originals plus 853 augmentations. With usable labels the set is 993, or 997 if the four noisy crops are accepted at review.** None of these are extra photographs. They are synthetic variants of the 150 originals, so any evaluation must keep them in their source's fold.
+`missing_augmentations.csv` lists the 47 missing ids and the reason for each. The cell-86 list names 23 low-area ids, but only 13 are missing. The other 10 are still on disk (window 20.2–21 % of the frame). The execution order in that notebook is not linear: the histogram counts 853, yet the list includes deleted files. Those 10 are perfectly usable, and the manifest marks them `nb_low_area_listed`. Notebook 2 confirms 853 (`len(dataset_aug)`). **"More than 1,000 images" is true only for the on-disk total of 1003, which is 150 originals plus 853 augmentations. With usable labels the set is 993, or 997 if the four noisy crops were included.** None of these are extra photographs. They are synthetic variants of the 150 originals, so any evaluation must keep them in their source's fold.
 
 Recipe (cell 53), with `KeypointParams(format="xy")` and the 4 polygon corners as key points:
 `RandomRotate90(p=1)`, `RandomBrightnessContrast(0.3, 0.2, p=.7)`, `ShiftScaleRotate(shift .05, scale .05, rotate 0, p=.7)`, `Perspective(scale .05, p=.7)` (keep_size), `GaussNoise(var_limit=(2, 2), p=.1)`, `ImageCompression(q 70–80, p=.7)`. Images were then saved with `cv2.imwrite` at the default quality of 95. Cell 58 says the seeded run is **not reproducible**, so the parameters cannot be regenerated. That is why everything below is recovered from the files.
@@ -46,11 +46,11 @@ Recipe (cell 53), with `KeypointParams(format="xy")` and the 4 polygon corners a
 | best NCC, usable rows | median 0.992, 1 % quantile 0.73, minimum 0.54 |
 | NCC margin, usable rows | median 0.98, 1 % quantile 0.39, minimum 0.18 |
 
-The six lowest margins (0.18–0.27) all belong to source 22. That fabric is almost 180°-symmetric (NCC 0.71–0.80 at the wrong half-turn), but in all six (a) and (b) agree and the geometric residual is small. Every disagreement and every weak row is drawn in `review/contact_flagged.png`, with the columns source | aug | source rotated by k_geo | source rotated by k_ncc. `review/contact_ok_sample.png` shows a random 24 of the accepted rows.
+The six lowest margins (0.18–0.27) all belong to source 22. That fabric is almost 180°-symmetric (NCC 0.71–0.80 at the wrong half-turn), but in all six (a) and (b) agree and the geometric residual is small. Every disagreement and every weak row is drawn in `review/contact_flagged.png`, with the columns source | aug | source rotated by k_geo | source rotated by k_ncc. `review/contact_ok_sample.png` shows a random 24 of the accepted rows (both contact sheets are photo-derived and are released with the photos after review).
 
-## 4. A bug in the 2024 set: stale key points (6 polygons)
+## 4. A bug in the notebook's set: stale key points (6 polygons)
 
-Albumentations drops key points that leave the frame. `update_xml_with_new_bbox_and_dimensions()` then numbers the survivors from 1, so the trailing `<xN>/<yN>` tags keep the **source's untransformed coordinates**. The polygon mixes transformed and stale corners. It can still be convex and inside the frame, so the 2024 checks passed it. The signature is exact: a stored point that is bit-identical to the source's point at the same index while the polygon as a whole differs. That happens for 44_aug5, 59_aug5, 72_aug4 and 107_aug4 (point 4), and for 132_aug3 and 144_aug4 (points 3 and 4). Four of the six are the k disagreements. 72_aug4 agreed on k and had NCC 0.59, so only this check catches it. All six are rejected. Separately, 24 augmentations have all four points identical to the source. Those are genuine identity geometry (k = 0, no shift, scale or perspective) and are fine.
+Albumentations drops key points that leave the frame. `update_xml_with_new_bbox_and_dimensions()` then numbers the survivors from 1, so the trailing `<xN>/<yN>` tags keep the **source's untransformed coordinates**. The polygon mixes transformed and stale corners. It can still be convex and inside the frame, so the notebook's checks passed it. The signature is exact: a stored point that is bit-identical to the source's point at the same index while the polygon as a whole differs. That happens for 44_aug5, 59_aug5, 72_aug4 and 107_aug4 (point 4), and for 132_aug3 and 144_aug4 (points 3 and 4). Four of the six are the k disagreements. 72_aug4 agreed on k and had NCC 0.59, so only this check catches it. All six are rejected. Separately, 24 augmentations have all four points identical to the source. Those are genuine identity geometry (k = 0, no shift, scale or perspective) and are fine.
 
 ## 5. Which transforms fired (recovered, `t_*` columns)
 
@@ -71,7 +71,7 @@ Each threshold sits in the clear valley of a bimodal histogram, and every detect
 
 ## 7. `manifest.csv` (one row per augmentation on disk)
 
-The columns requested in the task come first: `aug_id, source_id, k_deg, swap_hv, polygon` (stored order, aug pixels, `x1 y1 … x4 y4`), `rect_size, ncc_margin, agree, usable, flags, needs_review`. Then:
+The core columns come first: `aug_id, source_id, k_deg, swap_hv, polygon` (stored order, aug pixels, `x1 y1 … x4 y4`), `rect_size, ncc_margin, agree, usable, flags, needs_review`. Then:
 
 * **k detail:** `k_geo_deg, k_photo_deg, geo_resid_deg, geo_slot_src/aug, ncc_best/second, ncc_clahe_best, ncc_grad_best, ncc_j0..j270, stored_order_best_deg, stored_order_ncc0`
 * **Geometry:** `polygon_canonical` (TL, TR, BR, BL as used for the crop), `stale_points, img_w, img_h, source_rect_size, rect_ratio, area_pct, persp_rms_px, affine_scale, aniso, shift_px`
@@ -91,9 +91,9 @@ The columns requested in the task come first: `aug_id, source_id, k_deg, swap_hv
 * **v2 handling.** `h_tpi`/`v_tpi` come from the geometry through an exact Python port of `core.js lineInfo()`. `tests/test_propagate.py` checks the port against core.js on 600 random lines and round-trips JSON against the core.js CSV.
 * **Filters.** These match `train_cv.load_annotations`. Only `done` records are used (`--include-not-done` overrides this). Rows that are nonwoven or excluded are skipped, and h and v must be > 0. When the same annotator and image appear in several files, the newest `timestamp` wins. With several annotators, each axis is averaged, the weave is the majority label, and the image is uncertain if any annotator marked it so (confidence 1 or uncertain = 1).
 * **Swap (k = 90/270).** The swap applies to `h_tpi↔v_tpi`, `h_count↔v_count` and `h_angle_deg↔v_angle_deg`. A rotation preserves the sign of the clockwise-positive line angles. `warp_dir` swaps vertical↔horizontal, and `weave` is unchanged. k = 0/180 changes nothing.
-* **Scenes (Oct 8 2026, default).** The 150 originals are 76 scenes (`annotation_tool/propagate_scene_labels.py`). Each scene's label (the rep's, else the best labelled member's) is first copied to every file of the scene in that file's own orientation (h/v swapped where the file is stored turned 90/270° relative to the rep), so augmentations of copies are labelled too. Every crop inherits its source's scene: **`group` = scene_id**, and new columns are `scene_id`, `source_kind`, `source_scene_rot_k` and `label_src_id`. `--no-scenes --group-by source` restores the per-source behaviour described here. `propagate()` called from code keeps `group` = source_id unless `group_by="scene"` is passed. `tests/test_propagate.py` test 5 covers this.
+* **Scenes (default).** The 150 originals are 76 scenes (`annotation_tool/propagate_scene_labels.py`). Each scene's label (the rep's, else the best labelled member's) is first copied to every file of the scene in that file's own orientation (h/v swapped where the file is stored turned 90/270° relative to the rep), so augmentations of copies are labelled too. Every crop inherits its source's scene: **`group` = scene_id**, and new columns are `scene_id`, `source_kind`, `source_scene_rot_k` and `label_src_id`. `--no-scenes --group-by source` restores the per-source behaviour described here. `propagate()` called from code keeps `group` = source_id unless `group_by="scene"` is passed. `tests/test_propagate.py` test 5 covers this.
 * **Output.** `labels_aug1016.csv` has one row per usable crop. Its columns include `image` (absolute crop path), `aug_id, source_id, group` (= scene_id by default, else source_id; for group-aware CV), `k_deg, swap_hv`, the labels, `n_annotations, annotators, source_group` (if the source row had one) and `review_decision`. `labels_aug1016_meta.json` records the inputs and counts. `--with-originals` also writes the 150 source rows.
-* **Current state.** The only export is `annotations_anonymous.json`, with one record (image 0) that is not done. The current file therefore holds 0 rows. With `--include-not-done` it would label 6 crops. Run it again, or leave `--watch` running, once annotations exist.
+* **In this release.** No human annotation export is included (the photos and human counts are released after review), so the released `labels_aug1016.csv` holds only its header row. Run the script again, or leave `--watch` running, once annotation exports are available.
 
 ## 9. Invariance check now, without labels (`invariance_check.py` → `invariance/`)
 
@@ -125,25 +125,25 @@ How to read the table:
 ## 10. Training with it (`cnn/train_cv.py`, defaults unchanged)
 
 ```
-VC=<scratchpad>/venv_cnn/bin/python
+VC=<venv_cnn>/bin/python
 $VC train_cv.py --labels annotations.csv --extra-aug1016 [--aug1016-labels aug1016/labels_aug1016.csv] [--aug1016-weight 1.0]
 ```
 
-* **What it adds.** For each fold k, the training set gains every usable augmentation whose **source is not in fold k**. Augmentations never enter grouping or testing, so an augmentation can never be trained on while its source is tested. The folds are built from the originals exactly as before, including fabric groups and auto-grouping. Since Oct 8 2026 the folds are grouped by scene by default (`train_cv.py --scene-mode members`), and every augmentation follows its source file's scene fold.
+* **What it adds.** For each fold k, the training set gains every usable augmentation whose **source is not in fold k**. Augmentations never enter grouping or testing, so an augmentation can never be trained on while its source is tested. The folds are built from the originals exactly as before, including fabric groups and auto-grouping. By default the folds are grouped by scene (`train_cv.py --scene-mode members`), and every augmentation follows its source file's scene fold.
 * **Where the labels come from.** By default they are propagated on the fly from this run's merged labels, using the same `propagate()` and review decisions. With `--aug1016-labels`, they are read from a `propagate_labels.py` output; both paths gave identical items in the smoke test.
 * **Loading and weights.** Crops load lazily from disk, capped at 1024 px like the originals. The sample weight is 0.5 for uncertain sources, multiplied by `--aug1016-weight`. The `constant_mean` reference still uses the originals only.
 * **Run outputs.** Each run writes `extra_aug1016.csv` (aug_id, source, source_fold, h, v) and logs, per fold, how many originals and augmentations were used.
-* **Smoke test.** The smoke test used the existing `cnn/data/DUMMY_labels_for_smoke_test.csv` (fake labels) with 40 images, 2 folds and 1 epoch, and wrote to the scratchpad. It gave 228 augmented crops, 113 and 115 per training fold. Source folds matched `folds.csv`, all 107 swapped labels were correct, only usable rows were used, and a run without the flag produced identical folds.csv and constant_mean predictions.
+* **Smoke test.** The smoke test used the existing `cnn/data/DUMMY_labels_for_smoke_test.csv` (fake labels) with 40 images, 2 folds and 1 epoch, and wrote to a temporary folder. It gave 228 augmented crops, 113 and 115 per training fold. Source folds matched `folds.csv`, all 107 swapped labels were correct, only usable rows were used, and a run without the flag produced identical folds.csv and constant_mean predictions.
 
 ## 11. Reproduce
 
 ```
 cd "aug1016"
-P=<scratchpad>/venv2/bin/python
+P=<venv2>/bin/python
 $P build_aug1016.py --workers 6        # ~1 min: crops/, manifest.csv, missing_augmentations.csv, review/
 $P invariance_check.py --workers 6     # ~8 min: invariance/ (2306 counter runs); --summarise-only re-tabulates
 $P propagate_labels.py                 # labels_aug1016.csv from whatever annotations exist
 $P tests/test_propagate.py             # needs node for the core.js comparison
 ```
 
-Files: `aug_common.py` (shared helpers; all geometry goes through `common/rectify.py`), `build_aug1016.py`, `invariance_check.py`, `propagate_labels.py`, `tests/`, `inbox/` (drop exports here), `crops/` (853 files, 486 MB), `manifest.csv`, `missing_augmentations.csv`, `review/`, `invariance/`, `labels_aug1016.csv` and `labels_aug1016_meta.json`.
+Files: `aug_common.py` (shared helpers; all geometry goes through `common/rectify.py`), `build_aug1016.py`, `invariance_check.py`, `propagate_labels.py`, `tests/`, `inbox/` (drop exports here), `crops/` (853 files, 486 MB; photo-derived, released with the photos after review), `manifest.csv`, `missing_augmentations.csv`, `review/`, `invariance/`, `labels_aug1016.csv` and `labels_aug1016_meta.json`.

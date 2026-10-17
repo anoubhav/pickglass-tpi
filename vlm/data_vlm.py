@@ -6,11 +6,12 @@ What this module does (all source data are READ-ONLY; outputs go to ./crops):
    ../common/rectify.py (perspective warp from the hand-annotated XML polygon,
    S = mean polygon side length, bilinear).  Saved as crops/rect150/{i}.png.
 2. 20 legacy images (FR-final attempt/images/{a1..a10,r1..r10}.jpg).  These were
-   hand-cropped in 2019 around the pick-glass opening, so no polygon exists.  We
-   trim the dark pick-glass frame that is visible on some sides with a simple
-   border-profile detector (`detect_legacy_window`) and resize the remainder to a
-   square (the opening is square; residual perspective is ignored).  Saved as
-   crops/legacy/{name}.png together with an overlay contact sheet for checking.
+   hand-cropped in the earlier project around the pick-glass opening, so no
+   polygon exists.  We trim the dark pick-glass frame that is visible on some
+   sides with a simple border-profile detector (`detect_legacy_window`) and
+   resize the remainder to a square (the opening is square; residual perspective
+   is ignored).  Saved as crops/legacy/{name}.png together with an overlay
+   contact sheet for checking.
 3. Ground truth for the legacy set parsed from "Warp-Weft count.xlsx".
 4. Helper views used by the prompts: quarter-inch patches (P3) and a guide-line
    overlay (P4).
@@ -35,7 +36,7 @@ import cv2
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)                      # .../wvaq2027
+ROOT = os.path.dirname(HERE)                      # <repo root>
 sys.path.insert(0, os.path.join(ROOT, "common"))
 import rectify as shared_rectify                  # noqa: E402  (shared contract)
 
@@ -80,7 +81,7 @@ def _parse_count(v):
 
 
 def _parse_weave(v):
-    """Excel mangled '1/1' -> 2019-01-01 and '2/1' -> 2019-02-01."""
+    """Excel mangled '1/1' -> date YYYY-01-01 and '2/1' -> YYYY-02-01 (month, day read back)."""
     if v is None:
         return None
     a, b = (v.month, v.day) if hasattr(v, "month") else map(int, re.findall(r"\d+", str(v))[:2])

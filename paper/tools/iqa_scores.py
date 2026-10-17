@@ -1,6 +1,6 @@
 """iqa_scores.py -- generic no-reference IQA scores (pyiqa) for tools/iqa_generic.py and tools/iqa150.py.
 
-Run on Oct 11 2026 (Mac CPU, pyiqa 0.1.16, torch 2.14.1; gpu-server was not reachable). Label-safe: it only
+Run on a Mac CPU (pyiqa 0.1.16, torch 2.14.1; no GPU). Label-safe: it only
 reads images.
 
 Metrics (pyiqa defaults, fp32): brisque, niqe (lower = better), musiq (KonIQ), clipiqa (RN50, 'Good/Bad
@@ -14,23 +14,23 @@ Protocols (what image the metric sees):
            (what a no-reference gate placed in front of the counter would see). Only differs from
            fix1024 for images < 1024 px, so it is only computed for those.
   view768  the genai_sr viewing copy as stored (768 x 768 JPEG q92, INTER_AREA from the S x S PNG;
-           the full-resolution restorations stay on gpu-server); view768_made = the same transform applied
+           the full-resolution restorations stay on the GPU server); view768_made = the same transform applied
            here to the clean references.
   native   the image as stored (genai_sr 'none' = the LR PNG).
 
 Inputs: the degraded legacy crops are the byte-identical PNGs written by methods/degrade_vlmcrops.py --make
-(and methods/degrade_vlmcrops_extra.py) into $DEG_LEGACY13_DIR (default: the session scratchpad; md5s are
+(and methods/degrade_vlmcrops_extra.py) into $DEG_LEGACY13_DIR (default: $PICKGLASS_SCRATCH/deg_legacy13; md5s are
 checked against their manifests and, in iqa_generic.py, against tables/degradation_legacy13_per_image.csv).
-If the scratchpad was cleaned, regenerate them with  DEG_LEGACY13_DIR=<dir> methods/degrade_vlmcrops.py --make.
+If that directory was cleaned, regenerate them with  DEG_LEGACY13_DIR=<dir> methods/degrade_vlmcrops.py --make.
 
     python iqa_scores.py --set legacy13|legacy13_extra|real150|genai_view|genai_refview|genai_full|genai_none \
                          --out RAW.csv [--shard i/n]
     python iqa_scores.py --finalize RAW_DIR      # -> tables/iqa_legacy13_scores.csv, iqa_genai_scores.csv,
                                                  #    iqa150_scores.csv  (numpy/pandas only: runs in .tools/venv)
 
-The raw outputs of the Oct 11 run (legacy13 as three resumed shards s0-s2; their duplicate rows are identical)
-are kept durably in handover/results/round2_tmp_copy/generic-iqa/out/; the tables in paper/tables were built with
-    .tools/venv/bin/python -B paper/tools/iqa_scores.py --finalize handover/results/round2_tmp_copy/generic-iqa/out
+The raw outputs of the run behind the paper tables (legacy13 as three resumed shards s0-s2; their duplicate rows are identical)
+are not part of this repository; the tables in paper/tables were built from them with
+    .tools/venv/bin/python -B paper/tools/iqa_scores.py --finalize <raw-output dir>
 """
 from __future__ import annotations
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-"""score_aug.py -- Job 2 report numbers (run ONCE on the Mac after all selection; venv2).
+"""score_aug.py -- report numbers of the augmentation study of train_aug.py (run ONCE on the Mac after all
+selection; venv2).
 
 Reads the synced GPU results in cnn/runs_aug/ (selection.json, final_spec.json, final/<variant>/...) and
 writes cnn/runs_aug/report/:
@@ -18,7 +19,7 @@ writes cnn/runs_aug/report/:
                              pseudo-label TRAINING scenes for V3-V5 (exclude them when scoring vs humans);
                              real150_aug_wide_heldout.csv = the same with V3-V5 blanked on those scenes
   gpu_hours.json, parity.json, tables.md
-Scene split (2026-10-08): see train_aug.py and runs_aug/PREREG.json.
+Scene split: see train_aug.py and runs_aug/PREREG.json.
 The legacy GT, crop rule, scoring and paired tests are imported from paper/tools/legacy_unified.py, so
 the numbers are directly comparable with tables/legacy13_unified.csv (CNN 16.0 %, ours 11.6 %).
 """

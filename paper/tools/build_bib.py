@@ -3,7 +3,7 @@
 refs.bib keeps long `note = {...}` fields that record how each entry was verified.
 ieeenat_fullname.bst prints `note`, so those notes would appear in the reference list.
 This script copies every entry but drops the `note` field; @misc entries that carry a
-URL get `note = {Accessed Oct.~2026}` instead (all were read on 2026-10-06/07).
+URL get an access-date note instead (the fixed `note = {Accessed ...}` string set in main()).
 
 Standard library only:  python3 tools/build_bib.py
 Re-run whenever refs.bib or refs_extra.bib changes. Never edit paper_refs.bib by hand.
@@ -80,7 +80,7 @@ def main():
             if typ == "misc" and re.search(r"(howpublished|url)\s*=\s*\{\\url", e, re.IGNORECASE):
                 e = e.rstrip()[:-1].rstrip().rstrip(",") + ",\n  note = {Accessed Oct.~2026}\n}"
             # arXiv-only @misc entries: ieeenat_fullname.bst ignores eprint, so print the id
-            # (added 2026-10-08, Job P; affects only @misc entries with an arXiv eprint and no howpublished)
+            # (affects only @misc entries with an arXiv eprint and no howpublished)
             mt = re.search(r"\beprint\s*=\s*\{([^}]+)\}", e)
             if (typ == "misc" and mt and re.search(r"archivePrefix\s*=\s*\{arXiv\}", e, re.IGNORECASE)
                     and not re.search(r"\bhowpublished\s*=", e, re.IGNORECASE)):

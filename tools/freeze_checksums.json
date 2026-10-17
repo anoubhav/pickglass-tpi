@@ -24,7 +24,7 @@
   "path": "cnn/runs_aug/PREREG.json",
   "sha256_original": "0b61f61ce8bb6a85e1d7eda6e711df83b3ef52275406dfa9f3b04c4f74a281be",
   "md5_original": "e4b8a302cc9a5a3db0e55996c9eeee9c",
-  "sha256_released": "315c62c9d36d4420c664ae7db901b77c2fea4e8eb97f31a84349b01631f8030e",
+  "sha256_released": "dc3c21edacb080c0378a7d8723851e1e1e16bf3f8ba59318123354559c4ac060",
   "identical": false
  },
  {
@@ -45,7 +45,7 @@
   "path": "genai_sr/README.md",
   "sha256_original": "3bb92043c417694cf4780c58b4022e2c6217a4a154b26538098c2bd2e1f4a9ea",
   "md5_original": "b1d1f0de7e7795f375d79bf31646b0a1",
-  "sha256_released": "4be254d3ffe07d6778644d095642224290cc9661a64e5815ae0672edd62267a3",
+  "sha256_released": "4a5954fcfa6565f2f1e14014791720b7fe5f6b23c841db43376fa391fac10c77",
   "identical": false
  },
  {
@@ -59,7 +59,7 @@
   "path": "genai_sr/logs/README_prereg_frozen.md",
   "sha256_original": "72a16c8960a1d492cbe75537648c512731e333c8f1139a03793d0b9e39b9e382",
   "md5_original": "0257e8e01f354e90675c4a1d233c9cf4",
-  "sha256_released": "3afa3b6f130bb4cf75a5a7e0433eed641c7cf67d1d0f60cec759235bed792a24",
+  "sha256_released": "f70150ca16e1214e9c505d33c336193f8bc2492fecd5993a3c911793979614eb",
   "identical": false
  },
  {
@@ -87,7 +87,7 @@
   "path": "methods/results/PREREG_combined_v1.json",
   "sha256_original": "1e4fd17727a0d47fb8a3b3db4accbeef0af143bb5dfdc5dfe0e0ed2deaf5197a",
   "md5_original": "fda00448eebddd30b01cb409f662362f",
-  "sha256_released": "b0706aa3ccbaee8ecdc45b63140611fbc4e41260b939585db38f65071f596a82",
+  "sha256_released": "91e17bff585b3fd3cfac50a0c198438cff7b5ee432de4276bdb14aa52ca772fe",
   "identical": false
  },
  {
@@ -101,7 +101,7 @@
   "path": "paper/tools/iqa_generic.py",
   "sha256_original": "4e5683c271341640d59e3b4f5c5dd2697eba39d55fd49182f6c930f87cb2b143",
   "md5_original": "012d177cd3a1a70b4e7b55e30235e9d6",
-  "sha256_released": "0d2b79149ca1cde40755abe5f50ede0b6254b878b034345982621296be3337dc",
+  "sha256_released": "6db9ccf79a150a9656b0c1494984166d12aa54b5639fe086672dbb04c5f83719",
   "identical": false
  },
  {
@@ -115,7 +115,7 @@
   "path": "paper/tools/label_day.py",
   "sha256_original": "a7151fb9c0f3963e470183f82b16a53632da1c43dc7e17e45f42bfd872a908b4",
   "md5_original": "bc47acde3f7448f7f9cd87c8fbdc2261",
-  "sha256_released": "82918adc8d50a8e0e9c1729264fb7b6ed31f95f5d3b81b2885d55093ef273002",
+  "sha256_released": "9ba683de864c2c48044c57033b39c082d5ab4b1904918d591d872b9fcb5828bf",
   "identical": false
  },
  {
@@ -182,13 +182,6 @@
   "identical": true
  },
  {
-  "path": "methods/ensemble/PREREG_ens_v2_recipe.md",
-  "sha256_original": "2d22687c5e15b506088c44e1d754c23c5456f5f58735215a21a8fd09d07d3d21",
-  "md5_original": "862191238f5657faa5d0714b21aa9681",
-  "sha256_released": "2d22687c5e15b506088c44e1d754c23c5456f5f58735215a21a8fd09d07d3d21",
-  "identical": true
- },
- {
   "path": "methods/octave_learned/PREREG_octsel_v1.json",
   "sha256_original": "9479b188a2c9da776a55423622bd05efdbb412cb61b439770f4c670a8795cdf3",
   "md5_original": "9eb9a068b3aae87fcee9b697a6e068b1",
@@ -227,7 +220,7 @@
   "path": "methods/ensemble_aug/PREREG_ens_v1b.json",
   "sha256_original": "08f5a65d75cdbcd447384a6dd8501ba9913ebc1857921fa412af90dde28c459b",
   "md5_original": "beeff8f3cea2c33f6c54a0ec4720eeb4",
-  "sha256_released": "7ee01cf88b34f32666d4cc7d61203536868a65efd8e15d07b155afb6062db960",
+  "sha256_released": "95b3569dc42ce0ffa4dc857429930263e8e448dd6a5e17d566ffa9c0d82ac12c",
   "identical": false
  },
  {
@@ -249,20 +242,6 @@
   "sha256_original": "07dc84cbe9956cac688ad6377fb4a329379600268c204e26f45f24e92889c1fe",
   "md5_original": "28003f72970a4bdcba48d172ccd33e01",
   "sha256_released": "07dc84cbe9956cac688ad6377fb4a329379600268c204e26f45f24e92889c1fe",
-  "identical": true
- },
- {
-  "path": "handover/results/PREREG_labelday_FLNG_20261012.md",
-  "sha256_original": "9ae1d9caab117b97f6b9d4eaf4f9887f4e346a609663aefe081be377bfe8664c",
-  "md5_original": "0440f5ecc6d7f988fd0d19fbed9dccf5",
-  "sha256_released": "9ae1d9caab117b97f6b9d4eaf4f9887f4e346a609663aefe081be377bfe8664c",
-  "identical": true
- },
- {
-  "path": "handover/results/PREREG_labelday_FLNG_addendum1_20261012.md",
-  "sha256_original": "586b606c38d6f0f8457c08f234b7d86ef0868d52b66b22ff704ceb5cd7a3752e",
-  "md5_original": "4ce2e885f4699a85833a23e9e9cf0660",
-  "sha256_released": "586b606c38d6f0f8457c08f234b7d86ef0868d52b66b22ff704ceb5cd7a3752e",
   "identical": true
  }
 ]

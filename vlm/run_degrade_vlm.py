@@ -1,4 +1,4 @@
-"""run_degrade_vlm.py -- Job C (WVAQ capture-quality study): API VLMs on degraded legacy-13 crops.
+"""run_degrade_vlm.py -- capture-quality study: API VLMs on degraded legacy-13 crops.
 
 Inputs are the byte-identical degraded crops written by methods/degrade_vlmcrops.py --make
 (degrade.py operators applied to the canonical crops vlm/crops/legacy/{name}.png; md5 checked
@@ -39,10 +39,10 @@ DEG_DIR = os.environ.get(
     "DEG_LEGACY13_DIR",
     os.path.join((os.environ.get("PICKGLASS_SCRATCH") or os.path.join(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."), "scratch")), "deg_legacy13"))
 NAMES13 = ["a1", "a2", "a4", "a5", "a6", "a8", "a10", "r2", "r3", "r4", "r6", "r7", "r8"]
-# fixed a priori (= methods/degrade_vlmcrops.VLM_CONDS): the moderate/severe levels of paper Table 6
+# fixed a priori (= methods/degrade_vlmcrops.VLM_CONDS): the moderate/severe levels (supplement Tab. S5)
 VLM_CONDS = [("gblur", 3), ("gblur", 6), ("down", 4), ("down", 8), ("jpeg", 20),
              ("glare", 0.05), ("glare", 0.30), ("corners", 0.05)]
-HARD_JOB_CAP = 30.0       # the API budget of the whole VLM job (openrouter_client.HARD_CAP_USD)
+HARD_JOB_CAP = 30.0       # the hard API budget cap shared by all VLM runs (openrouter_client.HARD_CAP_USD)
 OUT_CSV = os.path.join(HERE, "results", "legacy_deg_predictions.csv")
 
 

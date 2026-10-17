@@ -1,5 +1,5 @@
 """
-run_pipeline.py -- FAITHFUL baseline harness for the 2019 IIT-M "Textile Quality Analysis"
+run_pipeline.py -- FAITHFUL baseline harness for the legacy IIT-M "Textile Quality Analysis"
 warp/weft counting pipeline, evaluated on the 20 ground-truth images in
 "$PICKGLASS_LEGACY_ROOT/FR-final attempt/images/".
 
@@ -13,7 +13,7 @@ Pipeline reproduced (see fidelity notes in the docstrings below):
                   The FR-final ground-truth images a1..r10 are likewise already cropped to
                   the 1-inch pick-glass window, so the PRIMARY variant ("precropped") feeds
                   them straight into doc3.  A SECONDARY variant ("seg_final") first runs the
-                  extracted 2024 segmentation (seg_final.segment) and feeds its crop to doc3.
+                  extracted notebook segmentation (seg_final.segment) and feeds its crop to doc3.
 
   [dot map]       TQA/doc3.py L9-L88, transcribed line by line (same NumPy-1.x uint8
                   semantics, same OpenCV calls / parameters; only GUI calls dropped).

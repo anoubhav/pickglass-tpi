@@ -12,7 +12,7 @@ Inputs (all synced from gpu-server by rsync, md5-verified):
   countgd/outputs/results/{legacy_predictions,stageA_legacy_metrics,countgd_bootstrap_ci,
                            countgd_threshold_sensitivity}.csv  GPU-side summaries, re-verified here
 
-Conventions, imported from wvaq2027/vlm (not re-implemented):
+Conventions, imported from <repo root>/vlm (not re-implemented):
   * every Molmo2 answer is RE-PARSED from its raw text with vlm/parse_output.py (parse_counts for
     P1-P3, parse_points for P4/P4q); the 'parsed' field written on the GPU is only compared;
   * per-image estimates = vlm/evaluate_vlm.estimates (P3 = 4 x central quarter patch, P3s = sum of the
@@ -20,7 +20,7 @@ Conventions, imported from wvaq2027/vlm (not re-implemented):
     P4q = 4 x points on the central quarter patch);
   * metrics = vlm/evaluate_vlm.metrics / errors (axis-matched: vertical<->warp, horizontal<->weft;
     best assignment: sorted pair vs sorted pair); failures are not imputed (n_ok shown);
-  * GT = vlm/gt_legacy.legacy_gt (2019 spreadsheet, the 2019 harness' own load_gt), 13 images.
+  * GT = vlm/gt_legacy.legacy_gt (legacy spreadsheet, the legacy harness' own load_gt), 13 images.
 Added here:
   * within-5 % counts;
   * the paper's CI convention (paper/sections/5_experiments.tex, paper/tools/score150.py): 2,000
@@ -43,8 +43,8 @@ from collections import Counter, defaultdict
 
 import numpy as np
 
-HERE = os.path.dirname(os.path.abspath(__file__))            # wvaq2027/gpu_results
-ROOT = os.path.dirname(HERE)                                 # wvaq2027
+HERE = os.path.dirname(os.path.abspath(__file__))            # <repo root>/gpu_results
+ROOT = os.path.dirname(HERE)                                 # <repo root>
 VLM = os.path.join(ROOT, "vlm")
 sys.path.insert(0, VLM)
 import evaluate_vlm as EV                                    # noqa: E402  (the VLM harness' scorer)
@@ -721,7 +721,7 @@ def main():
                     hist[f"{m}|{st}|{meth}"] = dict(n=sum(c.values()), answers={f"{k[0]:g}x{k[1]:g}": v for k, v in c.most_common(6)})
     S["answer_histograms"] = hist
 
-    # rect150 exports (no GT yet)
+    # rect150 exports (label-free)
     longp, wrows, summ = rect150_exports(est)
     write_csv(os.path.join(OUT, "molmo2_rect150_predictions_long.csv"), longp)
     write_csv(os.path.join(OUT, "molmo2_rect150_predictions_wide.csv"), wrows)

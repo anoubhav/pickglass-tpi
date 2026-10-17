@@ -86,7 +86,7 @@ def main():
     # here they are checked against core.js lineInfo().angle with the swap rule
 
     # CLI runs (never the default output path). Pinned to the per-source behaviour this check was written
-    # for (Oct 8 2026: the CLI default became scene-aware -- labels copied to every file of a scene,
+    # for (the CLI default has since become scene-aware -- labels copied to every file of a scene,
     # group = scene_id; that is tested in tests/test_propagate.py test 5)
     for src, name in ((jpath, "labels_json.csv"), (cpath, "labels_csv.csv")):
         subprocess.run([PY, os.path.join(AUG, "propagate_labels.py"), src, "--out", os.path.join(OUT, name),

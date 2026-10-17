@@ -5,7 +5,7 @@
 
 For each record: the crop with both guide lines and every dot (cyan = H line, pink = V line); then one zoom per gap
 (a probably missed yarn: spacing > 1.6 x the median) and per double click (spacing < 0.5 x the median), boxed in red.
-Use it to give a screened or newly hired annotator concrete feedback. Level guide lines only (a turned line is
+Use it to give a screened or new annotator concrete feedback. Level guide lines only (a turned line is
 drawn level). Needs Pillow.
 """
 import argparse

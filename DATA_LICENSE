@@ -1,10 +1,10 @@
-DATA LICENCE: PLACEHOLDER (TBD)
+DATA LICENCE
 
-Status (Oct 12 2026): the licence for the PickGlass data has not been
-decided (see DATASHEET.md).
+The licence for the PickGlass data will be stated in this file when the
+data are released after review (see DATASHEET.md).
 
-Covered by this file once decided (the "data files"), wherever they sit in
-this repository:
+Covered by this file (the "data files"), wherever they sit in this
+repository:
   - the files under data/ (manifest, scene map, window polygons, photo
     provenance, legacy hand counts, predictions);
   - every copy or part of those files elsewhere in this repository, for
@@ -15,14 +15,11 @@ this repository:
     data/predictions/INDEX.csv and the other per-image prediction files
     under methods/, cnn/, vlm/, gpu_results/, ft_results/, genai_sr/,
     camera_aug/ and paper/tables/;
-  - to be added: the photos, rectified crops, renders and both annotators'
-    counts with dot positions, released on an archive with a DOI.
+  - released after review, on an archive with a DOI: the photos, rectified
+    crops, renders and both annotators' counts with dot positions.
 
 Everything else in this repository (source code and documentation) is
 covered by the MIT licence in LICENSE.
-
-Candidate: Creative Commons Attribution-NonCommercial 4.0 International
-(CC BY-NC 4.0), https://creativecommons.org/licenses/by-nc/4.0/
 
 Until a licence is stated here, no rights to the data are granted beyond
 viewing them in this repository for the purpose of reviewing and reproducing

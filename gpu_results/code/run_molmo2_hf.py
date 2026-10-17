@@ -1,6 +1,6 @@
 """Molmo2-8B at reference precision (bf16, Hugging Face transformers, trust_remote_code) on one
 CUDA GPU, with the SAME prompts, views, parsers and raw-record schema as the Mac MLX harness
-(wvaq2027/vlm/run_vlm.py).  Records are appended to raw/molmo2_8b_bf16__{set}[__{tag}].jsonl.
+(<repo root>/vlm/run_vlm.py).  Records are appended to raw/molmo2_8b_bf16__{set}[__{tag}].jsonl.
 
 Sets / views (identical construction to run_vlm.build_jobs; side = 644 px, Molmo2's native
 maximum for a square image: max_crops = 8 -> 2 x 2 tiling of 378-px crops with 4-patch overlap

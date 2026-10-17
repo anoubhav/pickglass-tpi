@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """propagate_labels.py -- copy the human thread-count labels of the 150 originals onto every
-usable augmented crop of the 2024 set (crops/{i}_aug{n}.jpg, manifest.csv).
+usable augmented crop of the earlier augmented set (crops/{i}_aug{n}.jpg, manifest.csv).
 
     <venv2>/bin/python propagate_labels.py                      # default inputs (below)
     <venv2>/bin/python propagate_labels.py A.json B.csv ...     # explicit exports
@@ -31,13 +31,13 @@ Rules (identical to cnn/train_cv.py load_annotations so both see the same labels
     preserved by a rotation), warp_dir vertical <-> horizontal; warp/weft tpi and weave
     unchanged.  k = 0 / 180: nothing changes.
 
-Scenes (default since Oct 8 2026): the 150 originals are 76 scenes (annotation_tool manifest; see
+Scenes (default): the 150 originals are 76 scenes (annotation_tool manifest; see
 annotation_tool/propagate_scene_labels.py). Before the augmentations are labelled, each scene's label
 (the rep's, else the best labelled member's) is copied to EVERY file of the scene in that file's own
 orientation (h <-> v for files stored turned 90 / 270 deg relative to the rep), so augmentations of
 copies (e.g. 0_aug*, a quarter-res copy of 9) are labelled too; and every augmented crop inherits its
 source's scene: `group` = scene_id (use it for group-aware CV). --no-scenes: labels only from a
-source's own annotation; --group-by source: group = source_id (both = the pre-Oct-8 behaviour).
+source's own annotation; --group-by source: group = source_id (both = the original, scene-unaware behaviour).
 New columns: scene_id, source_kind, source_scene_rot_k, label_src_id. propagate() itself keeps
 group = source_id unless called with group_by="scene".
 
@@ -241,7 +241,7 @@ SWAP_PAIRS = [("h_tpi", "v_tpi"), ("h_count", "v_count"), ("h_angle_deg", "v_ang
 WARP_SWAP = {"vertical": "horizontal", "horizontal": "vertical"}
 
 
-# ---------------------------------------------------------------------------- scenes (Oct 8 2026)
+# ---------------------------------------------------------------------------- scenes
 def scene_module(manifest_path=TOOL_MANIFEST):
     """annotation_tool/propagate_scene_labels.py of the tool that owns the manifest."""
     import importlib.util
@@ -353,9 +353,9 @@ def main():
     ap.add_argument("--include-flagged", action="store_true", help="also label rows with usable=False (not advised)")
     ap.add_argument("--with-originals", action="store_true", help="also write the 150 source rows (image = id)")
     ap.add_argument("--no-scenes", action="store_true",
-                    help="label augmentations only from their source's own annotation (pre-Oct-8 behaviour)")
+                    help="label augmentations only from their source's own annotation (the original, scene-unaware behaviour)")
     ap.add_argument("--group-by", choices=("scene", "source"), default="scene",
-                    help="`group` column: the source's scene (default) or the source id (pre-Oct-8)")
+                    help="`group` column: the source's scene (default) or the source id (the original behaviour)")
     ap.add_argument("--watch", type=float, default=0, metavar="SECONDS",
                     help="poll the inputs and re-run whenever one appears or changes")
     a = ap.parse_args()

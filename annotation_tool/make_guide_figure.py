@@ -2,7 +2,7 @@
 
 For a few example photos (different weaves, resolutions, capture conditions) this
 draws, left to right:
-  (a) the original phone photo through the pick glass, with the 2019 hand-marked
+  (a) the original phone photo through the pick glass, with the original hand-marked
       1-inch window (red polygon),
   (b) the rectified 1-inch crop with the two guide lines and one dot per yarn,
   (c) a 1/10-inch zoom along the horizontal guide line (dots on vertical yarns),

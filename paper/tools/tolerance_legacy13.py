@@ -1,8 +1,8 @@
 """Tolerance-referenced metrics on legacy-13 (POST HOC: defined after the legacy scores were known).
 
-Job 5 (problem definition grounded in textile standards) wrote this as two scratch scripts; Job 6 moved it
-into the paper tools so every number in the paper traces to a CSV under paper/tables. No new predictions:
-it only re-scores tables/legacy13_unified_per_count.csv (written by tools/legacy_unified.py), axis-matched.
+Part of the problem definition grounded in textile standards; it lives in the paper tools so that every
+number in the paper traces to a CSV under paper/tables. No new predictions: it only re-scores
+tables/legacy13_unified_per_count.csv (written by tools/legacy_unified.py), axis-matched.
 
 Writes
   tables/tolerance_legacy13.csv        per method: W_tau (share of counts within tau = 2.5/5/10/15 %) with

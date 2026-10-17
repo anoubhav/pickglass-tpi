@@ -30,7 +30,7 @@ Methods (``method=``)
           with parabolic sub-sample refinement.  Shearing keeps distances along the guide
           line, so count = crop length / period is exactly the guide-line crossing count.
 "peaks"   (b') naive direct count: number of maxima of the smoothed profile (what a needle
-          count / the 2019 transition count does), period-prior free.
+          count / the legacy transition count does), period-prior free.
 "gabor"   (c) log-Gabor filter bank (36 log-spaced radial frequencies x 3 orientations per
           family) applied in the Fourier domain; local amplitude maps -> per-pixel harmonic-
           weighted best frequency -> amplitude-weighted median over the crop.  Gives a local
@@ -68,6 +68,12 @@ feathered weight), "inpaint" (cv2.inpaint Telea on the grey image), or "off".
 All internal processing happens on a square working image of side min(S, ``max_work``)
 (INTER_AREA down-sampling, never up-sampling); counts are expressed per crop side and are
 therefore resolution independent.
+
+Provenance: methods/results/cascade_synth_cal_default_meta.json, cascade_synth_cal_legacygrid_meta.json and
+legacy13_vlmcrops_degrade_meta.json (counting_py_md5) and genai_sr/results/run_meta.json and
+genai_sr/logs/server/score_counts_env.json (counting_md5) record 2bf64a3ab76458d1e852248fb0a4047f, the MD5 of
+this module when they were written. This released copy differs from it only in docstring wording (the code is
+unchanged), so its MD5, and the value a re-run records, differ.
 """
 from __future__ import annotations
 

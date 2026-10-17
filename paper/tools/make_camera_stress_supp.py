@@ -1,10 +1,9 @@
-"""make_camera_stress_supp.py -- supplement version of the PickGlass-Stress legacy-13 table (Job P).
+"""make_camera_stress_supp.py -- supplement version of the PickGlass-Stress legacy-13 table.
 
 Reads the generated tables/camera_stress_legacy13.tex (camera_aug/score_stress.py; never edited here)
-and writes tables/camera_stress_legacy13_supp.tex with the two fixes required by camera_aug/CHECK.md:
-  R4  the GPT-6.1-sol flagship change (+3.8) is marked nominal (dagger) instead of significant (*):
-      paired CI [0.10, 8.52] barely excludes 0, Wilcoxon p = 0.34, one render per image;
-  R4  the caption says that the stars are uncorrected for multiple comparisons;
+and writes tables/camera_stress_legacy13_supp.tex with two changes: the GPT-6.1-sol flagship change (+3.8)
+is marked nominal (dagger) instead of significant (*) (paired CI [0.10, 8.52] barely excludes 0, Wilcoxon
+p = 0.34, one render per image), and the caption says that the stars are uncorrected for multiple comparisons;
 and the tabular is scaled to the text width.  Numbers are copied unchanged.
 
     python3 tools/make_camera_stress_supp.py

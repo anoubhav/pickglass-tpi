@@ -1,4 +1,4 @@
-"""Figures + LaTeX table for the scaffolded-prompting study (Job 2).
+"""Figures + LaTeX table for the scaffolded-prompting study.
 
   paper/figs/fig_scaffold_examples.pdf  the four scaffolds rendered on one legacy crop (a2)
   paper/figs/fig_scaffold_results.pdf   MAPE [95 % CI] per model x condition (legacy-13, axis-matched)

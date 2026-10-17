@@ -195,7 +195,7 @@ def main():
         print(f"{DATA}/manifest.json is missing -- run prepare.py first (or use --demo)", file=sys.stderr)
         return 1
     if not os.path.isdir(os.path.join(DATA, "crops")):
-        print(f"note: {DATA}/crops/ is missing: the photos are released after the mill's consent; "
+        print(f"note: {DATA}/crops/ is missing: the photos are released after review; "
               "try --demo for the synthetic practice set", file=sys.stderr)
     try:
         httpd = ThreadingHTTPServer((a.host, a.port), partial(Handler, directory=HERE))

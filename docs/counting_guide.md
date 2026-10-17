@@ -1,14 +1,14 @@
 # How to count threads per inch
 
-**A short guide for annotators.** All pictures in this guide are synthetic (computer-made) fabrics (`img/guide/SOURCES.json` lists the generator seeds). This is the public guide that went with the job post for PickGlass, without the hiring details. The full guide that comes with the tool is [annotator_guide.md](annotator_guide.md).
+**A short guide for annotators.** All pictures in this guide are synthetic (computer-made) fabrics (`img/guide/SOURCES.json` lists the generator seeds). This is the short public guide given to the annotators. The full guide that comes with the tool is [annotator_guide.md](annotator_guide.md).
 
-## 1. The job
+## 1. The task
 
 We have magnified photos of woven fabric. Each photo was taken through a **pick glass**, a small magnifier with a 1-inch window, so it shows exactly **one square inch** of fabric.
 
 For each photo you count the **threads per inch** in both directions. You do this in a simple browser tool: you put **one dot on every yarn** along two guide lines, and the tool counts the dots for you. No installation is needed.
 
-The work starts with a short screening test (two photos). You can try the tool today on three practice photos (see section 8).
+The work starts with a short screening test (two photos). You can try the tool on three practice photos (see section 8).
 
 ![An example on a synthetic fabric: the photo, the tool and a close-up.](img/guide/post_example.jpg)
 
@@ -87,7 +87,7 @@ If the yarns on a line cannot be seen anywhere in the window, clear that line, w
 
 ## 8. Try it: three practice photos
 
-Run `python3 annotation_tool/server.py --demo --open` from a clone of this repository, or open a hosted practice bundle (`annotation_tool/kit/build_bundle.py --data annotation_tool/demo/data --storage-key practice --static`).
+Run `python3 annotation_tool/server.py --demo --open` from a clone of this repository, or open a hosted practice bundle (`python3 annotation_tool/kit/build_bundle.py --data annotation_tool/demo/data --out <bundle dir> --storage-key practice --static`).
 
 1. Open it in Google Chrome or Microsoft Edge on a laptop or desktop computer.
 2. Type any name in **Annotator**.

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """check_export.py -- check one or two annotators' exports before they are scored (read-only on its inputs).
 
-    python3 annotation_tool/kit/check_export.py annotations_A1_2026-10-12.json annotations_A1_2026-10-12.csv
+    python3 annotation_tool/kit/check_export.py annotations_A1_<stamp>.json annotations_A1_<stamp>.csv
     python3 annotation_tool/kit/check_export.py export.json --manifest annotation_tool/demo/data/manifest.json
-    python3 annotation_tool/kit/check_export.py export.json --hidden-since 2026-10-11T07:20:00Z --write-clean clean.json
+    python3 annotation_tool/kit/check_export.py export.json --hidden-since YYYY-MM-DDThh:mm:ssZ --write-clean clean.json
     python3 annotation_tool/kit/check_export.py annotations_A1_*.json annotations_A1_*.csv \
         --second annotations_A2_*.json annotations_A2_*.csv       # two annotators counting the same scenes
 
@@ -227,7 +227,7 @@ def main():
     ap.add_argument("--second", nargs="+", metavar="EXPORT", default=None,
                     help="the export files of a second annotator: checked separately, then the overlap is reported")
     ap.add_argument("--manifest", default=MANIFEST)
-    ap.add_argument("--name-prefix", default="", help="required prefix of the annotator name, e.g. A or FL_")
+    ap.add_argument("--name-prefix", default="", help="required prefix of the annotator name, e.g. A")
     ap.add_argument("--hidden-since", default=None, help="ISO time from which no proposals were shown")
     ap.add_argument("--write-clean", metavar="OUT.json", help="copy of the (single) JSON export without unknown ids")
     a = ap.parse_args()

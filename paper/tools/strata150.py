@@ -1,4 +1,4 @@
-"""Label-free capture-quality descriptors for the 150 PickGlass photos (Job 5; moved into paper/tools by Job 6).
+"""Label-free capture-quality descriptors for the 150 PickGlass photos.
 Reads only the manifest polygons and the rectified crops; writes paper/tables/strata150.csv.
 Columns: S (mean polygon side, px per inch), side_ratio, max_angle_dev (deg from 90), sat240/sat250 (share of
 window pixels with all channels >= 240 / 250), dark20 (grey <= 20). These define the capture-quality strata that

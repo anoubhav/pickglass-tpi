@@ -1,7 +1,7 @@
-"""Collect every legacy-13 number used in Table 3 (tab:legacy) into tables/legacy13_all.csv.
+"""Collect every legacy-13 number of the legacy table (tab:legacy) into tables/legacy13_all.csv.
 
 Sources (read-only):
-  methods/results/legacy13_metrics.csv          2019 baselines + all spectral estimators (crop=gt
+  methods/results/legacy13_metrics.csv          legacy baselines + all spectral estimators (crop=gt
                                                  i.e. protocol P1, preproc lcn, glare mask, clean)
   methods/results/legacy13_protocol_P1_P2.csv   P2 = frame-free window from methods/legacy.detect_window
   vlm/results/legacy_predictions.csv            VLM answers (window trimmed by vlm/data_vlm.py, 1536 px)

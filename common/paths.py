@@ -1,4 +1,4 @@
-"""Where the code looks for data that is NOT in this repository (photos, 2019 legacy material, scratch space).
+"""Where the code looks for data that is NOT in this repository (photos, legacy material, scratch space).
 
 Every location is an environment variable with a default relative to the repository root, so a fresh clone
 needs no editing.  The scripts read these variables directly (``os.environ.get(...) or <default>``); this
@@ -8,15 +8,15 @@ Variable                  Default (repo-relative)     What it must contain
 ------------------------  --------------------------  ---------------------------------------------------------
 PICKGLASS_NOTEBOOKS       data/photos                 final_image_set/{0..149}.jpeg (the 150 photos),
                                                       final_bbox_annotation_set/{0..149}.xml (window polygons),
-                                                      augmented_images/, augmented_xml/ (2024 notebook
-                                                      augmentations) and 2_Segmentation_Result_classical_CV.ipynb.
-                                                      Released after the mill's written consent (DATASHEET.md).
+                                                      augmented_images/, augmented_xml/ (augmentations of
+                                                      the dataset notebook) and 2_Segmentation_Result_classical_CV.ipynb.
+                                                      Released after review (DATASHEET.md).
                                                       Without the XML files, common/rectify.py reads the same
                                                       corners from data/window_polygons.csv.
-PICKGLASS_LEGACY_ROOT     data/legacy2019             the 2019 project folder: "FR-final attempt/images/"
+PICKGLASS_LEGACY_ROOT     data/legacy2019             the earlier project's folder: "FR-final attempt/images/"
                                                       (the 20 legacy window crops a1..a10, r1..r10),
-                                                      "Warp-Weft count.xlsx" (2019 hand counts) and TQA/
-                                                      (the original 2019 scripts). The 13 hand counts used in
+                                                      "Warp-Weft count.xlsx" (legacy hand counts) and TQA/
+                                                      (the original legacy scripts). The 13 hand counts used in
                                                       the paper are in data/legacy13_hand_counts.csv.
 PICKGLASS_SCRATCH         scratch                     large intermediate outputs (degraded images, synthetic
                                                       dev sets); created on demand, git-ignored.
@@ -67,7 +67,7 @@ def report() -> str:
             ("OPENROUTER_API_KEY", "(set)" if os.environ.get("OPENROUTER_API_KEY") else "(unset)", None)]
     out = []
     for var, val, ok in rows:
-        flag = "" if ok is None else ("  [found]" if ok else "  [missing: released after consent / not created yet]")
+        flag = "" if ok is None else ("  [found]" if ok else "  [missing: released after review / not created yet]")
         out.append(f"{var:22s} {val}{flag}")
     return "\n".join(out)
 

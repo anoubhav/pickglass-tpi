@@ -1,9 +1,9 @@
-"""Diagnostics of the 2019 doc3 + count.py counter on the canonical legacy crops (vlm/crops/legacy).
+"""Diagnostics of the legacy doc3 + count.py counter on the canonical legacy crops (vlm/crops/legacy).
 
 Same analyses as count_wrap_edges.py / the seed sweep / the in-memory (no JPEG round trip)
 variant, but on run_vlmcrops/ (the one-crop-rule run used by paper/tables/legacy13_unified.csv).
 Run: <venv2>/bin/python methods/legacy_2019/diag_vlmcrops.py
-Paper: Sec. "The 2019 counters, and why they fail".
+Paper: supplement Sec. S3 (full legacy results).
 """
 import os
 

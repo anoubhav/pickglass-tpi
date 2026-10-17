@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""train_aug.py -- Job 2: train the tile CNN with count-preserving augmentation (WVAQ 2027).
+"""train_aug.py -- train the tile CNN with count-preserving augmentation (WVAQ 2027).
 
 Variants (ResNet-18 and EfficientNet-B0, ImageNet init; tile / px-per-inch formulation of cnn_common):
   V1  synthetic only, existing augmentation (cnn_common.TileDataset + photometric_aug), GPU re-run
@@ -15,7 +15,7 @@ Ablation (selection metrics only): one augmentation family dropped in the fine-t
 recipe (ResNet-18), with 2 extra fine-tuning seeds as the noise band; synthetic-stage drop-one runs of
 'whitelist_ext' (trained before the scene split; synthetic only) are re-evaluated ('adopt').
 
-SCENE SPLIT (2026-10-08; supersedes the auto-group split of 2026-10-07, kept in
+SCENE SPLIT (supersedes an earlier auto-group split, kept in
 runs_aug/_superseded_autogroup_split/): the 150 files are 76 scenes (camera_aug/originals_provenance.json,
 annotation_tool/scenes_to_annotate.txt; per-file orientation in data/scene_map.csv).  Pseudo-labels,
 acceptance and the hold-out are decided per SCENE on its representative file (highest-res real JPEG);
@@ -89,7 +89,7 @@ SUPERSEDED = os.path.join(RUNS, "_superseded_autogroup_split")
 # prep: pseudo-labels + split (pre-declared rule)
 # =============================================================================================
 def cmd_prep_v0_autogroups(a):
-    """SUPERSEDED (2026-10-07 auto-group split; kept for the record).  It mixed copies of one scene
+    """SUPERSEDED (auto-group split; kept for the record).  It mixed copies of one scene
     across the per-image acceptance rule; use cmd_prep (scene split)."""
     raise SystemExit("prep_v0_autogroups is superseded by 'prep' (scene split); see "
                      "runs_aug/_superseded_autogroup_split/")
@@ -170,7 +170,7 @@ def cmd_prep_v0_autogroups(a):
 
 def cmd_prep(a):
     """Scene-level pseudo-labels + scene hold-out + PREREG.json (written before any training of the
-    scene-split round; no model output and no legacy image is read)."""
+    scene-split runs; no model output and no legacy image is read)."""
     os.makedirs(RUNS, exist_ok=True)
     if os.path.exists(PSEUDO_CSV) and not a.force:
         raise SystemExit(f"{PSEUDO_CSV} exists (use --force to rewrite)")
@@ -627,7 +627,7 @@ def cmd_select(a):
 
 
 def cmd_adopt(a):
-    """Adopt a SYNTHETIC-ONLY run of the superseded round (its training never read a real image, so the
+    """Adopt a SYNTHETIC-ONLY run of the superseded auto-group split (its training never read a real image, so the
     split change cannot affect it): copy model.pt / meta / log and evaluate the final step with the
     current (scene-split) validator -> runs_aug/<name>/{model.pt, val.csv, best.json, DONE}."""
     import shutil

@@ -4,7 +4,7 @@ Same content and code path as methods/make_figs.fig_lattice (crop with guide-lin
 crossings + whitened spectrum with the selected lattice), but two examples side by side:
 legacy a1 (2/1 twill, hand count 76 x 64) and PickGlass image #86.
 The legacy panel reads the canonical crop vlm/crops/legacy/a1.png (the one crop rule of
-paper Tab. 2 / tables/legacy13_unified.csv), not the original 2019 file (Oct 7 change).
+supplement Tab. S3 / tables/legacy13_unified.csv), not the original legacy file.
 
     PYTHONDONTWRITEBYTECODE=1 <venv2>/bin/python tools/make_lattice_compact.py
 Writes paper/figs/fig_lattice_compact.pdf/.png. Only reads methods/ (imports its modules).

@@ -1,4 +1,4 @@
-"""scenes76_labelfree.py -- label-free statistics of the paper re-computed per SCENE (Job P, 2026-10-08).
+"""scenes76_labelfree.py -- label-free statistics of the paper re-computed per SCENE.
 
 The 150 files of PickGlass are 76 distinct scenes (camera_aug/originals_provenance.json;
 annotation_tool/data/manifest.json `scenes`).  Every label-free number that the paper quotes "on the
@@ -9,7 +9,7 @@ Inputs (read-only):
   annotation_tool/data/manifest.json             scene fields, kinds, reps, IAA v2
   paper/tables/strata150.csv                     S, side ratio, saturation per file
   methods/results/all150_degrade.csv             28 controlled degradations (ours, fft, ...)
-  methods/results/all150_crops.csv               2019 segmentation crops
+  methods/results/all150_crops.csv               legacy-pipeline segmentation crops
   methods/results/ruler/{calib150,count150}.csv  ruler calibration and downstream counts
   paper/tables/cascade_150_decisions.csv         frozen cascade decisions on the clean photos
   camera_aug/results/label_audit_pairs.csv       real full-res / quarter-res pairs (same exposure)
@@ -199,7 +199,7 @@ def main():
     # ------------------------------------------------------------------ candidate fabric groups (label-free)
     # 13 pairs of DIFFERENT scenes that look like the same fabric re-photographed (band-pass NCC > 0.9;
     # cnn/selfcheck_aug.py check E1). Union-find over them gives a stricter, fabric-level grouping for a
-    # sensitivity analysis on label day (never used to choose anything).
+    # sensitivity analysis against the human counts (never used to choose anything).
     sc = json.load(open(os.path.join(ROOT, "cnn", "runs_aug", "report", "selfcheck.json")))
     pairs = [(int(q["scene_a"]), int(q["scene_b"])) for q in sc["E1_fabric_near_duplicates_not_straddling"]["pairs"]]
     par = {s: s for s in reps}

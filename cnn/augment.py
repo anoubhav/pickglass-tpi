@@ -733,7 +733,7 @@ class Pipeline:
         return img, lt
 
 
-# Verified safe strength ranges (tier A of verify_augment.py, 2026-10-07: within ours' clean-run noise on
+# Verified safe strength ranges (tier A of verify_augment.py: within ours' clean-run noise on
 # 150 real crops AND 100 synthetic crops).  augment_whitelist.json holds the same 'policy' plus the
 # 'policy_extended' (tier A + B: label map exact and unbiased on both instruments, e.g. rotate +-10 deg,
 # zoom 0.5-1.25 with >= 6 px per yarn, perspective <= 3 %, hue/saturation/greyscale, JPEG q >= 20).

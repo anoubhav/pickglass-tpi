@@ -1,4 +1,4 @@
-"""Molmo2-8B bf16 (HF transformers, RTX 4090 on gpu-server) on the scaffolded inputs (Job 2).
+"""Molmo2-8B bf16 (HF transformers, RTX 4090 on gpu-server) on the scaffolded inputs.
 
 Runs on the GPU server from ~/pickglass/code/ next to run_molmo2_hf.py, whose
 HFMolmo2 class (same repo revision, bf16, greedy decoding, same chat template) it reuses, so the

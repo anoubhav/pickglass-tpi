@@ -1,6 +1,6 @@
 {
  "written": "2026-10-08T00:56:51",
- "status": "written BEFORE any training / evaluation of the scene-split round; supersedes the 2026-10-07 auto-group PREREG (runs_aug/_superseded_autogroup_split/PREREG.json), whose split could place copies of one scene on both sides of the acceptance rule. Legacy-13 predictions of the superseded round were written on the GPU server but never scored.",
+ "status": "written BEFORE any training / evaluation of the scene-split round; supersedes the earlier auto-group PREREG (runs_aug/_superseded_autogroup_split/PREREG.json), whose split could place copies of one scene on both sides of the acceptance rule. Legacy-13 predictions of the superseded round were written on the GPU server but never scored.",
  "scene_unit": "76 scenes of camera_aug/originals_provenance.json; representative = highest-res real JPEG (annotation_tool/scenes_to_annotate.txt); per-file orientation vs the representative from data/scene_map.csv (NCC of low-passed crops, parity agrees with the provenance rot90_k on all 52 representative pairs)",
  "pseudo_label_rule": "accept SCENE s iff ours' confidence on its representative >= the median ours' confidence over the 76 representatives (0.8480) AND f_fused_lattice == 1 on the representative. Target of every file of s = ours' (h_count, v_count) on the representative, h <-> v swapped for files rotated by 90 deg; yarn tilt = ours' angle_x / angle_y on the file itself; weave = ours' weave on the representative ('unknown' -> ignored).",
  "training_files": "files of accepted pseudo-train scenes of kind 'real' (representative, quarter-res copies) and 'nb_synth' (notebook re-crops = augmentations of their scene); byte-identical duplicates and PNG decodes are skipped (same pixels). One file is drawn per sample, so each scene has equal weight.",
@@ -71,7 +71,7 @@
   "ablation": "ResNet-18. Stage 2 (new): the V4-R18 fine-tuning recipe (selected init, policy, rho) with one family dropped (the families active in the policy: geometry, photometric, compression_blur, illumination, zoom, tiling [+ optics, phone]), plus fine-tuning seeds 1 and 2 of the full recipe as the noise band; a family matters only if its score lies outside the 3-seed range. Stage 1 (adopted): the superseded round's synthetic-only drop-one pre-trainings of 'whitelist_ext' (6 families, seeds 0-2), re-evaluated with this validator. Reported: selection metrics only."
  },
  "report": "legacy-13 (canonical vlm/crops/legacy PNG, axis-matched, GT via paper/tools/legacy_unified.load_gt): MAE, MAPE with image-bootstrap 95 % CI (10k), within 5/10 %, paired vs the MPS synthetic-only CNN (cnn:synth_r18, 16.0 %) and vs ours (11.6 %) with legacy_unified.paired (bootstrap dMAPE CI, Wilcoxon), Holm over the final variants per comparator.",
- "budget": "<= 8 GPU-hours (RTX 4090) for the whole job INCLUDING the superseded round (~3.4 h), idle GPUs only",
+ "budget": "<= 8 GPU-hours (RTX 4090) for the whole experiment INCLUDING the superseded round (~3.4 h), idle GPUs only",
  "amendment_1": {
   "written": "2026-10-08T01:04:23",
   "status": "written while V2O_r18 / V2O_b0 were at step < 500, before ANY evaluation of the scene-split round",

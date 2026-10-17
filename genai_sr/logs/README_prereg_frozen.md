@@ -1,13 +1,16 @@
 # genai_sr: does generative enhancement hallucinate or erase threads?
 
-Job A of the WVAQ 2027 paper (workshop topics: "hallucination effects in image super-resolution and
-restoration using diffusion models" and "impact of image quality on CV tasks").
+*This released copy of the frozen protocol is redacted (paths, keys, names, internal dates and process notes); `logs/prereg_md5.txt` holds the MD5 of the original.*
 
-**Status of this file.** Sections 1 to 8 are the protocol. They were written and frozen on
-2026-10-07 23:15 UTC, before any restoration model was downloaded or run and before any count was
-computed on a restored image. The md5 of the frozen text is in `logs/prereg_md5.txt`, and a copy is
-at `logs/README_prereg_frozen.md`. Deviations go in section 9 with a reason, and results go in
-section 10. The protocol text above section 9 is never edited.
+The generative-enhancement study of the paper for the WACV 2027 workshop WVAQ (workshop topics:
+"hallucination effects in image super-resolution and restoration using diffusion models" and "impact
+of image quality on CV tasks").
+
+**Status of this file.** Sections 1 to 8 are the protocol. They were written and frozen before any
+restoration model was downloaded or run and before any count was computed on a restored image. The
+md5 of the frozen text is in `logs/prereg_md5.txt`, and a copy is at `logs/README_prereg_frozen.md`.
+Deviations go in section 9 with a reason, and results go in section 10. The protocol text above
+section 9 is never edited (this released copy is redacted as stated at the top).
 
 ---
 
@@ -35,7 +38,7 @@ The tests are two-sided. The direction of any effect is the finding.
 | Set | Images | Reference image | Reference counts |
 |---|---|---|---|
 | **R-HR** | the 53 of the 150 crops with side S ≥ 1500 px (≈1890 px/inch) **and** ours confidence ≥ t_c = 0.5741 in `methods/predictions_ours_150.csv`. t_c is the cascade's confidence-only gate (`paper/tables/cascade_thresholds.json`, fits.vlm9_a10.conf.t_c), which was fitted on synthetic data only. Ids: 1 5 9 15 17 18 25 27 28 30 33 38 39 45 47 48 49 50 52 53 54 60 62 64 65 67 70 73 77 80 84 86 88 90 91 95 98 99 110 118 123 129 130 131 133 137 138 140 141 143 144 145 146 | `annotation_tool/data/crops/{i}.jpg` (used as is) | **Primary:** ours on the clean reference image, computed in this run in the same environment as every degraded and restored image (a pseudo ground truth). **Secondary:** each estimator against its own clean prediction (self-consistency). |
-| **R-LEG** | legacy-13: a1 a2 a4 a5 a6 a8 a10 r2 r3 r4 r6 r7 r8 | the canonical crops `vlm/crops/legacy/{name}.png` (1736–1941 px) | Human hand counts, parsed by the 2019 harness exactly as in `paper/tools/legacy_unified.py` (`load_gt`). Axis assignment is "axis", as in the paper: h_count ↔ warp, v_count ↔ weft. |
+| **R-LEG** | legacy-13: a1 a2 a4 a5 a6 a8 a10 r2 r3 r4 r6 r7 r8 | the canonical crops `vlm/crops/legacy/{name}.png` (1736–1941 px) | Human hand counts, parsed by the legacy harness exactly as in `paper/tools/legacy_unified.py` (`load_gt`). Axis assignment is "axis", as in the paper: h_count ↔ warp, v_count ↔ weft. |
 
 ## 3. Degradations (cheap capture emulation)
 
@@ -139,15 +142,15 @@ Per count, a crop gives two counts (h and v). APE = |pred − ref| / ref × 100.
 
 ## 8. Budget and safety rules
 
-- OpenRouter: at most **US$6** in total for this job, tracked in its own ledger
+- OpenRouter: at most **US$6** in total for this study, tracked in its own ledger
   `logs/openrouter_costs.csv`. The code stops at US$5.9. Nano Banana Pro runs a 1-image pilot (counted
   in the 39) and stops if the projected total exceeds US$5.3.
 - GPU server gpu-server: work only in `~/pickglass/genai_sr/`, with all caches under
   `env.sh`. Only **idle** GPUs are used (the `pick_gpu.sh` rule: < 500 MiB used, < 5 % utilisation, no
-  compute process). GPU 2 is never used. PIDs are tracked. Nothing is deleted.
+  compute process).
 - Full-resolution restored PNGs stay on the server (md5 manifest). The Mac copy under `genai_sr/`
   holds code, CSVs, logs, the figure, the full-resolution figure examples, and 768-px JPEG viewing
-  copies of every output, because the Mac disk has little space left.
+  copies of every output.
 
 ---
 

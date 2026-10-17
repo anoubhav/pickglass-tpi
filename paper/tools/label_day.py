@@ -1,13 +1,13 @@
 #!/usr/bin/env python
-"""label_day.py -- ONE-COMMAND LABEL DAY for the WVAQ 2027 paper (PickGlass: 150 files = 76 scenes).
+"""label_day.py -- ONE-COMMAND LABEL ANALYSIS for the WVAQ 2027 paper (PickGlass: 150 files = 76 scenes).
 
-Given the author's annotation exports (tool JSON + CSV downloads, or the disk autosave in
+Given the annotators' exports (tool JSON + CSV downloads, or the disk autosave in
 annotation_tool/data/saved/), runs in order, logs every step and STOPS at the first error:
 
   1 validate      merge the exports per annotator (label_day_merge.js = the tool's own core.js merge), check
                   done records, annotator names, blind/IAA status, cleared lines (-> missing), ids, crop sizes
                   (another kit's export, e.g. the screening test, is refused), partly counted lines (policy below),
-                  proposal-free records, plausibility; coverage report against the PLAN.md section 3 go/no-go
+                  proposal-free records, plausibility; coverage report against the pre-declared go/no-go (THR)
   2 propagate     annotation_tool/propagate_scene_labels.py -> per-scene + per-file labels
   3 agreement     --protocol dual: inter-annotator agreement over every scene finished by both annotators (MAE,
                   Bland-Altman, ICC(2,1), weave kappa, median |diff|%; also badge / no-badge / without the guide
@@ -17,12 +17,12 @@ annotation_tool/data/saved/), runs in order, logs every step and STOPS at the fi
                   --protocol iaa: annotation_tool/analyze.py (IAA + anchoring), human-human noise floor
   4 score         tools/score150.py for every method (scene unit primary, per-file secondary, fabric-group
                   sensitivity, --blind-only check in the iaa protocol only), tools/quality150.py (confidence vs error),
-                  sensitivity subsets (guide / badge scenes, proposal-free records, partial lines rescaled), and the label-day
+                  sensitivity subsets (guide / badge scenes, proposal-free records, partial lines rescaled), and the further
                   analyses: paired tests, resolution classes, cascade frozen gate, ruler, weave, the 13
                   "unknown"-weave scenes, the 39-scene pseudo-label row, distortion basis, worst scenes
   5 cnn           (optional, --cnn) real-label scene-grouped 5-fold cnn/train_cv.py on gpu-server (or locally), with
                   and without --extra-aug1016 and --augment whitelist; poll, pull back, score (re-runs step 4)
-  6 tables        tables/main150_rows.tex (Tab. 1 rows, PLAN 1b item 9 selection) + every label-day CSV, Tab. S4 /
+  6 tables        tables/main150_rows.tex (Tab. 1 rows, TAB1_SPEC selection) + every analysis CSV, Tab. S4 /
                   Tab. S6 / all-methods fragments for the supplement, figs/fig_coverage.pdf
   7 compile       main.pdf and supp.pdf with Tectonic; page/body check; tools/validate_tex.py
   8 report        LABEL_DAY_REPORT.md: go/no-go verdicts, numbers (and what changed since the last run), sentences
@@ -33,12 +33,12 @@ MODES (one is required)
                    propagated labels, staging, CNN runs, PDFs, report). Nothing in the project is written.
   --real           Writes the real outputs: annotation_tool/propagated/, paper/tables/*, paper/figs/fig_coverage.*,
                    paper/main.pdf + supp.pdf, paper/LABEL_DAY_REPORT.md; logs and backups of every overwritten
-                   file in wvaq2027/label_day/<stamp>/. Refused for labels that look fake, and for a NO-GO scene
+                   file in <repo root>/label_day/<stamp>/. Refused for labels that look fake, and for a NO-GO scene
                    count unless --allow-partial.
 
 PROTOCOLS (--protocol, default auto = single when exactly one annotator has finished records; dual when two or more
           have finished records and no finished record carries proposal dots; iaa otherwise, with a warning)
-  dual    (Oct 11, two annotators FL_SA + FL_NG; Job Y, Oct 12) both count every scene from scratch in the freelancer
+  dual    (two annotators, A1 + A2) both count every scene from scratch in the annotator
           kit (proposals hidden): everything single does (proposal-free k of N incl. --proposals-hidden-at, the
           partial-line policy, the post-hoc proposal check, now per annotator) plus inter-annotator agreement over
           every scene finished by both (MAE h/v, Bland-Altman bias + 95% LoA, ICC(2,1), within 5/10%, median |diff|%,
@@ -48,14 +48,14 @@ PROTOCOLS (--protocol, default auto = single when exactly one annotator has fini
           reference = the mean of the two (score150 gt_table), each annotator alone as a sensitivity reference;
           supp Tab. S4 = tables/supp_labelcheck_rows.tex with the agreement rows; no anchoring rule, no blind-only
           run, no blind NO-GO (the 20-scene IAA subset has no role)
-  single  (Oct 11) ONE external annotator (FL_SA) counts every scene from scratch in the freelancer kit (proposals
-          hidden): go/no-go on scene coverage only (PLAN 3), no human-vs-human Tab. 1 row, no --blind-only run, no
+  single  ONE external annotator counts every scene from scratch in the annotator kit (proposals
+          hidden): go/no-go on scene coverage only, no human-vs-human Tab. 1 row, no --blind-only run, no
           anchoring; supp Tab. S4 = screening constants + the post-hoc proposal check + ours MAPE without the 4
           guide-example scenes + median minutes per photo; 'proposal-free records: k of N' from n_prop / dot
           origins / proposal_sig / creation time (core.js sets proposals_seen = true even when it inserts 0 dots)
-  iaa     (Oct 7) two annotators, 20 blind IAA scenes, anchoring rule, --blind-only check (unchanged)
+  iaa     (the first protocol) two annotators, 20 blind IAA scenes, anchoring rule, --blind-only check (unchanged)
 
-PARTLY COUNTED LINES (Oct 11 enforce-done rule: a line may cover < 75% of the crop if 'partially occluded' is ticked
+PARTLY COUNTED LINES (the tool's enforce-done rule: a line may cover < 75% of the crop if 'partially occluded' is ticked
 or Notes say why; span = (last dot - first dot) / crop side, as the tool computes it)
   headline     only records whose two lines both span >= 0.75 (a record with a shorter line is dropped from the
                scoring files like a cleared line: the per-scene metrics need both axes)
@@ -64,11 +64,11 @@ or Notes say why; span = (last dot - first dot) / crop side, as the tool compute
                <ax>_tpi_rescaled of merged/scoring_partial/*.csv; reported as the 'sensitivity: partial lines
                rescaled' rows of main150_subsets.csv (never in Tab. 1). Lines spanning 0.75-0.95 are only warned about.
 
-EXAMPLES (from paper/; label_day.sh uses the durable python in wvaq2027/.tools/venv)
-  tools/label_day.sh --out-root <scratchpad>/ld                               # plumbing check on the autosave
-  tools/label_day.sh --out-root <scratchpad>/ld ~/Downloads/annotations_FL_SA_*.json ~/Downloads/annotations_FL_SA_*.csv
-  tools/label_day.sh --out-root <scratchpad>/ld --protocol dual <FL_SA exports> <FL_NG exports>   # Oct 11, two annotators
-  tools/label_day.sh --real --protocol dual <FL_SA exports> <FL_NG exports>   # label day (pass the files explicitly)
+EXAMPLES (from paper/; label_day.sh uses the durable python in <repo root>/.tools/venv)
+  tools/label_day.sh --out-root <tmpdir>/ld                                   # plumbing check on the autosave
+  tools/label_day.sh --out-root <tmpdir>/ld annotations_A1_*.json annotations_A1_*.csv
+  tools/label_day.sh --out-root <tmpdir>/ld --protocol dual <A1 exports> <A2 exports>   # two annotators
+  tools/label_day.sh --real --protocol dual <A1 exports> <A2 exports>   # real run (pass the files explicitly)
   tools/label_day.sh --real --cnn launch          # final labels; CNN CV launched on gpu-server, not awaited
   tools/label_day.sh --real --cnn-collect latest  # later: pull the CNN runs, re-score, rebuild, report
   tools/label_day.sh --real --cnn wait            # all in one go (polls gpu-server until the CV runs finish)
@@ -102,7 +102,7 @@ try:
     import pandas as pd
     from scipy import stats
 except ImportError as _e:   # pragma: no cover
-    sys.exit(f"label_day.py needs numpy<2, pandas and scipy (use wvaq2027/.tools/venv/bin/python, e.g. via "
+    sys.exit(f"label_day.py needs numpy<2, pandas and scipy (use <repo root>/.tools/venv/bin/python, e.g. via "
              f"tools/label_day.sh): {_e}")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -114,7 +114,7 @@ SAVED = os.path.join(TOOL, "data", "saved")
 
 SCRATCH = os.environ.get("LABEL_DAY_SCRATCH", os.environ.get("PICKGLASS_SCRATCH") or os.path.join(ROOT, "scratch"))
 VENVS = os.environ.get("PICKGLASS_VENVS", SCRATCH)   # holds venv_cnn/ (or set LABEL_DAY_CNN_PY)
-# Oct 11: durable toolchain outside /tmp (macOS empties idle /tmp dirs after ~3 days; venv2 was lost):
+# durable toolchain outside /tmp (macOS empties idle /tmp dirs after ~3 days):
 # .tools/venv (numpy 1.26.4, pandas 3.0.6, scipy 1.17.1, matplotlib 3.11.2, opencv-headless, pillow, pypdf 6.19.0),
 # .tools/bin/tectonic (0.17.0) + .tools/tectonic_cache. The LABEL_DAY_* environment variables still override.
 TOOLS = os.path.join(ROOT, ".tools")
@@ -123,34 +123,34 @@ DEF_TECTONIC_CACHE = os.environ.get("LABEL_DAY_TECTONIC_CACHE", os.path.join(TOO
 DEF_PDF_PY = os.environ.get("LABEL_DAY_PDF_PY", os.path.join(TOOLS, "venv", "bin", "python"))
 DEF_CNN_PY = os.environ.get("LABEL_DAY_CNN_PY", os.path.join(VENVS, "venv_cnn", "bin", "python"))
 
-# Frozen artefacts (PLAN 1b item 12, CHANGELOG): checked, never written.
+# Frozen artefacts: checked, never written.
 FROZEN = {
     "methods/results/counting_frozen_final.py": "3d0520d6bec8a016543ce7e5b353d784",
     "paper/tables/cascade_150_decisions.csv": "57d49a4d4304bc395ed608894009f683",
-    # pre-registered combined-v1 predictions (PREREG_combined_v1.json: SHA-256 c3849108f2bf03a3...; Job Y, Oct 12)
+    # pre-registered combined-v1 predictions (PREREG_combined_v1.json: SHA-256 c3849108f2bf03a3...)
     "methods/results/combined_v1_150_wide.csv": "68c563f629330fc1943cc125f9ddf82c",
 }
 SCORER_MD5 = {"paper/tools/score150.py": "5879ef44698de7b2a090e8bbee973625"}   # disclosed in supp S10
 
-# PLAN.md section 3 (go/no-go after annotation), in scenes. Single protocol (Oct 11): scenes with a finished FL_SA
-# count GO >= 51, REDUCED 25-50, NO-GO < 25; FL_SA vs the 2019 hand counts (screening) GO <= 5%, REDUCED 5-10%.
-# Dual protocol (Oct 11, two annotators): the same scene and screening rows (screening = max over both annotators) plus
+# Pre-declared go/no-go after annotation, in scenes. Single protocol: scenes with a finished count of the one
+# annotator GO >= 51, REDUCED 25-50, NO-GO < 25; that annotator vs the legacy hand counts (screening) GO <= 5%, REDUCED 5-10%.
+# Dual protocol (two annotators): the same scene and screening rows (screening = max over both annotators) plus
 # the human-human median |diff|% over every scene finished by both: GO <= hh_go, REDUCED <= hh_reduced, else NO-GO.
 THR = dict(scenes_go=51, scenes_reduced=25, blind_go=15, blind_reduced=10, hh_go=5.0, hh_reduced=10.0,
            anchoring_gap=3.0, screen_go=5.0, screen_reduced=10.0)
-# Screening on two legacy crops, per annotator: (crop, raw answer h x v, 2019 hand count h x v) (supp Tab. S4 top rows,
-# PLAN 3 row 2). Annotator order = annotator 1, 2 in the dual protocol (Tab. 1 human row: annotator 2 vs annotator 1).
+# Screening on two legacy crops, per annotator: (crop, raw answer h x v, legacy hand count h x v) (supp Tab. S4 top rows,
+# go/no-go screening row). Annotator order = annotator 1, 2 in the dual protocol (Tab. 1 human row: annotator 2 vs annotator 1).
 SCREENING = {"FL_SA": [("r2", (97, 69), (99, 69)), ("a5", (46, 50), (47, 49))],
              "FL_NG": [("r2", (99, 68), (99, 69)), ("a5", (48, 49), (47, 49))]}
-SCREENING_DEFAULT = "FL_SA"   # single protocol under another name (e.g. a FAKE test annotator): FL_SA's constants
-# Freelancer kit: the machine proposals were removed from the deployed manifest at ~12:50 EDT on Oct 11
+SCREENING_DEFAULT = "FL_SA"   # single protocol under another name (e.g. a FAKE test annotator): A1's constants
+# Annotator kit: the time the machine proposals were removed from the deployed manifest, plus a 10 min upload margin
 # (freelancer/web/annotate/data/manifest.json, proposals_hidden); a non-IAA record CREATED before this instant may have
-# shown proposal dots even if its fields no longer say so (core.js refreshes untouched records). 10 min upload margin.
+# shown proposal dots even if its fields no longer say so (core.js refreshes untouched records).
 PROPOSALS_HIDDEN_AT = "2026-10-11T17:00:00Z"
 SPAN_MIN = 0.75    # tool enforce-done rule (app.js doneProblems): below it only with 'partially occluded' or Notes
 SPAN_WARN = 0.95   # report lines spanning less than this (kept in the headline)
 
-# Every method of CONTEXT / PLAN 1b row 7 (score150.py already loads ours + spectral baselines, the 7 P1 VLMs and
+# Every method of the paper's comparison (score150.py already loads ours + spectral baselines, the 7 P1 VLMs and
 # the synthetic CNN by itself). Keys None = every key of the file. All are required (a missing one stops step 4).
 EXTRA_SOURCES = [
     ("gpu_results/countgd/outputs/results/rect150_predictions_wide.csv", ["countgd", "countgd@CG-W-ex3-lat"]),
@@ -161,10 +161,10 @@ EXTRA_SOURCES = [
      ["gpt-6.1-sol@S3", "gemini-3.8-flash@S3", "qwen3.8-27b@S3", "s4-peaks"]),
     ("paper/tables/src/extra150_wide.csv", ["pg-lattice@ruler", "cascade-gate"]),
     ("cnn/runs_aug/report/real150_aug_wide_heldout.csv", None),   # V3-V5 blank on their training scenes
-    # Job Y (Oct 12): the pre-registered combined counter (methods/results/PREREG_combined_v1.json, frozen
-    # 2026-10-11T22:26 EDT before any label) passed its held-out synthetic test (P5 72.4% vs ours 70.3% / log-Gabor
+    # The pre-registered combined counter (methods/results/PREREG_combined_v1.json, frozen
+    # before any label) passed its held-out synthetic test (P5 72.4% vs ours 70.3% / log-Gabor
     # 59.5%; dP5 +2.05 [+1.35, +2.78] and +12.89 [+10.24, +15.61]; methods/results/combined_v1_eval_synth.json), so its
-    # primary variant enters Tab. 1 (PREREG label_day_plan); combined-v1-mape stays a sensitivity analysis (not scored)
+    # primary variant enters Tab. 1 (PREREG_combined_v1.json key label_day_plan); combined-v1-mape stays a sensitivity analysis (not scored)
     ("methods/results/combined_v1_150_wide.csv", ["combined-v1"]),
 ]
 P_VLM_LONG = os.path.join(ROOT, "vlm", "results", "rect150_P1_predictions_long.csv")
@@ -172,10 +172,10 @@ P_HELDOUT = os.path.join(ROOT, "cnn", "runs_aug", "report", "real150_aug_wide_he
 P_PSEUDO = os.path.join(ROOT, "cnn", "runs_aug", "pseudo_labels.csv")
 P_DECISIONS = os.path.join(PAPER, "tables", "cascade_150_decisions.csv")
 P_STRATA = os.path.join(PAPER, "tables", "strata150.csv")
-P_GROUPS = os.path.join(PAPER, "tables", "fabric_groups_v2.csv")   # Job X: 44 groups, tools/fabric_groups_v2.py
+P_GROUPS = os.path.join(PAPER, "tables", "fabric_groups_v2.csv")   # 44 groups, tools/fabric_groups_v2.py
 PSEUDO_KEY = "cnn-aug-V4-b0"
 RESHOOT_SCENES = (8, 9, 15, 38, 45, 52, 61, 103, 110)   # held-out scenes that re-shoot a training scene's fabric patch (tables/fabric_groups_v2.json cnn_split.affected_heldout) -> the 39-scene check
-GUIDE_EXAMPLE_SCENES = (27, 65, 93, 110)   # Oct 11: the annotator guide's figures show the machine dots on these reps
+GUIDE_EXAMPLE_SCENES = (27, 65, 93, 110)   # the annotator guide's figures show the machine dots on these reps
 GUIDE_SUBSET = "without the 4 guide-example scenes (27, 65, 93, 110)"
 
 # Method names as score150.py writes them (main150.csv "method")
@@ -184,18 +184,18 @@ GPT = "GPT-6.1-sol, P1"
 FLASH = "Gemini 3.8 Flash, P1"
 CNN0 = "CNN, synthetic only (zero-shot)"
 LOO = "Leave-one-out mean (reference)"
-CV_PRIMARY = "cnn-cv-base-resnet18-synth_ft"   # pre-declared "CNN, 5-fold FT" row (PLAN 1b row 10 command)
+CV_PRIMARY = "cnn-cv-base-resnet18-synth_ft"   # pre-declared "CNN, 5-fold FT" row
 
-# Tab. 1 (PLAN 1b item 9): the 16 fallback rows, one method each, in the order of the fallback table;
+# Tab. 1: the 16 fallback rows, one method each, in the order of the fallback table;
 # "FFT / log-Gabor" -> the log-Gabor bank, "CountGD strips / cells" and "Molmo2-8B / 4B+LoRA" -> two rows each
-# (as in Tab. 2), "Qwen3.8-27B / Gemma-4" -> Qwen3.8-27B (Gemma-4 to the supplement, PLAN 5). Override: --tab1-spec.
+# (as in Tab. 2), "Qwen3.8-27B / Gemma-4" -> Qwen3.8-27B (Gemma-4 to the supplement). Override: --tab1-spec.
 TAB1_SPEC = [
     ["@human", r"Human \vs human"],   # dual: annotator 2 vs annotator 1 on the scenes counted by both; iaa: + " (blind)"
     [LOO, "Leave-one-out mean"],
     "midrule",
     ["Log-Gabor bank", "Log-Gabor bank"],
     [OURS, r"\ours (ours)"],
-    ["combined-v1", r"Combined (\ours + log-Gabor)"],   # Job Y: pre-registered combined-v1 (held-out test passed)
+    ["combined-v1", r"Combined (\ours + log-Gabor)"],   # pre-registered combined-v1 (held-out test passed)
     ["pg-lattice@ruler", r"\ours, ruler crop"],
     ["cascade-gate", r"Cascade (\ours/GPT)"],
     "midrule",
@@ -215,7 +215,7 @@ TAB1_SPEC = [
 KEY_METHODS = [OURS, "pg-lattice@ruler", "cascade-gate", GPT, FLASH, CNN0, PSEUDO_KEY, CV_PRIMARY, "Log-Gabor bank",
                "combined-v1"]
 
-# CNN cross-validation (PLAN 1b row 10): scene-grouped 5-fold, real labels
+# CNN cross-validation: scene-grouped 5-fold, real labels
 CNN_CONFIGS = {"base": [], "aug1016": ["--extra-aug1016"], "wl": ["--augment", "whitelist"],
                "aug1016_wl": ["--extra-aug1016", "--augment", "whitelist"]}
 CNN_SYNTH_LOCAL = os.path.join(ROOT, "cnn", "runs", "synth_r18_v2mix_aniso", "model.pt")
@@ -270,7 +270,7 @@ def verdict(x, go, reduced, higher_is_better=True):
 
 
 def proposal_free(r):
-    """True when the record itself shows that no machine dot was ever inserted. The Oct 11 kit has proposal = null for
+    """True when the record itself shows that no machine dot was ever inserted. The single/dual-protocol kit has proposal = null for
     every image, but core.js insertProposals() still sets proposals_seen = true when a non-blind record is created
     (0 dots, method null), so the flag proves nothing: n_prop, the dot origins, proposal_method and proposal_sig do.
     (A record created before the proposals were hidden is caught separately: opened_before_hide().)"""
@@ -283,7 +283,7 @@ def proposal_free(r):
 
 
 def opened_before_hide(r, hidden_at, iaa):
-    """Freelancer kit: a non-IAA record that was not blind from the start and was CREATED before the proposals were
+    """Annotator kit: a non-IAA record that was not blind from the start and was CREATED before the proposals were
     hidden may have shown proposal dots, even when its fields were later refreshed (core.js refreshProposals
     re-initialises an untouched record from the new, empty proposal but keeps 'created')."""
     if int(r["id"]) in iaa or r.get("blind_initial"):
@@ -352,14 +352,14 @@ def looks_fake(name):
 
 
 def annotator_order(names):
-    """Annotator 1, 2, ...: the SCREENING order (FL_SA, FL_NG) first, then any other name alphabetically."""
+    """Annotator 1, 2, ...: the SCREENING order (A1, A2) first, then any other name alphabetically."""
     names = [n for n in names if n != "anonymous"] or list(names)
     return [n for n in SCREENING if n in names] + sorted(n for n in names if n not in SCREENING)
 
 
 def screening_rows(names):
-    """[(annotator, crop, answer, 2019 hand count), ...] for the annotators of this run that have screening constants;
-    FL_SA's when none has (single protocol under another name, as before the dual protocol)."""
+    """[(annotator, crop, answer, legacy hand count), ...] for the annotators of this run that have screening constants;
+    A1's (SCREENING_DEFAULT) when none has (single protocol under another name, as before the dual protocol)."""
     have = [n for n in SCREENING if n in names] or [SCREENING_DEFAULT]
     return [(n, crop, ans, ref) for n in have for crop, ans, ref in SCREENING[n]]
 
@@ -441,12 +441,12 @@ class Ctx:
         self.logf = None
         self.headline = "all"
         self.protocol = "iaa"   # 'single' | 'dual' | 'iaa' (set in step 1)
-        self.single = False   # Oct 11 protocol: one annotator, every scene from scratch, no IAA (set in step 1)
-        self.dual = False     # Oct 11 protocol with two annotators (FL_SA + FL_NG), every scene from scratch (step 1)
-        self.oct11 = False    # single or dual: the freelancer kit with the proposals hidden (no blind/assisted split)
+        self.single = False   # single protocol: one annotator, every scene from scratch, no IAA (set in step 1)
+        self.dual = False     # dual protocol: two annotators (A1 + A2), every scene from scratch (step 1)
+        self.oct11 = False    # single or dual: the annotator kit with the proposals hidden (no blind/assisted split)
         self.ann_order = []   # annotator 1, 2, ... (annotator_order())
         self.partial_csv = []   # sensitivity label files (partly counted lines rescaled), written in step 1
-        self.hint_ids = set()   # reps on which the freelancer kit showed the 'check carefully' / 'take care' badge
+        self.hint_ids = set()   # reps on which the annotator kit showed the 'check carefully' / 'take care' badge
         self.not_free = set()   # (annotator, id) of finished records not proven proposal-free (single/dual protocol)
         self.human_metrics = None   # Tab. 1 'Human vs human' row (score150.metrics), iaa / dual protocol
 
@@ -777,7 +777,7 @@ def step_validate(ctx):
         R.to_csv(os.path.join(ctx.work, "records.csv"), index=False)
         raise StepError("no finished (done) record in the exports: nothing to score")
     # protocol (module docstring): auto = single with one finished annotator; dual with two or more when no finished
-    # record carries proposal dots (the Oct 11 freelancer kit); iaa (Oct 7 protocol) otherwise
+    # record carries proposal dots (the annotator kit with proposals hidden); iaa (the first protocol) otherwise
     n_ann = int(done.annotator.nunique())
     carries = done[~done.prop_free_fields]
     if a.protocol != "auto":
@@ -803,7 +803,7 @@ def step_validate(ctx):
     if ctx.dual and n_ann > 2:
         ctx.warn(f"--protocol dual with {n_ann} annotators {ctx.ann_order}: agreement on the pair with the most "
                  "scenes in common (every pair in numbers.json)")
-    # proposal-free: from the record fields, and (single/dual protocol = freelancer kit) not created before the hide time
+    # proposal-free: from the record fields, and (single/dual protocol = annotator kit) not created before the hide time
     R["prop_free"] = (R.prop_free_fields & ~R.early) if ctx.oct11 else R.prop_free_fields.copy()
     R.to_csv(os.path.join(ctx.work, "records.csv"), index=False)
     done = R[R.done]
@@ -881,7 +881,7 @@ def step_validate(ctx):
         ctx.warn(f"{len(nw)} record(s) marked nonwoven (excluded): {[(r.annotator, int(r.id)) for _, r in nw.iterrows()]}")
     V["not_done"] = int((~R.done).sum())
     V["tool_versions"] = {str(k): int(v) for k, v in done.tool_version.value_counts().items()}
-    # tool v2.2 (Job T) shows a "check carefully" hint on high/medium-attention reps outside the IAA subset and never
+    # tool v2.2 shows a "check carefully" hint on high/medium-attention reps outside the IAA subset and never
     # on blind records: such records may be anchored by it (disclose with the anchoring analysis)
     hint = usable_any[usable_any.tool_version.str.startswith("2.2") & usable_any.rep & ~usable_any.iaa_scene &
                       (usable_any.group != "blind-clean") & usable_any.attention.isin(["high", "medium"])]
@@ -892,7 +892,7 @@ def step_validate(ctx):
         ctx.warn(f"{len(hint)} finished record(s) were made with tool v2.2 on high/medium-attention scenes, where the "
                  "'check carefully' (high) / 'take care' (medium) badge with a machine-derived reason but no count was "
                  "shown: " + ("disclose it in supp S4 (scored without them as a sensitivity subset)" if ctx.oct11 else
-                              "disclose it with the anchoring analysis (CHANGELOG, Job T)"))
+                              "disclose it with the anchoring analysis"))
     implaus = usable[(pd.to_numeric(usable.h_tpi) < 5) | (pd.to_numeric(usable.h_tpi) > 400) |
                      (pd.to_numeric(usable.v_tpi) < 5) | (pd.to_numeric(usable.v_tpi) > 400)]
     for _, r in implaus.iterrows():
@@ -936,7 +936,7 @@ def step_validate(ctx):
     both = set.intersection(*lab_by.values()) if len(lab_by) >= 2 else set()
     C.update(scenes_by_annotator={n: len(v) for n, v in lab_by.items()}, scenes_both=len(both),
              scenes_one_only=sorted(int(s) for s in lab_any - both) if len(lab_by) >= 2 else [])
-    # PLAN 3 row 2: screening answers vs the 2019 hand counts (constants, supp Tab. S4), max over the run's annotators
+    # go/no-go screening row: screening answers vs the legacy hand counts (constants, supp Tab. S4), max over the run's annotators
     scr_rows = screening_rows(V["annotators"])
     scr = [100 * abs(x - y) / y for _, _, ans, ref in scr_rows for x, y in zip(ans, ref)]
     C["screening_max_pct"] = max(scr)
@@ -1044,10 +1044,10 @@ P_FREELANCER_PROPOSALS = os.path.join(ROOT, "freelancer", "web", "annotate_manif
 
 
 def proposal_edits(ctx):
-    """Oct 11 single-annotator protocol: the machine proposals were never shown, so the edits a check-and-correct
+    """Single-annotator protocol: the machine proposals were never shown, so the edits a check-and-correct
     (assisted) annotator would have made are measured post hoc, free of anchoring. Per guide line of every finished
     representative in the headline label set, the proposal dots of annotation_tool/data/manifest.json (all 76 reps; the
-    freelancer kit's own copy with proposals, which lacks the 20 IAA reps, is checked to be identical) are matched
+    annotator kit's own copy with proposals, which lacks the 20 IAA reps, is checked to be identical) are matched
     one-to-one to the human dots (match_1d: maximum matching within --edit-tol x the human median dot spacing, then
     the smallest total distance):
       add    = human dots without a machine dot (missed yarns)
@@ -1152,7 +1152,7 @@ def _agree(ctx, A, B, wa, wb, da=None, db=None):
     """Agreement of two annotators' per-scene counts (A, B: rows aligned, columns h, v [TPI], weave = score150 coarse
     weave) with the definitions of annotation_tool/analyze.py: MAE, Bland-Altman bias and 95% limits (mean diff +- 1.96
     SD, A - B), ICC(2,1) absolute agreement, Pearson r, within 5% / 10% of each other (|A - B| / mean of the two),
-    median |diff|% per axis and over both axes (the PLAN 3 go/no-go number); weave kappa on the labels as entered
+    median |diff|% per axis and over both axes (the go/no-go number); weave kappa on the labels as entered
     (wa, wb; 'unsure' is a category) and on score150's coarse weave (None -> 'unsure'); warp direction agreement
     (da, db, in the representative's frame)."""
     AN = ctx.AN
@@ -1187,10 +1187,10 @@ def _agree(ctx, A, B, wa, wb, da=None, db=None):
 
 
 def dual_agreement(ctx):
-    """Dual protocol (Oct 11, two annotators counting every scene from scratch): inter-annotator agreement over EVERY
+    """Dual protocol (two annotators counting every scene from scratch): inter-annotator agreement over EVERY
     scene finished by both, on the per-scene labels each annotator alone gives (score150 load_labels(annotator=) +
     gt_table + propagate = the same headline label set and scene unit as the scores), and on the badge / no-badge
-    scenes, without the 4 guide scenes and on proven proposal-free records only. Feeds the PLAN 3 human-human row
+    scenes, without the 4 guide scenes and on proven proposal-free records only. Feeds the go/no-go human-human row
     (median |diff|% over both axes: GO <= hh_go, REDUCED <= hh_reduced), the Tab. 1 'Human vs human' row (annotator 2's
     counts scored against annotator 1's with score150.metrics; n = scenes counted by both) and supp Tab. S4.
     No anchoring rule, no blind-only run, no blind NO-GO."""
@@ -1253,7 +1253,7 @@ def dual_agreement(ctx):
     P = dict(a=a1, b=a2, label_set="headline (both lines span >= 75%), scene unit", **block(common))
     P["subsets"] = {nm: block(idx) for nm, idx in subsets}
     P["scenes_only_one"] = {n: sorted(int(s) for s in tabs[n].index.difference(common)) for n in (a1, a2)}
-    # per-scene disagreement (the author's spot-check list; tables/human_agreement_per_scene.csv)
+    # per-scene disagreement (a list for spot checks; tables/human_agreement_per_scene.csv)
     res = {int(s): ctx.scenes.at[int(s), "scene_resolution"] for s in common}
     per = pd.DataFrame({"scene": [int(s) for s in common], "resolution": [res[int(s)] for s in common],
                         "badge": [int(s) in hint_sc for s in common], "guide_example": [int(s) in GUIDE_EXAMPLE_SCENES for s in common],
@@ -1292,9 +1292,9 @@ def dual_agreement(ctx):
 
 
 def step_agreement(ctx):
-    if ctx.single:   # Oct 11 protocol: no second annotator -> no IAA / anchoring; post-hoc proposal check instead
+    if ctx.single:   # single protocol: no second annotator -> no IAA / anchoring; post-hoc proposal check instead
         return proposal_edits(ctx)
-    if ctx.dual:     # Oct 11, two annotators from scratch: post-hoc proposal check per annotator + agreement on all scenes
+    if ctx.dual:     # dual protocol, two annotators from scratch: post-hoc proposal check per annotator + agreement on all scenes
         proposal_edits(ctx)
         return dual_agreement(ctx)
     AN, man = ctx.AN, ctx.man
@@ -1393,7 +1393,7 @@ def step_agreement(ctx):
             if m and abs(float(m.group(1)) - P[line]["MAE"]) > 0.006:
                 ctx.warn(f"IAA MAE {line}: {P[line]['MAE']:.2f} here vs {m.group(1)} in analyze.py")
     att = getattr(ctx, "attention", {})
-    if att and len(common) >= 5:   # Job T: does the attention level predict annotator disagreement? (IAA reps)
+    if att and len(common) >= 5:   # does the attention level predict annotator disagreement? (IAA reps)
         rel_s = [50 * (abs(AN.tpi(r1[i], "h") - AN.tpi(r2[i], "h")) / ((AN.tpi(r1[i], "h") + AN.tpi(r2[i], "h")) / 2) +
                        abs(AN.tpi(r1[i], "v") - AN.tpi(r2[i], "v")) / ((AN.tpi(r1[i], "v") + AN.tpi(r2[i], "v")) / 2))
                  for i in common]
@@ -1459,7 +1459,7 @@ def extra_sources(ctx):
     dh = (xw["cascade-gate__h"] - dec.cascade_h_yarns.reindex(xw.index)).abs().max()
     if not (dv < 1e-3 and dh < 1e-3):
         raise StepError(f"tables/src/extra150_wide.csv cascade-gate differs from the frozen decisions ({dv}, {dh})")
-    # REVIEW G-P0-3: pseudo-label CNN without the probable re-shoots of its training scene 60
+    # robustness check: pseudo-label CNN without the probable re-shoots of its training scene 60
     h = pd.read_csv(P_HELDOUT).set_index("image_id")
     sc = ctx.scenes
     drop = [int(i) for i in sc.index if int(sc.at[i, "scene_id"]) in RESHOOT_SCENES]
@@ -1481,7 +1481,7 @@ def extra_sources(ctx):
 
 
 def check_vlm_long(ctx):
-    """CONTEXT lists the P1 roster as the LONG file; score150 reads the WIDE one: check they agree."""
+    """The P1 roster is given as the LONG file; score150 reads the WIDE one: check they agree."""
     if not os.path.exists(P_VLM_LONG):
         return
     lg = pd.read_csv(P_VLM_LONG)
@@ -1574,7 +1574,7 @@ def step_score(ctx):
     ctx.run([sys.executable, sc150, *lab, "--fig", "--fig-dir", os.path.join(d_all, "fig"), "--out", d_all,
              "--groups", P_GROUPS, *xw], capture=os.path.join(st, "score150_stdout.txt"))
     blind_ok = True
-    if ctx.oct11:   # Oct 11: every count was made without proposals -> the blind-only check is vacuous
+    if ctx.oct11:   # single/dual: every count was made without proposals -> the blind-only check is vacuous
         blind_ok, rc = False, 0
         ctx.log(f"  {'single-annotator' if ctx.single else 'dual'} protocol: no --blind-only run (every count was made "
                 "without proposals)")
@@ -1623,7 +1623,7 @@ def step_score(ctx):
     pairs = [(OURS, GPT), ("cascade-gate", GPT), ("cascade-gate", OURS), ("pg-lattice@ruler", OURS),
              (PSEUDO_KEY, OURS), (PSEUDO_KEY, CNN0), (f"{PSEUDO_KEY}@39", OURS), (OURS, "Log-Gabor bank"),
              (OURS, LOO), (CV_PRIMARY, OURS),
-             ("combined-v1", OURS), ("combined-v1", "Log-Gabor bank"), ("combined-v1", GPT)]   # PREREG label_day_plan
+             ("combined-v1", OURS), ("combined-v1", "Log-Gabor bank"), ("combined-v1", GPT)]   # PREREG_combined_v1.json key label_day_plan
     Sc["paired"] = {}
     for a_, b_ in pairs:
         if a_ in preds and b_ in preds:
@@ -1638,9 +1638,9 @@ def step_score(ctx):
         unknown13 = sorted(int(s) for s in ps[ps.is_rep & (ps.weave_ours == "unknown")].scene)
         subsets["13 'unknown'-weave scenes"] = gt.index[gt.index.isin(unknown13)]
         subsets["other scenes (weave known to ours)"] = gt.index[~gt.index.isin(unknown13)]
-    if ctx.N["coverage"].get("blind_double_scenes") and not ctx.oct11:   # Oct 11: the IAA subset has no role
+    if ctx.N["coverage"].get("blind_double_scenes") and not ctx.oct11:   # single/dual: the IAA subset has no role
         subsets["20 blind IAA scenes"] = gt.index[gt.index.isin(ctx.iaa)]
-    # Oct 11 (PLAN 3): scores without the 4 guide-example scenes (their machine dots were in the annotator guide),
+    # pre-declared: scores without the 4 guide-example scenes (their machine dots were in the annotator guide),
     # without the badge scenes, and on the proven proposal-free records only (sensitivity checks)
     subsets[GUIDE_SUBSET] = gt.index[~gt.index.isin(GUIDE_EXAMPLE_SCENES)]
     hint_sc = {int(ctx.scenes.at[i, "scene_id"]) for i in ctx.hint_ids if i in ctx.scenes.index}
@@ -1760,7 +1760,7 @@ def step_score(ctx):
                                     top5_blind=top_b, top1_same=top_a[0] == top_b[0])
     # per-file (secondary) and fabric-group sensitivity for the key methods
     pf = pd.read_csv(os.path.join(d_all, "main150_perfile.csv"))
-    # Job V: n_files / n_scenes are the labelled totals; n_scored / n_clusters are what the method answered
+    # n_files / n_scenes are the labelled totals; n_scored / n_clusters are what the method answered
     Sc["perfile"] = {r.method: mrow(r._asdict()) | {"n_files": int(r.n_files), "n_scenes": int(r.n_scenes),
                                                     "n_clusters": int(r.n_clusters) if pd.notna(r.n_clusters) else 0}
                      for r in pf[(pf.subset == "all real files") & pf.method.isin(KEY_METHODS)].itertuples(index=False)}
@@ -1774,20 +1774,20 @@ def step_score(ctx):
     cf = os.path.join(d_q, "conf150.csv")
     if os.path.exists(cf):
         Sc["confidence"] = pd.read_csv(cf).to_dict("records")
-    # distortion basis (REVIEW G-P0-4): where the humans' guide lines sit, and what that implies
+    # distortion basis: where the humans' guide lines sit, and what that implies
     Sc["distortion"] = distortion_basis(ctx, gt)
-    # worst scenes per key method (author spot-check, PLAN Mon Oct 12)
+    # worst scenes per key method (for spot checks)
     worst = {}
     for name in [m for m in KEY_METHODS if m in preds]:
         j = per[per.method == name].sort_values("ape", ascending=False).head(10)
         worst[name] = [dict(scene=int(r.scene_id), res=r.resolution, h=r.h, v=r.v, h_p=r.h_p, v_p=r.v_p,
                             ape=round(float(r.ape), 1)) for r in j.itertuples()]
     Sc["worst"] = worst
-    # headline choice (PLAN 3: anchoring rule fires -> headline uses --blind-only)
+    # headline choice (pre-declared: anchoring rule fires -> headline uses --blind-only)
     ah = ctx.a.headline
     fires = ctx.N["agreement"].get("anchoring", {}).get("rule_fires")
     ctx.headline = "blind" if (ah == "blind" or (ah == "auto" and fires and blind_ok)) else "all"
-    if ctx.oct11 and ctx.headline == "blind":   # Oct 11: no blind/assisted split exists (no --blind-only run)
+    if ctx.oct11 and ctx.headline == "blind":   # single/dual: no blind/assisted split exists (no --blind-only run)
         ctx.warn(f"--headline blind ignored: {ctx.protocol} protocol, every count was made without proposals")
         ctx.headline = "all"
     if ah == "auto" and fires and not blind_ok:
@@ -1808,8 +1808,8 @@ def step_score(ctx):
 
 def distortion_basis(ctx, gt):
     """Per human count, the radial-distortion factor of its guide line (supp S16: a line at normalised offset y
-    spans g(sqrt(1+y^2))/g(sqrt2) of fabric, g = 1 + k1 r^2) and the area-mean factor; with REVIEW G-P0-4's
-    assumption that PG-Lattice reads m x the area-mean excess, the distortion-only offset of ours vs the humans."""
+    spans g(sqrt(1+y^2))/g(sqrt2) of fabric, g = 1 + k1 r^2) and the area-mean factor; with the
+    assumption (--lattice-distortion-mult) that PG-Lattice reads m x the area-mean excess, the distortion-only offset of ours vs the humans."""
     k1, mult = ctx.a.k1, ctx.a.lattice_distortion_mult
     f_area = (1 + 4.0 / 3.0 * k1) / (1 + 2 * k1)
     fl = []
@@ -2131,7 +2131,7 @@ def rows_by_method(stage_dir):
 
 
 def iaa_withheld(ctx):
-    """PLAN 3: fewer than 10 blind scenes counted by two annotators -> no IAA numbers ('agreement study ongoing')."""
+    """Pre-declared rule: fewer than 10 blind scenes counted by two annotators -> no IAA numbers ('agreement study ongoing')."""
     return ctx.N["coverage"].get("verdict_blind") == "NO-GO" or not ctx.N["agreement"].get("primary")
 
 
@@ -2144,24 +2144,24 @@ def tab1_rows(ctx, stage_dir, spec, n_table=None):
             out.append(r"\midrule")
             continue
         key, disp = item
-        if key == "@human" and ctx.single:   # Oct 11: one annotator, no human-vs-human row
+        if key == "@human" and ctx.single:   # single protocol: one annotator, no human-vs-human row
             continue
-        if key == "@human" and ctx.dual:   # Oct 11, two annotators: every scene counted by both, no withholding rule
+        if key == "@human" and ctx.dual:   # dual protocol: every scene counted by both, no withholding rule
             k_h = (ctx.N["agreement"].get("primary") or {}).get("n", 0)
             line = S.tex_row("@human", ctx.human_metrics) if ctx.human_metrics else None
             esc = S.tex_escape("@human")
             if line is not None and n_table and k_h < n_table:   # covers only the scenes counted by both
                 disp = f"{disp}$^{{{k_h}/{n_table}}}$"
         elif key == "@human":
-            if "(blind)" not in disp:   # Oct 7 protocol: the human row covers the blind IAA scenes only
+            if "(blind)" not in disp:   # iaa protocol: the human row covers the blind IAA scenes only
                 disp = disp + " (blind)"
             k_h = (ctx.N["agreement"].get("primary") or {}).get("n", 0)
-            if iaa_withheld(ctx):   # Job V: PLAN 3 says no IAA numbers below 10 double-annotated blind scenes
+            if iaa_withheld(ctx):   # pre-declared rule: no IAA numbers below 10 double-annotated blind scenes
                 out.append(f"{disp} & \\multicolumn{{5}}{{c}}{{agreement study ongoing ($n={k_h}$)}} \\\\")
                 continue
             line = S.tex_row("@human", ctx.human_metrics) if ctx.human_metrics else None
             esc = S.tex_escape("@human")
-            # Job V: the human row covers only the double-annotated blind scenes; mark it like any partial row
+            # the human row covers only the double-annotated blind scenes; mark it like any partial row
             if line is not None and n_table and k_h < n_table:
                 disp = f"{disp}$^{{{k_h}/{n_table}}}$"
         else:
@@ -2197,8 +2197,8 @@ SUPP_IAA_PENDING = "\n".join([
 
 
 def supp_labelcheck_tex(ctx):
-    """Oct 11 single-annotator protocol: the WHOLE tabular of supp Tab. S4 (supp.tex reads
-    tables/supp_labelcheck_rows.tex; same rows as its placeholder): screening constants, the post-hoc proposal check
+    """Single-annotator protocol: the WHOLE tabular of supp Tab. S4 (supp.tex reads
+    tables/supp_labelcheck_rows.tex; same rows as its fallback table): screening constants, the post-hoc proposal check
     per axis, ours MAPE on all scenes / without the 4 guide-example scenes, median minutes per photo."""
     G, Sc = ctx.N["agreement"], ctx.N["score"]
     pe = G.get("proposal_edits") or {}
@@ -2234,12 +2234,12 @@ def supp_labelcheck_tex(ctx):
 
 
 def supp_labelcheck_dual_tex(ctx):
-    """Oct 11 dual protocol (two annotators, both from scratch): the WHOLE tabular of supp Tab. S4 (supp.tex reads
+    """Dual protocol (two annotators, both from scratch): the WHOLE tabular of supp Tab. S4 (supp.tex reads
     tables/supp_labelcheck_rows.tex): screening constants of both annotators, the inter-annotator agreement over every
     scene counted by both (MAE, Bland-Altman bias and 95% limits, ICC(2,1), within 5% / 10%, median |diff| also on the
     badge / no-badge scenes and without the 4 guide scenes, weave kappa), the post-hoc proposal check (both annotators'
     lines pooled; per annotator in LABEL_DAY_REPORT.md), ours MAPE all / without the guide scenes, median minutes per
-    photo per annotator. Annotator codes A1, A2 = ctx.ann_order (FL_SA, FL_NG)."""
+    photo per annotator. Annotator codes A1, A2 = ctx.ann_order (the SCREENING order)."""
     G, Sc = ctx.N["agreement"], ctx.N["score"]
     order = (ctx.ann_order + ["A2"])[:2] if ctx.ann_order else ["A1", "A2"]
     P = G.get("primary") or {}
@@ -2266,7 +2266,7 @@ def supp_labelcheck_dual_tex(ctx):
            r"\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%",
            r"\begin{tabular}{@{}lcc@{}}", r"\toprule",
            r"Two annotators (A1, A2), from scratch & $h$ (\TPI) & $v$ (\TPI) \\", r"\midrule"]
-    # rows as in the supp.tex placeholder (Job Z, Oct 12): screening, agreement, proposal check, sensitivity + time
+    # rows as in the supp.tex fallback table: screening, agreement, proposal check, sensitivity + time
     scr = {n: SCREENING[n] for n in order if n in SCREENING}
     if scr:
         first = next(iter(scr.values()))
@@ -2344,7 +2344,7 @@ def human_agreement_rows(ctx):
 
 
 def supp_iaa_tex(ctx):
-    """--protocol iaa only (Oct 7 two-annotator Tab. S4; supp.tex no longer reads tables/supp_iaa_rows.tex)."""
+    """--protocol iaa only (the first two-annotator Tab. S4; supp.tex no longer reads tables/supp_iaa_rows.tex)."""
     if ctx.oct11:
         return None
     G = ctx.N["agreement"]
@@ -2357,7 +2357,7 @@ def supp_iaa_tex(ctx):
     pct = lambda x: "--" if x is None else f"{x:.1f}\\%"
     mins = lambda x: "--" if x is None else f"{x:.1f}"
     if iaa_withheld(ctx):
-        # Job V, PLAN 3: < 10 double-annotated blind scenes -> no IAA numbers; anchoring and time are still reported
+        # pre-declared rule: < 10 double-annotated blind scenes -> no IAA numbers; anchoring and time are still reported
         k = (P or {}).get("n", 0)
         head = [f"Agreement on the blind scenes ($n={k}$ of {len(ctx.iaa)}) & $h$ (\\TPI) & $v$ (\\TPI) \\\\", r"\midrule",
                 r"Inter-annotator agreement & \multicolumn{2}{c}{agreement study ongoing} \\", r"\midrule"]
@@ -2382,7 +2382,7 @@ def supp_iaa_tex(ctx):
         r"\bottomrule", r"\end{tabular}}", ""])
 
 
-SUPP_S4_HOOK = "supp_labelcheck_rows"   # Oct 11 (Job W): supp.tex reads this file for Tab. S4
+SUPP_S4_HOOK = "supp_labelcheck_rows"   # single/dual: supp.tex reads this file for Tab. S4
 
 
 def supp_hooks(ctx):
@@ -2447,7 +2447,7 @@ def supp_all_tex(ctx, rows_all, n, n_files):
             r = pf[m]
             if r.get("MAPE") is None or not math.isfinite(r["MAPE"]):
                 continue
-            # Job V: files / scenes the method was scored on (V3-V5 answer only on their held-out scenes)
+            # files / scenes the method was scored on (V3-V5 answer only on their held-out scenes)
             out.append(f"{S.tex_escape(m)} & {int(r['n_scored'])} / {r['n_clusters']} & {r['MAPE']:.1f} [{r['MAPE_lo']:.1f}, "
                        f"{r['MAPE_hi']:.1f}] & {r['w5']:.0f} & {r['w10']:.0f} \\\\")
     out += [r"\bottomrule", r"\end{tabular}}",
@@ -2462,7 +2462,7 @@ def macros_tex(ctx):
     o = Sc["methods_headline"].get(OURS, {})
     g = Sc["methods_headline"].get(GPT, {})
     P = ctx.N["agreement"].get("primary") or {}
-    if ctx.oct11:   # Oct 11: minutes per photo and the proposal-free count; dual: + the human-human agreement
+    if ctx.oct11:   # single/dual: minutes per photo and the proposal-free count; dual: + the human-human agreement
         pf = ctx.N["validation"].get("proposal_free", {})
         m = {"LDnScenes": Sc["n_headline"], "LDnAnnotators": len(Sc["annotators"]),
              "LDoursMAPE": fnum(o.get("MAPE")), "LDoursCI": f"[{fnum(o.get('MAPE_lo'))}, {fnum(o.get('MAPE_hi'))}]",
@@ -2483,7 +2483,7 @@ def macros_tex(ctx):
          "LDoursCI": f"[{fnum(o.get('MAPE_lo'))}, {fnum(o.get('MAPE_hi'))}]", "LDoursBothFive": fnum(o.get("both5"), 0),
          "LDoursBias": fnum(o.get("bias_med"), 1, True), "LDgptMAPE": fnum(g.get("MAPE")),
          "LDgptCI": f"[{fnum(g.get('MAPE_lo'))}, {fnum(g.get('MAPE_hi'))}]",
-         "LDhhMedRel": "--" if iaa_withheld(ctx) else fnum(C.get("hh_median_rel"), 1)}   # Job V: PLAN 3 withholding
+         "LDhhMedRel": "--" if iaa_withheld(ctx) else fnum(C.get("hh_median_rel"), 1)}   # pre-declared withholding rule
     lines = ["% AUTO-GENERATED by tools/label_day.py: label-day numbers as macros (optional; \\input in preamble to use)."]
     lines += [f"\\providecommand{{\\{k}}}{{{v}}}" for k, v in m.items()]
     return "\n".join(lines) + "\n"
@@ -2522,7 +2522,7 @@ def step_tables(ctx):
         p = os.path.join(d, f)
         if os.path.exists(p):
             ctx.put(os.path.join(T, g), src=p)
-    # label-day analyses as CSVs (every number of the report traceable to a file)
+    # the analyses as CSVs (every number of the report traceable to a file)
     Sc = ctx.N["score"]
     pd.DataFrame([dict(comparison=k, **v) for k, v in Sc["paired"].items()]).round(3).to_csv(
         os.path.join(ctx.stage, "main150_paired.csv"), index=False)
@@ -2532,13 +2532,13 @@ def step_tables(ctx):
         ctx.put(os.path.join(T, f), src=os.path.join(ctx.stage, f))
     if os.path.exists(os.path.join(ctx.stage, "proposal_edits150.csv")):   # single protocol: post-hoc proposal check
         ctx.put(os.path.join(T, "proposal_edits150.csv"), src=os.path.join(ctx.stage, "proposal_edits150.csv"))
-    if ctx.dual:     # Oct 11, two annotators: Tab. S4 with the agreement rows; agreement CSVs (score150's is replaced)
+    if ctx.dual:     # dual protocol: Tab. S4 with the agreement rows; agreement CSVs (score150's is replaced)
         ctx.put(os.path.join(T, SUPP_S4_HOOK + ".tex"), supp_labelcheck_dual_tex(ctx))
         ctx.put(os.path.join(T, "human_agreement.csv"), human_agreement_rows(ctx))
         p = os.path.join(ctx.stage, "human_agreement_per_scene.csv")
         if os.path.exists(p):
             ctx.put(os.path.join(T, "human_agreement_per_scene.csv"), src=p)
-    elif ctx.single:   # Oct 11: supp Tab. S4 = tables/supp_labelcheck_rows.tex (the whole tabular; supp.tex reads it)
+    elif ctx.single:   # single protocol: supp Tab. S4 = tables/supp_labelcheck_rows.tex (the whole tabular; supp.tex reads it)
         ctx.put(os.path.join(T, SUPP_S4_HOOK + ".tex"), supp_labelcheck_tex(ctx))
         # score150 writes a header-less human_agreement.csv with one annotator: replace it by an explicit note
         ctx.put(os.path.join(T, "human_agreement.csv"),
@@ -2637,7 +2637,7 @@ def step_compile(ctx):
                 f"TODO {info.get('todo_rendered', '?')}")
         if name == "main" and info.get("body_pages", 0) > 8:
             ctx.warn(f"main body runs to {info['body_pages']} pages (limit 8): apply the PLAN section 4 cut list")
-        if info["undefined_refs"] or info["undefined_cites"] or info["overfull"]:   # Job V: say it, not only count it
+        if info["undefined_refs"] or info["undefined_cites"] or info["overfull"]:   # say it, not only count it
             ctx.warn(f"{name}.pdf: {info['undefined_refs']} undefined reference(s), {info['undefined_cites']} undefined "
                      f"citation(s), {info['overfull']} overfull box(es) (see {logp})")
     vt = os.path.join(ctx.paper, "tools", "validate_tex.py") if ctx.mode == "dry" else os.path.join(HERE, "validate_tex.py")
@@ -2711,7 +2711,7 @@ def grep_sentences(paper_dir, patterns, files=None):
 
 
 def rewording(ctx):
-    """Rule-based list of sentences whose claims the label-day numbers now decide."""
+    """Rule-based list of sentences whose claims the human-label numbers now decide."""
     Sc, C, G = ctx.N["score"], ctx.N["coverage"], ctx.N["agreement"]
     P = ctx.paper
     items = []
@@ -2742,7 +2742,7 @@ def rewording(ctx):
             [r"cannot be separated[^.]*(vision-language|VLM|GPT)", r"(VLM|GPT)[^.]*not separable", r"best frontier VLM",
              r"cannot be distinguished[^.]*(VLM|GPT)"])
     pc, pcg = PH.get(f"combined-v1 vs {OURS}", {}), PH.get("combined-v1 vs Log-Gabor bank", {})
-    if "delta" in pc:   # Job Y: the pre-registered combined counter (PREREG_combined_v1.json), held-out test passed
+    if "delta" in pc:   # the pre-registered combined counter (PREREG_combined_v1.json), held-out test passed
         add("combined-v1 (pre-registered; held-out synthetic test passed)",
             f"combined-v1 - ours on {pc['n']} scenes: {pc['delta']:+.1f} points [{pc['lo']:+.1f}, {pc['hi']:+.1f}], "
             f"p = {pc['p_wilcoxon']:.3g}" + (f"; - log-Gabor {pcg['delta']:+.1f} [{pcg['lo']:+.1f}, {pcg['hi']:+.1f}]"
@@ -2845,7 +2845,7 @@ def rewording(ctx):
 
 
 def numbers_diff(ctx):
-    """Changes against the previous label-day run in the same place: the headline numbers first, then a count."""
+    """Changes against the previous run in the same place: the headline numbers first, then a count."""
     prev = sorted(p for p in glob.glob(ctx.history_glob) if os.path.realpath(p) != os.path.realpath(
         os.path.join(ctx.work, "numbers.json")))
     if not prev:
@@ -2968,7 +2968,7 @@ def step_report(ctx):
     with open(os.path.join(ctx.work, "numbers.json"), "w") as f:
         json.dump(jsonable(N), f, indent=1)
     C, G, Sc, B = N["coverage"], N["agreement"], N["score"], N["build"]
-    # FAKE banner: fake-looking annotator names OR input file names (a fake FL_SA export has a real-looking name)
+    # FAKE banner: fake-looking annotator names OR input file names (a fake export under a real annotator code has a real-looking name)
     fake = (any(looks_fake(n) for n in N["validation"].get("annotators", [])) or
             any(re.search(r"fake|dummy|smoke", os.path.basename(f), re.I) for f in ctx.inputs))
     L = []
@@ -2995,7 +2995,7 @@ def step_report(ctx):
              "GO <= 5%; REDUCED 5-10%", C.get("verdict_hh", "?")]]
     an = G.get("anchoring", {})
     single = ctx.single
-    if single:   # Oct 11: one external annotator, no IAA by design; nothing for the anchoring rule to compare
+    if single:   # single protocol: one external annotator, no IAA by design; nothing for the anchoring rule to compare
         pe = (G.get("proposal_edits") or {}).get("all") or {}
         pf = N["validation"].get("proposal_free", {})
         rows[0][0] = "Scenes with a finished FL_SA count (headline: both lines span >= 75%)"
@@ -3012,7 +3012,7 @@ def step_report(ctx):
                     ["Post-hoc proposal check (proposals never shown)",
                      f"median {fnum(pe.get('edits_med'), 0)} edits per line; {fnum(pe.get('le2_edit_pct'), 0)}% of "
                      f"{pe.get('n_lines', 0)} lines need <= 2", "descriptive (no rule)", "--"]]
-    elif ctx.dual:   # Oct 11, two annotators from scratch: coverage + screening + human-human, no blind/anchoring rows
+    elif ctx.dual:   # dual protocol, two annotators from scratch: coverage + screening + human-human, no blind/anchoring rows
         pe = (G.get("proposal_edits") or {}).get("all") or {}
         pf = N["validation"].get("proposal_free", {})
         P_ = G.get("primary") or {}
@@ -3341,12 +3341,12 @@ def parse_args(argv=None):
                     help="rename an annotator in the merged copies (e.g. anonymous=alice); exports are never changed")
     ap.add_argument("--skip-bad-files", action="store_true", help="skip unreadable exports instead of stopping")
     ap.add_argument("--protocol", choices=("auto", "single", "dual", "iaa"), default="auto",
-                    help="dual (Oct 11, two annotators FL_SA + FL_NG): both count every scene from scratch, no proposals "
+                    help="dual (two annotators, A1 + A2): both count every scene from scratch, no proposals "
                          "-> agreement over every scene counted by both (go/no-go: human-human median |diff| GO <= 5%%, "
                          "REDUCED <= 10%%), Tab. 1 'Human vs human' row, reference = mean of the two, supp Tab. S4 with "
-                         "the agreement rows, no anchoring rule / blind-only run; single (Oct 11): ONE annotator counts "
+                         "the agreement rows, no anchoring rule / blind-only run; single: ONE annotator counts "
                          "every scene from scratch, no proposals, no IAA -> go/no-go on scene coverage only, no "
-                         "--blind-only run, no human row in Tab. 1, supp Tab. S4 = post-hoc proposal check; iaa: the Oct 7 "
+                         "--blind-only run, no human row in Tab. 1, supp Tab. S4 = post-hoc proposal check; iaa: the first "
                          "two-annotator protocol; auto: single when exactly one annotator has finished records, dual when "
                          "two or more have and no finished record carries proposal dots, else iaa (with a warning)")
     ap.add_argument("--edit-tol", type=float, default=0.5,
@@ -3356,9 +3356,9 @@ def parse_args(argv=None):
                          "'off-centre' (a drag an assisted annotator might make; it does not change the count)")
     ap.add_argument("--proposals-hidden-at", default=PROPOSALS_HIDDEN_AT,
                     help="single/dual protocol: non-IAA records created before this instant (ISO, UTC) may have shown proposal "
-                         "dots in the freelancer kit and are not counted as proposal-free")
+                         "dots in the annotator kit and are not counted as proposal-free")
     ap.add_argument("--headline", choices=("auto", "all", "blind"), default="auto",
-                    help="labels for Tab. 1: auto = blind-only if the anchoring rule fires (PLAN 3)")
+                    help="labels for Tab. 1: auto = blind-only if the anchoring rule fires (pre-declared rule)")
     ap.add_argument("--tab1-spec", help="JSON list of [key, LaTeX name] or \"midrule\" replacing TAB1_SPEC")
     ap.add_argument("--tab1-ci-decimals", type=int, default=0, choices=(0, 1),
                     help="decimals of the Tab. 1 CI bounds (0 = as in Tab. 2; 1 = as score150.py writes them)")
@@ -3366,7 +3366,7 @@ def parse_args(argv=None):
     ap.add_argument("--skip-compile", action="store_true")
     ap.add_argument("--k1", type=float, default=-0.026, help="radial distortion k1 (supp S16) for the distortion basis")
     ap.add_argument("--lattice-distortion-mult", type=float, default=2.2,
-                    help="REVIEW G-P0-4: PG-Lattice reads about this multiple of the area-mean distortion excess")
+                    help="assumption: PG-Lattice reads about this multiple of the area-mean distortion excess")
     g = ap.add_argument_group("CNN cross-validation (step 5)")
     g.add_argument("--cnn", choices=("off", "launch", "wait"), default="off",
                    help="launch the scene-grouped 5-fold train_cv.py runs (launch: do not wait; wait: poll until done)")

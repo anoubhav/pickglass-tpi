@@ -5,10 +5,11 @@ pinning for open-weight models), same input size (1536 x 1536 JPEG q92) and same
 (parse_output.parse_counts) as the P1-P3 baselines, so the scaffold runs are paired with each
 model's own P1 run on the same images.
 
-Budget: Job 2 sub-cap US$8 of the round's US$20.  Every call is logged to
-scaffold/logs/openrouter_costs_job2.csv (this job only; NOT the shared logs/openrouter_costs.csv,
-so other jobs' stop rules are unaffected).  Before each call the job total plus a reservation for
-the calls in flight is compared against --stop-at (default 7.5) and the run stops when reached.
+Budget: the scaffold runs have their own sub-cap of US$8 (SUB_CAP).  Every call is logged to
+scaffold/logs/openrouter_costs_job2.csv (scaffold runs only; NOT the shared logs/openrouter_costs.csv,
+so the stop rules of the other API runs are unaffected).  Before each call the scaffold total plus a
+reservation for the calls in flight is compared against --stop-at (default 7.5) and the run stops
+when reached.
 
     python run_scaffolds.py --set synth  --models gpt-6.1-sol,gemini-3.8-flash,qwen3.8-27b --tag pilot
     python run_scaffolds.py --set legacy --models ... --tag main [--repeat 1]

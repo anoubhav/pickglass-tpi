@@ -1,4 +1,4 @@
-"""make_fig_octave.py -- the octave figure of Sec. 5.2 (Job W3, Oct 12): predicted vs human thread counts.
+"""make_fig_octave.py -- an octave (half-or-double) figure for Sec. 5.2: predicted vs human thread counts.
 
     <python with numpy, matplotlib> tools/make_fig_octave.py <main150_per_scene.csv> [--outdir figs]
         [--methods "Ours (lattice + fusion)" "GPT-6.1-sol, P1"] [--labels PG-Lattice GPT-6.1-sol]
@@ -9,11 +9,13 @@ method with the human counts h, v and the predictions h_p, v_p) and plots, for e
 y = x/2 and the +-5% tolerance band.  Points near y = x/2 (y = 2x) are counts that read half (double) the
 human number of yarns: octave errors.
 
-PROVISIONAL until label day: the Oct 12 version reads the dry run against FL_SA's counts only
-(handover/results/labelday_diag_FLSA_20261012/main150_per_scene_FLSA_dry1.csv). On label day, rerun it on the
-per-scene file of the --real run (human count = mean of the two annotators).
+The human count is the one in the per-scene file: e.g.
+a run on one annotator's export scores against that annotator's counts
+only, and the per-scene file of a --real run uses the mean of the two annotators. The paper's Fig. 3
+(figs/fig_octave_hist_H2.pdf) is a histogram against A2, the reference annotator; this script plots whichever
+human count its per-scene file holds.
 
-Bottom panel (Job W4): histogram of log2(predicted / human) for both methods.
+Bottom panel: histogram of log2(predicted / human) for both methods.
 Writes <outdir>/fig_octave.pdf/.png at the printed size (3.25 in wide; include with width=\\linewidth).
 Deterministic (no creation date in the PDF). Reads only.
 """
@@ -29,7 +31,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 
-OCT_TOL = 0.3   # Job W7: octave band, as handover/labelday_scripts/compute_numbers.py
+OCT_TOL = 0.3   # the paper's octave band (Sec. 5.2)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PAPER = os.path.dirname(HERE)
@@ -60,7 +62,7 @@ def load(path, method):
 
 def panel(ax, pts, title, lo, hi):
     x = np.geomspace(lo, hi, 50)
-    ax.fill_between(x, 0.95 * x, 1.05 * x, color="0.55", lw=0, zorder=1)  # Job W4: darker band
+    ax.fill_between(x, 0.95 * x, 1.05 * x, color="0.55", lw=0, zorder=1)  # darker band
     for k, ls, lab in ((1.0, "-", "$y=x$"), (2.0, "--", "$2x$"), (0.5, ":", "$x/2$")):
         ax.plot(x, k * x, ls, color="0.35", lw=0.6, zorder=2)
     for axis, col, mk in (("h", C_H, "o"), ("v", C_V, "^")):
@@ -71,8 +73,8 @@ def panel(ax, pts, title, lo, hi):
                        label=f"${axis}$")
     r = np.array([pr / hu for _, hu, pr, _ in pts])
     n = len(r)
-    # Job W7 (Oct 12): the paper's one octave band (Sec. 5.2; compute_numbers.py OCT_TOL): | |log2 r| - 1 | <= 0.3,
-    # i.e. x0.41-0.62 (half) and x1.62-2.46 (double); before W7 the tallies used 0.4-0.6x and 1.7-2.4x
+    # the paper's one octave band (Sec. 5.2): | |log2 r| - 1 | <= 0.3,
+    # i.e. x0.41-0.62 (half) and x1.62-2.46 (double); the older 0.4-0.6x / 1.7-2.4x tallies are not used
     lr = np.log2(r)
     half = int(np.sum(np.abs(lr + 1) <= OCT_TOL))
     dbl = int(np.sum(np.abs(lr - 1) <= OCT_TOL))
@@ -96,7 +98,7 @@ def panel(ax, pts, title, lo, hi):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("per_scene", help="label_day per-scene CSV (main150_per_scene.csv)")
+    ap.add_argument("per_scene", help="per-scene CSV written by tools/label_day.py (main150_per_scene.csv)")
     ap.add_argument("--outdir", default=os.path.join(PAPER, "figs"))
     ap.add_argument("--methods", nargs="+", default=["Ours (lattice + fusion)", "GPT-6.1-sol, P1"])
     ap.add_argument("--labels", nargs="+", default=["PG-Lattice", "GPT-6.1-sol P1"])
@@ -117,11 +119,11 @@ def main():
             ax.set_yticklabels([])
         if i == len(a.methods) - 1:
             ax.legend(loc="lower right", frameon=False, handletextpad=0.1, borderaxespad=0.2, markerscale=1.4)
-        # Job W4: label the x/2 and 2x lines in both panels
+        # label the x/2 and 2x lines in both panels
         ax.text(hi * 0.62, hi * 0.62 * 0.5 * 0.72, "$x/2$", fontsize=FS - 1, color="0.25")
         ax.text(lo * 1.15, lo * 1.15 * 2 * 1.25, "$2x$", fontsize=FS - 1, color="0.25")
         rat.append((lab, np.array([pr / hu for _, hu, pr, _ in pts])))
-    # Job W4 (second mock review): histogram of log2(predicted / human) for both methods
+    # histogram of log2(predicted / human) for both methods
     axh = fig.add_axes([0.085, 0.085, 0.91, 0.20])
     bins = np.arange(-2.0, 2.0001, 0.125)
     for (lab, r), col, ls in zip(rat, ("#000000", "#CC79A7"), ("-", "--")):

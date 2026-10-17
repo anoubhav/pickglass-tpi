@@ -85,7 +85,7 @@ ROSTER = {
 }
 
 # Reasoning protocol "min" = the lowest hidden-reasoning setting each model accepts.
-# Pilot 2026-10-07 (a1, r2; logged under tags pilot-*): with provider defaults GPT-6.1-sol,
+# Pilot (a1, r2; logged under tags pilot-*): with provider defaults GPT-6.1-sol,
 # Claude Fable 5.1 and both Qwen models spent the whole 1000-token budget thinking and
 # returned no answer.  'enabled: false' is rejected ("Reasoning is mandatory") by
 # GPT-6.1-sol, Claude Fable 5.1 and Qwen3.8-max-prime, so they get their lowest effort

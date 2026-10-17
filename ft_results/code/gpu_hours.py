@@ -1,4 +1,5 @@
-"""GPU-hour accounting for Job 4 from the server logs/raw records (run on the server in ft/code).
+"""GPU-hour accounting for the Molmo2-4B synthetic LoRA fine-tune from the server logs/raw records (run on the
+server in ft/code).
 Training: wall time between the first and last log line x number of GPUs.  Inference: sum of batch
 wall times per (model, set) (each batch occupies one GPU)."""
 import glob

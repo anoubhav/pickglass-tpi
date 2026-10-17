@@ -31,7 +31,7 @@ Entry point
     segment(image_path) -> (crop_bgr, box_points, used_fallback)
       crop_bgr      : fabric region perspective-warped to an upright rectangle,
                       cut from the ORIGINAL full-resolution image (added helper,
-                      not part of the 2024 notebook code, which only returns a box)
+                      not part of the notebook code, which only returns a box)
       box_points    : (4,2) int array, box corners in original-image pixel coords
                       (exactly the `bounding_box` returned by final_algorithm)
       used_fallback : True when extract_contour returned status "fallback"
@@ -66,8 +66,8 @@ def _order_quad(pts):
 
 def warp_box(image_bgr, box_points):
     """Perspective-warp the quadrilateral `box_points` of `image_bgr` to an upright
-    rectangle (the report's 'perspective-warp the fabric region' step; no 2019/2024
-    implementation of this step was found, so this is a minimal helper)."""
+    rectangle (the report's 'perspective-warp the fabric region' step; no implementation
+    of this step was found in the original code or the notebook, so this is a minimal helper)."""
     quad = _order_quad(box_points)
     tl, tr, br, bl = quad
     w = int(round(max(np.linalg.norm(tr - tl), np.linalg.norm(br - bl))))
@@ -80,7 +80,7 @@ def warp_box(image_bgr, box_points):
 
 
 def segment(image_path, fallback_area_factor=1/7, cv_seed=None):
-    """Run the final 2024 algorithm (defaults identical to the 0.88 run) and crop.
+    """Run the final notebook algorithm (defaults identical to the 0.88 run) and crop.
 
     cv_seed: optional cv2.setRNGSeed value. The notebook only called
     np.random.seed(42), which does NOT seed cv2.kmeans(KMEANS_RANDOM_CENTERS);
@@ -117,7 +117,7 @@ def _visualise(image_path, box, used_fallback, crop, out_path, gt_box=None):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="Final 2024 fabric segmentation (notebook cells[26]).")
+    ap = argparse.ArgumentParser(description="Final fabric segmentation (notebook cells[26]).")
     ap.add_argument("images", nargs="+", help="image paths")
     ap.add_argument("--out", default=None, help="directory for <stem>_crop.png and <stem>_vis.jpg")
     ap.add_argument("--fallback-area-factor", type=float, default=1/7)

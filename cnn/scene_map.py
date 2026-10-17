@@ -10,7 +10,7 @@ the 150 rectified crops annotation_tool/data/crops/<id>.jpg; writes cnn/data/sce
 kind        real        a real capture (JPEG) that is not a byte-identical copy of another file
             byte_dup    byte-identical to a lower-id real JPEG of the same scene (dup_of)
             png_copy    PNG decode of a JPEG of the same scene (129, 130, 133, 140, 143, 145-149)
-            nb_synth    synthesised by the 2024 prep notebook (97 % crop, +-90 deg, +-10 % b/c):
+            nb_synth    synthesised by an earlier prep notebook (97 % crop, +-90 deg, +-10 % b/c):
                         131, 132, 134-139, 141, 142, 144 -- an AUGMENTATION of its scene, never a
                         held-out sample
 rot_k/flip  dihedral transform that maps this crop onto the representative's crop

@@ -3,15 +3,15 @@
 One row per (image, crop source, preprocessing, glare handling, estimator, degradation, level).
 
 Sets
-  legacy13  the 13 legacy (2019) images with usable hand counts (+ the 7 without counts, flagged
+  legacy13  the 13 legacy images with usable hand counts (+ the 7 without counts, flagged
             usable=False).  They are already hand-cropped to ~ the 1-inch window, so the whole
-            image is treated as 1 inch (protocol P1).  GT from the 2019 harness's load_gt().
+            image is treated as 1 inch (protocol P1).  GT from the legacy harness's load_gt().
   all150    the 150 pick-glass photos; crops via common/rectify.py (GT window corners).  No
-            thread-count labels yet -> self-consistency (drift vs. the clean prediction).
+            thread-count labels are used -> self-consistency (drift vs. the clean prediction).
 
 Crop source (--crop, comma list)
   gt         legacy: full image; all150: common/rectify.rectify(i) (annotated window corners)
-  seg_final  the 2024 classical segmentation (pipeline/seg_final.py, imported read-only,
+  seg_final  the legacy classical segmentation (pipeline/seg_final.py, imported read-only,
              cv2 RNG seeded 0); its box is ASSUMED to be the 1-inch window
   centre     centred 0.5W x 0.5H box of the photo (seg_final's fallback), ASSUMED 1 inch
 
@@ -54,7 +54,7 @@ import degrade as D  # noqa: E402
 import rectify as R  # noqa: E402
 
 PIPELINE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "legacy_2019")
-LEGACY_2019 = os.path.join(HERE, "legacy_2019")  # verbatim copy of the 2019 harness (fallback)
+LEGACY_2019 = os.path.join(HERE, "legacy_2019")  # verbatim copy of the legacy harness (fallback)
 LEGACY_DIR = os.path.join((os.environ.get("PICKGLASS_LEGACY_ROOT") or os.path.join(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."), "data", "legacy2019")), "FR-final attempt", "images")
 
 
@@ -69,7 +69,7 @@ def _pipeline_module(name):
 
 
 def legacy_gt():
-    """{key: gt dict} via run_pipeline.load_gt (the 2019 harness parser, reused as-is)."""
+    """{key: gt dict} via run_pipeline.load_gt (the legacy harness parser, reused as-is)."""
     rp = _pipeline_module("run_pipeline")
     gt, _ = rp.load_gt(rp.DEF_GT, rp.DEF_GT2)
     return gt

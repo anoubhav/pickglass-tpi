@@ -1,6 +1,6 @@
 """gsr_common.py -- shared definitions for the genai_sr study (see README.md, protocol sections 1-8).
 
-Runs on the Mac (paths under wvaq2027/) and on gpu-server (paths under ~/pickglass/genai_sr/),
+Runs on the Mac (paths under <repo root>/) and on gpu-server (paths under ~/pickglass/genai_sr/),
 selected by the GSR_ROOT environment variable (default: the directory of this file).
 """
 from __future__ import annotations
@@ -10,8 +10,8 @@ import json
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-GSR = os.environ.get("GSR_ROOT", HERE)               # genai_sr root (Mac: wvaq2027/genai_sr)
-WVAQ = os.environ.get("WVAQ_ROOT", os.path.dirname(GSR))  # Mac: wvaq2027 ; server: copy of the needed files
+GSR = os.environ.get("GSR_ROOT", HERE)               # genai_sr root (Mac: <repo root>/genai_sr)
+WVAQ = os.environ.get("WVAQ_ROOT", os.path.dirname(GSR))  # Mac: <repo root> ; server: copy of the needed files
 
 SEED = 20261008
 T_C = 0.5740764461064712        # cascade conf-only gate (paper/tables/cascade_thresholds.json fits.vlm9_a10.conf.t_c)

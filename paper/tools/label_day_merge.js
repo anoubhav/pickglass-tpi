@@ -15,7 +15,7 @@
  *                                             yarn inside the window = "yarns impossible to see"): that count is
  *                                             missing, and -- as in propagate_scene_labels.py and cnn/train_cv.py --
  *                                             the record is not used for scoring; also minus finished NONWOVEN records
- *                                             (Job V: every scorer drops them, but analyze.py's anchoring and agreement
+ *                                             (every scorer drops them, but analyze.py's anchoring and agreement
  *                                             would count the dots left on them, e.g. untouched proposals = 0 error)
  *   DIR/merge_report.json                     per file / per annotator: records, done, conflicts, cleared lines,
  *                                             parse errors, manifest stamp

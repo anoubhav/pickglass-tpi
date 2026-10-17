@@ -1,6 +1,6 @@
 """posthoc_supplement.py -- POST-HOC robustness and descriptive analyses of the one-shot real evaluation.
 
-Written on 2026-10-08, AFTER eval_real.py / analyze_real.py had been run and read.  Nothing here
+Written AFTER eval_real.py / analyze_real.py had been run and read.  Nothing here
 changes the guard (native_res_guard.py and guard_params.json are only imported / read), and no
 guard parameter is chosen here.  Every output is labelled post hoc in RESULTS.md.
 

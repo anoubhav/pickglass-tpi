@@ -6,7 +6,7 @@ The 150 files in fabric_notebooks/final_image_set/ are only 76 distinct scenes
   * 5 groups of byte-identical files,
   * 62 full-resolution / quarter-resolution pairs of the SAME exposure (often rotated 90 deg),
   * 10 PNG files that are decodes of JPEGs in the set,
-  * 11 PNG files synthesised by the 2024 preparation notebook (97 % centre crop, a +-90 deg
+  * 11 PNG files synthesised by an earlier preparation notebook (97 % centre crop, a +-90 deg
     rotation, +-10 % brightness / contrast) -- augmentations, not captures.
 
 This module turns that into one record per file (used by prepare.py for the tool manifest,
@@ -28,7 +28,7 @@ by propagate_scene_labels.py and by the scoring / CV scripts):
                   rep's V line crosses, so h <-> v (and warp_dir) swap when labels are copied
   scene_rot_ncc / scene_rot_margin   best NCC and best minus second-best NCC of the 4 hypotheses
 
-Rotation recovery (as aug1016/aug_common.py does for the 2024 augmentations): the rep is
+Rotation recovery (as aug1016/aug_common.py does for the notebook's augmentations): the rep is
 re-rectified with its canonical corners rolled by j (j = 0..3), which puts every rotation
 hypothesis on exactly the pixel grid of a rectify.py crop; features are CLAHE grey and gradient
 magnitude, low-passed (sigma 2 px at 256 px/inch) and compared at 128 px/inch over the inner
@@ -51,7 +51,7 @@ import cv2
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)  # .../wvaq2027
+ROOT = os.path.dirname(HERE)  # <repo root>
 sys.path.insert(0, os.path.join(ROOT, "common"))
 import rectify as R  # noqa: E402
 

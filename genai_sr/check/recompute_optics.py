@@ -1,4 +1,4 @@
-"""check/recompute_optics.py -- independent re-computation of two optics-job headline numbers from its saved
+"""check/recompute_optics.py -- independent re-computation of two headline numbers of the optics study from its saved
 long-format data (cnn/aug_optics/*.csv[.gz]); does not import augment_optics_verify.py.
 
   (1) label tracking, real-150, zoom/stretch/shear/bow: slope 0.986 [0.980, 0.989], median |resid| 0.17 %

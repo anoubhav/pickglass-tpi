@@ -265,7 +265,7 @@ def lattice_and_iq():
 
 
 def gpt_table():
-    """GPT-6.1-sol P1 on R-LEG D8: this job's runs (bicubic / seedvr2 / nbpro restorations) + the paper's stored runs
+    """GPT-6.1-sol P1 on R-LEG D8: this study's runs (bicubic / seedvr2 / nbpro restorations) + the paper's stored runs
     (clean crop, legacy_x8 = LR resized straight to 1536 px) from vlm/results/legacy_predictions.csv, repeat 0."""
     import json
     gt = pd.read_csv(os.path.join(G.INPUTS, "gt_legacy13.csv")).set_index("image")

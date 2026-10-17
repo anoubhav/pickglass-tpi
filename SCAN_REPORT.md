@@ -1,8 +1,8 @@
 # Scan report
 
-Scan of the staged repository before publication, 2026-10-12T23:30 (`scan_release.py`). 1116 files, 67.8 MB.
+Snapshot of the secret and personal-data scan (`scan_release.py`, not part of this repository) run on the staged repository before its first publication. Counts below (files, sizes, hits, line numbers, the checksum result and the list of regenerated tables) describe the repository at scan time (1116 files, 67.8 MB); later edits are not reflected. For the current state run `python3 tools/verify_checksums.py`.
 
-**Verdict: PASS (no blocker)**
+**Verdict at scan time: PASS (no blocker)**
 
 | Check | Result |
 |---|---|
@@ -12,7 +12,7 @@ Scan of the staged repository before publication, 2026-10-12T23:30 (`scan_releas
 | 'anoubhav' outside the repo URL / author name | 0 |
 | Images / PDFs | 16, all on the synthetic allow-list: yes |
 | Embedded base64 images in text files | 0 |
-| Annotator names (applicant, author test name, screening stem) | 0 |
+| Annotator names | 0 |
 | Annotation exports / propagated labels / screening files | 0 |
 | CDN, bucket, upload scripts | 0 (generic words: 0, listed below) |
 | E-mail addresses | 0 |
@@ -24,7 +24,7 @@ Scan of the staged repository before publication, 2026-10-12T23:30 (`scan_releas
 
 ## 0. Release checklist grep
 
-The checklist command (run from the repository root) greps every file for absolute home and temp paths, the private GPU host alias and its SSH alias, the annotators' and applicants' names, and key prefixes. Its patterns are kept outside this repository.
+The checklist command (run from the repository root) greps every file for absolute home and temp paths, the private GPU host alias and its SSH alias, the annotators' names, and key prefixes. Its patterns are kept outside this repository.
 
 Hits outside this report: 19. Absolute paths, scratch dirs, the GPU host alias and annotator names: 0. The key prefixes match only harmless text (none is a credential; the key-shaped patterns of section 1 find 0); they sit in code or logs that are kept as they are, some of them frozen (`paper/tools/label_day.py`, `paper/tools/iqa150.py`, `paper/tools/iqa_generic.py`), so they are classified, not rewritten:
 
@@ -51,11 +51,11 @@ Every hit of the literal patterns, with why it is not a secret:
 | password | 0 | - |
 | token= | 3 | token=False: anonymous Hugging Face download (3) |
 
-`vlm/openrouter_client.py` reads the key only from `$OPENROUTER_API_KEY` (the former fallback to another project's `.env` file was removed).
+`vlm/openrouter_client.py` reads the key only from `$OPENROUTER_API_KEY`.
 
 ## 2. Absolute paths and host names
 
-Hard hits: 0. Soft hits (folder names inside placeholders or prose, allowed): fabric_notebooks (local folder) 6, fabric analysis (local folder) 4.
+Hard hits: 0. Soft hits (local folder names inside placeholders or prose, allowed): 10.
 
 Absolute paths were replaced at export by environment variables with repo-relative defaults (`common/paths.py`) in code, and by `$PICKGLASS_NOTEBOOKS`, `$PICKGLASS_LEGACY_ROOT`, `$PICKGLASS_SCRATCH`, `gpu-server`, `~/pickglass`, `local-mac` placeholders in logs and data files.
 
@@ -63,21 +63,21 @@ Absolute paths were replaced at export by environment variables with repo-relati
 
 | File | Type | Provenance |
 |---|---|---|
-| `annotation_tool/demo/data/crops/801.jpg` | jpeg | synthetic, byte-identical to freelancer/web/practice/data/crops/801.jpg |
-| `annotation_tool/demo/data/crops/802.jpg` | jpeg | synthetic, byte-identical to freelancer/web/practice/data/crops/802.jpg |
-| `annotation_tool/demo/data/crops/803.jpg` | jpeg | synthetic, byte-identical to freelancer/web/practice/data/crops/803.jpg |
-| `annotation_tool/demo/data/crops_enh/801.jpg` | jpeg | synthetic, byte-identical to freelancer/web/practice/data/crops_enh/801.jpg |
-| `annotation_tool/demo/data/crops_enh/802.jpg` | jpeg | synthetic, byte-identical to freelancer/web/practice/data/crops_enh/802.jpg |
-| `annotation_tool/demo/data/crops_enh/803.jpg` | jpeg | synthetic, byte-identical to freelancer/web/practice/data/crops_enh/803.jpg |
-| `annotation_tool/demo/data/thumbs/801.jpg` | jpeg | synthetic, byte-identical to freelancer/web/practice/data/thumbs/801.jpg |
-| `annotation_tool/demo/data/thumbs/802.jpg` | jpeg | synthetic, byte-identical to freelancer/web/practice/data/thumbs/802.jpg |
-| `annotation_tool/demo/data/thumbs/803.jpg` | jpeg | synthetic, byte-identical to freelancer/web/practice/data/thumbs/803.jpg |
-| `docs/img/guide/mistakes.jpg` | jpeg | synthetic, byte-identical to freelancer/web/public_guide/img/mistakes.jpg |
-| `docs/img/guide/photo_problems.jpg` | jpeg | synthetic, byte-identical to freelancer/web/public_guide/img/photo_problems.jpg |
-| `docs/img/guide/post_example.jpg` | jpeg | synthetic, byte-identical to freelancer/web/public_guide/img/post_example.jpg |
-| `docs/img/guide/practice_tool.jpg` | jpeg | synthetic, byte-identical to freelancer/web/public_guide/img/practice_tool.jpg |
-| `docs/img/guide/warp_weft.jpg` | jpeg | synthetic, byte-identical to freelancer/web/public_guide/img/warp_weft.jpg |
-| `docs/img/guide/weave_types.jpg` | jpeg | synthetic, byte-identical to freelancer/web/public_guide/img/weave_types.jpg |
+| `annotation_tool/demo/data/crops/801.jpg` | jpeg | synthetic, byte-identical to the practice set given to the annotators |
+| `annotation_tool/demo/data/crops/802.jpg` | jpeg | synthetic, byte-identical to the practice set given to the annotators |
+| `annotation_tool/demo/data/crops/803.jpg` | jpeg | synthetic, byte-identical to the practice set given to the annotators |
+| `annotation_tool/demo/data/crops_enh/801.jpg` | jpeg | synthetic, byte-identical to the practice set given to the annotators |
+| `annotation_tool/demo/data/crops_enh/802.jpg` | jpeg | synthetic, byte-identical to the practice set given to the annotators |
+| `annotation_tool/demo/data/crops_enh/803.jpg` | jpeg | synthetic, byte-identical to the practice set given to the annotators |
+| `annotation_tool/demo/data/thumbs/801.jpg` | jpeg | synthetic, byte-identical to the practice set given to the annotators |
+| `annotation_tool/demo/data/thumbs/802.jpg` | jpeg | synthetic, byte-identical to the practice set given to the annotators |
+| `annotation_tool/demo/data/thumbs/803.jpg` | jpeg | synthetic, byte-identical to the practice set given to the annotators |
+| `docs/img/guide/mistakes.jpg` | jpeg | synthetic, byte-identical to the picture in the public counting guide |
+| `docs/img/guide/photo_problems.jpg` | jpeg | synthetic, byte-identical to the picture in the public counting guide |
+| `docs/img/guide/post_example.jpg` | jpeg | synthetic, byte-identical to the picture in the public counting guide |
+| `docs/img/guide/practice_tool.jpg` | jpeg | synthetic, byte-identical to the picture in the public counting guide |
+| `docs/img/guide/warp_weft.jpg` | jpeg | synthetic, byte-identical to the picture in the public counting guide |
+| `docs/img/guide/weave_types.jpg` | jpeg | synthetic, byte-identical to the picture in the public counting guide |
 | `docs/img/overview_synthetic.png` | png | synthetic, generated by tools/make_readme_figure.py |
 
 Other binary files (not images): `methods/results/ruler/calib150.pkl`.
@@ -101,7 +101,7 @@ Every image was also inspected visually: the demo crops are the three synthetic 
 
 ## 6. Size budget
 
-Total 67.8 MB in 1116 files (GitHub: no file over 50 MB, repository well under 1 GB; no Git LFS needed). Largest folders and files:
+At scan time: 67.8 MB in 1116 files (GitHub: no file over 50 MB, repository well under 1 GB; no Git LFS needed). Largest folders and files:
 
 | Folder | MB |
 |---|---|
@@ -138,29 +138,29 @@ Total 67.8 MB in 1116 files (GitHub: no file over 50 MB, repository well under 1
 | `methods/guard/results/real_counts.csv` | 0.92 |
 | `camera_aug/stress/legacy13/manifest.csv` | 0.90 |
 
-Left out on purpose (sizes in the private project): photo-derived images and PDFs, `camera_aug/stress/` (about 2.8 GB of renders), `cnn/data/` (about 2.1 GB of synthetic and rectified training data), raw CountGD dumps (about 80 MB), the LoRA adapter and every checkpoint (the 43 MB synthetic-only CNN checkpoint can be attached to a GitHub release), the 2024 notebooks.
+Left out on purpose (sizes in the private project): photo-derived images and PDFs, `camera_aug/stress/` (about 2.8 GB of renders), `cnn/data/` (about 2.1 GB of synthetic and rectified training data), raw CountGD dumps (about 80 MB), the LoRA adapter and every checkpoint (the 43 MB synthetic-only CNN checkpoint can be attached to a GitHub release), the exploratory notebooks.
 
 ## 7. Functional checks
 
-Reproduction test of Oct 12 2026: a fresh copy of this repository, a new Python 3.11 virtual environment with only requirements.txt plus the documented optional scikit-learn and openpyxl (numpy 1.26.4, scipy 1.17.1, pandas 3.0.6, matplotlib 3.11.2, opencv-python-headless 4.11.0.86, Pillow 12.3.0, scikit-learn 1.9.1, openpyxl 3.1.5) and Node.js 22; no photos, no human labels, no GPU, no API key, no PICKGLASS_* variable set. Each output was compared with the released file (SHA256SUMS).
+Reproduction test at scan time: a fresh copy of the staged repository, a new Python 3.11 virtual environment with only requirements.txt plus the documented optional scikit-learn and openpyxl (numpy 1.26.4, scipy 1.17.1, pandas 3.0.6, matplotlib 3.11.2, opencv-python-headless 4.11.0.86, Pillow 12.3.0, scikit-learn 1.9.1, openpyxl 3.1.5) and Node.js 22; no photos, no human labels, no GPU, no API key, no PICKGLASS_* variable set. Each output was compared with the released file (SHA256SUMS).
 
 | Check | Command | Result |
 |---|---|---|
 | Checksums of the frozen files and of every file | `python3 tools/verify_checksums.py` | all match (before and after the runs below, except the run-stamped outputs listed in the last rows) |
 | README figure (frozen counter on a synthetic fabric) | `python3 tools/make_readme_figure.py` | byte-identical to docs/img/overview_synthetic.png |
-| Ruler summary (Tab. S10 numbers) | `python3 methods/ruler_summary.py` | byte-identical (needs scikit-learn) |
-| PickGlass-Stress on legacy-13 (Tab. S16) | `python3 camera_aug/score_stress.py; cd paper && python3 tools/make_camera_stress_supp.py` | byte-identical |
-| px per yarn audit (Tab. S15) | `python3 camera_aug/label_audit.py summarise` | 4 outputs byte-identical; label_audit_long.csv.gz identical after decompression (gzip header time differs) |
-| Native-resolution guard (Tab. S18) | `python3 methods/guard/analyze_real.py; python3 methods/guard/posthoc_supplement.py --tables` | 12 result files byte-identical |
-| Quality-aware cascade (Tab. S13), incl. the frozen decisions | `cd paper && python3 tools/cascade_tradeoff.py --eval` | byte-identical; cascade_150_decisions.csv rewritten with MD5 57d49a4d... |
-| Label-free per-scene numbers, crop sensitivity, legacy degradation, tolerance tables | `cd paper && python3 tools/scenes76_labelfree.py; python3 tools/make_supp_tables.py; python3 tools/degradation_table.py; python3 tools/tolerance_legacy13.py` | byte-identical |
+| Ruler summary (Tab. S7 numbers) | `python3 methods/ruler_summary.py` | byte-identical (needs scikit-learn) |
+| PickGlass-Stress on legacy-13 (extended supplement) | `python3 camera_aug/score_stress.py; cd paper && python3 tools/make_camera_stress_supp.py` | byte-identical |
+| px per yarn audit (Tab. S10) | `python3 camera_aug/label_audit.py summarise` | 4 outputs byte-identical; label_audit_long.csv.gz identical after decompression (gzip header time differs) |
+| Native-resolution guard (Tab. S12) | `python3 methods/guard/analyze_real.py; python3 methods/guard/posthoc_supplement.py --tables` | 12 result files byte-identical |
+| Quality-aware cascade (Tab. S8), incl. the frozen decisions | `cd paper && python3 tools/cascade_tradeoff.py --eval` | byte-identical; cascade_150_decisions.csv rewritten with MD5 57d49a4d... |
+| Label-free per-scene numbers (Tab. 3), crop sensitivity (Tab. S2), legacy degradation (Tab. S5), tolerance tables | `cd paper && python3 tools/scenes76_labelfree.py; python3 tools/make_supp_tables.py; python3 tools/degradation_table.py; python3 tools/tolerance_legacy13.py` | byte-identical |
 | Generic no-reference IQA (Tab. S6) | `cd paper && python3 tools/iqa_generic.py` | iqa_legacy13.csv, iqa_genai.csv, iqa_summary.json, supp_iqa.tex byte-identical |
-| LoRA and generative-enhancement tables | `python3 ft_results/code/make_ft_tables.py; python3 genai_sr/make_paper_table.py` | byte-identical |
+| Molmo2-4B + LoRA and generative-enhancement (Tab. S11) tables | `python3 ft_results/code/make_ft_tables.py; python3 genai_sr/make_paper_table.py` | byte-identical |
 | combined-v1 predictions (frozen rule on the frozen counter's outputs) | `python3 methods/combined_v1.py --predict` | combined_v1_150_wide.csv (the Tab. 1 input) byte-identical; 4 other outputs identical except their run-timestamp column |
 | combined-v1 held-out synthetic test | `python3 methods/combined_v1_eval.py --synth` | same numbers and the same decision (better than both components); the JSON differs only in its creation time and in the hash of the released, path-redacted PREREG copy |
-| Annotation tool tests | `node annotation_tool/tests/test_core.js, test_scenes.js, test_attention.js; python3 annotation_tool/tests/test_scenes.py, test_attention.py` | 38 of 39 (the 39th checks that every crop file exists: photo release), 11/11, 9/9, 7/7, 8/8 |
+| Annotation tool tests | `node annotation_tool/tests/test_core.js, test_scenes.js, test_attention.js; python3 annotation_tool/tests/test_scenes.py, test_attention.py` | 38 of 39 (the 39th checks that every crop file exists, so it needs the photos, released after review), 11/11, 9/9, 7/7, 8/8 |
 | Export checker, two annotators | `python3 annotation_tool/kit/check_export.py <A1 export> --second <A2 export>` | on synthetic exports of the demo set: per-annotator checks, overlap, shared-name and completeness-rule (8-dot line) detection work |
-| Needs the photos (not reproducible from the repository alone) | `python3 vlm/make_scaffold_figs.py` | stops at Fig. S14 (drawn from legacy crop a2) before its table and Fig. S15 |
+| Needs the photos (not reproducible from the repository alone) | `python3 vlm/make_scaffold_figs.py` | stops at the first scaffold figure of the extended supplement (drawn from legacy crop a2) before its table and the second figure |
 
-57 released result files were regenerated byte-identically: `camera_aug/results/label_audit_pairs.csv`, `camera_aug/results/label_audit_summary.csv`, `camera_aug/results/label_audit_sweep.csv`, `camera_aug/results/label_audit_thresholds.json`, `camera_aug/results/stress_legacy13_metrics.csv`, `camera_aug/results/stress_legacy13_per_count.csv`, `ft_results/tables/ft_supp_table.tex`, `ft_results/tables/legacy13_ft_rows.tex`, `genai_sr/results/genai_hallucination_summary.json`, `genai_sr/results/genai_hallucination_table.csv`, `methods/guard/results/ph_cascade_policies.csv`, `methods/guard/results/ph_clean150_scenes.csv`, `methods/guard/results/ph_defocus_detail.csv`, `methods/guard/results/ph_flag_vs_failure.csv`, `methods/guard/results/ph_rhr_scene_cluster.csv`, `methods/guard/results/real_posthoc_ungated_summary_repro.csv`, `methods/guard/results/real_repro_checks.csv`, `methods/guard/results/real_table_cascade.csv`, `methods/guard/results/real_table_cascade_vs_vlm.csv`, `methods/guard/results/real_table_clean.csv`, `methods/guard/results/real_table_genai.csv`, `methods/guard/results/real_tables.md`, `methods/results/combined_v1_150_wide.csv`, `methods/results/combined_v1_eval_synth_by_condition.csv`, `methods/results/ruler/summary.json`, `paper/tables/camera_stress_legacy13.csv`, `paper/tables/camera_stress_legacy13.tex`, `paper/tables/camera_stress_legacy13_supp.tex`, `paper/tables/cascade_150_decisions.csv`, `paper/tables/cascade_150_escalation.csv`, `paper/tables/cascade_failure_catch.csv`, `paper/tables/cascade_legacy13.csv`, `paper/tables/cascade_legacy13_by_condition.csv`, `paper/tables/cascade_legacy13_inputs.csv`, `paper/tables/cascade_main.tex`, `paper/tables/cascade_signal_quality.csv`, `paper/tables/cascade_sweep.csv`, `paper/tables/degradation_legacy13.csv`, `paper/tables/degradation_legacy13_conf.csv`, `paper/tables/degradation_legacy13_per_image.csv`, `paper/tables/fabric_groups_candidate.csv`, `paper/tables/genai_hallucination.csv`, `paper/tables/genai_hallucination.tex`, `paper/tables/iqa_genai.csv`, `paper/tables/iqa_legacy13.csv`, `paper/tables/iqa_summary.json`, `paper/tables/quality76.csv`, `paper/tables/ruler_calib.csv`, `paper/tables/ruler_calib.tex`, `paper/tables/scenes76_labelfree.json`, `paper/tables/supp_crop_sensitivity.tex`, `paper/tables/supp_degradation_legacy.tex`, `paper/tables/supp_iqa.tex`, `paper/tables/supp_tolerance.tex`, `paper/tables/tolerance_image_paired.csv`, `paper/tables/tolerance_legacy13.csv`, `paper/tables/tolerance_paired.csv`.
+57 released result files were regenerated byte-identically at scan time: `camera_aug/results/label_audit_pairs.csv`, `camera_aug/results/label_audit_summary.csv`, `camera_aug/results/label_audit_sweep.csv`, `camera_aug/results/label_audit_thresholds.json`, `camera_aug/results/stress_legacy13_metrics.csv`, `camera_aug/results/stress_legacy13_per_count.csv`, `ft_results/tables/ft_supp_table.tex`, `ft_results/tables/legacy13_ft_rows.tex`, `genai_sr/results/genai_hallucination_summary.json`, `genai_sr/results/genai_hallucination_table.csv`, `methods/guard/results/ph_cascade_policies.csv`, `methods/guard/results/ph_clean150_scenes.csv`, `methods/guard/results/ph_defocus_detail.csv`, `methods/guard/results/ph_flag_vs_failure.csv`, `methods/guard/results/ph_rhr_scene_cluster.csv`, `methods/guard/results/real_posthoc_ungated_summary_repro.csv`, `methods/guard/results/real_repro_checks.csv`, `methods/guard/results/real_table_cascade.csv`, `methods/guard/results/real_table_cascade_vs_vlm.csv`, `methods/guard/results/real_table_clean.csv`, `methods/guard/results/real_table_genai.csv`, `methods/guard/results/real_tables.md`, `methods/results/combined_v1_150_wide.csv`, `methods/results/combined_v1_eval_synth_by_condition.csv`, `methods/results/ruler/summary.json`, `paper/tables/camera_stress_legacy13.csv`, `paper/tables/camera_stress_legacy13.tex`, `paper/tables/camera_stress_legacy13_supp.tex`, `paper/tables/cascade_150_decisions.csv`, `paper/tables/cascade_150_escalation.csv`, `paper/tables/cascade_failure_catch.csv`, `paper/tables/cascade_legacy13.csv`, `paper/tables/cascade_legacy13_by_condition.csv`, `paper/tables/cascade_legacy13_inputs.csv`, `paper/tables/cascade_main.tex`, `paper/tables/cascade_signal_quality.csv`, `paper/tables/cascade_sweep.csv`, `paper/tables/degradation_legacy13.csv`, `paper/tables/degradation_legacy13_conf.csv`, `paper/tables/degradation_legacy13_per_image.csv`, `paper/tables/fabric_groups_candidate.csv`, `paper/tables/genai_hallucination.csv`, `paper/tables/genai_hallucination.tex`, `paper/tables/iqa_genai.csv`, `paper/tables/iqa_legacy13.csv`, `paper/tables/iqa_summary.json`, `paper/tables/quality76.csv`, `paper/tables/ruler_calib.csv`, `paper/tables/ruler_calib.tex`, `paper/tables/scenes76_labelfree.json`, `paper/tables/supp_crop_sensitivity.tex`, `paper/tables/supp_degradation_legacy.tex`, `paper/tables/supp_iqa.tex`, `paper/tables/supp_tolerance.tex`, `paper/tables/tolerance_image_paired.csv`, `paper/tables/tolerance_legacy13.csv`, `paper/tables/tolerance_paired.csv`.
 

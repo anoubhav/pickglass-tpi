@@ -1,7 +1,7 @@
-"""Legacy (2019) ground truth for the VLM evaluation.
+"""Legacy ground truth (hand counts) for the VLM evaluation.
 
 The parser is NOT rewritten here: `load_gt`, `_parse_count` and `_parse_weave` are
-taken verbatim from the faithful 2019 harness (pipeline/run_pipeline.py) by
+taken verbatim from the faithful legacy harness (pipeline/run_pipeline.py) by
 extracting just those three function definitions with `ast`, so that the harness'
 heavy top-level imports (scipy.ndimage.interpolation, seg_final, ...) are not needed.
 
@@ -10,7 +10,7 @@ heavy top-level imports (scipy.ndimage.interpolation, seg_final, ...) are not ne
 
 Conventions (as in the harness): text formulas 'a + b*2 = N' -> N; ranges '110-120'
 -> midpoint (weft_lo/weft_hi kept, flagged as is_range); weave Excel dates
-2019-01-01 -> '1/1' (plain), 2019-02-01 -> '2/1' (twill); a trailing '*' on the image
+YYYY-01-01 -> '1/1' (plain), YYYY-02-01 -> '2/1' (twill); a trailing '*' on the image
 name -> unclear=True.
 """
 from __future__ import annotations

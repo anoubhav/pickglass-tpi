@@ -4,7 +4,7 @@ Two routes: **(A)** count new photos with the released pipeline (no labels, minu
 
 ## 0. Capture
 
-What the capture-quality study says (paper Sec. 5.4 and 5.5; supplement S9 and S16 to S18):
+What the capture-quality study says (paper Secs. 5.4 to 5.6; supplement Secs. S9 and S13 to S15):
 
 - Press the pick glass flat on the fabric and keep the **whole window and the engraved scales** in the frame (the scales give the corners and the scale).
 - Resolution: at least **4 px per yarn** on the denser axis, and about 7 for flip-free counts (the paper's rule, a guide, not a guarantee: counts collapse below about 2.5 to 3.5 px per yarn, and some counts still flip the lattice hypothesis below about 7 px per yarn). The window then needs at least 4 x threads-per-inch pixels across (about 7 x for flip-free counts); a 12.5 MP photo through the glass gives about 1700 px per inch. Shoot at full sensor resolution, no digital zoom.
@@ -18,7 +18,7 @@ What the capture-quality study says (paper Sec. 5.4 and 5.5; supplement S9 and S
 python3 tools/count_photos.py new_photos/*.jpg --out new_counts.csv --crops-dir new_crops/
 ```
 
-For each photo: corners from the glass's engraved scales (`methods/ruler_calib.py`), rectification (`common/rectify.py` convention), the frozen counter (`methods/results/counting_frozen_final.py`), and warnings below 4 px per yarn (unreliable) or between 4 and 7 (flips possible), for low confidence and for a weak ruler fit. The ruler detector is tuned to the glass used for PickGlass (26 fine ticks and 11 coarse ticks on adjacent edges). For another glass, give the corners yourself:
+For each photo: corners from the glass's engraved scales (`methods/ruler_calib.py`), rectification (`common/rectify.py` convention), the frozen counter (`methods/results/counting_frozen_final.py`), and warnings below 4 px per yarn (unreliable) or between 4 and 7 (flips possible), for low confidence and for a weak ruler fit. The ruler detector is tuned to the glass used for PickGlass (a fine scale of 26 ticks on two adjacent edges and a coarse scale of 11 ticks on the other two). For another glass, give the corners yourself:
 
 ```bash
 python3 tools/count_photos.py new_photos/*.jpg --corners my_corners.csv --out new_counts.csv
@@ -31,7 +31,7 @@ Counts are **threads per window side**; they are threads per inch only for an op
 
 ### B1. Photos
 
-Put the photos under `$PICKGLASS_NOTEBOOKS/final_image_set/` as `{id}.jpeg`, with ids continuing after the 150 PickGlass files (150, 151, ...). The scripts loop over `range(common/rectify.py N_IMAGES)`, so raise `N_IMAGES` to the new total (or keep a separate collection in its own `PICKGLASS_NOTEBOOKS` folder with its own ids from 0).
+Put the photos under `$PICKGLASS_NOTEBOOKS/final_image_set/` as `{id}.jpeg`, with ids continuing after the 150 PickGlass files (150, 151, ...). The scripts loop over `range(N_IMAGES)` (`N_IMAGES` is set in `common/rectify.py`), so raise `N_IMAGES` to the new total (or keep a separate collection in its own `PICKGLASS_NOTEBOOKS` folder with its own ids from 0).
 
 ### B2. Window polygon (or ruler)
 
@@ -53,14 +53,14 @@ python3 annotation_tool/prepare.py --ids 150 151 152      # crops/, crops_enh/, 
 
 Follow [annotation_protocol.md](annotation_protocol.md):
 
-As for PickGlass, have **two** annotators count every new scene from scratch, so that their agreement is measured and the reference is their mean. Agreement on one photo is not the noise floor: the paper takes the spread between one annotator's counts of two photos of the same fabric patch as the noise floor (paper Sec. 3, supplement S4). One bundle per annotator, each with its own storage key:
+As for PickGlass, have **two** annotators count every new scene from scratch, so that their agreement is measured. In the paper, A2 (textile-trained) is the reference for every main result and A1 (no textile training) is a non-expert human baseline; the plan fixed before labeling scored against the mean of both (supplement Tab. S18), so scoring against A2 is a declared deviation. Fix your primary reference before you look at the counts. Agreement on one photo is not the noise floor: what matters is how closely one annotator repeats a count across two photos of the same fabric patch, which for the paper's reference is a median 8.9 % (paper Sec. 5.3 and Tab. 2; supplement Sec. S4). One bundle per annotator, each with its own storage key:
 
 ```bash
 python3 annotation_tool/kit/build_bundle.py --data annotation_tool/data --out bundle_A1 --hide-proposals --static --storage-key A1
 python3 annotation_tool/kit/build_bundle.py --data annotation_tool/data --out bundle_A2 --hide-proposals --static --storage-key A2
 ```
 
-Host each bundle (static) under its own unguessable path, screen the annotators first, ask each for a Download after 10 photos, and check every delivery:
+Host each bundle (static) under its own unguessable path, screen the annotators first, ask each for a Download after 10 photos, and check every export:
 
 ```bash
 python3 annotation_tool/kit/check_export.py annotations_A1_*.json annotations_A1_*.csv --second annotations_A2_*.json annotations_A2_*.csv
@@ -82,7 +82,8 @@ Run every method on the new crops **before** looking at the labels, and save the
 
 - PG-Lattice (frozen): `python3 methods/run_ours_150.py` (all ids up to `N_IMAGES`; writes `methods/predictions_ours_150.csv` and `methods/proposals.json`, so run it in your branch).
 - VLMs: `vlm/run_vlm.py` / `vlm/openrouter_client.py` (needs `OPENROUTER_API_KEY`; prompts in `vlm/prompts.py`; raw answers are logged in `vlm/raw/`).
-- CNN: `cnn/evaluate.py`; Molmo2 and CountGD: `gpu_results/code/`, `gpu_results/countgd/code/` (CUDA machine, `PICKGLASS_GPU_HOST`).
+- CNN: `cnn/evaluate.py`; Molmo2-8B and CountGD: `gpu_results/code/`, `gpu_results/countgd/code/` (CUDA machine, `PICKGLASS_GPU_HOST`); CountGD was also run locally on Apple MPS for the legacy crops (`cnn/countgd/run_countgd.py`).
+- Molmo2-4B + synthetic LoRA (ours): `ft_results/code/` (`train_lora.py` tunes Molmo2-4B on synthetic crops only, `infer_ft.py` runs the tuned model; the adapter is not in git, see [THIRD_PARTY.md](../THIRD_PARTY.md)).
 - Any other method: write a wide CSV with columns `image_id, <key>__v, <key>__h` (VLM convention: `__v` = vertical yarns = our `h`), which `score150.py --extra-wide PATH::key` reads.
 
 ### B7. Score
@@ -93,7 +94,7 @@ python3 tools/score150.py --labels ../annotation_tool/annotations_A1.csv --label
     --extra-wide ../vlm/results/rect150_P1_predictions_wide.csv::gpt-6.1-sol --fig --fig-dir ../scratch/my_tables
 ```
 
-One row per scene by default (`--unit scene`), the mean of the annotators as the reference, bootstrap intervals over scenes, and the pre-registered `both5`, `both10`, `bias_med`. Always pass `--out` (the default writes into `paper/tables/`). Add `--groups <csv>` to cluster the bootstrap by fabric when several scenes show one fabric.
+One row per scene by default (`--unit scene`), the mean of the annotators as the reference (the rule fixed before labeling; the paper reports it in supplement Tab. S18) or one annotator with `--annotator NAME` (the paper's Tab. 1 scores against A2 and is built by `paper/tools/reference/make_tab1_ref.py`), bootstrap intervals over scenes, and the pre-registered `both5`, `both10`, `bias_med`. Always pass `--out` (the default writes into `paper/tables/`). Add `--groups <csv>` to cluster the bootstrap by fabric when several scenes show one fabric.
 
 ## C. Add a new method
 

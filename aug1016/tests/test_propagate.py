@@ -10,7 +10,7 @@
 3. Dedup: same annotator + image in two files -> newest timestamp wins; done / nonwoven filters
 4. Swap: k = 90/270 rows have h <-> v, angles swapped, warp_dir swapped; k = 0/180 unchanged;
    group == source_id; only usable manifest rows; review decisions applied
-5. Scenes (CLI default since Oct 8 2026): a label on a scene's rep reaches the augmentations of every
+5. Scenes (CLI default): a label on a scene's rep reaches the augmentations of every
    file of the scene, rotated twice (rep -> file by the file's scene_rot_k, file -> aug by k_deg);
    group == scene_id; a copy's label fills an unlabelled rep's scene; --no-scenes = test 4 behaviour
 Fixture files are (over)written to tests/fixtures/ (never deleted).

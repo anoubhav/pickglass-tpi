@@ -1,8 +1,8 @@
 # Demo dataset: three synthetic practice fabrics
 
 `data/` is a complete annotation-tool dataset (manifest + rectified crops) of three **synthetic** fabrics made with
-`cnn/synth.py` (seeds 986514, 969471, 830348; ids 801-803). No real photo is involved. It is the practice set of the
-paper's job post.
+`cnn/synth.py` (seeds 986514, 969471, 830348; ids 801-803). No real photo is involved. It is the public practice set
+given to the annotators; the screening test was a separate two-photo bundle.
 
 ```bash
 python3 annotation_tool/server.py --demo --open      # http://127.0.0.1:8766/ ; autosave -> demo/data/saved/

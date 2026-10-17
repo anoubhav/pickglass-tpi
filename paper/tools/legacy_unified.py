@@ -1,4 +1,4 @@
-"""legacy_unified.py -- the legacy-13 table under ONE crop rule (Job B, 2026-10-07/08).
+"""legacy_unified.py -- the legacy-13 table under ONE crop rule (supplement Tab. S3).
 
 Every row is scored on the CANONICAL legacy input: vlm/crops/legacy/{name}.png
 (vlm/data_vlm.detect_legacy_window trims the dark pick-glass frame -- per side, axis-aligned,
@@ -8,14 +8,14 @@ Molmo2 (Mac 4-bit MLX and GPU bf16) and CountGD saw: the PNGs reproduce bit-exac
 data_vlm.legacy_window_crop; the GPU copies used by Molmo2 bf16 have the same file md5; CountGD's
 crops, recomputed on the server from md5-identical originals, are pixel-identical (20/20 decoded
 arrays).  Per-image boxes/trims and visual check: tables/src/legacy_crop_rule*.  The classical counters,
-the CNN and the 2019 baselines were re-run on the same PNGs for this table.
+the CNN and the legacy baselines were re-run on the same PNGs for this table.
 
 Sources (all read-only):
-  GT            methods/legacy_2019/run_pipeline.py load_gt (2019 harness parser, extracted by ast)
+  GT            methods/legacy_2019/run_pipeline.py load_gt (legacy harness parser, extracted by ast)
   classical     methods/results/legacy13_vlmcrops_estimators.csv        (methods/run_legacy_vlmcrops.py,
                 frozen counter methods/results/counting_frozen_final.py) + ..._latency.csv
-  2019 doc3     methods/legacy_2019/run_vlmcrops/results.csv  (+ seed_sweep_precropped.csv)
-  2019 test.py  testpy_rgb_2019 rows of legacy13_vlmcrops_estimators.csv (weft only)
+  legacy doc3   methods/legacy_2019/run_vlmcrops/results.csv  (+ seed_sweep_precropped.csv)
+  legacy test.py  testpy_rgb_2019 rows of legacy13_vlmcrops_estimators.csv (weft only)
   CNN           cnn/runs/synth_r18_v2mix_aniso/eval_vlmcrops/legacy_predictions_vlm.csv (+ latency json)
   VLMs (API, Molmo2 4-bit MLX)  vlm/results/legacy_predictions.csv
   Molmo2 bf16   gpu_results/molmo2_bf16/results/legacy_predictions.csv if synced, else the read-only
@@ -24,7 +24,7 @@ Sources (all read-only):
 
 Scoring: 13 images x 2 counts = 26.  'axis' (PRIMARY, as in the paper): vertical yarns
 (h_count) <-> warp, horizontal yarns (v_count) <-> weft.  'sorted': larger prediction <->
-larger GT (the VLM job's 'best assignment').  Parse failures are not imputed (n shown).
+larger GT (the VLM scorer's 'best assignment').  Parse failures are not imputed (n shown).
 95 % CIs: percentile bootstrap, 10 000 resamples of the IMAGES (both counts of an image stay
 together).  Paired tests (ours vs others): paired bootstrap over images on the difference of
 MAE / MAPE, Wilcoxon signed-rank on the per-count absolute (and absolute %) error differences
@@ -72,13 +72,13 @@ P_CNN = os.path.join(CNN_RUN, "eval_vlmcrops", "legacy_predictions_vlm.csv")
 P_CNN_LAT = os.path.join(CNN_RUN, "eval_vlmcrops", "latency.json")
 P_VLM = os.path.join(ROOT, "vlm", "results", "legacy_predictions.csv")
 P_MOLMO_SYNC = os.path.join(ROOT, "gpu_results", "molmo2_bf16", "results", "legacy_predictions.csv")
-# Job A synced the GPU-side results to gpu_results/results/ (md5 23018a88..., identical to the snapshot)
+# GPU-side results synced to gpu_results/results/ (md5 23018a88..., identical to the snapshot)
 P_MOLMO_SYNC2 = os.path.join(ROOT, "gpu_results", "results", "legacy_predictions.csv")
 P_MOLMO_SNAP = os.path.join(TAB, "src", "molmo2_bf16_legacy_predictions.csv")
 P_CG = os.path.join(ROOT, "gpu_results", "countgd", "outputs", "results", "legacy_predictions.csv")
-# Job 4 (Oct 7): Molmo2-4B base and LoRA-tuned on synthetic pointing data only (ft_results/code/summarize_ft.py)
+# Molmo2-4B base and LoRA-tuned on synthetic pointing data only (ft_results/code/summarize_ft.py)
 P_FT = os.path.join(ROOT, "ft_results", "results", "legacy_predictions.csv")
-# Job P (Oct 8): CNN augmentation / pseudo-label variants of cnn/RESULTS_AUG.md (scene-split round), scored once
+# CNN augmentation / pseudo-label variants of cnn/RESULTS_AUG.md (scene-split selection), scored once
 # each on legacy-13 by cnn/train_aug.py final after selection (cnn/runs_aug/selection.json).
 AUG_FINAL = os.path.join(ROOT, "cnn", "runs_aug", "final")
 P_CG_MET = os.path.join(ROOT, "gpu_results", "countgd", "outputs", "results", "stageA_legacy_metrics.csv")
@@ -238,7 +238,7 @@ def countgd():
 
 
 def molmo4b_ft():
-    """Molmo2-4B, base and LoRA-tuned on 12k synthetic crops with exact crossing points (Job 4). The primary
+    """Molmo2-4B, base and LoRA-tuned on 12k synthetic crops with exact crossing points. The primary
     readout of the tuned model (P1) was fixed on synthetic validation (ft_results/results/selection.json)."""
     if not os.path.exists(P_FT):
         return []
@@ -262,7 +262,7 @@ def molmo4b_ft():
 
 
 def cnn_aug():
-    """Job P (Oct 8): the tile CNN after label-exact augmentation (V2, synthetic only) and after synthetic
+    """The tile CNN after label-exact augmentation (V2, synthetic only) and after synthetic
     pre-training + fine-tuning on our counter's confident counts for 28 of the 76 scenes (V4; V5 = V4 + TTA).
     Variants and checkpoints were chosen on synthetic + held-out pseudo-labelled scenes only
     (cnn/runs_aug/PREREG.json, selection.json); legacy-13 was predicted once per variant."""
@@ -411,7 +411,7 @@ def mean_of_repeats(ms, key, label):
 
 # ============================================================================ crop sensitivity
 def crop_sensitivity(gt, cur):
-    """ours / gabor / CNN / 2019 under the earlier crop rules vs the canonical one (axis-matched)."""
+    """ours / gabor / CNN / legacy pipeline under the earlier crop rules vs the canonical one (axis-matched)."""
     rows = []
 
     def add(method, rule, h, v, note=""):
@@ -449,7 +449,7 @@ def crop_sensitivity(gt, cur):
             g = g.set_index("key")
             add("2019 dot map + transition count", f"canonical (seed {s})", g.pred_warp_per_inch,
                 g.pred_weft_per_inch, "k-means seed sweep")
-    # 2019 test.py: xlsx column (2019 crop) vs re-run on the canonical crop
+    # legacy test.py: xlsx column (legacy crop) vs re-run on the canonical crop
     x = r1.xlsx_rgb_weft_pred
     m = P("x", "t", "--", {}, x, weft_only=True)
     r = score(m, gt, "axis")[0]
@@ -568,17 +568,17 @@ def write_tex(T, paired_df, path_full, path_main):
     open(path_full, "w").write("\n".join(lines) + "\n")
 
     # compact drop-in (one column), key rows only
-    # Job 6: FFT max-peak and lattice-only rows dropped from the main table for space (both stay in Tab. S2)
+    # FFT max-peak and lattice-only rows are left out of the compact table for space (both stay in the full table, Tab. S3)
     keep = ["ref:loo_mean", "2019:doc3", "est:gabor", "est:ours",
             "cnn:synth_r18", "countgd:CG-B-yarn-ex3", "countgd:CG-W-ex3-lat",
             "vlm:molmo2_8b_bf16|P1|r0", "vlm:molmo2_8b_bf16|P4q|r0", "ft:molmo2_4b_synthft|P1",
             "vlm:gpt-6.1-sol|P1|r0", "vlm:gemini-3.8-flash|P1|r0",
             "vlm:qwen3.8-27b|P1|r0", "vlm:gemma-4-26b-a4b|P1|r0"]
-    # Job P (Oct 8, space): Molmo2-8B P1 and Gemma-4 rows also moved to Tab. S2 (numbers stay in the text)
+    # Molmo2-8B P1 and Gemma-4 rows are also kept only in the full table (Tab. S3), for space
     keep = [k for k in keep if k not in ("vlm:molmo2_8b_bf16|P1|r0", "vlm:gemma-4-26b-a4b|P1|r0")]
-    # Job W6 (Oct 12): the 2019 algorithm leaves the main table (supplement only)
+    # the legacy algorithm is not in the compact table (full table only)
     keep = [k for k in keep if k != "2019:doc3"]
-    # Job P (Oct 8): Qwen3.8-Max-Prime and Claude Fable rows moved to Tab. S2 for space; the pseudo-label CNN added
+    # Qwen3.8-Max-Prime and Claude Fable rows stay in the full table (Tab. S3) for space; the pseudo-label CNN is added
     keep.insert(keep.index("cnn:synth_r18") + 1, "aug:V4_b0")
     a = ax.set_index("key")
     L = [r"% Generated by paper/tools/legacy_unified.py -- do not edit by hand.",
@@ -590,7 +590,7 @@ def write_tex(T, paired_df, path_full, path_main):
                "countgd:CG-W-ex3-lat": r"CountGD, cells $\to$ lattice$^b$",
                "vlm:molmo2_8b_bf16|P1|r0": "Molmo2-8B, P1",
                "vlm:molmo2_8b_bf16|P4q|r0": r"Molmo2-8B, P4q (pointing)",
-               "ft:molmo2_4b_synthft|P1": r"Molmo2-4B + LoRA, P1$^c$",  # Job Z4: footnotes a, b, c in order
+               "ft:molmo2_4b_synthft|P1": r"Molmo2-4B + LoRA, P1$^c$",  # footnotes a, b, c in order
                "2019:testpy": r"2019 RGB irregularity$^a$",
                "2019:doc3": "2019 dot map + transitions",
                "cnn:synth_r18": "CNN, synthetic only",
@@ -663,7 +663,7 @@ def main():
               ("ours vs CNN synthetic", ours, by_key["cnn:synth_r18"]),
               ("ours vs leave-one-out mean", ours, by_key["ref:loo_mean"]),
               ("log-Gabor vs GPT-6.1-sol P1", by_key["est:gabor"], g_reps[0])]
-    # Job 6 (Oct 7): best specialist variants vs ours (REVIEW P1-10) and the synthetic-LoRA Molmo2-4B (Job 4)
+    # best specialist variants vs ours and the synthetic-LoRA Molmo2-4B
     comps += [("ours vs Molmo2-8B bf16 P4q", ours, by_key["vlm:molmo2_8b_bf16|P4q|r0"]),
               ("ours vs CountGD cells->lattice (post hoc)", ours, by_key["countgd:CG-W-ex3-lat"])]
     if "ft:molmo2_4b_synthft|P1" in by_key:
@@ -674,7 +674,7 @@ def main():
                   ("Molmo2-4B synthetic LoRA P1 vs CNN synthetic", ft1, by_key["cnn:synth_r18"]),
                   ("Molmo2-4B synthetic LoRA P1 vs GPT-6.1-sol P1", ft1, g_reps[0]),
                   ("Molmo2-4B synthetic LoRA P1 vs leave-one-out mean", ft1, by_key["ref:loo_mean"])]
-    # Job P (Oct 8): pseudo-label fine-tuned CNN (cnn/RESULTS_AUG.md), appended so earlier rows keep their order
+    # pseudo-label fine-tuned CNN (cnn/RESULTS_AUG.md), appended so earlier rows keep their order
     if "aug:V4_b0" in by_key:
         comps += [("ours vs CNN pseudo-label FT B0 (V4)", ours, by_key["aug:V4_b0"]),
                   ("CNN pseudo-label FT B0 (V4) vs CNN synthetic", by_key["aug:V4_b0"], by_key["cnn:synth_r18"]),

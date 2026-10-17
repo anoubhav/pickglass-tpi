@@ -1,4 +1,4 @@
-"""degrade_vlmcrops.py -- Job C (WVAQ capture-quality study for VLMs): degraded versions of the
+"""degrade_vlmcrops.py -- capture-quality study for VLMs: degraded versions of the
 13 hand-counted legacy crops, built ONCE from the canonical crops that the VLMs saw
 (vlm/crops/legacy/{name}.png), then scored with the frozen counter ("ours"), log-Gabor and FFT.
 
@@ -117,7 +117,7 @@ def _job(a):
 
 def score(workers):
 
-    import ablate  # GT via the 2019 harness parser (same as every other legacy row)
+    import ablate  # GT via the legacy harness parser (same as every other legacy row)
     gt = ablate.legacy_gt()
     jobs = [(n, k, v) for n in NAMES13 for k, v in CONDS]
     t0, rows = time.time(), []

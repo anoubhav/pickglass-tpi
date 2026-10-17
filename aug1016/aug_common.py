@@ -1,4 +1,4 @@
-"""Shared helpers for the 2024 augmented set ("1016" = 150 originals + 866 augmentations,
+"""Shared helpers for the earlier augmented set ("1016" = 150 originals + 866 augmentations,
 853 of which survive on disk) -- see README.md in this folder.
 
 Everything geometric goes through ../common/rectify.py so the augmented crops use exactly the
@@ -22,7 +22,7 @@ import cv2
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)                                   # .../wvaq2027
+ROOT = os.path.dirname(HERE)                                   # <repo root>
 sys.path.insert(0, os.path.join(ROOT, "common"))
 import rectify as R  # noqa: E402  (shared contract; never re-implemented here)
 
@@ -81,7 +81,7 @@ def read_voc_polygon(path):
 
 
 def is_convex(pts) -> bool:
-    """Same criterion as the 2024 notebook (cell 62): all edge cross products share a sign."""
+    """Same criterion as the preparation notebook (cell 62): all edge cross products share a sign."""
     p = np.asarray(pts, float)
     cps = []
     for k in range(4):
@@ -301,10 +301,10 @@ def jpeg_blockiness(grey) -> float:
 def stale_points(src_pts, aug_pts):
     """Indices (1-based) of stored aug points that are bit-identical to the SOURCE's point at
     the same index while the polygon as a whole is not identical.  This is the signature of
-    the 2024 notebook's key-point-drop bug: albumentations removes key points that leave the
+    the preparation notebook's key-point-drop bug: albumentations removes key points that leave the
     frame, update_xml_with_new_bbox_and_dimensions() enumerates the survivors from 1, and the
     trailing <xN>/<yN> tags keep the SOURCE values -> the polygon mixes transformed and
-    untransformed corners (convex and in bounds, so the 2024 checks let it through)."""
+    untransformed corners (convex and in bounds, so the notebook's checks let it through)."""
     s, a = np.asarray(src_pts, float), np.asarray(aug_pts, float)
     eq = [m + 1 for m in range(4) if np.all(s[m] == a[m])]
     return [] if len(eq) == 4 else eq

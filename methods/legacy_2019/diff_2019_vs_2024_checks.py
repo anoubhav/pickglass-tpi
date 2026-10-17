@@ -1,6 +1,7 @@
-"""Quantify two pre-k-means differences between 2019 filterkmhigh(sari).py and notebook cells[26]:
-(1) bilateral order: 2019 bilateralFilter(thresh{0,1}) then *255  vs  2024 *255 then bilateralFilter
-(2) combination: 2019 f3/2 + vis/2 (float)  vs  2024 (f3 + vis)/2 with uint8 operands (wraps >255)."""
+"""Quantify two pre-k-means differences between the original script filterkmhigh(sari).py and notebook cells[26]:
+(1) bilateral order: script bilateralFilter(thresh{0,1}) then *255  vs  notebook *255 then bilateralFilter
+(2) combination: script f3/2 + vis/2 (float)  vs  notebook (f3 + vis)/2 with uint8 operands (wraps >255).
+Variables suffixed 19 hold the script variant, 24 the notebook variant."""
 import os, sys
 import numpy as np, cv2
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -11,9 +12,9 @@ for p in [os.path.join((os.environ.get("PICKGLASS_NOTEBOOKS") or os.path.join(os
     _, _, gray, _ = S.preprocess_image(p)
     th = S.apply_thresholding(gray)
     f3 = S.apply_custom_filter(th)
-    # 2019 order (filterkmhigh.py L65-66)
+    # original-script order (filterkmhigh.py L65-66)
     v19 = 255 * cv2.bilateralFilter(th, 3, 5, 5)
-    # 2024 order (cells[26] apply_bilateral_filtering)
+    # notebook order (cells[26] apply_bilateral_filtering)
     v24 = cv2.bilateralFilter(th * 255, 3, 5, 5)
     print(os.path.basename(p), "thresh dtype", th.dtype, "| bilateral: pixels differing 2019 vs 2024 = %.2f%%" % (100 * (v19 != v24).mean()),
           "| 2024 bilateral == input*255: %s" % np.array_equal(v24, th * 255))

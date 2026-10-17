@@ -1,10 +1,10 @@
-"""legacy.py -- the 20 legacy (2019) pick-glass images with partial hand counts.
+"""legacy.py -- the 20 legacy pick-glass images (from an earlier project) with partial hand counts.
 
 What lives here
 ---------------
 * ``load_gt()``          : parse "Warp-Weft count.xlsx" (top-level copy) into tidy records.
-* ``load_baseline2019()``: the 2019 "predicted weft by RGB irregularity" column that only
-                           exists in the copy under "FR-final attempt/" (a 2019 baseline).
+* ``load_baseline2019()``: the legacy pipeline's "predicted weft by RGB irregularity" column
+                           that only exists in the copy under "FR-final attempt/" (a legacy baseline).
 * ``detect_window(img)`` : simple, documented frame detector for the legacy crops.
 * ``rectify_legacy(name)``: square crop of the detected 1-inch window (S x S, S = mean side).
 * ``duplicate_check()``  : perceptual-hash comparison of legacy crops vs. the 150-image set.
@@ -82,7 +82,7 @@ def _parse_count(v):
 
 
 def _parse_weave(v):
-    """Excel turned '1/1' into 2019-01-01 and '2/1' into 2019-02-01 (US M/D)."""
+    """Excel turned '1/1' into YYYY-01-01 and '2/1' into YYYY-02-01 (US M/D)."""
     if v is None:
         return None
     if isinstance(v, (_dt.datetime, _dt.date)):
@@ -120,7 +120,7 @@ def load_gt(path: str = GT_XLSX):
 
 
 def load_baseline2019(path: str = GT_XLSX_2019PRED):
-    """{'a1': 69.0, ...}: 2019 pipeline's 'predicted weft by RGB irregularity' (weft only)."""
+    """{'a1': 69.0, ...}: legacy pipeline's 'predicted weft by RGB irregularity' (weft only)."""
     import openpyxl
 
     ws = openpyxl.load_workbook(path, data_only=True).active

@@ -1,4 +1,4 @@
-"""ruler_summary.py -- numbers, CIs and paired tests for the ruler self-calibration (Job 3).
+"""ruler_summary.py -- numbers, CIs and paired tests for the ruler self-calibration.
 
 Reads methods/results/ruler/{calib150,count150,perturb150,photodeg150}.csv (+ calib150.pkl) and
 the existing self-consistency results (results/all150_crops.csv: segmentation crops;

@@ -34,7 +34,7 @@ Families (the units of the drop-one ablation, ``drop=``):
 
 Policies: 'whitelist'     = augment_whitelist.json 'policy' (tier A: within ours' clean-run noise)
           'whitelist_ext' = 'policy_extended' (tier A + B) with rotate limited to +-5 deg (the
-                            verification job's recommended start) and its 'zoom' entry mapped onto
+                            augmentation verification's recommended start) and its 'zoom' entry mapped onto
                             the px/inch jitter above (the tile CNN already zooms with exact labels).
           'whitelist_optics' = 'whitelist_ext' + the LABEL-EXACT tier of augment_optics_whitelist.json
                             ('policy': optics, phone capture, stretch / shear / bow; its 'zoom'

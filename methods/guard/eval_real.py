@@ -16,7 +16,7 @@ Inputs (all read-only; every file is md5-checked against the manifest of the stu
             nbpro       genai_sr/outputs/nbpro/<cond>/<key>.png (R-LEG only, supplementary)
   clean150  annotation_tool/data/crops/{0..149}.jpg (the 150 clean crops; no labels used)
   cascade   the 13 legacy crops x 20 degradations of degrade_vlmcrops.py (the cascade's inputs,
-            paper/tables/cascade_legacy13_inputs.csv lineage): <scratchpad>/deg_legacy13/<tag>/<name>.png
+            paper/tables/cascade_legacy13_inputs.csv lineage): $PICKGLASS_SCRATCH/deg_legacy13/<tag>/<name>.png
             (manifest md5)
 
 Per image: estimate_bandwidth -> unguarded frozen estimate (ours, lcn, glare mask, max_work 1024) ->

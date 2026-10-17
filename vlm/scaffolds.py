@@ -1,4 +1,4 @@
-"""Scaffolded visual prompting for VLM thread counting (Job 2, WVAQ 2027).
+"""Scaffolded visual prompting for VLM thread counting (WVAQ 2027).
 
 Hypothesis
 ----------
@@ -38,6 +38,11 @@ Axis convention as everywhere else: vertical_yarns <-> warp (ends), horizontal_y
 
     python scaffolds.py --synth            # write the 3 synthetic design images + labels
     python scaffolds.py --render a1 S1     # write one composite to scaffold/preview/
+
+Provenance: code_md5() hashes this file, and the runners write it to every record as scaffolds_py_md5. The
+records vlm/scaffold/raw/*__rect150__main.jsonl carry 18e1c78bfa3d51779a915fadc987ca26, the MD5 of this module
+when they were run. This released copy differs from it only in docstring wording (the code is unchanged), so
+code_md5() returns a different value.
 """
 from __future__ import annotations
 

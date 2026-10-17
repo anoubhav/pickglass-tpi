@@ -1,4 +1,4 @@
-"""Per-image wall clock of the 2019 doc3.py + count.py pipeline on the canonical legacy crops
+"""Per-image wall clock of the legacy doc3.py + count.py pipeline on the canonical legacy crops
 (sequential, one process, seed 0) -> run_vlmcrops/latency.json.  Same functions as run_pipeline.py."""
 import json, os, sys, time
 import cv2, numpy as np

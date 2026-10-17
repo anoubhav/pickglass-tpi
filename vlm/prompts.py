@@ -24,7 +24,7 @@ PROMPT_SET_VERSION = "v1-2026-10-06"
 JSON_SPEC = '{vertical_yarns:int, horizontal_yarns:int, weave: plain|twill|satin|other}'
 
 PROMPTS = {
-    # --- P1: verbatim from the project brief -------------------------------------
+    # --- P1: the direct-count prompt, fixed before any run -----------------------
     "P1": dict(
         version="v1",
         max_tokens=200,
@@ -61,9 +61,9 @@ PROMPTS = {
               f"Answer JSON {JSON_SPEC}"),
     ),
     # --- P4: pointing on a guide line (two calls: horizontal line, vertical line) ---
-    # v1.1 (2026-10-07): same wording, max_tokens 2500 -> 1024 because degenerate point lists
+    # v1.1: same wording, max_tokens 2500 -> 1024 because degenerate point lists
     # ran to the cap and took >12 min per image on the shared GPU.
-    # v1.2 (2026-10-07): max_tokens 1536.  Molmo2 spends ~11.3 tokens per point, so 1024 only
+    # v1.2: max_tokens 1536.  Molmo2 spends ~11.3 tokens per point, so 1024 only
     # allowed ~90 points (< GT up to 122); 1536 allows ~135.  v1/v1.1 records (a1, a2) all
     # stopped on their own except a1 qc_guide_v (quarter patch, degenerate list at the cap).
     "P4h": dict(

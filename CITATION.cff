@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this code or data, please cite the paper below (final title; venue details after review)."
+message: "If you use this code or data, please cite the paper below."
 title: "PickGlass-TPI: counting threads per inch from smartphone photos through a pick glass"
 type: software
 authors:
@@ -9,7 +9,6 @@ authors:
 repository-code: "https://github.com/anoubhav/pickglass-tpi"
 license: MIT
 version: "0.1.0"
-date-released: "2026-10-14"
 preferred-citation:
   type: conference-paper
   title: "Image Quality and the Reliability of Fabric-Density Measurement: Counting Threads from Smartphone Photos Through a Pick Glass"
@@ -19,4 +18,3 @@ preferred-citation:
       affiliation: "Indian Institute of Technology Madras"
   collection-title: "WACV 2027 Workshop on Image/Video/Audio Quality Assessment in Computer Vision, VLM and Diffusion Model (WVAQ), under review"
   year: 2027
-  notes: "Final title (2026-10-14). TODO: venue, pages and DOI after acceptance; set date-released to the day of the first public commit."

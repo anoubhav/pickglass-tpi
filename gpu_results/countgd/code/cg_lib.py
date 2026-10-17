@@ -22,7 +22,7 @@ import cv2
 import numpy as np
 from scipy.ndimage import gaussian_filter1d
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))      # ~/fabric_wvaq2027/countgd
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))      # gpu_results/countgd (or its GPU-server copy)
 DATA = os.path.join(ROOT, "data")
 CODE_REF = os.path.join(DATA, "code_ref")
 LEGACY_RAW = os.path.join(DATA, "legacy_raw")
@@ -49,7 +49,7 @@ _GT_NS = None
 
 
 def legacy_gt(usable_only=True):
-    """Same output as vlm/gt_legacy.legacy_gt(): GT from the 2019 spreadsheet, parser
+    """Same output as vlm/gt_legacy.legacy_gt(): GT from the legacy spreadsheet, parser
     taken verbatim from pipeline/run_pipeline.py (load_gt, _parse_count, _parse_weave)."""
     global _GT_NS
     if _GT_NS is None:

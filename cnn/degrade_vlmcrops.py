@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-"""Job C (WVAQ capture-quality study): the synthetic-only CNN on the degraded legacy-13 crops.
+"""Capture-quality study (WVAQ 2027): the synthetic-only CNN on the degraded legacy-13 crops.
 
 Reads the byte-identical degraded crops written by methods/degrade_vlmcrops.py --make (degrade.py
 operators on the canonical VLM crops vlm/crops/legacy/{name}.png; md5 checked against that
 manifest) and predicts exactly as evaluate.eval_legacy does for the reported zero-shot row:
 cap_side(crop, 1024), then predict_crop with the 3-scale x 3-flip TTA (Ps = P_TEST).
 
-    VC=<scratchpad>/venv_cnn/bin/python
+    VC=<venv_cnn>/bin/python
     $VC degrade_vlmcrops.py   # -> runs/synth_r18_v2mix_aniso/degrade_vlmcrops/predictions.csv
 """
 import argparse

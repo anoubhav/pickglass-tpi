@@ -1,4 +1,4 @@
-"""provenance_scan.py -- read-only provenance audit of the 150 original photos (WVAQ 2027, camera_aug job).
+"""provenance_scan.py -- read-only provenance audit of the 150 original photos (WVAQ 2027).
 
 Reads  $PICKGLASS_NOTEBOOKS/final_image_set/{0..149}.jpeg  (never writes there)
 and    annotation_tool/data/manifest.json (window polygons)

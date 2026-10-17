@@ -13,8 +13,8 @@ Estimators (per model, per image):
     P4q  Molmo2 pointing on a guide line through the central quarter-inch patch (4 x n points)
     P1x4 P1 on the crop downscaled x4 (resolution ablation, set legacy_x4)
 
-Metrics on the 13 usable legacy images (GT from the 2019 spreadsheet, parser reused from
-pipeline/run_pipeline.py via gt_legacy.py):
+Metrics on the 13 usable legacy images (GT from the legacy hand-count spreadsheet, parser reused
+from pipeline/run_pipeline.py via gt_legacy.py):
     axis-matched    vertical_yarns <-> warp (ends), horizontal_yarns <-> weft (picks)
     best-assignment sorted pair vs sorted pair (photo orientation is not recorded)
     MAE (TPI) and mean % error over the 2 x n_ok values, within-10% count, bias (mean signed
@@ -381,7 +381,7 @@ def main():
                           usd_total=float(sum(r["usd"] for r in L)), usd_per_img=float(np.mean([r["usd"] for r in L]))))
     write_csv(os.path.join(OUT, "rect150_P1_summary.csv"), b_sum)
     summary["stageB"] = b_sum
-    # inter-model agreement on the 150 (no GT yet): Spearman of the mean count
+    # inter-model agreement on the 150 (label-free): Spearman of the mean count
     agree = []
     ms = [m for m in MODELS if any(r["model"] == m for r in longp)]
     for i, m1 in enumerate(ms):

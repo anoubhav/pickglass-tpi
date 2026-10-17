@@ -1,4 +1,4 @@
-"""Score the scaffolded-visual-prompting runs (Job 2) on legacy-13, exactly like the VLM baselines.
+"""Score the scaffolded-visual-prompting runs on legacy-13, exactly like the VLM baselines.
 
 * Point metrics: evaluate_vlm.metrics (axis-matched: vertical_yarns <-> warp, horizontal_yarns <->
   weft; best assignment: sorted pair vs sorted pair), MAE / MAPE / within-10 % / bias over the parsed
@@ -171,7 +171,7 @@ def main():
             continue
         rep = r["repeat"]
         if r["scaffold"] == "P1":
-            # only extra P1 repeats run by this job (Qwen3.8-27B r1/r2, tag p1rep); never overwrite an existing run
+            # only the extra P1 repeats of the scaffold runs (Qwen3.8-27B r1/r2, tag p1rep); never overwrite an existing run
             if r["tag"] != "p1rep" or (r["model"], "P1", rep) in base:
                 continue
         cond.setdefault((r["model"], r["scaffold"], rep), {})[r["image"]] = dict(
@@ -351,7 +351,7 @@ def main():
     PR.round(4).to_csv(os.path.join(OUT, "legacy13_scaffold_paired.csv"), index=False)
     json.dump(s4sum, open(os.path.join(OUT, "legacy20_S4_oracle_summary.json"), "w"), indent=1, default=float)
 
-    # ------------------------------------------------------------ 150 photos: pre-declared S3 (+ S4 plot peaks), no GT yet
+    # ------------------------------------------------------------ 150 photos: pre-declared S3 (+ S4 plot peaks), label-free
     export150(recs)
 
     # ------------------------------------------------------------ cost

@@ -4,7 +4,7 @@
 * order the corners robustly (TL, TR, BR, BL) and rectify the 1-inch window
   with a perspective warp to an S x S square (S = native side length, so the
   rectified crop keeps the photo's real pixels-per-inch)
-* parse the 2019 legacy hand counts (Warp-Weft count.xlsx)
+* parse the legacy hand counts (Warp-Weft count.xlsx)
 * locate the inner 1-inch window of the 20 legacy (already roughly cropped)
   images
 
@@ -132,7 +132,7 @@ def _parse_count(v):
 
 
 def _parse_weave(v):
-    """Excel turned '1/1' into 2019-01-01 and '2/1' into 2019-02-01."""
+    """Excel turned '1/1' and '2/1' into dates (month 1 day 1, month 2 day 1): read month / day back."""
     if v is None:
         return None
     if hasattr(v, "month"):

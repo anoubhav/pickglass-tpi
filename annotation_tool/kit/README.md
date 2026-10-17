@@ -1,6 +1,6 @@
-# annotation_tool/kit: run an annotation job with the tool
+# annotation_tool/kit: run an annotation project with the tool
 
-Generic, standard-library helpers (Pillow / OpenCV only where stated) for hiring, screening and checking annotators. They contain no names, hosting details, answer keys or pay. The protocol they implement is described in [docs/annotation_protocol.md](../../docs/annotation_protocol.md).
+Generic, standard-library helpers (Pillow / OpenCV only where stated) for screening annotators, building their bundles and checking their exports. They contain no names, hosting details or answer keys. The protocol they implement is described in [docs/annotation_protocol.md](../../docs/annotation_protocol.md).
 
 | Script | What it does |
 |---|---|
@@ -10,7 +10,7 @@ Generic, standard-library helpers (Pillow / OpenCV only where stated) for hiring
 | `check_export.py` | checks each annotator's export before scoring: one name per export, known ids, coverage of the scene representatives, the tool's completeness rule, no machine dots on screen, records opened before a protocol switch, active time; `--second` checks a second annotator's export on its own and reports the overlap (scenes done by both, distinct names) |
 | `show_dots.py` | draws an annotator's exact dots on the crops and zooms in on every probable missed yarn and double click, for feedback (Pillow) |
 
-Typical job:
+Typical use:
 
 ```bash
 # 1. public practice bundle and screening bundle (two photos with trusted, non-public counts)
@@ -26,4 +26,4 @@ python3 annotation_tool/kit/check_export.py annotations_A1_*.json annotations_A1
 python3 annotation_tool/kit/show_dots.py annotations_A1_*.json annotation_tool/data/crops feedback_A1.jpg
 ```
 
-Host each bundle as static files (any web server or object store; `python3 -m http.server` in the bundle folder for a local test) and always link to `.../index.html`. Bundles on one web origin share the browser's storage unless their storage keys differ, so give every annotator their own key (and never open two annotators' links in one browser profile when testing). If the photos are confidential, keep the screening and main bundles under separate unguessable paths or behind an access control, and switch them off after the job.
+Host each bundle as static files (any web server or object store; `python3 -m http.server` in the bundle folder for a local test) and always link to `.../index.html`. Bundles on one web origin share the browser's storage unless their storage keys differ, so give every annotator their own key (and never open two annotators' links in one browser profile when testing). If the photos are confidential, keep the screening and main bundles under separate unguessable paths or behind an access control, and switch them off once the counts are delivered.

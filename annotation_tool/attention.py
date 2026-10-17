@@ -29,7 +29,7 @@ i.e. how far the proposals are from the estimators' consensus, or how far the es
 from it, whichever is larger. A single outlier (e.g. one estimator at twice the others) does not raise
 D; a 2:2 split between a count and its double gives D = 41 %.
 
-Points (pre-declared on Oct 8 2026, before any human count existed; thresholds are the paper's units):
+Points (pre-declared before any human count existed; thresholds are the paper's units):
   disagreement   max over axes D >= 33 %  -> 2   (the estimators do not agree on the counting unit)
                  max over axes D >= 10 %  -> 1   (the paper's tolerance); one reason per axis with D >= 10 %
   px per yarn    S / (consensus count exp(m) of the finer axis) < 4 -> 2, < 5 -> 1
@@ -53,7 +53,7 @@ import math
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)  # .../wvaq2027
+ROOT = os.path.dirname(HERE)  # <repo root>
 
 VERSION = 1
 LEVELS = ("low", "medium", "high")
