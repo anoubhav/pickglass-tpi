@@ -1,6 +1,6 @@
 """rule4_band.py -- rule 4 of the plan for the reference annotator (section 2, item 4; fixed before A2's counts were
 opened; the plan is not in this repository, SHA-256 9ae1d9ca..., see CHECKSUMS.md), evaluated on the lines where
-PG-Lattice reads about half or double A1 (main Sec. 5.2, supplement Sec. S17; macros \\BNrfourN, \\BNrfourScenes,
+PG-Lattice reads about half or double A1 (main Sec. 5.2, supplement Sec. S16; macros \\BNrfourN, \\BNrfourScenes,
 \\BNrfourNGSA, \\BNrfourNGours).
 
 Rule 4: on those lines, if A2 is within 10% of A1 on at least 80% of them, case 1 (the machines misread); else if A2

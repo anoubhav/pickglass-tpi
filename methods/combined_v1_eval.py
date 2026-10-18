@@ -214,7 +214,7 @@ def eval_synth(args):
 
 # =================================================================================== legacy (POST HOC)
 def legacy_gt(LU):
-    """GT of Tab. 2 as it entered legacy13_unified_per_count.csv (no xlsx / openpyxl needed)."""
+    """GT of the legacy test (supplement Tab. S1) as it entered legacy13_unified_per_count.csv (no xlsx / openpyxl needed)."""
     pc = pd.read_csv(os.path.join(PAPER, "tables", "legacy13_unified_per_count.csv"))
     pc = pc[(pc.key == "est:ours") & (pc["assign"] == "axis")]
     rows = []
@@ -258,7 +258,7 @@ def eval_legacy(args):
             counts.append(d.assign(key=k, method=m["method"], prompt="--", assign=assign))
     T = pd.DataFrame(rows)
     ref = pd.read_csv(os.path.join(PAPER, "tables", "legacy13_unified.csv"))
-    for k in ("est:ours", "est:gabor"):   # must reproduce Tab. 2 / Tab. S2 exactly
+    for k in ("est:ours", "est:gabor"):   # must reproduce supplement Tab. S1 exactly
         a = ref[(ref.key == k) & (ref["assign"] == "axis")].iloc[0]
         b = T[(T.key == k) & (T["assign"] == "axis")].iloc[0]
         assert abs(a.MAPE - b.MAPE) < 1e-3 and abs(a.MAPE_lo - b.MAPE_lo) < 1e-3 and a.n_w5 == b.n_w5, k

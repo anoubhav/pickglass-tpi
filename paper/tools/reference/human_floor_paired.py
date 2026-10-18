@@ -1,5 +1,5 @@
 """human_floor_paired.py -- methods against the human noise floor: each method's error against one annotator minus the
-other annotator's error against that annotator (main Sec. 5.1, Tab. 1 first row, Tab. 2 MAPE column; supplement S4).
+other annotator's error against that annotator (main Sec. 5.1, Tab. 1 first row, Tab. 2 MAPE column; supplement S3).
 
 Comparison pre-specified (rule 4 of addendum 1 to the plan for the reference annotator, not in this repository,
 SHA-256 586b606c..., see CHECKSUMS.md: method-vs-A2 error against A1-vs-A2 error); the paired test and its scheme
@@ -12,7 +12,7 @@ default_rng(20261012) shared by all comparisons in the order written below (X = 
 Output: <out>/human_floor_paired.json; keys "<method> vs <X> minus <Y> vs <X>" with X, Y in {A1, A2}:
 method = the method's MAPE, human = Y's MAPE, diff = method minus human, ci = 95% percentile CI of diff.
 "PG-Lattice octave scenes vs <X> (band 0.14 ...)": scenes with an axis | |log2(PG-Lattice / X)| - 1 | <= 0.14 (the
-stricter band of supplement Sec. S17, narrower than the paper's Sec. 5.2 half-or-double band of 0.3, which
+stricter band of supplement Sec. S16, narrower than the paper's Sec. 5.2 half-or-double band of 0.3, which
 make_branchB_macros.py uses for \\BNoursOct*).
 """
 import argparse
@@ -50,6 +50,7 @@ for X, Y in (("A2", "A1"), ("A1", "A2")):
     o = M["PG-Lattice"]
     for s in R.index:
         if any(abs(abs(np.log2(o.at[s, ax] / R.at[s, f"{ax}_tpi"])) - 1) <= 0.14 for ax in "hv"): oct_ += 1
+    # output key kept as first written; "Sec. S17" is Sec. S16 of the submitted supplement
     out[f"PG-Lattice octave scenes vs {X} (band 0.14 as in Sec. S17, not the 0.3 band of Sec. 5.2)"] = oct_
 os.makedirs(args.out, exist_ok=True)
 json.dump(out, open(os.path.join(args.out, "human_floor_paired.json"), "w"), indent=1)

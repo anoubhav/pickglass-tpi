@@ -1,18 +1,18 @@
 """branchB_numbers.py -- agreement numbers of the two annotators used in the paper (main Secs. 3 and 5.4; supplement
-Secs. S1, S4 and S9). Post hoc unless noted.
+Secs. S1, S3 and S8). Post hoc unless noted.
 
   same_photo_median_absdiff_pct_rel_to_pair_mean   median over the 152 lines of |A2 - A1| / ((A2 + A1) / 2) (Sec. 3: 32.0%)
   N2_lines_diff_gt10, N2_of_which_about_2x          lines with A2/A1 off by more than 10%, and of them those in
                                                     0.4-0.62x or 1.6-2.4x
   prereg_2.1_disputed_lines / _scenes               |log2(A2/A1)| > 0.5 (item 1 of section 2 of the plan for the reference
                                                     annotator, not in this repository, SHA-256 9ae1d9ca..., see
-                                                    CHECKSUMS.md; Tab. S17)
+                                                    CHECKSUMS.md; Tab. S8)
   reshoot_by_resolution_A1 / _A2                    re-shoot median difference (reshoot_consistency.py definition, without
                                                     the near-2x tally) for pairs of two full-resolution, two quarter-resolution
-                                                    or mixed photos (Sec. S4)
+                                                    or mixed photos (Sec. S3)
   N3_iqa_vs_disagreement_post_hoc                   AUROC of each generic quality score (paper/tables/iqa150_scores.csv) for
                                                     the scenes on which A1 and A2 differ by more than 10% on an axis; scene
-                                                    bootstrap 2,000, numpy default_rng(20261012) (Sec. S9)
+                                                    bootstrap 2,000, numpy default_rng(20261012) (Sec. S8)
 
     python paper/tools/reference/branchB_numbers.py [--a1 A1.csv] [--a2 A2.csv] [--out DIR]
 

@@ -1,6 +1,6 @@
 """paired_ref.py -- paired comparisons against A2 alone, the textile-trained reference annotator whose counts were the
 pre-specified blind test set (opened only after every method was frozen). A1 (the non-expert) is treated as one more
-"method" (a human baseline). Main Secs. 5.1 and 5.2; supplement Sec. S4 (patch-clustered CIs).
+"method" (a human baseline). Main Secs. 5.1 and 5.2; supplement Sec. S3 (patch-clustered CIs).
 
 Read-only on the repository. Writes only paired_ref.json in --out.
 

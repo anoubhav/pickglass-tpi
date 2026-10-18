@@ -148,14 +148,14 @@ Reproduction test at scan time: a fresh copy of the staged repository, a new Pyt
 |---|---|---|
 | Checksums of the frozen files and of every file | `python3 tools/verify_checksums.py` | all match (before and after the runs below, except the run-stamped outputs listed in the last rows) |
 | README figure (frozen counter on a synthetic fabric) | `python3 tools/make_readme_figure.py` | byte-identical to docs/img/overview_synthetic.png |
-| Ruler summary (Tab. S7 numbers) | `python3 methods/ruler_summary.py` | byte-identical (needs scikit-learn) |
+| Ruler summary (Sec. S9 numbers; its table is in the extended supplement) | `python3 methods/ruler_summary.py` | byte-identical (needs scikit-learn) |
 | PickGlass-Stress on legacy-13 (extended supplement) | `python3 camera_aug/score_stress.py; cd paper && python3 tools/make_camera_stress_supp.py` | byte-identical |
-| px per yarn audit (Tab. S10) | `python3 camera_aug/label_audit.py summarise` | 4 outputs byte-identical; label_audit_long.csv.gz identical after decompression (gzip header time differs) |
-| Native-resolution guard (Tab. S12) | `python3 methods/guard/analyze_real.py; python3 methods/guard/posthoc_supplement.py --tables` | 12 result files byte-identical |
-| Quality-aware cascade (Tab. S8), incl. the frozen decisions | `cd paper && python3 tools/cascade_tradeoff.py --eval` | byte-identical; cascade_150_decisions.csv rewritten with MD5 57d49a4d... |
-| Label-free per-scene numbers (Tab. 3), crop sensitivity (Tab. S2), legacy degradation (Tab. S5), tolerance tables | `cd paper && python3 tools/scenes76_labelfree.py; python3 tools/make_supp_tables.py; python3 tools/degradation_table.py; python3 tools/tolerance_legacy13.py` | byte-identical |
-| Generic no-reference IQA (Tab. S6) | `cd paper && python3 tools/iqa_generic.py` | iqa_legacy13.csv, iqa_genai.csv, iqa_summary.json, supp_iqa.tex byte-identical |
-| Molmo2-4B + LoRA and generative-enhancement (Tab. S11) tables | `python3 ft_results/code/make_ft_tables.py; python3 genai_sr/make_paper_table.py` | byte-identical |
+| px per yarn audit (Tab. S4) | `python3 camera_aug/label_audit.py summarise` | 4 outputs byte-identical; label_audit_long.csv.gz identical after decompression (gzip header time differs) |
+| Native-resolution guard (Sec. S14; its table is in the extended supplement) | `python3 methods/guard/analyze_real.py; python3 methods/guard/posthoc_supplement.py --tables` | 12 result files byte-identical |
+| Quality-aware cascade (Sec. S10; its legacy table is in the extended supplement), incl. the frozen decisions | `cd paper && python3 tools/cascade_tradeoff.py --eval` | byte-identical; cascade_150_decisions.csv rewritten with MD5 57d49a4d... |
+| Label-free per-scene numbers (Tab. 3), crop sensitivity, legacy degradation and tolerance tables (extended supplement) | `cd paper && python3 tools/scenes76_labelfree.py; python3 tools/make_supp_tables.py; python3 tools/degradation_table.py; python3 tools/tolerance_legacy13.py` | byte-identical |
+| Generic no-reference IQA (Tab. S3) | `cd paper && python3 tools/iqa_generic.py` | iqa_legacy13.csv, iqa_genai.csv, iqa_summary.json, supp_iqa.tex byte-identical |
+| Molmo2-4B + LoRA and generative-enhancement (Tab. S5) tables | `python3 ft_results/code/make_ft_tables.py; python3 genai_sr/make_paper_table.py` | byte-identical |
 | combined-v1 predictions (frozen rule on the frozen counter's outputs) | `python3 methods/combined_v1.py --predict` | combined_v1_150_wide.csv (the Tab. 1 input) byte-identical; 4 other outputs identical except their run-timestamp column |
 | combined-v1 held-out synthetic test | `python3 methods/combined_v1_eval.py --synth` | same numbers and the same decision (better than both components); the JSON differs only in its creation time and in the hash of the released, path-redacted PREREG copy |
 | Annotation tool tests | `node annotation_tool/tests/test_core.js, test_scenes.js, test_attention.js; python3 annotation_tool/tests/test_scenes.py, test_attention.py` | 38 of 39 (the 39th checks that every crop file exists, so it needs the photos, released after review), 11/11, 9/9, 7/7, 8/8 |

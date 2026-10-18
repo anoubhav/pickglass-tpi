@@ -2,7 +2,7 @@
 were opened; the plan is not in this repository, SHA-256 9ae1d9ca..., see CHECKSUMS.md): the histogram of
 r = log2(A2 / A1) over the 152 lines, the octave-disputed lines (|r| > 0.5), and the disputed lines among the lines on
 which PG-Lattice reads about half or double A1 (the paper's band | |log2(PG-Lattice / A1)| - 1 | <= 0.3). Supplement Sec. S1 (half-octave histogram
-1/29/12/62/24/16/8; 44 of the 72 disputed lines, 33 scenes, among the 64 band lines) and Tab. S17 (72 lines, 50 scenes).
+1/29/12/62/24/16/8; 44 of the 72 disputed lines, 33 scenes, among the 64 band lines) and Tab. S8 (72 lines, 50 scenes).
 
 PG-Lattice's counts are methods/predictions_ours_150.csv rounded to 3 decimals, as paper/tools/label_day.py stores
 them in its per-scene table (main150_per_scene.csv), which the paper's numbers were computed from.
@@ -64,6 +64,7 @@ E["half_octave_edges"] = hedges
 E["half_octave_counts"] = [int(x) for x in np.histogram(r, bins=hedges)[0]]
 E["r_min_max"] = [float(np.round(r.min(), 3)), float(np.round(r.max(), 3))]
 chk("every r inside the half-octave bins", sum(E["half_octave_counts"]) == 152)
+# check label kept as first written; "Tab. S17" is Tab. S8 of the submitted supplement
 chk("disputed lines / scenes = Tab. S17 caption (72 / 50)", E["n_disputed"] == 72 and E["n_disputed_scenes"] == 50)
 # 102 = \BNlinesBig, a macro the paper does not print; the label keeps its original wording
 chk("lines > 10% apart = main text (102)", 152 - E["n_within_10pct"] == 102)

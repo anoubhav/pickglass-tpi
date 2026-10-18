@@ -8,7 +8,8 @@ counted edges are -1 steps.
 
 Input: run1/dotmaps_precropped/*.jpg (copied verbatim from the harness run, seed 0).
 Run:   <venv2>/bin/python count_wrap_edges.py
-Paper: supplement Sec. S3, the legacy-counter paragraph (110 of 124 counted warp edges).
+Paper: the extended supplement, legacy-counter paragraph (149 of 167 edges on the paper's own run; this run gives
+110 of 124 counted warp edges). Not printed in the paper's supplement.
 """
 import os
 

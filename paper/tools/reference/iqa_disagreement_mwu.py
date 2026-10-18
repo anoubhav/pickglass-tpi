@@ -1,4 +1,4 @@
-"""iqa_disagreement_mwu.py -- supplement Sec. S9 / main Sec. 5.4 (post hoc): two-sided Mann-Whitney p of each generic quality
+"""iqa_disagreement_mwu.py -- supplement Sec. S8 / main Sec. 5.4 (post hoc): two-sided Mann-Whitney p of each generic quality
 score for the scenes on which the two annotators differ by more than 10% on an axis, Holm-adjusted over the ten
 score x input pairs, and the AUROCs in both orientations (MUSIQ and TOPIQ-NR at the 1024-px input: 0.73 / 0.72,
 p = 0.014 / 0.015, Holm 0.14).

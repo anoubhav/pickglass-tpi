@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-r"""expert_iqa.py -- main Sec. 5.4 ("Generic quality scores do not rank the error") and supplement Sec. S9: the IQA,
-confidence and gate numbers with the textile-trained annotator A2 alone as the reference.
+r"""expert_iqa.py -- main Sec. 5.4 ("Generic quality scores do not rank the error") and supplement Secs. S8 and S10
+(gate): the IQA, confidence and gate numbers with the textile-trained annotator A2 alone as the reference.
 
 POST HOC.  The pre-specified test (paper/tools/iqa150.py, SHA-256-frozen before any human count of the 76 scenes
 existed) scores against the MEAN of the two annotators (score150.gt_table); the paper's macros \FNgenericRhoMin,

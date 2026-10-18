@@ -1,4 +1,4 @@
-"""make_disputed_table.py -- supplement Tab. S17: both annotators' counts on every octave-disputed line
+"""make_disputed_table.py -- supplement Tab. S8: both annotators' counts on every octave-disputed line
 (|log2(A2/A1)| > 0.5), with PG-Lattice's and GPT-6.1-sol P1's counts.
 
 Item 2 of the plan for the reference annotator (not in this repository; SHA-256 9ae1d9ca..., see CHECKSUMS.md) asks
@@ -6,7 +6,7 @@ for the counts of both annotators on every disputed line; the disputed-line rule
 
     python paper/tools/reference/make_disputed_table.py [--a1 A1.csv] [--a2 A2.csv] [--out DIR]
 
-Output: <out>/supp_disputed_lines.tex (table*, two side-by-side blocks; the caption is the paper's Tab. S17 caption).
+Output: <out>/supp_disputed_lines.tex (table*, two side-by-side blocks; the caption is the paper's Tab. S8 caption).
 """
 import argparse
 import os

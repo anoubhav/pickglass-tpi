@@ -133,6 +133,7 @@ $VC train_cv.py --labels annotations.csv --extra-aug1016 [--aug1016-labels aug10
 * **Where the labels come from.** By default they are propagated on the fly from this run's merged labels, using the same `propagate()` and review decisions. With `--aug1016-labels`, they are read from a `propagate_labels.py` output; both paths gave identical items in the smoke test.
 * **Loading and weights.** Crops load lazily from disk, capped at 1024 px like the originals. The sample weight is 0.5 for uncertain sources, multiplied by `--aug1016-weight`. The `constant_mean` reference still uses the originals only.
 * **Run outputs.** Each run writes `extra_aug1016.csv` (aug_id, source, source_fold, h, v) and logs, per fold, how many originals and augmentations were used.
+* **In the paper.** Training the ensemble's CNN also on the 843 usable copies did not help (+1.0, CI [−1.2, +2.8]; main Sec. 4.4 and supplement Sec. S1). The copies repeat their scene's human count, so they are training data only and are never scored against human counts.
 * **Smoke test.** The smoke test used the existing `cnn/data/DUMMY_labels_for_smoke_test.csv` (fake labels) with 40 images, 2 folds and 1 epoch, and wrote to a temporary folder. It gave 228 augmented crops, 113 and 115 per training fold. Source folds matched `folds.csv`, all 107 swapped labels were correct, only usable rows were used, and a run without the flag produced identical folds.csv and constant_mean predictions.
 
 ## 11. Reproduce

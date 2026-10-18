@@ -3,8 +3,8 @@
 # methods/octave/eval_octave_v1.py (SHA-256 in methods/octave/PREREG_octave_v1.json; executed, never edited) on A2's
 # per-scene counts, one JSON + TXT per test.
 #   main Sec. 5.1: the CNN-VLM ensemble (ens-v1) minus GPT-6.1-sol P1 (pre-registered primary, PREREG_ens_v1.json) and
-#                  the CNN trained on A1 (fabric-grouped) minus GPT;
-#   main Sec. 5.2 / supplement Sec. S17: the octave check (octave-v1) minus PG-Lattice and the learned selector
+#                  the CNN trained on A1 (fabric-grouped) minus GPT (row: Tab. 1; difference: supplement Sec. S1);
+#   main Sec. 5.2 / supplement Sec. S16: the octave check (octave-v1) minus PG-Lattice and the learned selector
 #                  (octsel-v1, PREREG_octsel_v1.json) with its pre-registered secondary endpoints;
 #   supplement Sec. S1: ens-v1b (PREREG_ens_v1b.json) against GPT-6.1-sol and against ens-v1.
 # Every test: scene MAPE (mean of the h and v APE; a missing prediction counts 100%), scene bootstrap 10,000 resamples,

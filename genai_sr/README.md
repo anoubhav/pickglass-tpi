@@ -322,7 +322,7 @@ SeedVR2 changes by more than 10 % on 6–9 % of counts. InvSR is effectively det
 |---|---|---|
 | bicubic (this study) | 11.7 | [6.6, 17.1] |
 | earlier stored run (not the one in the paper), LR resized straight to 1536 px | 12.2 | [6.8, 18.0] |
-| the paper's run (supplement Tab. S5; `paper/tables/degradation_legacy13.csv`), LR resized straight to 1536 px | 12.6 | [7.2, 18.8] |
+| the paper's run (capture-degradation table, now in the extended supplement; `paper/tables/degradation_legacy13.csv`), LR resized straight to 1536 px | 12.6 | [7.2, 18.8] |
 | SeedVR2 | 8.6 | [3.4, 14.8] |
 | Nano Banana Pro (12 crops) | 7.9 | [4.3, 12.0] |
 | clean crop | 8.8 | |

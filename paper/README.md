@@ -7,7 +7,8 @@ repository (the paper is under review), and the paper's own figures are not incl
 
 `tools/reference/` holds the scripts that score methods against the reference annotator (A2), the textile-trained
 annotator whose counts the main paper uses, and the other analyses that need both annotators' counts, for example the
-main Tab. 1 (`make_tab1_ref.py`), the paired tests (`paired_ref.py`), the re-shoot table (`reshoot_consistency.py`,
+main Tab. 1 (`make_tab1_ref.py`, including the post-hoc row of GPT-6.1-sol given four magnified insets), the paired
+tests (`paired_ref.py`; `scaffold_insets_ref.py` for the insets row), the re-shoot table (`reshoot_consistency.py`,
 `molmo_reshoot.py`) and the generic-IQA test against A2 (`expert_iqa.py`); its README lists them all. They read the
 human counts, which are released after review. `tables/final_numbers.tex` was written before the reference
 annotator's (A2's) counts were scored, so every macro holds a placeholder (`\TBD`) and none carries a value; it is kept
@@ -32,7 +33,8 @@ frozen before any human count was looked at (SHA-256 in `../CHECKSUMS.md`; the r
 original only by redactions such as path placeholders, and behaves the same). The paper scores its main results
 against A2 instead and reports A1, the annotator without textile training, as a non-expert human baseline; that choice
 of reference is a declared deviation from the plan, decided after both annotators' counts were seen, and the results
-against the mean of both are in the supplement (Tabs. S13, S14 and S18). `tools/label_day.py` also needs the LaTeX
-sources and a TeX engine, so outside the author's setup use the individual commands. `tools/iqa150.py` and
+against the mean of both are in the supplement (Tab. S6; the secondary per-file scores are summarized in Sec. S17 and
+given in full in the extended supplement). `tools/label_day.py` also needs the LaTeX sources and a TeX engine, so
+outside the author's setup use the individual commands. `tools/iqa150.py` and
 `tools/iqa_generic.py` (the 76-scene generic-IQA test) and their label-free input `tables/iqa150_scores.csv` were
 frozen the same way.

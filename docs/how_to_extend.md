@@ -4,7 +4,7 @@ Two routes: **(A)** count new photos with the released pipeline (no labels, minu
 
 ## 0. Capture
 
-What the capture-quality study says (paper Secs. 5.4 to 5.6; supplement Secs. S9 and S13 to S15):
+What the capture-quality study says (paper Secs. 5.4 to 5.6; supplement Secs. S8 and S12 to S14):
 
 - Press the pick glass flat on the fabric and keep the **whole window and the engraved scales** in the frame (the scales give the corners and the scale).
 - Resolution: at least **4 px per yarn** on the denser axis, and about 7 for flip-free counts (the paper's rule, a guide, not a guarantee: counts collapse below about 2.5 to 3.5 px per yarn, and some counts still flip the lattice hypothesis below about 7 px per yarn). The window then needs at least 4 x threads-per-inch pixels across (about 7 x for flip-free counts); a 12.5 MP photo through the glass gives about 1700 px per inch. Shoot at full sensor resolution, no digital zoom.
@@ -53,7 +53,7 @@ python3 annotation_tool/prepare.py --ids 150 151 152      # crops/, crops_enh/, 
 
 Follow [annotation_protocol.md](annotation_protocol.md):
 
-As for PickGlass, have **two** annotators count every new scene from scratch, so that their agreement is measured. In the paper, A2 (textile-trained) is the reference for every main result and A1 (no textile training) is a non-expert human baseline; the plan fixed before labeling scored against the mean of both (supplement Tab. S18), so scoring against A2 is a declared deviation. Fix your primary reference before you look at the counts. Agreement on one photo is not the noise floor: what matters is how closely one annotator repeats a count across two photos of the same fabric patch, which for the paper's reference is a median 8.9 % (paper Sec. 5.3 and Tab. 2; supplement Sec. S4). One bundle per annotator, each with its own storage key:
+As for PickGlass, have **two** annotators count every new scene from scratch, so that their agreement is measured. In the paper, A2 (textile-trained) is the reference for every main result and A1 (no textile training) is a non-expert human baseline; the plan fixed before labeling scored against the mean of both (supplement Tab. S6), so scoring against A2 is a declared deviation. Fix your primary reference before you look at the counts. Agreement on one photo is not the noise floor: what matters is how closely one annotator repeats a count across two photos of the same fabric patch, which for the paper's reference is a median 8.9 % (paper Sec. 5.3 and Tab. 2; supplement Sec. S3). One bundle per annotator, each with its own storage key:
 
 ```bash
 python3 annotation_tool/kit/build_bundle.py --data annotation_tool/data --out bundle_A1 --hide-proposals --static --storage-key A1
@@ -94,7 +94,7 @@ python3 tools/score150.py --labels ../annotation_tool/annotations_A1.csv --label
     --extra-wide ../vlm/results/rect150_P1_predictions_wide.csv::gpt-6.1-sol --fig --fig-dir ../scratch/my_tables
 ```
 
-One row per scene by default (`--unit scene`), the mean of the annotators as the reference (the rule fixed before labeling; the paper reports it in supplement Tab. S18) or one annotator with `--annotator NAME` (the paper's Tab. 1 scores against A2 and is built by `paper/tools/reference/make_tab1_ref.py`), bootstrap intervals over scenes, and the pre-registered `both5`, `both10`, `bias_med`. Always pass `--out` (the default writes into `paper/tables/`). Add `--groups <csv>` to cluster the bootstrap by fabric when several scenes show one fabric.
+One row per scene by default (`--unit scene`), the mean of the annotators as the reference (the rule fixed before labeling; the paper reports it in supplement Tab. S6) or one annotator with `--annotator NAME` (the paper's Tab. 1 scores against A2 and is built by `paper/tools/reference/make_tab1_ref.py`), bootstrap intervals over scenes, and the pre-registered `both5`, `both10`, `bias_med`. Always pass `--out` (the default writes into `paper/tables/`). Add `--groups <csv>` to cluster the bootstrap by fabric when several scenes show one fabric.
 
 ## C. Add a new method
 

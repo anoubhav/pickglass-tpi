@@ -39,7 +39,7 @@ DEG_DIR = os.environ.get(
     "DEG_LEGACY13_DIR",
     os.path.join((os.environ.get("PICKGLASS_SCRATCH") or os.path.join(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."), "scratch")), "deg_legacy13"))
 NAMES13 = ["a1", "a2", "a4", "a5", "a6", "a8", "a10", "r2", "r3", "r4", "r6", "r7", "r8"]
-# fixed a priori (= methods/degrade_vlmcrops.VLM_CONDS): the moderate/severe levels (supplement Tab. S5)
+# fixed a priori (= methods/degrade_vlmcrops.VLM_CONDS): the moderate/severe levels (extended supplement, table of capture degradations on the 13 legacy windows)
 VLM_CONDS = [("gblur", 3), ("gblur", 6), ("down", 4), ("down", 8), ("jpeg", 20),
              ("glare", 0.05), ("glare", 0.30), ("corners", 0.05)]
 HARD_JOB_CAP = 30.0       # the hard API budget cap shared by all VLM runs (openrouter_client.HARD_CAP_USD)

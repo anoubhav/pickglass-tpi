@@ -1,5 +1,5 @@
 """make_branchB_macros.py -- writes branchB_numbers.tex: one LaTeX macro (\\BN...) per number on the two annotators,
-re-shoot repeatability and the human noise floor (main Secs. 3, 5.1-5.4, Tab. 2; supplement Secs. S4, S17).
+re-shoot repeatability and the human noise floor (main Secs. 3, 5.1-5.4, Tab. 2; supplement Secs. S3, S16).
 Re-run after any input changes. In the macro names, NG stands for A2 (the reference annotator) and SA for A1 (the
 non-expert).
 
@@ -11,7 +11,7 @@ Inputs (in --in-dir, the outputs of the other scripts of this folder):
     --per-annotator-table   the per-annotator Tab. 1 (method, MAPE against each reference and P5 per reference), which
                             was computed from paper/tools/label_day.py single-annotator runs (not part of this folder);
                             it also gives \\BNlooSA (leave-one-out MAPE against A1; the macro is unused, but the value
-                            appears in Tab. S15, which comes from the per-annotator scoring of the frozen pipeline), or
+                            appears in Tab. S7, which comes from the per-annotator scoring of the frozen pipeline), or
     tab1_ref_rows.csv       (make_tab1_ref.py; same values at the printed precision; \\BNlooSA is then not written).
   --a1 / --a2 per-scene counts and methods/predictions_ours_150.csv (\\BNoursOct*: scenes on which PG-Lattice reads
   half or double the annotator, the paper's band | |log2 r| - 1 | <= 0.3).

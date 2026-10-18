@@ -9,7 +9,7 @@ tab1_ref_checks.json in --out.
 Reference: A2 (textile-trained; its counts were the blind test set, opened only after every method was frozen).
 A1 (the non-expert) appears as a prediction of A2 (first row, a human baseline). Scoring against A2 alone was decided
 after both annotators' counts were seen (post hoc, declared in the paper); the reference fixed before labeling is the
-mean of both annotators (supplement Tabs. S18 and S13; each annotator alone: Tab. S15).
+mean of both annotators (supplement Tab. S6; each annotator alone: Tab. S7).
 
 Statistics = the paper's own frozen code, imported read-only (sys.dont_write_bytecode; nothing that writes is called):
   paper/tools/score150.py   load_predictions, load_extra_wide, loo_mean, metrics (scene bootstrap 2,000, seed 0 = the
@@ -21,9 +21,12 @@ ascending scene order (label_day's order, which fixes the bootstrap), a count <=
 (score150.load_labels). A1's counts as a prediction are built the same way.
 Row format: method & MAPE [95% CI] & % of counts <= 5% & <= 10% & scenes with both counts within 5% (of those scored).
   main150_rows_ref.tex   the rows as generated;
-  main150_rows_refB.tex  the paper's Tab. 1 rows: final row names and, among the methods (the two baseline rows
-                         excluded), the best printed value per column in bold, ties included (done by hand for the
-                         paper, scripted here).
+  main150_rows_refB.tex  the paper's Tab. 1 rows: final row names, our two methods shaded and, among the methods
+                         (the two baseline rows excluded), the best printed value per count column in bold, ties
+                         included (done by hand for the paper, scripted here).
+Row 'GPT-6.1-sol, insets': GPT-6.1-sol given four magnified 0.1-inch insets of the window (scaffold S3, the input the
+scaffold study pre-declared as primary; vlm/scaffold/FROZEN.json). Its counts were exported before any human count;
+adding the row to Tab. 1 is post hoc. Its paired tests: scaffold_insets_ref.py.
 
 Extra (CSV only): mean |log2(pred/ref)| over the scored counts (pre-specified against A2 in item 5 of the plan for the
 reference annotator, not in this repository, SHA-256 9ae1d9ca..., see CHECKSUMS.md) and the share of counts with
@@ -144,6 +147,7 @@ SPECS = [f"{ROOT}/gpu_results/countgd/outputs/results/rect150_predictions_wide.c
          f"{ROOT}/paper/tables/src/extra150_wide.csv::pg-lattice@ruler,cascade-gate",
          f"{ROOT}/cnn/runs_aug/report/real150_aug_wide_heldout.csv::cnn-aug-V4-b0",
          f"{ROOT}/methods/results/combined_v1_150_wide.csv::combined-v1"]
+S3SPEC = f"{ROOT}/vlm/scaffold/results/rect150_S3_predictions_wide.csv::gpt-6.1-sol@S3"   # not a source of the A2 run
 if RUN["A2"]:
     log = open(f"{RUN['A2']}/work/label_day.log").read()
     for sp in SPECS:   # every source is one the run's score150 call read (label_day.log)
@@ -152,6 +156,7 @@ if RUN["A2"]:
     CHK["sources_in_A2_run_log"] = True
 PRED = S.load_predictions()
 PRED.update(S.load_extra_wide(SPECS))
+PRED.update(S.load_extra_wide([S3SPEC]))
 PRED[LOO] = S.loo_mean(REF)                                  # leave-one-out mean of A2's own counts
 PRED[A1KEY] = GT["A1"][["h", "v"]].copy()                    # A1's counts as a prediction of A2
 
@@ -195,6 +200,8 @@ ROWS = [
     (4, r"CountGD, cells $\to$ lattice$^\ddagger$", "countgd@CG-W-ex3-lat",
      "gpu_results/countgd/outputs/results/rect150_predictions_wide.csv", "post-hoc variant (fixed before any human count)"),
     (5, "GPT-6.1-sol", "GPT-6.1-sol, P1", "vlm/results/rect150_P1_predictions_wide.csv", "Tab. 1 row; " + FROZEN),
+    (5, r"GPT-6.1-sol, insets$^\S$", "gpt-6.1-sol@S3", "vlm/scaffold/results/rect150_S3_predictions_wide.csv (scaffold S3)",
+     "input pre-declared in the scaffold study; counts exported before any human count; row added post hoc"),
     (5, "Claude Fable 5.1", "Claude Fable 5.1, P1", "vlm/results/rect150_P1_predictions_wide.csv", "Tab. 1 row; " + FROZEN),
     (5, "Gemini 3.1 Pro", "Gemini 3.1 Pro, P1", "vlm/results/rect150_P1_predictions_wide.csv", "Tab. 1 row; " + FROZEN),
     (5, "Gemini 3.8 Flash", "Gemini 3.8 Flash, P1", "vlm/results/rect150_P1_predictions_wide.csv", "Tab. 1 row; " + FROZEN),
@@ -205,7 +212,8 @@ ROWS = [
 # the paper's final row names (main150_rows_refB.tex); every other label is printed as generated
 FINAL_NAME = {"Non-expert annotator (A1)": "Non-expert annotator", r"\ours (spectral)": r"\ours (ours)",
               r"CNN, trained on A1$^\ddagger$": r"CNN, trained on non-expert$^\ddagger$",
-              "Molmo2-4B, synthetic LoRA": "Molmo2-4B + LoRA (ours)"}
+              "Molmo2-4B, synthetic LoRA": "Molmo2-4B + LoRA (ours)", "GPT-6.1-sol": "GPT-6.1-sol (P1)"}
+OURS_ROWS = {r"\ours (spectral)", "Molmo2-4B, synthetic LoRA"}   # shaded in the paper's Tab. 1
 
 
 def log2_err(gt, pr, n_boot=2000, seed=0):
@@ -259,12 +267,12 @@ if main is not None:
     CHK["rows_vs_A2_run_main150_maxdiff_2dp"] = chk_run
 T = pd.DataFrame(recs)
 
-# ------------------------------------------------------------------ final rows of the paper (names, bold)
+# ------------------------------------------------------------------ final rows of the paper (names, shading, bold)
 def bold_rows():
     meth = [x for x in cells if x[0] != 1]           # the two baseline rows (A1's counts, leave-one-out mean) excluded
     num = lambda s: float(s.split(" [")[0])          # noqa: E731  the printed value
-    best = {1: min(num(x[2][1]) for x in meth), 2: max(num(x[2][2]) for x in meth),
-            3: max(num(x[2][3]) for x in meth), 4: max(num(x[2][4]) for x in meth)}
+    best = {2: max(num(x[2][2]) for x in meth), 3: max(num(x[2][3]) for x in meth),
+            4: max(num(x[2][4]) for x in meth)}      # count columns only; MAPE is not bolded
     out, g = [], None
     for blk, disp, cc in cells:
         if g is not None and blk != g:
@@ -276,11 +284,11 @@ def bold_rows():
             lab = FINAL_NAME[disp] + lab[len(disp):]
         cc[0] = lab
         if blk != 1:
-            for i in (1, 2, 3, 4):
+            for i in (2, 3, 4):
                 if num(cc[i]) == best[i]:
                     v = cc[i].split(" [")
                     cc[i] = "\\textbf{" + v[0] + "}" + ((" [" + v[1]) if len(v) > 1 else "")
-        out.append(" & ".join(cc) + " \\\\")
+        out.append(("\\rowcolor{black!6}" if disp in OURS_ROWS else "") + " & ".join(cc) + " \\\\")
     return out
 
 
@@ -403,11 +411,13 @@ HDR = [f"% GENERATED by {SELF} -- do not edit by hand",
        "% scenes scored). score150.py metrics() (scene bootstrap 2,000, seed 0; label_day.py ci_format, integer bounds).",
        "% $^{k/76}$ = scenes scored. Row 1 = A1's (the non-expert's) counts as a prediction of A2. $^\\ddagger$ = post hoc: the",
        "% two CNN rows were built after A1's counts were seen (trained on A1, out of fold); CountGD cells->lattice is a",
-       "% post-hoc readout fixed before any human count. Every method was frozen before A2's counts were opened.",
+       "% post-hoc readout fixed before any human count. $^\\S$ = GPT-6.1-sol given four magnified insets of the window",
+       "% (scaffold S3, pre-declared in the scaffold study; counts exported before any human count; row added post hoc).",
+       "% Every method was frozen before A2's counts were opened.",
        "% Unrounded values, sources, status and mean |log2(pred/ref)|: tab1_ref_rows.csv (same folder)."]
 HDRB = [f"% GENERATED by {SELF} -- do not edit by hand",
-        "% The paper's Tab. 1 rows (main150_rows_ref.tex with the final row names; best printed value per column in bold",
-        "% among the methods, the two baseline rows excluded, ties included)."]
+        "% The paper's Tab. 1 rows (main150_rows_ref.tex with the final row names; our two methods shaded; best printed",
+        "% value per count column in bold among the methods, the two baseline rows excluded, ties included)."]
 open(f"{OUT}/main150_rows_ref.tex", "w").write("\n".join(HDR + tex) + "\n")
 open(f"{OUT}/main150_rows_refB.tex", "w").write("\n".join(HDRB + texB) + "\n")
 T.to_csv(f"{OUT}/tab1_ref_rows.csv", index=False, float_format="%.6f")

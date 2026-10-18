@@ -1,5 +1,5 @@
 """logratio_endpoint.py -- the log-ratio endpoint: mean |log2(prediction / reference)| over the scene axes and the share
-of axes with |log2| > 0.5, against A2 alone, A1 alone and their mean (main Sec. 5.1; supplement Sec. S1, Tab. S15).
+of axes with |log2| > 0.5, against A2 alone, A1 alone and their mean (main Sec. 5.1; supplement Sec. S1, Tab. S7).
 
 Pre-specified as item 5 of the plan for the reference annotator (not in this repository; SHA-256 9ae1d9ca..., see
 CHECKSUMS.md), fixed before A2's counts were opened: the metric against A2 and against the mean, and the octave-v1 minus

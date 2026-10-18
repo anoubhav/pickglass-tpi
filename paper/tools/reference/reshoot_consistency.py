@@ -1,5 +1,5 @@
 """reshoot_consistency.py -- re-shoot self-consistency of each annotator and of the machine counters (main Tab. 2,
-Sec. 5.3; supplement Sec. S4).
+Sec. 5.3; supplement Sec. S3).
 
 Definitions (binding: rule 1 of addendum 1 to the plan for the reference annotator, fixed before the reference
 annotator's counts were opened; the addendum is not in this repository, SHA-256 586b606c..., see CHECKSUMS.md):

@@ -10,7 +10,7 @@ scratch.
 
 The analysis plan fixed before labeling scored against the **mean of both annotators**. Results against that reference
 come from the frozen pipeline (`paper/tools/label_day.py`, `paper/tools/score150.py`, `paper/tools/iqa150.py`) and are in
-supplement Tabs. S18 and S13. Each annotator scored alone is in Tab. S15. Scoring against A2 was decided after both
+supplement Tab. S6. Each annotator scored alone is in Tab. S7. Scoring against A2 was decided after both
 annotators' counts had been seen, and the paper declares this as a deviation from the plan. Every result in this folder
 is therefore **post hoc** unless the paper (and the script's docstring) names it as fixed in advance. These are the
 exceptions, all fixed before A2's counts were opened:
@@ -19,7 +19,7 @@ exceptions, all fixed before A2's counts were opened:
   listed with its MD5 in [CHECKSUMS.md](../../../CHECKSUMS.md)):
   - rule 1: the histogram of log2(A2/A1) and the octave-disputed lines (|log2(A2/A1)| > 0.5)
   - rule 2: the mean without the disputed lines as a sensitivity reference, with both counts listed on every disputed
-    line (Tab. S17)
+    line (Tab. S8)
   - rule 3: scoring against each annotator alone
   - rule 4: how main Sec. 5.2 is worded for each outcome on the lines where PG-Lattice reads about half or double A1
   - rule 5: the log-ratio endpoint
@@ -58,7 +58,7 @@ annotation tool's export stored 2 decimals:
 
 The other scripts use the counts exactly as given. To reproduce the paper exactly, use the counts at full precision.
 For example, with A2's counts rounded to 2 decimals, A2's re-shoot median between full-resolution photos in supplement
-Sec. S4 reads 8.4% instead of 8.3%. Within-5% tallies can differ by one line between scripts for the same reason:
+Sec. S3 reads 8.4% instead of 8.3%. Within-5% tallies can differ by one line between scripts for the same reason:
 `octave_tallies.json` of `make_fig_octave_hist.py` (counts as given) has PG-Lattice within 5% of A2 on 44 of 152 lines,
 while Tab. 1 (`make_tab1_ref.py`, counts rounded to 2 decimals as in `label_day.py`) prints 28%, that is 43 of 152; the
 paper quotes neither tally.
@@ -66,7 +66,7 @@ paper quotes neither tally.
 **AUROC orientation.** `branchB_numbers.json` stores the AUROC of each generic quality score for the scenes where A1
 and A2 differ by more than 10% as P(score of such a scene > score of another scene). The paper reports 1 minus the
 stored value: MUSIQ and TOPIQ-NR at 1024 px, stored 0.27 [0.14, 0.44] and 0.28 [0.09, 0.48], are 0.73 [0.56, 0.86]
-and 0.72 [0.52, 0.91] in supplement Sec. S9 (main Sec. 5.4 states only that every AUROC interval on the working image
+and 0.72 [0.52, 0.91] in supplement Sec. S8 (main Sec. 5.4 states only that every AUROC interval on the working image
 spans 0.5). `iqa_disagreement_mwu.py` prints both orientations.
 
 ## Running
@@ -114,22 +114,23 @@ Item numbers refer to the paper (main text and supplement).
 
 | Script | Paper items | Outputs (in `--out`) |
 |---|---|---|
-| `make_tab1_ref.py` | **Main Tab. 1**, every row against A2: MAPE [95% CI], counts within 5% / 10%, scenes with both counts within 5% (Molmo2-4B + LoRA 25.2, GPT-6.1-sol P1 27.1, leave-one-out mean 33.2, PG-Lattice 34.8, non-expert 37.3); the symmetric error of every row (Sec. 5.1) | `main150_rows_ref.tex` (rows as generated); `main150_rows_refB.tex` (the rows as printed: final names, best method value per column in bold, a step done by hand for the paper); `tab1_ref_rows.csv` (unrounded values, sources, status); `tab1_ref_checks.json` |
-| `paired_ref.py` | Main Sec. 5.1 paired tests against A2: Molmo2-4B minus GPT −1.9 [−6.5, +2.6], on \|log2\| −0.13 [−0.22, −0.05]; each minus the non-expert (Molmo2-4B −12.1 [−19.7, −4.6]; for GPT the paper prints the CI of `human_floor_paired.py`, [−17.9, −2.7], while this script's own bootstrap gives [−17.9, −2.9] and keeps −2.7 only as its `existing` value); margins over the leave-one-out mean, Molmo2-4B 8.0 [2.9, 13.3] and GPT 6.1 [0.6, 11.7], and PG-Lattice minus that mean +1.6 [−6.1, +9.4]. Sec. 5.2: PG-Lattice reads half or double on 36 lines (24 half, 12 double), GPT on 37 (34 half), the non-expert on 48 (30 double); octave upper bound 34.8 → 10.8% (65 lines). Supplement Sec. S4: patch-clustered CIs. Validation against A1: 41.7 → 13.3, GPT 13.6 (13.3 and 13.6 are check values that the paper does not print) | `paired_ref.json` |
-| `human_floor_paired.py` | Main Sec. 5.1, Tab. 1 first row and Tab. 2 MAPE column: non-expert 37.3, GPT 27.1, PG-Lattice 34.8, ensemble 25.4; GPT minus non-expert −10.2 [−17.9, −2.7] (the CI printed in main Sec. 5.1). Against A1: PG-Lattice 41.7, GPT 28.8. Supplement Secs. S1, S4 | `human_floor_paired.json` |
-| `logratio_endpoint.py` | Main Sec. 5.1: GPT minus the non-expert on \|log2\|, −0.07 [−0.16, +0.02]. Supplement S4: ensemble −0.13 [−0.20, −0.05]. Supplement S1: octave check minus PG-Lattice −0.021 [−0.043, −0.003] (secondary endpoint of rule 5); GPT minus A2, scored against A1, −0.06 [−0.17, +0.04] | `logratio_endpoint.json` |
-| `reshoot_consistency.py` | **Main Tab. 2** re-shoot columns: A2 8.9 / 12 / 2, A1 20.5 / 8 / 12, PG-Lattice 1.8 / 24 / 8, GPT 14.0 / 11 / 4, ensemble 9.7 / 13 / 0. Sec. 5.3 (the re-shoot numbers of Tab. 2; see *Numbers not computed here*). Supplement S4: pairs within 3 / 5 / 10% | `reshoot_consistency.json` |
+| `make_tab1_ref.py` | **Main Tab. 1**, every row against A2: MAPE [95% CI], counts within 5% / 10%, scenes with both counts within 5% (GPT-6.1-sol given four magnified insets of the window 24.9 [20, 31], Molmo2-4B + LoRA 25.2, GPT-6.1-sol P1 27.1, leave-one-out mean 33.2, PG-Lattice 34.8, non-expert 37.3; the insets row is post hoc as a Tab. 1 row, its paired tests are `scaffold_insets_ref.py`); the symmetric error of every row (Sec. 5.1) | `main150_rows_ref.tex` (rows as generated); `main150_rows_refB.tex` (the rows as printed: final names such as GPT-6.1-sol (P1), our two methods (PG-Lattice, Molmo2-4B + LoRA) shaded, the best method value per count column in bold (MAPE is not bolded); steps done by hand for the paper); `tab1_ref_rows.csv` (unrounded values, sources, status); `tab1_ref_checks.json` |
+| `paired_ref.py` | Main Sec. 5.1 paired tests against A2: Molmo2-4B minus GPT −1.9 [−6.5, +2.6], on \|log2\| −0.13 [−0.22, −0.05]; each minus the non-expert (Molmo2-4B −12.1 [−19.7, −4.6]; for GPT the paper prints the CI of `human_floor_paired.py`, [−17.9, −2.7], while this script's own bootstrap gives [−17.9, −2.9] and keeps −2.7 only as its `existing` value); margins over the leave-one-out mean, Molmo2-4B 8.0 [2.9, 13.3] and GPT 6.1 [0.6, 11.7], and PG-Lattice minus that mean +1.6 [−6.1, +9.4]. Sec. 5.2 and supplement Sec. S16: PG-Lattice reads half or double on 36 lines (24 half, 12 double), GPT on 37 (34 half), the non-expert on 48 (30 double); octave upper bound 34.8 → 10.8% (65 lines). Supplement Sec. S3: patch-clustered CIs. Validation against A1: 41.7 → 13.3, GPT 13.6 (13.3 and 13.6 are check values that the paper does not print) | `paired_ref.json` |
+| `scaffold_insets_ref.py` | Main Sec. 5.1 and the scaffold paragraph of supplement Sec. S6 (post hoc): GPT-6.1-sol given four magnified insets of the window (its Tab. 1 row, 24.9 [20, 31], comes from `make_tab1_ref.py`) against A2, paired: minus Molmo2-4B + LoRA −0.3 [−5.1, +4.7] in MAPE and +0.04 [−0.03, +0.13] on \|log2\| (level on both); minus GPT-6.1-sol P1 −2.2 [−6.9, +2.6] and −0.09 [−0.15, −0.02]; minus the leave-one-out mean −8.3 [−14.0, −2.7] (over patches [−14.9, −1.4]) and −0.06 [−0.14, +0.02] (over patches [−0.15, +0.04]), so it beats that mean on MAPE only; minus the non-expert −12.4 [−19.2, −6.0] and −0.15 [−0.23, −0.08] | `scaffold_insets_ref.json` |
+| `human_floor_paired.py` | Main Sec. 5.1, Tab. 1 first row and Tab. 2 MAPE column: non-expert 37.3, GPT 27.1, PG-Lattice 34.8, ensemble 25.4; GPT minus non-expert −10.2 [−17.9, −2.7] (the CI printed in main Sec. 5.1). Against A1: PG-Lattice 41.7, GPT 28.8. Supplement Secs. S1, S3 | `human_floor_paired.json` |
+| `logratio_endpoint.py` | Main Sec. 5.1: GPT minus the non-expert on \|log2\|, −0.07 [−0.16, +0.02]. Supplement S3: ensemble −0.13 [−0.20, −0.05]. Supplement S1: octave check minus PG-Lattice −0.021 [−0.043, −0.003] (secondary endpoint of rule 5); GPT minus A2, scored against A1, −0.06 [−0.17, +0.04] | `logratio_endpoint.json` |
+| `reshoot_consistency.py` | **Main Tab. 2** re-shoot columns: A2 8.9 / 12 / 2, A1 20.5 / 8 / 12, PG-Lattice 1.8 / 24 / 8, GPT 14.0 / 11 / 4, ensemble 9.7 / 13 / 0. Sec. 5.3 (the re-shoot numbers of Tab. 2; see *Numbers not computed here*). Supplement S3: pairs within 3 / 5 / 10% | `reshoot_consistency.json` |
 | `molmo_reshoot.py` | Main Tab. 2 and Sec. 5.3: the Molmo2-4B + LoRA row (14.3, 11, 1); label-free | `molmo_reshoot.json` |
-| `branchB_numbers.py` | Main Sec. 3: same-photo median difference 32.0%. Tab. S17 and supplement S1: 72 disputed lines in 50 scenes. Supplement S4: re-shoots by resolution, A2 8.3 / 10.1, A1 28.6 / 7.8. Main Sec. 5.4 and supplement S9: AUROC of the generic scores for the scenes where A1 and A2 differ by more than 10% | `branchB_numbers.json` |
-| `make_disputed_table.py` | **Supplement Tab. S17** | `supp_disputed_lines.tex` |
-| `make_branchB_macros.py` | the `\BN...` macros of main Secs. 3 and 5.1-5.4, Tab. 2 and supplement Secs. S4 and S17; reads the outputs above (see its docstring for the typed-in constants) | `branchB_numbers.tex` |
+| `branchB_numbers.py` | Main Sec. 3: same-photo median difference 32.0%. Tab. S8 and supplement S1: 72 disputed lines in 50 scenes. Supplement S3: re-shoots by resolution, A2 8.3 / 10.1, A1 28.6 / 7.8. Main Sec. 5.4 and supplement S8: AUROC of the generic scores for the scenes where A1 and A2 differ by more than 10% | `branchB_numbers.json` |
+| `make_disputed_table.py` | **Supplement Tab. S8** | `supp_disputed_lines.tex` |
+| `make_branchB_macros.py` | the `\BN...` macros of main Secs. 3 and 5.1-5.4, Tab. 2 and supplement Secs. S3 and S16; reads the outputs above (see its docstring for the typed-in constants) | `branchB_numbers.tex` |
 | `make_fig_octave_hist.py` | **Main Fig. 3** and its tallies (Sec. 5.2) | `fig_octave_hist_H2.pdf/.png`, `octave_tallies.json` |
-| `expert_iqa.py` | Main Sec. 5.4 and supplement S9, Spearman ρ against A2: BRISQUE −0.02 [−0.28, 0.22], NIQE −0.12, MUSIQ 0.07, CLIP-IQA 0.25 [0.02, 0.46], TOPIQ-NR 0.15, η −0.06, PG-Lattice's confidence −0.15 [−0.38, 0.11]. Frozen gate minus PG-Lattice −0.3 [−3.1, +2.3]. The frozen test's values against the mean (S9) | `expert_iqa.json`, `expert_iqa_per_scene.csv`, `frozen_tool_runs/` |
-| `iqa_disagreement_mwu.py` | Supplement S9: Mann-Whitney p 0.014 / 0.015 (Holm 0.14) and AUROC 0.73 / 0.72 for MUSIQ and TOPIQ-NR at 1024 px | printed |
-| `rule1_histogram.py` | Supplement S1: rule 1 histogram 1 / 29 / 12 / 62 / 24 / 16 / 8; 44 of the 72 disputed lines (33 scenes) fall among the 64 lines where PG-Lattice reads half or double A1. Tab. S17: 72 lines, 50 scenes | `rule1_histogram.json` |
-| `rule4_band.py` | Main Sec. 5.2 and supplement S17: rule 4 on 64 lines (45 scenes); A2 is within 10% of A1 on 15 and of PG-Lattice on 28, so both readings stand (the third outcome of rule 4), and every band gives the same outcome | `rule4_band.json` |
+| `expert_iqa.py` | Main Sec. 5.4 and supplement S8, Spearman ρ against A2: BRISQUE −0.02 [−0.28, 0.22], NIQE −0.12, MUSIQ 0.07, CLIP-IQA 0.25 [0.02, 0.46], TOPIQ-NR 0.15, η −0.06, PG-Lattice's confidence −0.15 [−0.38, 0.11]. Frozen gate minus PG-Lattice −0.3 [−3.1, +2.3] (supplement S10). The frozen test's values against the mean (S8) | `expert_iqa.json`, `expert_iqa_per_scene.csv`, `frozen_tool_runs/` |
+| `iqa_disagreement_mwu.py` | Supplement S8: Mann-Whitney p 0.014 / 0.015 (Holm 0.14) and AUROC 0.73 / 0.72 for MUSIQ and TOPIQ-NR at 1024 px | printed |
+| `rule1_histogram.py` | Supplement S1: rule 1 histogram 1 / 29 / 12 / 62 / 24 / 16 / 8; 44 of the 72 disputed lines (33 scenes) fall among the 64 lines where PG-Lattice reads half or double A1. Tab. S8: 72 lines, 50 scenes | `rule1_histogram.json` |
+| `rule4_band.py` | Main Sec. 5.2 and supplement S16: rule 4 on 64 lines (45 scenes); A2 is within 10% of A1 on 15 and of PG-Lattice on 28, so both readings stand (the third outcome of rule 4), and every band gives the same outcome | `rule4_band.json` |
 | `ruler_vs_ours_ref.py` | Main Sec. 5.5: ruler crop against PG-Lattice on A2's counts, 35.3 → 37.9% on 75 scenes; the difference prints as +2.59 [+0.04, +6.65], that is +2.6 [0.0, 6.6] at one decimal (the paper's upper bound, 6.7, rounds the printed +6.65 a second time) | printed |
-| `blind_tests_A2.sh` | the pre-registered blind tests (frozen `methods/octave/eval_octave_v1.py`). Main Sec. 5.1: ensemble minus GPT −1.7 [−4.2, +0.7]; CNN trained on A1 28.1%. Main Sec. 5.2 and S17: octave check minus PG-Lattice −1.0 [−2.2, −0.1]; learned selector and its secondary endpoints. Supplement S1: ens-v1b 26.4%, −0.7 [−3.8, +2.4] against GPT and +1.0 [−1.2, +2.8] against the ensemble | `eval_A2/*.json`, `eval_A2/*.txt` |
+| `blind_tests_A2.sh` | the pre-registered blind tests (frozen `methods/octave/eval_octave_v1.py`). Main Sec. 5.1: ensemble minus GPT −1.7 [−4.2, +0.7]; CNN trained on A1 28.1% (Tab. 1; supplement S1). Main Sec. 5.2 and S16: octave check minus PG-Lattice −1.0 [−2.2, −0.1]; learned selector and its secondary endpoints. Supplement S1: ens-v1b 26.4%, −0.7 [−3.8, +2.4] against GPT and +1.0 [−1.2, +2.8] against the ensemble | `eval_A2/*.json`, `eval_A2/*.txt` |
 | `run_all.sh` | all of the above, in dependency order | everything above, plus `logs/` |
 
 **Numbers not computed here.** These numbers of the paper that need both annotators' counts come from no script in
@@ -138,13 +139,13 @@ this folder:
 - main Sec. 5.3: of PG-Lattice's 24 pairs within 5%, the 8 on which both photos read about half or double A2 (with the
   band of Sec. 5.2, a recomputation gives 8 when each photo may fall in the band on either axis, and 7 when both photos
   must fall in it on the same axis);
-- supplement Sec. S4: the CI [10.2, 31.8] of A1's re-shoot median; the 7 pairs within 5% under the h-v assignment given
+- supplement Sec. S3: the CI [10.2, 31.8] of A1's re-shoot median; the 7 pairs within 5% under the h-v assignment given
   by the measured rotation; the badge split (Fisher p = 0.79, Mann-Whitney p = 0.002);
-- main Sec. 3 and supplement Sec. S4: the ICC(2,1) of 0.20 / 0.28 and the median difference of 22.8% on the 38 scenes
-  without a badge, which come from the agreement statistics of the frozen `paper/tools/label_day.py` (`--protocol dual`;
-  supplement Tab. S4);
+- supplement Tab. S2 (main Sec. 3 gives the second only as "more than a fifth"): the ICC(2,1) of 0.201 / 0.284 and the
+  median difference of 22.8% on the 38 scenes without a badge, which come from the agreement statistics of the frozen
+  `paper/tools/label_day.py` (`--protocol dual`);
 - the dot-spacing CVs (0.16 / 0.19) and the annotation times, typed into `make_branchB_macros.py` (see its docstring);
-- supplement Sec. S8: Molmo2-4B + LoRA against A1 (47.6%, +5.9 against PG-Lattice) and its −9.6 against PG-Lattice on
+- supplement Sec. S7: Molmo2-4B + LoRA against A1 (47.6%, +5.9 against PG-Lattice) and its −9.6 against PG-Lattice on
   A2's counts.
 
 **Inputs from the repository** (read from their repository paths; the frozen ones are listed in
@@ -155,6 +156,7 @@ this folder:
 - predictions:
   - `methods/predictions_ours_150.csv` (PG-Lattice and the log-Gabor bank)
   - `vlm/results/rect150_P1_predictions_wide.csv` (VLMs, prompt P1; `<model>__v` = our h)
+  - `vlm/scaffold/results/rect150_S3_predictions_wide.csv` (GPT-6.1-sol given four magnified insets, scaffold S3)
   - `ft_results/results/rect150_predictions_wide.csv` (Molmo2-4B + LoRA, P1 readout)
   - `gpu_results/countgd/outputs/results/rect150_predictions_wide.csv`
   - `paper/tables/src/extra150_wide.csv` (ruler crop, cascade gate)
